@@ -1,0 +1,220 @@
+.view__member__deatils__main {
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    padding: 3vw 3vw 3vw 7vw;
+    /* background: rgb(255 255 255 / 50%); */
+    background-color: #fff1f2;
+    -webkit-backdrop-filter: blur(0.5vw);
+    backdrop-filter: blur(0.5vw);
+}
+.view__member__deatils__main__container {
+    width: 100%;
+    min-height: 100%;
+    background: white;
+    border-radius: 1vw;
+    padding: 2vw 2vw 2vw 2vw;
+    box-shadow: 0vw 0vw 0.5vw 0vw rgb(0 0 0 / 15%);
+}
+.view__member__deatils__main__container__back__button {
+    width: 100%;
+    height: auto;
+}
+.view__member__deatils__main__container__back__button span {
+    width: 2.5vw !important;
+    height: 2vw !important;
+    margin: 0vw 0vw 0.5vw 0vw !important;
+    cursor: pointer !important;
+}
+.view__member__deatils__main__container__about__container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+    padding: 0vw 0vw 1.5vw 0vw;
+}
+.view__member__deatils__main__container__about__container__left {
+    /* width: 100%; */
+    height: auto;
+    display: flex;
+}
+.view__member__deatils__main__container__about__container__left__image {
+    padding: 0vw 1.5vw 0vw 0vw;
+    position: relative;
+}
+.view__member__deatils__main__container__about__container__left__image span {
+    width: 14vw !important;
+    height: 15vw !important;
+    border-radius: 0.5vw !important;
+    position: relative !important;
+}
+.view__member__deatils__main__container__about__container__left__image svg {
+    width: 3vw;
+    height: auto;
+    position: absolute;
+    right: 1%;
+    top: 90%;
+}
+.view__member__deatils__main__container__about__container__left__deatils {
+    width: 100%;
+    height: auto;
+    padding: 1.5vw 0vw 0vw 0vw;
+}
+.view__member__deatils__main__container__about__container__left__deatils ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.view__member__deatils__main__container__about__container__left__deatils ul li {
+    font-size: 1.2vw;
+    padding: 0vw 0vw 0.4vw 0vw;
+}
+
+.view__member__deatils__main__container__about__container__left__deatils ul li:nth-child(1) h1 {
+    font-weight: 500;
+    font-size: 1.6vw;
+    padding: 0vw 0vw 0.3vw 0vw;
+}
+
+.view__member__deatils__main__container__about__container__right {
+    width: 25vw;
+    height: auto;
+    position: relative;
+}
+.view__member__deatils__main__container__about__container__right__salary__amount {
+    width: 12vw;
+    height: auto;
+    margin: 16% 0% 0% 0%;
+    display: inline-block;
+    color: #313131;
+}
+.view__member__deatils__main__container__about__container__right__salary__amount__title {
+    font-size: 1.3vw;
+}
+.view__member__deatils__main__container__about__container__right__salary__amount__taka {
+    width: 100%;
+    height: auto;
+    padding: 0.4vw 0vw;
+    font-size: 1.6vw;
+    color: #666666;
+}
+.view__member__deatils__main__container__about__container__right__salary__amount__change__amount {
+    width: 10vw;
+    font-size: 1vw;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.view__member__deatils__main__container__about__container__right__print__button {
+    /* width: 100%; */
+    height: auto;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+}
+.view__member__deatils__main__container__about__container__right__print__button span {
+    width: 2.1vw !important;
+    height: 2.1vw !important;
+    cursor: pointer !important;
+}
+.view__member__deatils__main__container__about__container__calender {
+    width: 21vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #313131;
+    padding: 1vw 0vw 0.5vw 0vw;
+}
+.view__member__deatils__main__container__about__container__calender__left__btn {
+    width: 1.5vw;
+    height: 2.5vw;
+    background: url(../../../../../../Assets/images/dashboard/LEFT\ GREY.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.view__member__deatils__main__container__about__container__calender__left__btn:hover {
+    background: url(../../../../../../Assets/images/dashboard/LEFT\ RED.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.view__member__deatils__main__container__about__container__calender__title {
+    font-size: 2vw;
+    font-weight: 600;
+    font-family: aller, sans-serif;
+}
+.view__member__deatils__main__container__about__container__calender__right__btn {
+    width: 1.5vw;
+    height: 2.5vw;
+    background: url(../../../../../../Assets/images/dashboard/RIGHT\ GREY.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.view__member__deatils__main__container__about__container__calender__right__btn:hover {
+    background: url(../../../../../../Assets/images/dashboard/RIGHT\ RED.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.view__member__deatils__main__container__salary__status__filter {
+    width: 100%;
+    height: auto;
+    padding: 1vw 0vw;
+}
+
+.view__member__deatils__main__container__about__container__row {
+    width: 100%;
+    height: auto;
+}
+.view__member__deatils__main__container__about__container__row__header {
+    width: 100%;
+    height: auto;
+    padding: 0.8vw;
+    background: #da1e37;
+    color: white;
+    border-radius: 0.4vw;
+}
+.view__member__deatils__main__container__about__container__row__header ul {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-size: 1.2vw;
+}
+.view__member__deatils__main__container__about__container__row__header ul li {
+    width: auto;
+    height: auto;
+}
+.view__member__deatils__main__container__about__container__row__header ul li:nth-child(1) {
+    width: 25vw;
+    text-align: center;
+}
+.view__member__deatils__main__container__about__container__row__header ul li:nth-child(2) {
+    width: 18vw;
+    text-align: center;
+}
+.view__member__deatils__main__container__about__container__row__header ul li:nth-child(3) {
+    width: 18vw;
+    text-align: center;
+}
+
+.view__member__deatils__main__container__about__container__row__header ul li:nth-child(4) {
+    width: 12vw;
+    text-align: center;
+}
+.view__member__deatils__main__container__about__container__row__body {
+    width: 100%;
+    min-height: 40vw;
+    background: url(../../../../../../Assets/images/dashboard/dutypedia-lite-icon.svg);
+    background-position-x: center;
+    background-position-y: 40%;
+    background-repeat: no-repeat;
+    background-size: 30%;
+}

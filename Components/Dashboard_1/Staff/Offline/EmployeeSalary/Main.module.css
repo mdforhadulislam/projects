@@ -1,0 +1,29 @@
+.offline__employee__salary {
+    width: 100%;
+    height: auto;
+}
+.employee__salary__container__header {
+    width: 100%;
+    height: auto;
+    /* display: flex; */
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+}
+.offline__employee__salary__box__container {
+    width: 100%;
+    height: auto;
+    padding: 0.6vw 0vw 0vw 0vw;
+}
+
+.offline__employee__salary__box__container__body {
+    width: 100%;
+    min-height: 42vw;
+    padding: 0.8vw 0vw 0vw 0vw;
+    background-image: url(../../../../../Assets/images/dashboard/dutypedia-lite-icon.svg);
+    background-size: 34%;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 50%;
+}

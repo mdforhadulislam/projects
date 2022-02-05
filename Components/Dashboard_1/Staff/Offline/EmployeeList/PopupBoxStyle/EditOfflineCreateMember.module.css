@@ -1,0 +1,172 @@
+.edit__offline__create__member {
+    width: 100%;
+    min-height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: blur(0.5vw);
+    backdrop-filter: blur(0.5vw);
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    padding: 3vw 3vw 3vw 7vw;
+}
+
+.edit__offline__create__member__container {
+    width: 38vw;
+    height: auto;
+    padding: 2vw;
+    background: white;
+    box-shadow: 0vw 0vw 0.5vw 0vw rgb(0 0 0 / 15%);
+    border-radius: 1vw;
+    margin: 0vw auto;
+}
+.edit__offline__create__member__container__back__button {
+    width: 5vw;
+    height: auto;
+    font-size: 1.3vw;
+    display: flex;
+    padding-bottom: 0.6vw;
+    cursor: pointer;
+    align-items: center;
+}
+
+.edit__offline__create__member__container__back__button svg {
+    width: 2vw;
+    height: 1.5vw;
+    margin-right: 0.5vw;
+}
+.edit__offline__create__member__container__row__one {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.edit__offline__create__member__container__row__two {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.edit__offline__create__member__container__row__three {
+    width: 100%;
+    height: auto;
+}
+
+.offline__add__member__container__row__four
+    .create__employee__body__container__no__money
+    .checkbox__container {
+    width: 13vw;
+    height: auto;
+    padding: 0.6vw 0vw 0.6vw 0vw;
+}
+
+.offline__add__member__container__row__four .create__employee__body__container__no__money {
+    width: 100%;
+    height: auto;
+    padding: 0.7vw 0vw 0vw 0vw;
+}
+.offline__add__member__container__row__four
+    .create__employee__body__container__no__money
+    .checkbox__container
+    .checkbox__container__input {
+    width: 13vw;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    padding: 0vw 0vw 0vw 2.3vw;
+}
+.offline__add__member__container__row__four
+    .create__employee__body__container__no__money
+    .checkbox__container
+    .checkbox__container__input
+    input[type='checkbox'] {
+    display: none;
+}
+.offline__add__member__container__row__four
+    .create__employee__body__container__no__money
+    .checkbox__container
+    .checkbox__container__input
+    label {
+    cursor: pointer;
+    position: relative;
+    font-size: 1.2vw;
+    color: #313131;
+}
+.offline__add__member__container__row__four
+    .create__employee__body__container__no__money
+    .checkbox__container
+    .checkbox__container__input
+    label::before {
+    content: '';
+    background-image: url(../../../../../../Assets/images/dashboard/rigth-mark.svg);
+    background-position: center;
+    background-size: cover;
+    width: 3vw;
+    height: 2.5vw;
+    position: absolute;
+    left: -2.6vw;
+    top: -0.8vw;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49);
+    transition: all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49);
+    z-index: 99;
+}
+.checkbox__container__input .checked::before {
+    -webkit-transform: scale(1) !important;
+    transform: scale(1) !important;
+}
+.checkbox__container__input .unchecked::before {
+    -webkit-transform: scale(0) !important;
+    transform: scale(0) !important;
+}
+.offline__add__member__container__row__four
+    .create__employee__body__container__no__money
+    .checkbox__container
+    .checkbox__container__input
+    label::after {
+    content: '';
+    border: 0.13vw solid #e22424;
+    border-radius: 0.3vw;
+    width: 1.7vw;
+    height: 1.55vw;
+    position: absolute;
+    left: -2.3vw;
+    top: -0.2vw;
+    /* z-index: 1; */
+    -webkit-box-shadow: 0vw 0vw 0.5vw 0vw rgba(32, 32, 32, 0.15);
+    box-shadow: 0vw 0vw 0.5vw 0vw rgba(32, 32, 32, 0.15);
+}
+
+.edit__offline__create__member__container__button {
+    width: 100%;
+    height: auto;
+    padding: 0.8vw 0vw 0vw 0vw;
+    display: flex;
+}
+.edit__offline__create__member__container__button__save__btn {
+    width: 10vw;
+    background: #da1e37;
+    color: white;
+    margin: 0vw 1.5vw 0vw 0vw;
+    border: none;
+    cursor: pointer;
+    padding: 0.8vw;
+    font-size: 1.1vw;
+    border-radius: 0.3vw;
+}
+.edit__offline__create__member__container__button__cancel__btn {
+    width: 10vw;
+    border: 0.1vw solid #da1e37;
+    background: white;
+    color: #da1e37;
+    cursor: pointer;
+    padding: 0.8vw;
+    font-size: 1.1vw;
+    border-radius: 0.3vw;
+}

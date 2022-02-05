@@ -1,0 +1,11 @@
+.notice_main_section {
+    width: 100%;
+    padding: 1% 1.5% 0% 5.5%;
+}
+.notice_body_box {
+    width: 100%;
+    height: auto;
+    padding: 1% 2%;
+    padding-bottom: 3%;
+    margin-top: 2%;
+}

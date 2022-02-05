@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <g id="Group_8005" data-name="Group 8005" transform="translate(-1366 -76)">
+    <g id="Ellipse_1674" data-name="Ellipse 1674" transform="translate(1366 76)" fill="none" stroke="#e22424" stroke-width="2">
+      <circle cx="25" cy="25" r="25" stroke="none"/>
+      <circle cx="25" cy="25" r="24" fill="none"/>
+    </g>
+    <g id="Group_8003" data-name="Group 8003" transform="translate(1382 93)">
+      <g id="Group_8002" data-name="Group 8002" transform="translate(0 0) rotate(45)">
+        <line id="Line_3296" data-name="Line 3296" x2="23.58" transform="translate(0 0)" fill="none" stroke="#e22424" stroke-linecap="round" stroke-width="2"/>
+      </g>
+      <g id="Group_8001" data-name="Group 8001" transform="translate(17.032 0.134) rotate(135)">
+        <line id="Line_3297" data-name="Line 3297" x2="22.955" transform="translate(0 0)" fill="none" stroke="#e22424" stroke-linecap="round" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>
+<<<<<<< ours
+=======
+
+>>>>>>> theirs

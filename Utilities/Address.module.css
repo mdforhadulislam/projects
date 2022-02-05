@@ -1,0 +1,134 @@
+.address__container {
+  width: 100%;
+  height: auto;
+  padding: 0.6vw 0vw;
+}
+.address__container__title {
+  font-size: 1.3vw;
+  padding: 0vw 0vw 0.5vw 0vw;
+}
+
+.address__container__selected__box {
+  width: 100%;
+  height: auto;
+}
+.address__container__selected__box__row__one {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.address__container__selected__box__row__two {
+  width: 100%;
+  display: flex;
+  height: auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.region__container {
+  width: 48%;
+  height: auto;
+  padding: 0.4vw 0vw;
+}
+.region__container__title {
+  font-size: 1.2vw;
+  padding: 0vw 0vw 0.4vw 0vw;
+}
+.region__container__selected__box {
+  width: 100%;
+  height: auto;
+}
+.region__container__selected__box select {
+  appearance: none;
+  width: 100%;
+  height: 2.6vw;
+  padding: 0.4vw 0.8vw;
+  border-radius: 0.4vw;
+  font-size: 1.1vw;
+  border: none;
+  outline: none;
+  position: relative;
+  font-family: aller, sans-serif;
+}
+
+.city__container {
+  width: 47%;
+  height: auto;
+  padding: 0.4vw 0vw;
+}
+.city__container__title {
+  font-size: 1.2vw;
+  padding: 0vw 0vw 0.4vw 0vw;
+}
+.city__container__selected__box {
+  width: 100%;
+  height: auto;
+}
+
+.city__container__selected__box select {
+  appearance: none;
+  width: 100%;
+  height: 2.6vw;
+  padding: 0.4vw 0.8vw;
+  border-radius: 0.4vw;
+  font-size: 1.1vw;
+  border: none;
+  outline: none;
+  position: relative;
+  font-family: aller, sans-serif;
+}
+
+.area__container {
+  width: 48%;
+  height: auto;
+  padding: 0.4vw 0vw;
+}
+.area__container__title {
+  font-size: 1.2vw;
+  padding: 0vw 0vw 0.4vw 0vw;
+}
+.area__container__selected__box {
+  width: 100%;
+  height: auto;
+}
+.area__container__selected__box select {
+  appearance: none;
+  width: 100%;
+  height: 2.65vw;
+  padding: 0.4vw 0.8vw;
+  border-radius: 0.4vw;
+  font-size: 1.1vw;
+  border: none;
+  outline: none;
+  position: relative;
+  font-family: aller, sans-serif;
+}
+
+.input__address__container {
+  width: 47%;
+  height: auto;
+  padding: 0.4vw 0vw;
+}
+.input__address__container__title {
+  font-size: 1.2vw;
+  padding: 0vw 0vw 0.4vw 0vw;
+}
+.input__address__container__input {
+  width: 100%;
+  height: auto;
+}
+.input__address__container__input textarea {
+  width: 100%;
+  resize: none;
+  height: 2.65vw;
+  padding: 0.4vw 0.8vw;
+  border-radius: 0.4vw;
+  font-size: 1.1vw;
+  border: none;
+  outline: none;
+  position: relative;
+  font-family: aller, sans-serif;
+}

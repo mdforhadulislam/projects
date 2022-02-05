@@ -1,0 +1,76 @@
+html,
+body {
+    background: #fff1f2;
+    padding: 0;
+    margin: 0;
+    font-family: aller, sans-serif;
+    color: #212529;
+}
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.ReactModal__Overlay {
+    background: rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: blur(0.5vw);
+}
+
+* {
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'Aller';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Aller'), url('https://fonts.cdnfonts.com/s/12/Aller_Rg.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aller';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Aller'), url('https://fonts.cdnfonts.com/s/12/Aller_It.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aller';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Aller'), url('https://fonts.cdnfonts.com/s/12/Aller_Bd.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aller';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Aller'), url('https://fonts.cdnfonts.com/s/12/Aller_BdIt.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aller Display';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Aller Display'),
+        url('https://fonts.cdnfonts.com/s/12/AllerDisplay.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aller Light';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Aller Light'), url('https://fonts.cdnfonts.com/s/12/Aller_LtIt.woff') format('woff');
+}
+/* //////////////////////// */

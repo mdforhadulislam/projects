@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="46" height="46" viewBox="0 0 46 46">
+  <defs>
+    <filter id="Ellipse_1530" x="0" y="0" width="46" height="46" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="cross_icon" data-name="cross icon" transform="translate(-720 -867)">
+    <g transform="matrix(1, 0, 0, 1, 720, 867)" filter="url(#Ellipse_1530)">
+      <circle id="Ellipse_1530-2" data-name="Ellipse 1530" cx="14" cy="14" r="14" transform="translate(9 9)" fill="#fff"/>
+    </g>
+    <g id="Group_7063" data-name="Group 7063" transform="translate(737.4 884.4)">
+      <g id="Group_7061" data-name="Group 7061" transform="translate(0 0) rotate(-45)">
+        <line id="Line_3085" data-name="Line 3085" y2="16.122" transform="translate(0 0)" fill="none" stroke="#f63131" stroke-linecap="round" stroke-width="1"/>
+      </g>
+      <g id="Group_7062" data-name="Group 7062" transform="translate(11.4 0) rotate(45)">
+        <line id="Line_3085-2" data-name="Line 3085" y1="16.122" transform="translate(0 0)" fill="none" stroke="#f63131" stroke-linecap="round" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

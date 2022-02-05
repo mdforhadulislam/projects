@@ -1,0 +1,290 @@
+.create_new_notice_section {
+    width: 100%;
+    padding: 2rem 1.5rem 1rem 2.5rem;
+}
+.create_new_notice_section span {
+    color: #c22333;
+    margin: 10px;
+}
+
+.create_new_notice_container {
+    background: rgb(255, 255, 255);
+    width: 100%;
+    margin: auto;
+    padding: 2rem 0rem;
+    border-radius: 0.4rem;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.create_new_notice_container > div {
+    padding: 1rem 0rem;
+    border-top: 0.1rem solid #ececec;
+}
+
+.create_new_notice_container > div:nth-child(1) {
+    border-top: none;
+}
+
+.create_note_date_section {
+    display: grid;
+    justify-content: flex-end;
+    width: 96%;
+}
+
+/* NOTICE CREATE DATE START */
+.create_note_info_section {
+    width: 96%;
+    margin: auto;
+    padding: 0.6rem 0rem;
+}
+
+.create_new_notice_container h6 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.create_note_info_section input {
+    border: none;
+    outline: none;
+    background: #f5f5f5;
+    margin-left: 0.2rem;
+    height: 2.6rem;
+    border: 0.1rem solid #ececec8c;
+    border-radius: 0.4rem;
+    font-size: 0.9rem;
+    padding-left: 0.6rem;
+}
+
+/* NOTICE CREATE DATE END */
+
+/* NOTICE CREATE SUBJECT START */
+
+.create_note_subject_section {
+    width: 96%;
+    margin: auto;
+}
+
+.create_note_subject_section input {
+    border: none;
+    outline: none;
+    height: 3rem;
+    width: 100%;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 0.4rem;
+    padding-left: 1rem;
+}
+
+/* NOTICE CREATE SUBJECT END */
+
+/* NOTICE CREATE TEXT START */
+
+.create_note_text_section {
+    width: 96%;
+    margin: auto;
+}
+
+.create_note_text_section textarea {
+    resize: none;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    height: 16rem;
+    width: 100%;
+    padding: 1rem 2rem;
+    padding-left: 0.6rem;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 0.4rem;
+}
+.create_note_text_section textarea::placeholder {
+    font-family: aller, sans-serif;
+}
+
+/* NOTICE CREATE TEXT END */
+
+/* NOTICE CREATE FOOTER START */
+
+.create_note_footer_section {
+    display: grid;
+    justify-content: flex-end;
+    width: 96%;
+    margin: auto;
+    border: none;
+}
+
+.create_note_footer_section .create_note_footer {
+    width: 16rem;
+    padding: 0.1rem 1rem;
+}
+
+.create_note_footer input {
+    border: none;
+    outline: none;
+    background: #f5f5f5;
+    height: 2.2rem;
+    width: 100%;
+    border: 0.1rem solid #ecececd7;
+    border-radius: 0.4rem;
+    font-size: 0.9rem;
+    padding-left: 0.6rem;
+}
+.create_note_footer_section .create_note_footer input:nth-child(4) {
+    background-color: white;
+}
+.create_note_footer_section .create_note_footer input:nth-child(4):focus {
+    outline: none !important;
+    border: 1px solid red;
+}
+
+.create_note_footer_section .create_note_footer h6:nth-child(3) {
+    margin-top: 1rem;
+}
+
+.create_note_footer_section .create_note_footer select {
+    border: 0.1rem solid red;
+    outline: none;
+    border-radius: 0.4rem;
+    font-size: 0.9rem;
+    height: 2.2rem;
+    width: 100%;
+}
+
+/* NOTICE CREATE FOOTER END */
+
+/* NOTICE CREATE BUTTON START */
+
+.create_note_button_section {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 5rem;
+}
+
+.create_note_button_section .btn_danger {
+    border: 1px solid #bd2130;
+
+    border-radius: 8px;
+    background-color: #c82333;
+    font-size: 1.2rem;
+    padding: 0.7rem 2.4rem;
+    color: white;
+}
+.create_note_button_section .btn_danger:hover {
+    background-color: #c22333;
+}
+.create_note_button_section .btn_outline {
+    margin: 0 2%;
+    border: 1px solid #bd2130;
+    border-radius: 8px;
+    background-color: transparent;
+    font-size: 1.2rem;
+    padding: 0.8rem 2.4rem;
+    color: #bd2130;
+}
+.create_note_button_section .btn_outline:hover {
+    background-color: #bd2130;
+    color: white;
+}
+
+.note_date_input {
+    position: relative;
+    width: 11.5rem;
+    height: 2.8%;
+    border-radius: 0.6rem;
+}
+
+.note_date_input #note_date {
+    display: inline;
+    height: 2.8rem;
+    width: 11rem;
+    font-size: 0.9rem;
+    color: slategray;
+    outline: none;
+    border: 0.1vw solid #e22424;
+    border-radius: 0.3rem;
+    padding-right: 1rem;
+    padding-left: 0.7rem;
+    text-align: center;
+}
+
+.note_date_input #note-date::-webkit-calendar-picker-indicator {
+    transform: scale(1.6);
+    margin-right: 0.6vw;
+}
+
+.note_date_input .calender_icon {
+    position: absolute;
+    height: 2.8rem;
+    width: 3rem;
+    right: 4% !important;
+    top: 0%;
+    pointer-events: none;
+    z-index: 10;
+    background: #e22424;
+    border-radius: 0.3rem;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../../../Assets/images/resite/calendar-line.svg);
+}
+@media only screen and (max-width: 600px) {
+    .create_new_notice_section {
+        width: 100%;
+        padding: 4rem 1rem 1rem 1rem;
+    }
+    .create_new_notice_container {
+        padding: 2rem 0.8rem;
+    }
+    .create_note_date h6 {
+        font-size: 0.8rem;
+    }
+
+    .note_date_input #note_date {
+        height: 1.5rem;
+        width: 6.881rem;
+        font-size: 0.5rem;
+        padding-left: 1px;
+        background-color: white;
+    }
+    .note_date_input {
+        width: 7.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .note_date_input .calender_icon {
+        height: 1.5rem;
+        width: 1.7rem;
+        right: 9% !important;
+        top: 3px !important;
+    }
+    .create_new_notice_container h6 {
+        font-size: 0.8rem;
+    }
+    .create_note_info_section input {
+        height: 1.3rem;
+    }
+
+    .create_note_subject_section input {
+        height: 2rem;
+    }
+    .create_note_text_section textarea {
+        height: 10rem;
+    }
+    .create_note_footer_section .create_note_footer {
+        width: 12rem;
+    }
+    .create_note_footer input {
+        height: 2rem;
+    }
+    .create_note_button_section {
+        margin-top: 2rem;
+    }
+    .create_note_button_section .btn_danger {
+        font-size: 0.9rem;
+        padding: 0.3rem 2rem;
+        border-radius: 5px;
+    }
+    .create_note_button_section .btn_outline {
+        font-size: 0.9rem;
+        padding: 0.3rem 2rem;
+        border-radius: 5px;
+    }
+}

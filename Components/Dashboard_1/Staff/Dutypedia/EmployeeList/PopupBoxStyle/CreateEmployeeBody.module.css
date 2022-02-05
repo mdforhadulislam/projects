@@ -1,0 +1,172 @@
+.create__employee__body__container {
+    width: 100%;
+    height: auto;
+    padding: 1.5vw 0vw 0.5vw 0vw;
+}
+
+.create__employee__body__container__first__row {
+    width: 100%;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.create__employee__body__container__secoend__row {
+    width: 100%;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.create__employee__body__container__third__row {
+    width: 100%;
+    height: auto;
+}
+.create__employee__body__container__no__money {
+    width: 100%;
+    height: auto;
+    padding: 1.7vw 0vw 0vw 0vw;
+}
+.create__employee__body__container__no__money .checkbox__container {
+    width: 13vw;
+    height: auto;
+    padding: 0.6vw 0vw;
+}
+
+.create__employee__body__container__no__money .checkbox__container .checkbox__container__input {
+    width: 13vw;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    padding: 0vw 0vw 0vw 2.3vw;
+}
+
+.create__employee__body__container__no__money
+    .checkbox__container
+    .checkbox__container__input
+    input[type='checkbox'] {
+    display: none;
+}
+
+.create__employee__body__container__no__money
+    .checkbox__container
+    .checkbox__container__input
+    label {
+    cursor: pointer;
+    position: relative;
+    font-size: 1.2vw;
+    color: #313131;
+}
+
+.create__employee__body__container__no__money
+    .checkbox__container
+    .checkbox__container__input
+    label::before {
+    content: '';
+    background-image: url(../../../../../../Assets/images/dashboard/rigth-mark.svg);
+    background-position: center;
+    background-size: cover;
+    width: 3vw;
+    height: 2.5vw;
+    position: absolute;
+    left: -2.6vw;
+    top: -0.8vw;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49);
+    transition: all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49);
+    z-index: 99;
+}
+
+.create__employee__body__container__no__money
+    .checkbox__container
+    .checkbox__container__input
+    input[type='checkbox']:checked
+    + label::before {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.create__employee__body__container__no__money
+    .checkbox__container
+    .checkbox__container__input
+    label::after {
+    content: '';
+    border: 0.13vw solid #e22424;
+    border-radius: 0.3vw;
+    width: 1.7vw;
+    height: 1.55vw;
+    position: absolute;
+    left: -2.3vw;
+    top: -0.2vw;
+    /* z-index: 1; */
+    -webkit-box-shadow: 0vw 0vw 0.5vw 0vw rgba(32, 32, 32, 0.15);
+    box-shadow: 0vw 0vw 0.5vw 0vw rgba(32, 32, 32, 0.15);
+}
+
+.create__employee__body__container__fourth__row {
+    width: 75%;
+    height: auto;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        't t'
+        'l r';
+}
+
+.create__employee__body__container__fourth__row__title {
+    font-size: 1.3vw;
+    padding: 1.6vw 0vw 1vw 0vw;
+    color: #313131;
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: t;
+}
+
+.create__employee__body__container__fourth__row__left {
+    width: 50%;
+    height: auto;
+    display: inline-block;
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: l;
+}
+
+.create__employee__body__container__fourth__row__right {
+    width: 50%;
+    height: auto;
+    display: inline-block;
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    grid-area: r;
+}
+/*# sourceMappingURL=CreateEmployeeBody.module.css.map */

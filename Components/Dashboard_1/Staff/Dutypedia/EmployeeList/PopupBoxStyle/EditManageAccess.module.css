@@ -1,0 +1,129 @@
+.edit__manage__access {
+    /* width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 7vw 3vw 3vw 7vw;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(0.5vw); */
+}
+
+.edit__manage__access__container {
+    width: 30vw;
+    height: auto;
+    background: white;
+    margin: auto;
+    padding: 2vw;
+    box-shadow: 0vw 0vw 0.5vw 0vw rgb(0 0 0 / 15%);
+    border-radius: 1vw;
+}
+
+.edit__manage__access__container__title {
+    font-size: 1.4vw;
+    padding-bottom: 1vw;
+}
+
+.edit__manage__access__container__main {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+        'l r'
+        'b b';
+}
+
+.edit__manage__access__container__main__row__left {
+    width: 100%;
+    height: auto;
+    grid-area: l;
+}
+
+.edit__manage__access__container__main__row__right {
+    width: 100%;
+    height: auto;
+    grid-area: r;
+}
+
+.edit__manage__access__container__main__submit__btn {
+    width: 13vw;
+    height: auto;
+    grid-area: b;
+    padding: 0.6vw;
+    font-size: 1.2vw;
+    outline: none;
+    border: none;
+    border-radius: 0.3vw;
+    margin: 1vw 0vw 0vw 0vw;
+    cursor: pointer;
+    background: #da1e37;
+    color: white;
+    box-shadow: 0vw 0vw 0.4vw 0vw rgb(0 0 0 / 23%);
+}
+
+.checkbox__container {
+    width: 13vw;
+    height: auto;
+    padding: 0.6vw 0vw;
+}
+
+.checkbox__container .checkbox__container__input {
+    width: 13vw;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    padding: 0vw 0vw 0vw 2.3vw;
+}
+
+.checkbox__container .checkbox__container__input input[type='checkbox'] {
+    display: none;
+}
+
+.checkbox__container .checkbox__container__input label {
+    cursor: pointer;
+    position: relative;
+    font-size: 1.2vw;
+    color: #313131;
+}
+
+.checkbox__container .checkbox__container__input label::before {
+    content: '';
+    background-image: url(../../../../../../Assets/images/dashboard/rigth-mark.svg);
+    background-position: center;
+    background-size: cover;
+    width: 3vw;
+    height: 2.5vw;
+    position: absolute;
+    left: -2.5vw;
+    top: -0.8vw;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49);
+    transition: all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49);
+    z-index: 99;
+}
+
+.checkbox__container .checkbox__container__input input[type='checkbox']:checked + label::before {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.checkbox__container .checkbox__container__input label::after {
+    content: '';
+    border: 0.13vw solid #da1e37;
+    border-radius: 0.3vw;
+    width: 1.7vw;
+    height: 1.55vw;
+    position: absolute;
+    left: -2.2vw;
+    top: -0.2vw;
+    /* z-index: 1; */
+    -webkit-box-shadow: 0vw 0vw 0.5vw 0vw rgba(32, 32, 32, 0.15);
+    box-shadow: 0vw 0vw 0.5vw 0vw rgba(32, 32, 32, 0.15);
+}

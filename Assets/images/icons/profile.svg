@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="175" height="153" viewBox="0 0 175 153">
+  <defs>
+    <filter id="dahiana-waszaj-XQWfro4LrVs-unsplash" x="0" y="0" width="175" height="153" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="profile" transform="translate(-488 -232)">
+    <g transform="matrix(1, 0, 0, 1, 488, 232)" filter="url(#dahiana-waszaj-XQWfro4LrVs-unsplash)">
+      <path id="dahiana-waszaj-XQWfro4LrVs-unsplash-2" data-name="dahiana-waszaj-XQWfro4LrVs-unsplash" d="M10,0H147a10,10,0,0,1,10,10V125a10,10,0,0,1-10,10H10A10,10,0,0,1,0,125V10A10,10,0,0,1,10,0Z" transform="translate(9 9)" fill="#fff"/>
+    </g>
+    <g id="woman-silhouette" transform="translate(500.144 274.026)" opacity="0.23">
+      <g id="Layer_2_25_" transform="translate(30.855)">
+        <path id="Path_6104" data-name="Path 6104" d="M103.238,68.333c-12.792-4.611-16.88-2.288-16.88-10.62,0-.4.025-1.145.072-1.91h.626c8.742.638,17.165,1.247,19.039-.064,2.994-2.091-7.368-5.314-7.368-32.368C98.726,9.7,89.717,0,76.047,0c-.116,0-.23.007-.345.009l-.1,0V0c-.051,0-.1,0-.154,0h-.28c-.051,0-.1,0-.154,0v0l-.1,0c-.115,0-.229-.009-.345-.009C60.906,0,51.9,9.7,51.9,23.371c0,27.054-10.361,30.277-7.368,32.368,1.875,1.31,10.3.7,19.039.064h.626c.047.765.072,1.513.072,1.91,0,8.332-4.088,6.009-16.88,10.62C34.554,72.96,30.855,77.678,30.855,80.9v21.078h88.912V80.9C119.768,77.679,116.069,72.961,103.238,68.333Z" transform="translate(-30.855)"/>
+      </g>
+    </g>
+  </g>
+</svg>

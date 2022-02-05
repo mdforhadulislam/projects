@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'Aller';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Aller'), url('https://fonts.cdnfonts.com/s/12/Aller_Rg.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aller';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Aller'), url('https://fonts.cdnfonts.com/s/12/Aller_It.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aller';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Aller'), url('https://fonts.cdnfonts.com/s/12/Aller_Bd.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aller';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Aller'), url('https://fonts.cdnfonts.com/s/12/Aller_BdIt.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aller Display';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Aller Display'), url('https://fonts.cdnfonts.com/s/12/AllerDisplay.woff') format('woff');
+}
+@font-face {
+    font-family: 'Aller Light';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Aller Light'), url('https://fonts.cdnfonts.com/s/12/Aller_LtIt.woff') format('woff');
+}
+
+

@@ -1,0 +1,405 @@
+i.singleMemberRoutine{
+ font-size: 24px;
+ margin-left: -50px;
+ font-weight: 400;
+}
+input.singleMember, select.singleMember{
+    background: #ECECEC;
+    height: 65px;
+    margin: 15px 0 30px;
+    padding-left: 20px;
+    border: 0;
+    border-radius: 10px;
+    width: 470px;
+    max-width: 100%;
+    font-size: 20px;
+}
+/* select dropdown icon */
+/*first disable default dropdown*/
+select.select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+  }
+/* add font awesome dropdown */
+select + i.fa {
+    pointer-events: none;
+    padding-right: 5px;
+    position: absolute;
+    right: 26%;
+    bottom: 30%;
+    font-size: 24px;
+}
+.slider-arrow{
+   background-color: #fff;
+    padding: 5px 8px;
+    border-radius: 50%;
+    color: #666;
+}
+.slider-arrow:hover{
+    background-color: #e22424;
+    color: #fff;
+}
+/* ----------------------
+Routine 39 style
+----------------------*/
+/*.routine39 i{
+    font-size: 28px;
+    font-weight: 100;
+    margin-right: 20px;
+} */
+.singleMemberProfile img{
+    width: 72px;
+    height: 72px;
+    border: .5px solid red;
+    border-radius: 5px;
+}
+.workout-routine-operation button{
+    background: none;
+}
+.workout-routine-operation button{
+    font-size: 18px;
+    color:  rgb(102, 102, 102);
+}
+.workout-routine-operation .fa-plus{
+    border-radius: 50%;
+    border: 2px solid  rgb(102, 102, 102);
+    opacity: .29;
+    padding: 4px;
+}
+.routine-chart-table thead{
+    background-color: rgb(226, 36, 36);
+    color: #fff;
+    font-size: 27px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* after creating routine styles start */
+.workout-table{
+    margin-bottom: 40px;
+    color: #666;
+    
+}
+.workout-table th{
+    background-color: #e22424;
+    color: #fff;
+    white-space: nowrap;
+    border-radius: 15px 15px 0 0;    
+    font-size: 18px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.workout-table th td, .workout-table tr td{
+    width: 200px;
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+}
+.workout-table tr{
+    border: 1px solid #c7c7c7;
+}
+.workout-table tr:first-child{
+    border-top: none;
+}
+.workout-table tr:first-child td{
+    padding: 5px;
+    height: 50px;
+}
+.workout-table tr td{
+    border-right: 1px solid #c7c7c7;
+    height: 80px;
+    padding: 5px;
+    display: inline-flex;
+    align-items: center;
+}
+.workout-table tr td:last-child{
+    border-right: none;
+}
+
+/* scroll bar styling custom table */
+.custom-table-container{
+    margin-top: 40px;
+    height: 400px;
+    overflow: auto;
+}
+.custom-table-container::-webkit-scrollbar {    
+    width: 10px;
+    height: 10px;
+  }
+   
+.custom-table-container::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+   
+.custom-table-container::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 5px;
+  }
+.custom-table-container::-webkit-scrollbar-button:single-button {
+    background-color: #f1f1f1;
+    display: block;
+    background-size: 10px;
+    background-repeat: no-repeat;
+  }
+
+/* Up */
+.custom-table-container::-webkit-scrollbar-button:single-button:vertical:decrement {
+    border-radius: 5px 5px 0 0;
+    height: 16px;
+    width: 16px;
+    background-position: center 4px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='50,00 0,50 100,50'/></svg>");
+  }
+/* Down */
+.custom-table-container::-webkit-scrollbar-button:single-button:vertical:increment {
+    border-radius: 0px 0px 5px 5px;
+    height: 16px;
+    width: 16px;
+    background-position: center 4px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='0,0 100,0 50,50'/></svg>");
+  }
+  
+/* Left */
+.custom-table-container::-webkit-scrollbar-button:single-button:horizontal:decrement {
+    border-radius: 5px 0px 0 5px;
+    height: 12px;
+    width: 12px;
+    background-position: 0px 0px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='0,50 50,100 50,0'/></svg>");
+  }
+
+/* Right */
+.custom-table-container::-webkit-scrollbar-button:single-button:horizontal:increment {
+    border-radius: 0 5px 5px 0;
+    height: 12px;
+    width: 12px;
+    background-position: 0px 0px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='0,0 0,100 50,50'/></svg>");
+  }
+  /* End scroll bar modify */
+
+
+/* workout1 style */
+.modal-container{
+    background-color: rgb(226, 36, 36);
+    border-radius: 15px;
+}
+.round-border{
+    border-radius: 15px;
+}
+.bg-red{
+    background-color: rgb(226, 36, 36);
+    color: #fff;
+}
+.modals-header{
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+/* input type number customization */
+.input-number{
+    width:80px;
+    border: 1px solid red;
+    border-right: 0;
+    border-radius: 5px 0 0 5px;
+    padding-left: 5px;
+}
+.select-time{
+    border: 1px solid rgb(226, 36, 36);
+    border-left: 0;
+    border-radius: 0 5px 5px 0;
+}
+.input-number-icon{
+    position: absolute;
+    right: 0;
+    top:0;
+    background-color: rgb(226, 36, 36);
+    padding: 0 5px;
+    color: #fff;
+    display: inline-grid;
+    pointer-events: none;
+}
+.input-number-icon i{
+    font-size: 13px;
+    padding: 0 5px;
+}
+.input-number-icon .fa-angle-up{
+    border-bottom: 1px solid #fff;
+}
+
+/* workout 11 / adjust time style start */
+.workout-name-input input{
+    border: none;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    width: 409px;
+    max-width: 100%;
+    height: 50px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+}
+/* date icon customization */
+.input-date{
+    border: 1px solid rgb(226, 36, 36);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: left;
+    margin-left: 0;
+    padding-left: 0;
+}
+/* check box style */
+.adjust-time .checkbox-container-adjust-time{
+    margin-right: 10px;
+    padding-left: 30px;
+    display: inline-block;
+    position: relative;
+}
+.checkbox-container-adjust-time input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.adjust-time .check-mark {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 5px;
+    border: 0.5px solid #e22222;
+    background-color: #fff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container-adjust-time input:checked ~ .check-mark {
+    background-color: #fff;
+  }
+  
+  /* Create the check-mark/indicator (hidden when not checked) */
+.adjust-time .check-mark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the check-mark when checked */
+.checkbox-container-adjust-time input:checked ~ .check-mark:after {
+    display: inline-block;
+  }
+  
+  /* Style the check-mark/indicator */
+.checkbox-container-adjust-time .check-mark:after {
+    left: 9px;
+    top: -8px;
+    width: 9px;
+    height: 23px;
+    border: solid #2EB598;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+/* end adjust time styles */
+
+
+/* start work out 8 style */
+.member-list-profile-image-container img{
+    width: 68px;
+    height: 68px;
+    border-radius: 10px;
+}
+.member-list-profile-image-container i{
+    position: absolute;
+    bottom: 0;
+    right: 4px;
+}
+/* workOut 7 */
+.table-checkBox{
+    border-radius: 50%;
+
+}
+/******************
+Start input box radio button style
+******************/
+  /* The container-custom */
+  .container-custom {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-decoration: underline;
+    line-height: 22px;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container-custom input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .check-mark {
+    position: absolute;
+    top: -10px;
+    left: 40%;
+    height: 25px;
+    width: 25px;
+    border-radius:50%;
+    background-color: #fff;
+  }
+  
+  
+  /* When the checkbox is checked, add a blue background */
+  .container-custom input:checked ~ .check-mark {
+    background-color: #fff;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .check-mark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container-custom input:checked ~ .check-mark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container-custom .check-mark:after {
+    left: 9px;
+    top: 5px;
+    width: 8px;
+    height: 15px;
+    border: solid #259e17;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  /**********************
+  End input box radio button style
+  ***********************/
+
+
+/* responsive query */
+@media screen AND (max-width: 767px) {
+    select + i.fa {
+        right: 10%;
+    }
+}

@@ -1,0 +1,28 @@
+<svg id="Component_1_10" data-name="Component 1 – 10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="41" height="42" viewBox="0 0 41 42">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_3728" data-name="Rectangle 3728" width="41" height="42" transform="translate(732 1020)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_2" data-name="Mask Group 2" transform="translate(-732 -1020)" clip-path="url(#clip-path)">
+    <g id="Group_7071" data-name="Group 7071">
+      <g id="Group_6035" data-name="Group 6035" transform="translate(-20 -20)">
+        <g id="Group_6033" data-name="Group 6033" transform="translate(765.838 1051.838)">
+          <g id="Group_6034" data-name="Group 6034" transform="translate(0 0)">
+            <g id="Group_6031" data-name="Group 6031" transform="translate(0 7.162)">
+              <line id="Line_819" data-name="Line 819" x2="14.324" fill="none" stroke="#e22424" stroke-linecap="round" stroke-width="1"/>
+            </g>
+            <g id="Group_6032" data-name="Group 6032" transform="translate(7.162 0) rotate(90)">
+              <line id="Line_819-2" data-name="Line 819" x2="14.324" fill="none" stroke="#e22424" stroke-linecap="round" stroke-width="1"/>
+            </g>
+          </g>
+        </g>
+        <g id="Ellipse_649" data-name="Ellipse 649" transform="translate(754 1040)" fill="none" stroke="#e22424" stroke-width="1">
+          <circle cx="19" cy="19" r="19" stroke="none"/>
+          <circle cx="19" cy="19" r="18.5" fill="none"/>
+        </g>
+      </g>
+      <text id="create_appointment" data-name="create appointment" transform="translate(656 1042)" fill="#666" font-size="8" font-family="Aller" opacity="0.51"><tspan x="0" y="0">Create Appointment</tspan></text>
+    </g>
+  </g>
+</svg>

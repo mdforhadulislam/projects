@@ -1,0 +1,86 @@
+.row__container__body {
+    width: 100%;
+    height: auto;
+    padding: 1.5vw 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: 0vw 0vw 0.5vw 0vw rgb(0 0 0 / 15%);
+    border-radius: 0.4vw;
+    margin-top: 0.8vw;
+    font-size: 1.25vw;
+    color: #313131;
+}
+
+.row__container__body__salary__date {
+    width: 18vw;
+    text-align: center;
+}
+
+.row__container__body__salary__amount {
+    width: 18vw;
+    text-align: center;
+}
+
+.row__container__body__salary__status {
+    width: 15vw;
+    text-align: center;
+}
+
+.row__container__body__salary__salary__type {
+    width: 10vw;
+    text-align: center;
+}
+
+.row__container__body__salary__paymant__status {
+    width: 15vw;
+    text-align: right;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.row__container__body__dot__button {
+    width: 4vw;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.row__container__body__dot__button__option {
+    position: absolute;
+}
+
+.row__container__body__dot__button div {
+    width: 0.55vw;
+    display: flex;
+    cursor: pointer;
+}
+
+.row__container__body__dot__button svg {
+    width: 0.55vw;
+}
+.row__container__body__dot__button__option {
+    width: 9vw !important;
+    position: absolute !important;
+    display: block !important;
+    top: -10% !important;
+    right: 35% !important;
+    background: white !important;
+    box-shadow: 0vw 0vw 0.5vw 0vw rgb(0 0 0 / 15%) !important;
+    border-radius: 0.4vw !important;
+}
+.row__container__body__dot__button__option ul {
+    list-style: none;
+    border-radius: 0.4vw;
+}
+.row__container__body__dot__button__option ul li {
+    padding: 0.4vw 1vw;
+    border-radius: 0.4vw;
+}
+
+.row__container__body__dot__button__option ul li:hover {
+    background: #da1e37;
+    border-radius: 0.4vw;
+    color: white;
+}

@@ -1,0 +1,214 @@
+.vendor_section {
+    background: white;
+    height: 100%;
+    width: 4rem;
+
+    box-shadow: 5px 0 5px -5px #333;
+    position: fixed;
+    z-index: 1000;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.vendor_section:hover {
+    width: 20rem;
+}
+.vendor_section:hover .vendor_nav_more {
+    opacity: 1;
+    height: 100%;
+}
+
+/* .vendor-section .vendor-nav-text,
+  .vendor-section .vendor-nav-btn,
+  .vendor-section .vendor_about {
+      display: none !important;
+  } */
+.vendor_about {
+    display: none;
+    margin-top: 20px;
+}
+
+.vendor_section:hover .vendor_about {
+    display: block;
+}
+
+.vendor_image {
+    width: 5.5rem;
+    height: 5.5rem;
+    margin: auto;
+    border-radius: 0.9rem;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.308);
+}
+
+.vendor_image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.vendor_name {
+    display: grid;
+    align-items: center;
+    text-align: center;
+    min-width: 100%;
+    height: 5.5rem;
+    font-size: 1rem;
+    font-family: aller, sans-serif;
+}
+
+.vendor_name p {
+    padding: 0rem;
+    margin: 0rem;
+}
+
+.vendor_name span {
+    margin-top: -2.4rem;
+    font-size: 0.8rem;
+    font-family: aller, sans-serif;
+}
+
+/* Side Navigation */
+.vendor_navigation {
+    min-width: 100%;
+    height: 35rem;
+    padding: 0.6rem;
+    padding-left: 0rem;
+    padding-top: 0rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.vendor_nav {
+    display: grid;
+    margin-top: 0.2rem;
+}
+.vendor_nav_main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 2.8rem;
+    background: white;
+    margin: auto;
+    border-radius: 0.6rem;
+    padding: 0rem 0.8rem 0rem 0.8rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* .vendor_nav_main:hover {
+    background: #c62333;
+    color: white;
+    fill: white;
+    stroke: white;
+  } */
+
+.vendor_nav_main:hover,
+.vendor_nav_main:hover .vendor_nav_icon svg,
+.vendor_nav_main:hover .vendor_nav_btn svg {
+    background: #c62333;
+    color: white !important;
+    fill: white !important;
+    stroke: white !important;
+}
+
+/* vendor navigation icon */
+
+.vendor_nav_icon {
+    height: 2.2rem;
+    width: 2.4rem;
+    padding: 0.5rem;
+    pointer-events: none;
+    display: flex;
+}
+
+.vendor_nav_icon svg {
+    fill: #666;
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+.vendor_nav_icon img {
+    height: 100%;
+    width: 100%;
+}
+
+/* vendor navigation text */
+
+.vendor_nav_text {
+    display: grid;
+    align-items: center;
+    padding-left: 0.4rem;
+    height: 2.2rem;
+    width: 12rem;
+    font-size: 1rem;
+    pointer-events: none;
+    display: flex;
+    visibility: hidden;
+}
+
+/* vendor navigation btn */
+
+.vendor_nav_btn {
+    height: 2rem;
+    width: 2rem;
+    padding: 0.4rem;
+    pointer-events: none;
+    display: flex;
+    visibility: hidden;
+}
+
+.vendor_section:hover .vendor_nav_btn,
+.vendor_section:hover .vendor_nav_text {
+    visibility: visible;
+}
+
+.vendor_nav_btn svg {
+    stroke: rgb(143, 141, 141);
+    height: 1rem;
+    width: 1rem;
+}
+
+.vendor_nav_btn img {
+    height: 100%;
+    width: 100%;
+}
+
+/* vendor navigation more data */
+
+.vendor_nav_more {
+    justify-self: flex-end;
+    padding-top: 0.4rem;
+    width: 75%;
+    opacity: 0;
+    height: 0;
+    /* display: none !important; */
+}
+
+.vendor_nav_more a {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 10% 90%;
+    width: 100%;
+    height: 1.8rem;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.vendor_nav_more_icon img {
+    display: none;
+}
+
+.vendor_nav_more a:nth-child(1) .vendor_nav_more_icon img {
+    display: grid;
+}
+
+.vendor_nav_more a:nth-child(1) .vendor_nav_more_text {
+    color: red;
+}
+
+@media screen and (max-width: 768px) {
+    .vendor_section {
+        display: none;
+    }
+}

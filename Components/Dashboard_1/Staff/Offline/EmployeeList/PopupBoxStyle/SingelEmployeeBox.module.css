@@ -1,0 +1,140 @@
+.singel__employee__box__container {
+    width: 100%;
+    height: auto;
+    padding: 0.5vw;
+    border-radius: 0.35vw;
+    box-shadow: 0vw 0vw 0.5vw 0vw rgb(0 0 0 / 16%);
+    margin: 0vw 0vw 1vw 0vw;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-size: 1vw;
+}
+.singel__employee__box__container__image__and__name {
+    width: 18vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+.singel__employee__box__container__image__and__name__image {
+    width: 5.5vw;
+    height: 4vw;
+    display: inline-block;
+    position: relative;
+}
+.singel__employee__box__container__image__and__name__image div {
+    width: 4.4vw;
+    height: 4vw;
+    display: inline-block;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    border-radius: 0.25vw;
+}
+/* .singel__employee__box__container__image__and__name__image img:nth-child(2) {
+  width: 1.5vw;
+  height: 1.5vw;
+  position: absolute;
+  top: 66%;
+  right: 10%;
+} */
+.singel__employee__box__container__image__and__name__name__and__id {
+    width: auto;
+    height: auto;
+}
+.singel__employee__box__container__image__and__name__name__and__id__name {
+    font-size: 1.2vw;
+    font-weight: 500;
+    /* margin-top: -0.6vw; */
+}
+.singel__employee__box__container__image__and__name__name__and__id__id {
+    padding: 0.3vw 0vw 0vw;
+    font-size: 1vw;
+}
+.employee__container__body__employee__container__box__row {
+    width: 0.05vw;
+    height: 2vw;
+    background-color: #bcbcbc;
+    margin: 0vw 0.5vw;
+}
+.singel__employee__box__container__position {
+    width: 10vw;
+    text-align: center;
+    padding: 0vw 0.5vw;
+}
+.singel__employee__box__container__position img {
+    width: 1vw;
+}
+.singel__employee__box__container__gender {
+    width: 7vw;
+    height: auto;
+    text-align: center;
+}
+.singel__employee__box__container__gender img {
+    width: 1vw;
+}
+.singel__employee__box__container__mobile__no {
+    width: 8vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+.singel__employee__box__container__email {
+    width: 14vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+.singel__employee__box__container__joining__date {
+    width: 7vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.singel__employee__box__container__salary__date {
+    width: 14vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.singel__employee__box__container__option__box {
+    width: 1vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.singel__employee__box__container__option__box__popup {
+    width: 11vw;
+    height: auto;
+    background-color: white;
+    position: absolute;
+    top: -20%;
+    right: 170%;
+    box-shadow: 0vw 0vw 0.5vw 0vw rgb(0 0 0 / 15%);
+    border-radius: 0.45vw;
+}
+.singel__employee__box__container__option__box__popup ul {
+    list-style: none;
+    font-size: 1.15vw;
+}
+.singel__employee__box__container__option__box__popup ul li {
+    padding: 0.6vw 0.8vw 0.4vw 0.8vw;
+    cursor: pointer;
+    border-radius: 0.4vw;
+}
+
+.singel__employee__box__container__option__box__popup ul li:hover {
+    background-color: #da1e37;
+    color: white;
+    padding: 0.6vw 0.8vw 0.4vw 0.8vw;
+    border-radius: 0.4vw;
+    cursor: pointer;
+}
+.singel__employee__box__container__option__box img {
+    width: 0.48vw;
+    height: auto;
+    cursor: pointer;
+}

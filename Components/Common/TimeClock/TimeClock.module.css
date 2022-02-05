@@ -1,0 +1,50 @@
+.salarydateeverydaycontainer {
+    width: 10rem;
+    height: auto;
+    display: inline-block;
+}
+
+.salarydateeverydaycontainer .salarydateeverydaycontainertitle {
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+    color: #666666;
+}
+
+.salarydateeverydaycontainer .salarydateeverydaycontainerinputbox {
+    width: 100%;
+    height: 3rem;
+    position: relative;
+    border: 1px solid #e22424;
+    border-radius: 0.4rem;
+}
+
+.salarydateeverydaycontainer .salarydateeverydaycontainerinputbox input {
+    height: 2.7rem;
+    width: 96%;
+    outline: none;
+    font-size: 16px;
+    border: none;
+    font-family: aller, sans-serif;
+    outline: none;
+    border-radius: 0.4rem;
+    padding: 0.4rem;
+}
+
+.salarydateeverydaycontainer
+    .salarydateeverydaycontainerinputbox
+    .salarydateeverydaycontainerinputboxicon {
+    position: absolute;
+    background: #e22424;
+    height: 3.1rem;
+    width: 3rem;
+    top: -0.1rem;
+    right: -0.1rem;
+    border-top-right-radius: 0.6rem;
+    border-bottom-right-radius: 0.6rem;
+    pointer-events: none;
+    background-image: url(../../../Assets/images//dashboard/time.svg);
+    background-position: center center;
+    background-size: 55%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}

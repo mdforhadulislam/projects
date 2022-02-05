@@ -1,0 +1,107 @@
+.paid__container__popup {
+    width: 35vw;
+    height: 15vw;
+    margin: auto;
+    padding: 3vw;
+    display: flex;
+    background: white;
+    border-radius: 1vw;
+    box-shadow: 0vw 0vw 0.5vw 0vw rgb(0 0 0 / 28%);
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: stretch;
+    align-items: center;
+}
+.paid__container__popup__title {
+    width: 100%;
+    height: auto;
+    text-align: left;
+    font-size: 1.5vw;
+    color: #313131;
+}
+.paid__container__popup__from {
+    width: 100%;
+    height: auto;
+}
+.paid__container__popup__from__input__box {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+}
+.paid__container__popup__from__input__box input {
+    width: 100%;
+    height: auto;
+    padding: 0.8vw 0.7vw;
+    font-size: 1.4vw;
+    font-family: aller, sans-serif;
+    border-radius: 0.5vw;
+    border: 0.1vw solid #da1e37;
+    outline: none;
+}
+
+.paid__container__popup__from__input__box__icon__button {
+    width: 4vw;
+    display: flex;
+    flex-direction: column;
+    background: #da1e37;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    flex-wrap: nowrap;
+    border-top-right-radius: 0.5vw;
+    border-bottom-right-radius: 0.5vw;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.paid__container__popup__from__input__box__icon__button button {
+    width: 100%;
+    height: auto;
+    border: none;
+    border-top-right-radius: 0.5vw;
+    border-bottom-right-radius: 0.5vw;
+    background: #da1e37;
+}
+.paid__container__popup__from__input__box__icon__button span {
+    width: 60%;
+    height: 0.08vw;
+    background: white;
+}
+.paid__container__popup__from__input__box__icon__button svg {
+    width: 1.5vw;
+}
+.paid__container__popup__from__input__box__icon__button button:nth-child(3) svg {
+    margin-top: -0.3vw;
+}
+
+.paid__container__popup__from__button {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0.6vw 0vw;
+}
+.paid__container__popup__from__button button {
+    width: 9vw;
+    height: auto;
+    padding: 0.5vw 0.8vw;
+    border: none;
+    outline: none;
+    margin: 0vw 1vw;
+    border-radius: 0.4vw;
+}
+.paid__container__popup__from__button button:nth-child(1) {
+    background: #da1e37;
+    color: white;
+    border: 0.1vw solid #da1e37;
+}
+
+.paid__container__popup__from__button button:nth-child(2) {
+    border: 0.1vw solid #da1e37;
+    color: #313131;
+    background: white;
+    margin: 0;
+}
