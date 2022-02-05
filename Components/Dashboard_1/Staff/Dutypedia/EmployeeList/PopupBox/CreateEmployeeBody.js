@@ -18,9 +18,11 @@ import {
     user_salary_date_every_day,
     user_salary_date_every_month,
     user_salary_date_every_week,
+    user_salary_status_set_due,
+    user_salary_status_set_upcoming,
     user_salary_type,
     user_staff_and_partner_access
-} from '../../../../../../Redux/Dashboard_1/Action/Dutypedia/index';
+} from '../../../../../../Redux/Dashboard_1/Action/Staff/Dutypedia/index';
 import {
     CheckBox,
     JoiningDate,
@@ -37,43 +39,30 @@ function CreateEmployeeBody() {
     const dispatch = useDispatch();
 
     const userPosition = useSelector(
-        (state) =>
-            state.dutypedia.employeeListReducers.user_position_and_joining_date_and_salary
-                .user_position
+        (state) => state.dutypedia.user_position_and_joining_date_and_salary.user_position
     );
     const joiningDate = useSelector(
-        (state) =>
-            state.dutypedia.employeeListReducers.user_position_and_joining_date_and_salary
-                .user_joining_date
+        (state) => state.dutypedia.user_position_and_joining_date_and_salary.user_joining_date
     );
     const salaryAmount = useSelector(
-        (state) =>
-            state.dutypedia.employeeListReducers.user_position_and_joining_date_and_salary
-                .user_salary_amount
+        (state) => state.dutypedia.user_position_and_joining_date_and_salary.user_salary_amount
     );
     const salaryType = useSelector(
-        (state) =>
-            state.dutypedia.employeeListReducers.user_position_and_joining_date_and_salary
-                .user_salary_type
+        (state) => state.dutypedia.user_position_and_joining_date_and_salary.user_salary_type
     );
     const time = useSelector(
         (state) =>
-            state.dutypedia.employeeListReducers.user_position_and_joining_date_and_salary
-                .user_salary_date_every_day
+            state.dutypedia.user_position_and_joining_date_and_salary.user_salary_date_every_day
     );
     const week = useSelector(
         (state) =>
-            state.dutypedia.employeeListReducers.user_position_and_joining_date_and_salary
-                .user_salary_date_every_week
+            state.dutypedia.user_position_and_joining_date_and_salary.user_salary_date_every_week
     );
     const month = useSelector(
         (state) =>
-            state.dutypedia.employeeListReducers.user_position_and_joining_date_and_salary
-                .user_salary_date_every_date
+            state.dutypedia.user_position_and_joining_date_and_salary.user_salary_date_every_date
     );
-    const accessFunctionality = useSelector(
-        (state) => state.dutypedia.employeeListReducers.accessFunctionality
-    );
+    const accessFunctionality = useSelector((state) => state.dutypedia.accessFunctionality);
 
     let [renderSalaryReletedBox, setRenderSalaryReletedBox] = useState(true);
 
@@ -111,23 +100,31 @@ function CreateEmployeeBody() {
                         <div className={StyleSheet.create__employee__body__container__third__row}>
                             {salaryType === 'daily' && (
                                 <SalaryDateEveryDay
-                                    actions={(value) => dispatch(user_salary_date_every_day(value))}
+                                    actions={(value) => {
+                                        dispatch(user_salary_date_every_day(value));
+                                        dispatch(user_salary_status_set_upcoming());
+                                        dispatch(user_salary_status_set_due());
+                                    }}
                                     value={time}
                                 />
                             )}
                             {salaryType === 'weekly' && (
                                 <SalaryDateEveryWeek
-                                    actions={(value) =>
-                                        dispatch(user_salary_date_every_week(value))
-                                    }
+                                    actions={(value) => {
+                                        dispatch(user_salary_date_every_week(value));
+                                        dispatch(user_salary_status_set_upcoming());
+                                        dispatch(user_salary_status_set_due());
+                                    }}
                                     value={week}
                                 />
                             )}
                             {salaryType === 'monthly' && (
                                 <SalaryDateEveryMonth
-                                    actions={(value) =>
-                                        dispatch(user_salary_date_every_month(value))
-                                    }
+                                    actions={(value) => {
+                                        dispatch(user_salary_date_every_month(value));
+                                        dispatch(user_salary_status_set_upcoming());
+                                        dispatch(user_salary_status_set_due());
+                                    }}
                                     value={month}
                                 />
                             )}

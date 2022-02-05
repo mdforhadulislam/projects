@@ -1,69 +1,69 @@
 .offline__container {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
 
 .offline__container__header {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
 
 .offline__container__header__navbar {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
 
 .offline__container__header__navbar .ul {
-  width: 100%;
-  height: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
+    width: 100%;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
 }
 
 .offline__container__header__navbar .ul .li {
-  width: 18vw;
-  height: auto;
-  font-size: 1.5vw;
-  padding: 0vw 1vw 0.35vw 1vw;
-  border-bottom: 0.1vw solid #313131;
-  color: #313131;
-  cursor: pointer;
+    width: 18vw;
+    height: auto;
+    font-size: 1.5vw;
+    padding: 0vw 1vw 0.35vw 1vw;
+    border-bottom: 0.1vw solid #313131;
+    color: #313131;
+    cursor: pointer;
 }
 
 .offline__container__header__navbar .ul .li:nth-child(1) {
-  padding: 0vw 1vw 0.35vw 0vw;
-  width: 13vw;
-  color: #da1e37;
-  border-bottom: 0.1vw solid #da1e37;
-  cursor: pointer;
+    padding: 0vw 1vw 0.35vw 0vw;
+    width: 13vw;
+    color: #da1e37;
+    border-bottom: 0.1vw solid #da1e37;
+    cursor: pointer;
 }
 
 .offline__container__header__navbar .ul .li:nth-child(7) {
-  width: 14vw;
+    width: 14vw;
 }
 
 .offline__container__header__navbar .ul .row {
-  width: 0.075vw;
-  height: 1.8vw;
-  display: inline-block;
-  background-color: #313131;
-  cursor: pointer;
+    width: 0.075vw;
+    height: 1.8vw;
+    display: inline-block;
+    background-color: #313131;
+    cursor: pointer;
 }
 
 .offline__container__body {
-  width: 100%;
-  height: auto;
-  padding: 1.5vw 0vw;
+    width: 100%;
+    height: auto;
+    padding: 1.5vw 0vw;
 }
 /*# sourceMappingURL=rootStyle.module.css.map */

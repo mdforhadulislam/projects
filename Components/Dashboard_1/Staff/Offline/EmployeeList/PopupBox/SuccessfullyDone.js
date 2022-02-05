@@ -31,7 +31,7 @@ import {
     offline_user_salary_date_every_month,
     offline_user_salary_date_every_week,
     offline_user_salary_type
-} from '../../../../../../Redux/Dashboard_1/Action/Offline';
+} from '../../../../../../Redux/Dashboard_1/Action/Staff/Offline';
 import StyleSheet from '../PopupBoxStyle/SuccessfullyDone.module.css';
 
 Modal.setAppElement('#__next');

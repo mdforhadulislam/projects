@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import BigAddIcon from '../../../../../Assets/images/dashboard/BigAddIcon';
-import { delete_user } from '../../../../../Redux/Dashboard_1/Action/Dutypedia/editHeandeler';
+import { delete_user } from '../../../../../Redux/Dashboard_1/Action/Staff/Dutypedia/editHeandeler';
 import CanceledRequest from '../../../../../Utilities/CanceledRequest';
 import DeleteMember from '../../../../../Utilities/DeleteMember';
 import IsEmployeeHeader from '../../../../../Utilities/IsEmployeeHeader';
 import QrCodePopup from '../../../../../Utilities/QrCodePopup';
+import EmployeeListHeader from './BoxAndDeatils/EmployeeListHeader';
+import MemberDeatils from './BoxAndDeatils/MemberDeatils';
+import SingelEmployeeBox from './BoxAndDeatils/SingelEmployeeBox';
 import StyleSheet from './Main.module.css';
 import AddMemberInformation from './PopupBox/AddMemberInformation';
 import CreateEmployee from './PopupBox/CreateEmployee';
 import EditCreateEmployee from './PopupBox/EditCreateEmployee';
 import EditManageAccess from './PopupBox/EditManageAccess';
 import EditMemberInformation from './PopupBox/EditMemberInformation';
-import EmployeeListHeader from './PopupBox/EmployeeListHeader';
-import MemberDeatils from './PopupBox/MemberDeatils';
-import SingelEmployeeBox from './PopupBox/SingelEmployeeBox';
 import SuccessfullyDone from './PopupBox/SuccessfullyDone';
 import ViewAllInformation from './PopupBox/ViewAllInformation';
 
@@ -44,8 +44,12 @@ function EmployList() {
                 <div className={StyleSheet.employee__list__container}>
                     <div className={StyleSheet.employee__list__container__body}>
                         <div className={StyleSheet.employee__list__container__body__create__button}>
-                            <div className={StyleSheet.employee__list__container__body__create__button__image}onClick={() => setQrCodePopup(true)} >
-                                <BigAddIcon  />
+                            <div
+                                className={
+                                    StyleSheet.employee__list__container__body__create__button__image
+                                }
+                                onClick={() => setQrCodePopup(true)}>
+                                <BigAddIcon />
                             </div>
                         </div>
 

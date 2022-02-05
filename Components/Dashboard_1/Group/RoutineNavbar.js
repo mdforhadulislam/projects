@@ -63,14 +63,14 @@ const RoutineNavbar = () => {
 export default RoutineNavbar;
 const Wrapper = styled('div')`
 <<<<<<< HEAD
-    width: 76%;
-    margin: 0 auto;
-    .group-btn button {
-=======
     display: flex;
     justify-content: center;
     button {
->>>>>>> e26798bf3045af350a40234c297542d59cf91f97
+=======
+    width: 76%;
+    margin: 0 auto;
+    .group-btn button {
+>>>>>>> faruk
         color: #666666;
         font-size: 18px;
         border: 0;

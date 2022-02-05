@@ -22,7 +22,7 @@ import {
     edit_offline_user_profile_image,
     edit_offline_user_religion,
     edit_offline_user_removed_file
-} from '../../../../../../Redux/Dashboard_1/Action/Offline/offlineEditHendeler';
+} from '../../../../../../Redux/Dashboard_1/Action/Staff/Offline/offlineEditHendeler';
 import Address from '../../../../../../Utilities/Address';
 import UploadingFile from '../../../../../../Utilities/UploadingFile';
 import UploadProfileImage from '../../../../../../Utilities/UploadProfileImage';

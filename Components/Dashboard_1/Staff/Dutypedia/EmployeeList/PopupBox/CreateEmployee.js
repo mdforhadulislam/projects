@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import BackIcon from '../../../../../../Assets/images/dashboard/ArrowBackIcon.svg';
-import { create_user } from '../../../../../../Redux/Dashboard_1/Action/Dutypedia/index';
+import { create_user } from '../../../../../../Redux/Dashboard_1/Action/Staff/Dutypedia/index';
 import StyleSheet from '../PopupBoxStyle/CreateEmployee.module.css';
 import CreateEmployeeBody from './CreateEmployeeBody';
 
@@ -40,10 +40,13 @@ function CreateEmployee({
             user_salary_date_every_day,
             user_salary_date_every_week,
             user_salary_date_every_month,
-            user_no_salary_system
+            user_no_salary_system,
+            user_salary_status_upcoming,
+            user_salary_status_due,
+            user_salary_status_paid
         },
         accessFunctionality
-    } = useSelector((state) => state.dutypedia.employeeListReducers);
+    } = useSelector((state) => state.dutypedia);
 
     const submitHendeler = (e) => {
         e.preventDefault();
@@ -54,8 +57,9 @@ function CreateEmployee({
             user_image,
             user_as_a_member,
             user_as_a_staff,
-            name: `${user_furst_name} ${user_middle_name ? user_middle_name : ''
-                } ${user_last_name}`,
+            name: `${user_furst_name} ${
+                user_middle_name ? user_middle_name : ''
+            } ${user_last_name}`,
             user_gender,
             user_blood_group,
             user_date_of_birth,
@@ -73,7 +77,9 @@ function CreateEmployee({
                 salary_every_week: user_salary_date_every_week,
                 salary_every_month: user_salary_date_every_month,
                 no_salary_system: user_no_salary_system,
-                salary_status: ''
+                salary_status_upcoming: user_salary_status_upcoming,
+                salary_status_due: user_salary_status_due,
+                salary_status_paid: user_salary_status_paid
             },
             accessFunctionality,
             accept: false,

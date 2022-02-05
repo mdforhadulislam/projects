@@ -24,7 +24,7 @@ import {
     offline_user_profile_image,
     offline_user_religion,
     offline_user_removed_documentes
-} from '../../../../../../Redux/Dashboard_1/Action/Offline/index';
+} from '../../../../../../Redux/Dashboard_1/Action/Staff/Offline/index';
 import Address from '../../../../../../Utilities/Address';
 import UploadingFile from '../../../../../../Utilities/UploadingFile';
 import UploadProfileImage from '../../../../../../Utilities/UploadProfileImage';
@@ -55,7 +55,7 @@ function OfflineAddMemberInformation({
         user_documentes,
         presentAddress,
         permanentAddress
-    } = useSelector((state) => state.offline.employeeListReducers);
+    } = useSelector((state) => state.offline);
 
     const dispatch = useDispatch();
 

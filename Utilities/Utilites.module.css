@@ -494,21 +494,6 @@
     font-family: aller, sans-serif;
 }
 
-/* .position__container .position__container__input__box__input__icon {
-  width: 3.2vw;
-  height: 3vw;
-  background: #da1e37;
-  position: absolute;
-  right: 0%;
-  top: 0;
-  border-radius: 0.5vw;
-  cursor: pointer;
-  background-image: url(../../Assets/icon/downIcon.svg);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: center;
-} */
-
 .position__container .position__container__input__box__dropdrown {
     width: 100%;
     height: auto;
@@ -727,6 +712,7 @@
     height: auto;
     position: relative;
     display: inline-block;
+    padding: 1.5vw 0vw;
 }
 
 .salary__type__container .salary__type__container__title {
@@ -773,6 +759,7 @@
     width: 16.2vw;
     height: auto;
     display: inline-block;
+    padding: 1.5vw 0vw;
 }
 
 .salary__date__every__day__container .salary__date__every__day__container__title {
@@ -829,13 +816,9 @@
 .salary__date__every__week__container {
     width: 16.2vw;
     height: auto;
-    display: inline-block;
-}
-
-.salary__date__every__week__container {
-    width: 16.2vw;
-    height: auto;
     position: relative;
+    display: inline-block;
+    padding: 1.5vw 0vw;
 }
 
 .salary__date__every__week__container .salary__date__every__week__container__title {
@@ -886,16 +869,13 @@
 /* salary date every Month box style start  */
 /* salary date every Month box style start  */
 /* salary date every Month box style start  */
-.salary__date__every__month__container {
-    width: 16.2vw;
-    height: auto;
-    display: inline-block;
-}
 
 .salary__date__every__month__container {
     width: 16.2vw;
     height: auto;
     position: relative;
+    display: inline-block;
+    padding: 1.5vw 0vw;
 }
 
 .salary__date__every__month__container .salary__date__every__month__container__title {
@@ -945,6 +925,66 @@
 /* salary date every Month box style end  */
 /* salary date every Month box style end  */
 /* salary date every Month box style end  */
+
+/* salary Stutas box style start  */
+/* salary Stutas box style start  */
+/* salary Stutas box style start  */
+.salary__status__container {
+    width: 16.2vw;
+    height: auto;
+    position: relative;
+    display: inline-block;
+    padding: 1.5vw 0vw;
+}
+
+.salary__status__container .salary__status__container__title {
+    font-size: 1.3vw;
+    padding-bottom: 1vw;
+    color: #313131;
+}
+
+.salary__status__container .salary__status__container__selected__box {
+    width: 16.2vw;
+    height: auto;
+    position: relative;
+}
+
+.salary__status__container
+    .salary__status__container__selected__box
+    .salary__status__container__selected__box__select {
+    width: 16.2vw;
+    height: 3vw;
+    padding: 0.4vw;
+    border-radius: 0.4vw;
+    font-size: 1.2vw;
+    border: 0.13vw solid #da1e37;
+    outline: none;
+    position: relative;
+    font-family: aller, sans-serif;
+}
+
+.salary__status__container
+    .salary__status__container__selected__box
+    .salary__status__container__selected__box__icon {
+    width: 3.2vw;
+    height: 3vw;
+    padding: 0.2vw;
+    background: #da1e37;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-top-right-radius: 0.5vw;
+    border-bottom-right-radius: 0.5vw;
+    cursor: pointer;
+    background-image: url(../Assets/icon/downIcon.svg);
+    background-position: center;
+    background-size: 100%;
+}
+
+/* salary Stutas box style end  */
+/* salary Stutas box style end  */
+/* salary Stutas box style end  */
+
 /* checkbox style start   */
 /* checkbox style start   */
 /* checkbox style start   */
@@ -1030,7 +1070,6 @@
     height: auto;
     padding: 0.6vw 0vw;
     display: inline-block;
-    /* margin-left: 72%; */
 }
 
 .circle__checkbox__container .circle__checkbox__container__input {
@@ -1067,7 +1106,7 @@
     border-radius: 100%;
     transform: scale(0);
     transition: all 0.4s cubic-bezier(0.54, 0.01, 0, 1.49);
-    z-index: 99;
+    /* z-index: 99; */
 }
 
 .circle__checkbox__container__input .circle__checked::before {
@@ -1096,3 +1135,136 @@
 /*circle checkbox style end   */
 /*circle checkbox style end   */
 /*circle checkbox style end   */
+
+/* attendence related common componentes style  */
+
+/* Attendence Name style start*/
+/* Attendence Name style start*/
+/* Attendence Name style start*/
+
+.attendence__name__container {
+    width: 100%;
+    height: auto;
+}
+
+.attendence__name__container__title {
+    font-size: 1.5vw;
+}
+.attendence__name__container input {
+    width: 100%;
+    height: auto;
+    padding: 0.2vw;
+    font-size: 1.2vw;
+    font-family: aller, sans-serif;
+    outline: none;
+    border: 0.1vw solid #bcbcbc;
+    border-radius: 0.4vw;
+}
+
+/* Attendence Name style end*/
+/* Attendence Name style end*/
+/* Attendence Name style end*/
+
+/* duty timer style start */
+/* duty timer style start */
+/* duty timer style start */
+
+.duty__timer__container {
+    width: 16vw;
+    height: auto;
+    display: inline-block;
+    padding: 1vw 0vw;
+}
+
+.duty__timer__container__title {
+    font-size: 1.2vw;
+    padding-bottom: 1vw;
+    color: #313131;
+}
+.duty__timer__container__input__box {
+    width: 100%;
+    height: 2.8vw;
+    position: relative;
+    border: 0.1vw solid #da1e37;
+    border-radius: 0.4vw;
+}
+
+.duty__timer__container__input__box input {
+    height: 100%;
+    width: 96%;
+    outline: none;
+    font-size: 1.2vw;
+    border: none;
+    font-family: aller, sans-serif;
+    outline: none;
+    border-radius: 0.4vw;
+    padding: 0.4vw;
+}
+
+.duty__timer__container__input__box .duty__timer__container__input__box__icon {
+    position: absolute;
+    background: #da1e37;
+    height: 2.8vw;
+    width: 3.2vw;
+    top: -0.1vw;
+    right: -0.1vw;
+    border-top-right-radius: 0.4vw;
+    border-bottom-right-radius: 0.4vw;
+    pointer-events: none;
+    background-image: url(../Assets/icon/time.svg);
+    background-position: center center;
+    background-size: 55%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+/* duty timer style end */
+/* duty timer style end */
+/* duty timer style end */
+
+/* brack timer style start */
+/* brack timer style start */
+/* brack timer style start */
+
+.brack__timer__container {
+}
+.brack__timer__container .brack__timer__container__title {
+}
+.brack__timer__container__input__box__timer__box {
+}
+.brack__timer__container__input__box__timer__box__value {
+}
+.brack__timer__container__input__box__timer__box__value .hours {
+}
+.brack__timer__container__input__box__timer__box__value .minutes {
+}
+
+.brack__timer__container__input__box__timer__box__button {
+}
+.brack__timer__container__input__box__timer__box__button
+    .brack__timer__container__input__box__timer__box__button__up {
+}
+.brack__timer__container__input__box__timer__box__button
+    .brack__timer__container__input__box__timer__box__button__down {
+}
+
+.brack__timer__container__input__box__timer__formater {
+}
+.brack__timer__container__input__box__timer__formater
+    .brack__timer__container__input__box__timer__formater__value {
+}
+
+.brack__timer__container__input__box__timer__formater__select__box {
+}
+
+.brack__timer__container__input__box__timer__formater__select__box ul {
+}
+.brack__timer__container__input__box__timer__formater__select__box ul li {
+}
+
+.brack__timer__container__input__box__timer__formater__select__box__icon {
+}
+
+/* brack timer style end */
+/* brack timer style end */
+/* brack timer style end */

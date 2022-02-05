@@ -2,26 +2,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css';
 import React from 'react';
 import store from '../Redux/store';
-import TopNavBar from '../Components/Nav/TopNavBarFile/TopNavBar';
-import SideNavBar from '../Components/Nav/SideNavBarFile/SideNavBar';
+import TopNavBar from '../Components/Nav/TopNavBar/TopNavBar';
+import SideNavBar from '../Components/Nav/SideNavBar/SideNavBar';
 import { Provider } from 'react-redux';
 import { useRouter } from 'next/dist/client/router';
 import { createWrapper } from 'next-redux-wrapper';
 import AcademicActivities from '../Components/Dashboard_1/Group/AcademicActivities/AcademicActivities';
 import RoutineNavbar from '../Components/Dashboard_1/Group/RoutineNavbar';
-import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }) {
     const route = useRouter();
     // console.log(route.pathname === '/dashboard_1' ? 'true' : 'false');
     const routeArray = route.pathname.split('/');
-    React.useEffect(() => {
-        import('bootstrap/dist/js/bootstrap');
-    }, []);
-
-    useEffect(() => {
-        import('bootstrap/dist/js/bootstrap');
-    }, [])
 
     return (
         <Provider store={store}>

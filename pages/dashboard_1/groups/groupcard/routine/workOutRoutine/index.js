@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import AllMemberRoutine from '../../../../../../Components/Dashboard_1/Group/Routine/WorkOutRoutine/AllMemberRoutineFile/AllMemberRoutine';
-import SingleMemberRoutine from '../../../../../../Components/Dashboard_1/Group/Routine/WorkOutRoutine/SingleMemberRoutineFile/SingleMemberRoutine';
+import AllMemberRoutine from '../../../../../../Components/Dashboard_1/Group/Routine/WorkOutRoutine/AllMemberRoutine/AllMemberRoutine';
+import SingleMemberRoutine from '../../../../../../Components/Dashboard_1/Group/Routine/WorkOutRoutine/SingleMemberRoutine/SingleMemberRoutine';
 
 const workOutRoutine = () => {
     const [createMemberRoutine, setCreateMemberRoutine] = React.useState(false);

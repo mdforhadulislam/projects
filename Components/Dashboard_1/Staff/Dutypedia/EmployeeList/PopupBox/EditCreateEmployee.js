@@ -20,9 +20,11 @@ import {
     user_salary_date_every_date_edit,
     user_salary_date_every_month_edit,
     user_salary_date_every_week_edit,
+    user_salary_status_due_edit,
+    user_salary_status_upcoming_edit,
     user_salary_type_edit,
     user_staff_partner_access_edit
-} from '../../../../../../Redux/Dashboard_1/Action/Dutypedia/editHeandeler';
+} from '../../../../../../Redux/Dashboard_1/Action/Staff/Dutypedia/editHeandeler';
 import {
     CheckBox,
     JoiningDate,
@@ -111,6 +113,10 @@ function EditCreateEmployee({ user, setRenderEditCreateEmployee, setRenderEditMe
                                                 salary_every_day: value
                                             })
                                         );
+                                        dispatch(
+                                            user_salary_status_upcoming_edit({ id: user.user_id })
+                                        );
+                                        dispatch(user_salary_status_due_edit({ id: user.user_id }));
                                     }}
                                     value={user.user_salary.salary_every_day}
                                 />
@@ -125,6 +131,10 @@ function EditCreateEmployee({ user, setRenderEditCreateEmployee, setRenderEditMe
                                                 salary_every_week: value
                                             })
                                         );
+                                        dispatch(
+                                            user_salary_status_upcoming_edit({ id: user.user_id })
+                                        );
+                                        dispatch(user_salary_status_due_edit({ id: user.user_id }));
                                     }}
                                     value={user.user_salary.salary_every_week}
                                 />
@@ -139,6 +149,10 @@ function EditCreateEmployee({ user, setRenderEditCreateEmployee, setRenderEditMe
                                                 salary_every_month: value
                                             })
                                         );
+                                        dispatch(
+                                            user_salary_status_upcoming_edit({ id: user.user_id })
+                                        );
+                                        dispatch(user_salary_status_due_edit({ id: user.user_id }));
                                     }}
                                     value={user.user_salary.salary_every_month}
                                 />

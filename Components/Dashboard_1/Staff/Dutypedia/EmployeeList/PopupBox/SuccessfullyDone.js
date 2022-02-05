@@ -43,7 +43,7 @@ import {
     user_salary_date_every_week,
     user_salary_type,
     user_staff_and_partner_access
-} from '../../../../../../Redux/Dashboard_1/Action/Dutypedia/index';
+} from '../../../../../../Redux/Dashboard_1/Action/Staff/Dutypedia/index';
 import StyleSheet from '../PopupBoxStyle/SuccessfullyDone.module.css';
 
 Modal.setAppElement('#__next');

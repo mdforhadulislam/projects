@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import BigAddIcon from '../../../../../Assets/images/dashboard/BigAddIcon';
-import { delete_offline_user } from '../../../../../Redux/Dashboard_1/Action/Offline';
+import { delete_offline_user } from '../../../../../Redux/Dashboard_1/Action/Staff/Offline';
 import DeleteMember from '../../../../../Utilities/DeleteMember';
 import IsEmployeeHeader from '../../../../../Utilities/IsEmployeeHeader';
 import QrCodePopup from '../../../../../Utilities/QrCodePopup';
@@ -42,7 +42,7 @@ function EmployList() {
                 <div className={StyleSheet.create__employee__list__container}>
                     <div className={StyleSheet.create__employee__list__container__body}>
                         <div className={StyleSheet.create__employee__list__container__body__button}>
-                            <div  onClick={() => setOfflineQrCodePopup(true)}>
+                            <div onClick={() => setOfflineQrCodePopup(true)}>
                                 <BigAddIcon />
                             </div>
                         </div>
@@ -53,11 +53,7 @@ function EmployList() {
                 </div>
             )}
 
-            {allUser.length ? (
-                <IsEmployeeHeader setQrCodePopup={setOfflineQrCodePopup} />
-            ) : (
-                ''
-            )}
+            {allUser.length ? <IsEmployeeHeader setQrCodePopup={setOfflineQrCodePopup} /> : ''}
 
             {allUser.length ? (
                 <div className={StyleSheet.employee__container}>

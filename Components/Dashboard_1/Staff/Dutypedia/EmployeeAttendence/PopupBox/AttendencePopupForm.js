@@ -31,14 +31,14 @@ export default function AttendencePopupForm({ setAttendencesPopupForm, attendenc
                 setAttendencesPopupForm(false);
             }}
             style={customStyles}>
-            <div className="attendence__popup__form">
+            <form className="attendence__popup__form">
                 <div className="attendence__popup__form__back__button">
                     <ArrowBackIcon />
                     Back
                 </div>
                 <div className="attendence__popup__form__container">
                     <div className="attendence__propup__form__container__name__box">
-                        <AttendenceName />
+                        <AttendenceName title="Attendence Name" />
                     </div>
                     <div className="attendence__popup__form__container__timer">
                         <div className="attendence__popup__form__container__timer__row__one">
@@ -64,7 +64,10 @@ export default function AttendencePopupForm({ setAttendencesPopupForm, attendenc
                         </div>
                     </div>
                 </div>
-            </div>
+                <div className="attendence__popup__form__submit__button">
+                    <button type="submit">Next</button>
+                </div>
+            </form>
         </Modal>
     );
 }

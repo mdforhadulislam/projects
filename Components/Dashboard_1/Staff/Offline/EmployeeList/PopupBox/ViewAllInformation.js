@@ -16,7 +16,7 @@ function ViewAllInformation({
 
     const customStyles = {
         content: {
-            top: '58%',
+            top: '60%',
             left: '50%',
             right: 'auto',
             bottom: 'auto',
@@ -42,7 +42,8 @@ function ViewAllInformation({
                         src={crossIcon}
                         alt="crossIcon"
                     /> */}
-                    <div onClick={() => {
+                    <div
+                        onClick={() => {
                             setViewMemberAllInformation(false);
                         }}>
                         <CrossIcon />
@@ -78,7 +79,8 @@ function ViewAllInformation({
                         src={EditIcon}
                         alt="EditIcon"
                     /> */}
-                    <div onClick={() => {
+                    <div
+                        onClick={() => {
                             setEditMemberInformation(true);
                             setViewMemberAllInformation(false);
                         }}>

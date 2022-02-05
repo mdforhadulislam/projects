@@ -5,7 +5,6 @@ import DownIcon from '../Assets/images/dashboard/DownIcon';
 import UpIcon from '../Assets/images/dashboard/UpIcon';
 import StyleSheet from './Utilites.module.css';
 
-
 export function MemberCheckbox({ name, title, actions, value }) {
     return (
         <div className={StyleSheet.checkboxs__container}>
@@ -53,6 +52,7 @@ export function Gender({ title, actions, value }) {
                         actions(e.target.value);
                     }}
                     value={value}>
+                    <option value="">select</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
@@ -73,12 +73,12 @@ export function BloodGroup({ title, actions, value }) {
                         actions(e.target.value);
                     }}
                     value={value}>
+                    <option value="">select</option>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
                     <option value="B+">B+</option>
                     <option value="B-">B-</option>
                     <option value="AB+">AB+</option>
-                    <option value="AB-">AB-</option>
                     <option value="AB-">AB-</option>
                     <option value="O+">O+</option>
                     <option value="O-">O-</option>
@@ -339,7 +339,6 @@ export function SalaryAmount({ actions, value }) {
                             actions(Number(value) + 1);
                         }}
                         className={StyleSheet.salary__amounts__container__input__box__icon__top}>
-                        {/* <img src={UpIcon} alt="" /> */}
                         <UpIcon />
                     </button>
 
@@ -349,7 +348,6 @@ export function SalaryAmount({ actions, value }) {
                             value > 0 ? actions(Number(value) - 1) : actions(0);
                         }}
                         className={StyleSheet.salary__amounts__container__input__box__icon__bottom}>
-                        {/* <img src={DownIcon} alt="" /> */}
                         <DownIcon />
                     </button>
                 </span>
@@ -369,6 +367,7 @@ export function SalaryType({ actions, value }) {
                 name="salaryType"
                 value={value}
                 className={StyleSheet.salary__type__container__selected__box}>
+                <option value="">select</option>
                 <option value="daily">Daily</option>
                 <option value="weekly">Weekly</option>
                 <option value="monthly">Monthly</option>
@@ -428,7 +427,9 @@ export function clockTimer(timeString) {
             prepand = ' AM';
         }
     }
-    return (hour < 10 ? "0" + hour : hour) + ' : ' + (minute < 10 ? "0" + minute : minute) + prepand;
+    return (
+        (hour < 10 ? '0' + hour : hour) + ' : ' + (minute < 10 ? '0' + minute : minute) + prepand
+    );
 }
 export function SalaryDateEveryMonth({ actions, value }) {
     return (
@@ -445,6 +446,7 @@ export function SalaryDateEveryMonth({ actions, value }) {
                     className={
                         StyleSheet.salary__date__every__month__container__selected__box__select
                     }>
+                    <option value="">select</option>
                     <option value="1-10">1st To 10th</option>
                     <option value="10-20">10th To 20ty</option>
                     <option value="20-31">20ty To 31</option>
@@ -469,6 +471,7 @@ export function SalaryDateEveryWeek({ actions, value }) {
                     className={
                         StyleSheet.salary__date__every__week__container__selected__box__select
                     }>
+                    <option value="">select</option>
                     <option value="6">Saturday</option>
                     <option value="0">Sunday</option>
                     <option value="1">Monday</option>
@@ -478,6 +481,25 @@ export function SalaryDateEveryWeek({ actions, value }) {
                     <option value="5">Friday</option>
                 </select>
                 <div className={StyleSheet.salary__date__every__week__container__icon}></div>
+            </div>
+        </div>
+    );
+}
+export function SalaryStatus({ action, value }) {
+    return (
+        <div className={StyleSheet.salary__status__container}>
+            <div className={StyleSheet.salary__status__container__title}>Salary Status</div>
+            <div className={StyleSheet.salary__status__container__selected__box}>
+                <select
+                    value={value}
+                    onChange={(e) => action(e.target.value)}
+                    className={StyleSheet.salary__status__container__selected__box__select}>
+                    <option value="">select</option>
+                    <option value="upcoming">Upcoming</option>
+                    <option value="due">Due</option>
+                    <option value="paid">Paid</option>
+                </select>
+                <div className={StyleSheet.salary__status__container__selected__box__icon}></div>
             </div>
         </div>
     );
@@ -516,6 +538,197 @@ export function CircleCheckBox({ name, title, actions, value, style }) {
                 <label
                     htmlFor={name && name}
                     className={value ? StyleSheet.circle__checked : StyleSheet.circle__unchecked}>
+                    {title && title}
+                </label>
+            </div>
+        </div>
+    );
+}
+export function ViewCircleCheckBox({ name, title, actions, value, style }) {
+    return (
+        <div className={StyleSheet.view__circle__checkbox__container} style={style}>
+            <div className={StyleSheet.view__circle__checkbox__container__input}>
+                <input
+                    onChange={(e) => actions(e.target.checked)}
+                    type="checkbox"
+                    name={name && name}
+                    id={name && name}
+                />
+                <label
+                    htmlFor={name && name}
+                    className={
+                        value
+                            ? StyleSheet.view__circle__checked
+                            : StyleSheet.view__circle__unchecked
+                    }>
+                    {title && title}
+                </label>
+            </div>
+        </div>
+    );
+}
+export const firstDateFormet = (enterStartDate, dateObject) => {
+    const date =
+        (enterStartDate.split('-')[0] > 9
+            ? enterStartDate.split('-')[0]
+            : '0' + enterStartDate.split('-')[0]) +
+        '/' +
+        (Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`) < 10
+            ? '0' +
+              Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`)
+            : dateObject.getMonth() + 2) +
+        '/' +
+        dateObject.getFullYear();
+    return date;
+};
+export const lastDateFormet = (enterEndDate, dateObject) => {
+    const date =
+        (enterEndDate.split('-')[1] > 9
+            ? enterEndDate.split('-')[1]
+            : '0' + enterEndDate.split('-')[1]) +
+        '/' +
+        (Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`) < 10
+            ? '0' +
+              Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`)
+            : dateObject.getMonth() + 2) +
+        '/' +
+        dateObject.getFullYear();
+    return date;
+};
+
+// attendence related common componentes
+export function AttendenceName({ title, action, value }) {
+    return (
+        <div className={StyleSheet.attendence__name__container}>
+            <div className={StyleSheet.attendence__name__container__title}>{title}</div>
+            <input type="text" onChange={(e) => action(e.target.value)} value={value} />
+        </div>
+    );
+}
+
+export function DutyTimer({ title, action, value }) {
+    return (
+        <div className={StyleSheet.duty__timer__container}>
+            <div className={StyleSheet.duty__timer__container__title}>{title}</div>
+
+            <div className={StyleSheet.duty__timer__container__input__box}>
+                <input type="time" value={value} onChange={(e) => action(e.target.value)} />
+                <div className={StyleSheet.duty__timer__container__input__box__icon}></div>
+            </div>
+        </div>
+    );
+}
+
+export function BrackTimer({ title, action, value }) {
+    const [hour, setHour] = useState(0);
+    const [minute, setMinute] = useState(0);
+    const [timeFormat, setTimeFormat] = useState('Hour');
+
+    function DropDown() {
+        return (
+            <ul>
+                <li
+                    onClick={() => {
+                        setTimeFormat('Hour');
+                    }}>
+                    Hour
+                </li>
+                <li
+                    onClick={() => {
+                        setTimeFormat('Minute');
+                    }}>
+                    Minute
+                </li>
+            </ul>
+        );
+    }
+
+    function upHendeler() {
+        if (timeFormat === 'Hour') {
+            setHour((prev) => (prev === 12 ? 1 : prev + 1));
+        } else if (timeFormat === 'Minute') {
+            setMinute((prev) => (prev === 59 ? 0 : prev + 1));
+        }
+    }
+    function downHendeler() {
+        if (timeFormat === 'Hour') {
+            setHour((prev) => (prev === 1 ? 12 : prev - 1));
+        } else if (timeFormat === 'Minute') {
+            setMinute((prev) => (prev === 0 ? 59 : prev - 1));
+        }
+    }
+
+    return (
+        <div className={StyleSheet.brack__timer__container}>
+            <div className={StyleSheet.brack__timer__container__title}>{title}</div>
+            <div className={StyleSheet.brack__timer__container__input__box}>
+                <div className={StyleSheet.brack__timer__container__input__box__timer__box}>
+                    <div
+                        className={
+                            StyleSheet.brack__timer__container__input__box__timer__box__value
+                        }>
+                        <div className={StyleSheet.hours}>{hour}</div>
+                        <span>:</span>
+                        <div className={StyleSheet.minutes}>{minute}</div>
+                    </div>
+                    <div
+                        className={
+                            StyleSheet.brack__timer__container__input__box__timer__box__button
+                        }>
+                        <button
+                            onClick={upHendeler}
+                            className={
+                                StyleSheet.brack__timer__container__input__box__timer__box__button__up
+                            }>
+                            +
+                        </button>
+                        <span></span>
+                        <button
+                            onClick={downHendeler}
+                            className={
+                                StyleSheet.brack__timer__container__input__box__timer__box__button__down
+                            }>
+                            -
+                        </button>
+                    </div>
+                </div>
+                <div className={StyleSheet.brack__timer__container__input__box__timer__formater}>
+                    <div
+                        className={
+                            StyleSheet.brack__timer__container__input__box__timer__formater__value
+                        }>
+                        {timeFormat}
+                    </div>
+                    <div
+                        className={
+                            StyleSheet.brack__timer__container__input__box__timer__formater__select__box
+                        }>
+                        <DropDown />
+                        <div
+                            className={
+                                StyleSheet.brack__timer__container__input__box__timer__formater__select__box__icon
+                            }></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export function DayCheckBox({ name, title, actions, value }) {
+    return (
+        <div className={StyleSheet.checkbox__container}>
+            <div className={StyleSheet.checkbox__container__input}>
+                <input
+                    onChange={(e) => actions(e.target.checked)}
+                    type="checkbox"
+                    name={name && name}
+                    id={name && name}
+                />
+                <label
+                    htmlFor={name && name}
+                    style={value ? { color: '#da1e37' } : { color: 'none' }}
+                    className={value ? StyleSheet.checked : StyleSheet.unchecked}>
                     {title && title}
                 </label>
             </div>

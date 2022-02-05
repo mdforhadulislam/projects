@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import CreateRoutineTable from '../../../../../../Components/Dashboard_1/Group/Routine/WorkOutRoutine/CreateRoutineTableFile/CreateRoutineTable';
+import CreateRoutineTable from '../../../../../../Components/Dashboard_1/Group/Routine/WorkOutRoutine/CreateRoutineTable/CreateRoutineTable';
 
 const addSingleMember = () => {
     return (

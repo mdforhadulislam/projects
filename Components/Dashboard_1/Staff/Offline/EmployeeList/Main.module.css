@@ -79,17 +79,17 @@
     width: 12.5vw;
 }
 .employee__container .employee__container__header ul li:nth-child(3) {
-    width: 8.2vw;
+    width: 6vw;
 }
 .employee__container .employee__container__header ul li:nth-child(4) {
-    width: 10vw;
+    width: 11vw;
 }
 .employee__container .employee__container__header ul li:nth-child(5) {
-    width: 15vw;
+    width: 13vw;
 }
 .employee__container .employee__container__header ul li:nth-child(6) {
     width: 10vw;
 }
 .employee__container .employee__container__header ul li:nth-child(7) {
-    width: 10vw;
+    width: 13vw;
 }
