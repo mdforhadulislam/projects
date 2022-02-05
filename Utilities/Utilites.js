@@ -715,10 +715,11 @@ export function BrackTimer({ title, action, value }) {
     );
 }
 
-export function DayCheckBox({ name, title, actions, value }) {
+export function DayCheckBox({ name, title, actions, value, style }) {
+    const { width } = style;
     return (
-        <div className={StyleSheet.checkbox__container}>
-            <div className={StyleSheet.checkbox__container__input}>
+        <div className={StyleSheet.checkbox__container} style={style}>
+            <div className={StyleSheet.checkbox__container__input} style={{ width }}>
                 <input
                     onChange={(e) => actions(e.target.checked)}
                     type="checkbox"

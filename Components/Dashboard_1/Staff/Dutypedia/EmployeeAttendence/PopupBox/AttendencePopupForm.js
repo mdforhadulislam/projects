@@ -54,13 +54,41 @@ export default function AttendencePopupForm({ setAttendencesPopupForm, attendenc
                             Holiday
                         </div>
                         <div className="attendence__popup__form__container__holiday__container__checkbox">
-                            <DayCheckBox title={'Saturday'} name={'Saturday'} />
-                            <DayCheckBox title={'Sunday'} name={'Sunday'} />
-                            <DayCheckBox title={'Monday'} name={'Monday'} />
-                            <DayCheckBox title={'Tuesday'} name={'Tuesday'} />
-                            <DayCheckBox title={'Wednestday'} name={'Wednestday'} />
-                            <DayCheckBox title={'Thursday'} name={'Thursday'} />
-                            <DayCheckBox title={'Friday'} name={'Friday'} />
+                            <DayCheckBox
+                                title={'Saturday'}
+                                name={'Saturday'}
+                                style={{ width: '8.5vw', display: 'inline-block' }}
+                            />
+                            <DayCheckBox
+                                title={'Sunday'}
+                                name={'Sunday'}
+                                style={{ width: '7.5vw', display: 'inline-block' }}
+                            />
+                            <DayCheckBox
+                                title={'Monday'}
+                                name={'Monday'}
+                                style={{ width: '7.5vw', display: 'inline-block' }}
+                            />
+                            <DayCheckBox
+                                title={'Tuesday'}
+                                name={'Tuesday'}
+                                style={{ width: '8vw', display: 'inline-block' }}
+                            />
+                            <DayCheckBox
+                                title={'Wednestday'}
+                                name={'Wednestday'}
+                                style={{ width: '10.5vw', display: 'inline-block' }}
+                            />
+                            <DayCheckBox
+                                title={'Thursday'}
+                                name={'Thursday'}
+                                style={{ width: '8.5vw', display: 'inline-block' }}
+                            />
+                            <DayCheckBox
+                                title={'Friday'}
+                                name={'Friday'}
+                                style={{ width: '8vw', display: 'inline-block' }}
+                            />
                         </div>
                     </div>
                 </div>
