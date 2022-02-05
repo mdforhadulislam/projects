@@ -9,6 +9,7 @@ import { useRouter } from 'next/dist/client/router';
 import { createWrapper } from 'next-redux-wrapper';
 import AcademicActivities from '../Components/Dashboard_1/Group/AcademicActivities/AcademicActivities';
 import RoutineNavbar from '../Components/Dashboard_1/Group/RoutineNavbar';
+import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }) {
     const route = useRouter();
@@ -17,6 +18,10 @@ function MyApp({ Component, pageProps }) {
     React.useEffect(() => {
         import('bootstrap/dist/js/bootstrap');
     }, []);
+
+    useEffect(() => {
+        import('bootstrap/dist/js/bootstrap');
+    }, [])
 
     return (
         <Provider store={store}>

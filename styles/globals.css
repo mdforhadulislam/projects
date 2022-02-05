@@ -74,6 +74,7 @@ a {
     src: local('Aller Light'), url('https://fonts.cdnfonts.com/s/12/Aller_LtIt.woff') format('woff');
 }
 /* //////////////////////// */
+/* //////////////////////// */
 /* scroll bar styling custom table */
 .custom-table-container {
     margin: 40px 0;
@@ -135,3 +136,4 @@ a {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='0,0 0,100 50,50'/></svg>");
 }
 /* End scroll bar modify */
+

@@ -4,12 +4,12 @@ import styled from 'styled-components';
 import InputNumberBoxComp from '../../Common/InputNumberBox/InputNumberBoxComp';
 import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/router';
-import NewInputDateBox from '../../Common/InputDateBox/NewInputDateBox';
+import NewInputDateBox from '../../Common/InputDateBox/newInputDateBox';
 import { useDispatch } from 'react-redux';
 import { addToExpenses } from '../../../Redux/Dashboard_1/Action/expensesAction';
 
 const AddExpenses = () => {
-    const [numberInc, setNumberInc] = React.useState(1);
+    const [numberInc, setNumberInc] = React.useState(0);
     const [storeData, setStoreData] = React.useState({});
     const [startDate, setStartDate] = React.useState(new Date());
     const router = useRouter();

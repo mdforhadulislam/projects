@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Wrapper } from '../StyledCssFile/StyledCss';
 import styled from 'styled-components';
 import Image from 'next/image';
 import arrowBack from '../../../../../../Assets/icon/ArrowBackIcon.svg';
-import InputNumberBoxEdit from '../../../../../Common/InputNumberBox/InputNumberBoxEdit';
 
 const AdjustTimePopupNext = ({ closeModal }) => {
-    const [numberInc, setNumberInc] = useState(5);
     return (
         <Wrapper>
             {/* <div className="d-flex align-items-center">
@@ -36,10 +34,15 @@ const AdjustTimePopupNext = ({ closeModal }) => {
                                 <div className="col-8">
                                     <div className="d-flex my-2  justify-content-center">
                                         <div className="position-relative">
-                                            <InputNumberBoxEdit
-                                                setNumberInc={setNumberInc}
-                                                numberInc={numberInc}
+                                            <input
+                                                type="number"
+                                                className="input-number"
+                                                placeholder="5"
                                             />
+                                            <div className="input-number-icon">
+                                                <i className="fas fa-angle-up"></i>
+                                                <i className="fas fa-angle-down"></i>
+                                            </div>
                                         </div>
                                         <select name="" id="" className="select-time">
                                             <option>Minutes</option>
@@ -63,10 +66,15 @@ const AdjustTimePopupNext = ({ closeModal }) => {
                                 <div className="col-8">
                                     <div className="d-flex my-2 justify-content-center">
                                         <div className="position-relative">
-                                            <InputNumberBoxEdit
-                                                setNumberInc={setNumberInc}
-                                                numberInc={numberInc}
+                                            <input
+                                                type="number"
+                                                className="input-number"
+                                                placeholder="5"
                                             />
+                                            <div className="input-number-icon">
+                                                <i className="fas fa-angle-up"></i>
+                                                <i className="fas fa-angle-down"></i>
+                                            </div>
                                         </div>
                                         <select name="" id="" className="select-time">
                                             <option>Minutes</option>

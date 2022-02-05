@@ -8,6 +8,7 @@
     z-index: 1000;
     overflow: hidden;
     transition: 0.5s;
+    display: inline-block;
 }
 .vendor_section:hover {
     width: 20rem;
@@ -205,6 +206,12 @@
 
 .vendor_nav_more a:nth-child(1) .vendor_nav_more_text {
     color: red;
+}
+
+@media screen and (max-width: 810px) {
+    .vendor_section {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 768px) {

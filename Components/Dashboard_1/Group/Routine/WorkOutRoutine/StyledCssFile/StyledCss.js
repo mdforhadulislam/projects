@@ -1,30 +1,6 @@
 import styled from 'styled-components';
 
-export const DateBox = styled('div')`
-    height: 3rem;
-    max-height: 3rem;
-    input,
-    .NewInputDateBox__DateIcon-sc-1pbplnh-1 {
-        height: 3rem;
-    }
-    @media (max-width: 768px) {
-        input {
-            padding-left: 10px;
-        }
-    }
-`;
 export const Wrapper = styled('div')`
-    margin: 30px auto;
-    background: #fff;
-    padding: 10px;
-    .NewInputDateBox__DateMainBox-sc-1pbplnh-0 {
-        input {
-            padding-left: 10px;
-        }
-    }
-    .rounded10 {
-        border-radius: 10px !important;
-    }
     //button style for bottom
     .group-btn {
         display: flex;
@@ -54,9 +30,6 @@ export const Wrapper = styled('div')`
         height: 30px;
         padding: 0 25px 2px 25px;
         color: white;
-    }
-    .add-more-icon {
-        background: none;
     }
     .add-more-icon img {
         width: 32px !important;
@@ -221,9 +194,68 @@ Routine 39 style
     .workout-table tr:last-child td {
         border-bottom: 2px solid #c7c7c7;
     }
-    i {
-        color: #666;
+
+    /* scroll bar styling custom table */
+    .custom-table-container {
+        margin: 40px 0;
+        height: 600px;
+        overflow: auto;
     }
+    .custom-table-container::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    .custom-table-container::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+    }
+
+    .custom-table-container::-webkit-scrollbar-thumb {
+        background-color: #666;
+        border-radius: 5px;
+    }
+    .custom-table-container::-webkit-scrollbar-button:single-button {
+        background-color: #f1f1f1;
+        display: block;
+        background-size: 10px;
+        background-repeat: no-repeat;
+    }
+
+    /* Up */
+    .custom-table-container::-webkit-scrollbar-button:single-button:vertical:decrement {
+        border-radius: 5px 5px 0 0;
+        height: 16px;
+        width: 16px;
+        background-position: center 4px;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='50,00 0,50 100,50'/></svg>");
+    }
+    /* Down */
+    .custom-table-container::-webkit-scrollbar-button:single-button:vertical:increment {
+        border-radius: 0px 0px 5px 5px;
+        height: 16px;
+        width: 16px;
+        background-position: center 4px;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='0,0 100,0 50,50'/></svg>");
+    }
+
+    /* Left */
+    .custom-table-container::-webkit-scrollbar-button:single-button:horizontal:decrement {
+        border-radius: 5px 0px 0 5px;
+        height: 12px;
+        width: 12px;
+        background-position: 0px 0px;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='0,50 50,100 50,0'/></svg>");
+    }
+
+    /* Right */
+    .custom-table-container::-webkit-scrollbar-button:single-button:horizontal:increment {
+        border-radius: 0 5px 5px 0;
+        height: 12px;
+        width: 12px;
+        background-position: 0px 0px;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='0,0 0,100 50,50'/></svg>");
+    }
+    /* End scroll bar modify */
 
     /* workout 11 / adjust time style start */
     .modal-content-adjust-time {
@@ -309,23 +341,11 @@ Routine 39 style
     .table-checkBox {
         border-radius: 50%;
     }
-    //view all page start
-    .viewAll a {
-        text-decoration: underline;
-    }
+
     /* responsive query */
-    @media (max-width: 768px) {
+    @media screen AND (max-width: 767px) {
         select + i.fa {
             right: 10%;
-        }
-        #order-1 {
-            order: 1;
-        }
-        div#order-2 {
-            order: 3;
-        }
-        div#order-3 {
-            order: 2;
         }
     }
     @media screen and (max-width: 810px) {
@@ -333,10 +353,7 @@ Routine 39 style
             width: 100%;
         }
     }
-    @media (max-width: 600px) {
-        .u-name {
-            font-size: 15px;
-        }
+    @media screen and (max-width: 556px) {
     }
     @media screen and (max-width: 476px) {
     }

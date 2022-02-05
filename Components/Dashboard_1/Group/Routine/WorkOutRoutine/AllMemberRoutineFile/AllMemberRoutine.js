@@ -6,6 +6,7 @@ import { Wrapper } from '../StyledCssFile/StyledCss';
 
 const AllMemberRoutine = () => {
     const [create, setCreate] = useState(false);
+    const [workout6, setWorkout6] = useState(false);
     return (
         <Wrapper>
             {!create && (
@@ -19,7 +20,7 @@ const AllMemberRoutine = () => {
                     <h3>Create All member Routine</h3>
                 </div>
             )}
-            {create && (
+            {create && !workout6 && (
                 <>
                     <div id="routine-user-input">
                         <div className="row">

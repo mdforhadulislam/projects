@@ -1,34 +1,27 @@
 import React, { useState } from 'react';
 import AdjustTimePopupNext from '../AdjustTimePopupNextFile/AdjustTimePopupNext';
-import { DateBox, Wrapper } from '../StyledCssFile/StyledCss';
+import { Wrapper } from '../StyledCssFile/StyledCss';
 import styled from 'styled-components';
 import NewInputDateBox from '/Components/Common/InputDateBox/NewInputDateBox';
 import CheckBox from '../../../../../Common/CheckBox/CheckBox';
-import InputNumberBoxEdit from '../../../../../Common/InputNumberBox/InputNumberBoxEdit';
 
-const AdjustTimePopup = ({
-    setAdjustTimePop,
-    closeModal,
-    startDate,
-    setStartDate,
-    endDate,
-    setEndDate
-}) => {
-    const [adjustTimeNext, setAdjustTimeNext] = useState(false);
-    const [numberInc, setNumberInc] = React.useState(0);
+const AdjustTimePopup = ({ setAdjustTimePop, closeModal }) => {
+    const [workout1, setWorkout1] = useState(false);
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
     const [workOutDay, setWorkOutDay] = useState({});
     const handleWeekSelect = (e) => {
         setWorkOutDay({ ...workOutDay, [e.target.name]: e.target.checked ? e.target.name : '' });
     };
-
+    console.log(workOutDay);
     return (
         <Wrapper>
             {/* popup container */}
-            {!adjustTimeNext && (
+            {!workout1 && (
                 <AdjustContainer>
                     <div className="modal-container z-index-1">
-                        <div className="col-lg-8 col-xxl-5 p-sm-5 p-md-0 mx-auto modal-content-adjust-time">
-                            <div className="bg-light p-2 p-sm-5 p-md-4 shadow rounded-3 text-center">
+                        <div className="col-lg-8 col-xxl-5 p-sm-5 mx-auto modal-content-adjust-time">
+                            <div className="bg-light p-2 p-sm-5 shadow rounded-3 text-center">
                                 <h5 className="text-start mb-3 fw-light">Workout Name</h5>
                                 <div className="workout-name-input text-start">
                                     <input
@@ -41,23 +34,18 @@ const AdjustTimePopup = ({
                                 <div className="row align-items-center">
                                     <div className="col-sm-5">
                                         <h5 className="text-start fw-light">Starting Date</h5>
-
-                                        <DateBox>
-                                            <NewInputDateBox
-                                                startDate={startDate}
-                                                setStartDate={setStartDate}
-                                            />
-                                        </DateBox>
+                                        <NewInputDateBox
+                                            startDate={startDate}
+                                            setStartDate={setStartDate}
+                                        />
                                     </div>
                                     <div className="col-sm-2">to</div>
                                     <div className="col-sm-5">
                                         <h5 className="text-start fw-light">Ending Date</h5>
-                                        <DateBox>
-                                            <NewInputDateBox
-                                                startDate={endDate}
-                                                setStartDate={setEndDate}
-                                            />
-                                        </DateBox>
+                                        <NewInputDateBox
+                                            startDate={endDate}
+                                            setStartDate={setEndDate}
+                                        />
                                     </div>
                                 </div>
 
@@ -133,10 +121,15 @@ const AdjustTimePopup = ({
                                     <h5 className="pe-4">Per Day Duration</h5>
                                     <div className="d-flex my-2  justify-content-center">
                                         <div className="position-relative">
-                                            <InputNumberBoxEdit
-                                                setNumberInc={setNumberInc}
-                                                numberInc={numberInc}
+                                            <input
+                                                type="number"
+                                                className="input-number"
+                                                placeholder="5"
                                             />
+                                            <div className="input-number-icon">
+                                                <i className="fas fa-angle-up"></i>
+                                                <i className="fas fa-angle-down"></i>
+                                            </div>
                                         </div>
                                         <select name="" id="" className="select-time">
                                             <option>Minutes</option>
@@ -150,7 +143,7 @@ const AdjustTimePopup = ({
                                 </h3>
 
                                 <div
-                                    className="accordion accordion-flush border-0"
+                                    className="accordion accordion-flush"
                                     id="accordionFlushExample">
                                     <div className="accordion-item shadow-sm my-3 col-md-7 px-0">
                                         <h2 className="accordion-header" id="flush-headingOne">
@@ -237,7 +230,7 @@ const AdjustTimePopup = ({
                                 <div className="d-flex justify-content-end mt-4 btn-bootom">
                                     <button
                                         className="cmnBtn border-0 me-3"
-                                        onClick={() => setAdjustTimeNext(true)}>
+                                        onClick={() => setWorkout1(true)}>
                                         Next
                                     </button>
                                     <button className="cmnBtn" onClick={closeModal}>
@@ -250,7 +243,7 @@ const AdjustTimePopup = ({
                     </div>
                 </AdjustContainer>
             )}
-            {adjustTimeNext && <AdjustTimePopupNext closeModal={closeModal} />}
+            {workout1 && <AdjustTimePopupNext closeModal={closeModal} />}
         </Wrapper>
     );
 };

@@ -25,17 +25,6 @@ const CreateRoutineTable = ({ callFrom }) => {
     const [adjustTimePop, setAdjustTimePop] = useState(false);
     const [modalIsOpen, setIsOpen] = useState(false);
     const userDetails = useSelector((state) => state.workOutRoutineReducers.workOutName);
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
-    const [weekday, setWeekDay] = useState([
-        'Sunday',
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday'
-    ]);
 
     const openModal = () => {
         setIsOpen(true);
@@ -47,26 +36,8 @@ const CreateRoutineTable = ({ callFrom }) => {
     };
     const handleAdjust = (id) => {
         openModal();
+        console.log('modal opened');
     };
-    function getDates(startDate, endDate) {
-        const dates = [];
-        let currentDate = startDate;
-        const addDays = function (days) {
-            const date = new Date(this.valueOf());
-            date.setDate(date.getDate() + days);
-            return date;
-        };
-        while (currentDate <= endDate) {
-            dates.push(currentDate);
-            currentDate = addDays.call(currentDate, 1);
-        }
-        return dates;
-    }
-
-    // Usage
-    const dates = getDates(new Date(startDate), new Date(endDate));
-
-    console.log(dates);
 
     return (
         <Wrapper>
@@ -93,21 +64,31 @@ const CreateRoutineTable = ({ callFrom }) => {
                                 <th>
                                     <td>Work Out Name</td>
                                     <td>{/* this filed stay blank */}</td>
-                                    {weekday.map((day, index) => (
-                                        <td key={index}>{day}</td>
-                                    ))}
+                                    <td>SaturDay</td>
+                                    <td>SaturDay</td>
+                                    <td>SaturDay</td>
+                                    <td>SaturDay</td>
+                                    <td>SaturDay</td>
+                                    <td>SaturDay</td>
+                                    <td>SaturDay</td>
+                                    <td>SaturDay</td>
                                 </th>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>{/*this filed stay blank */}</td>
                                     <td>Time</td>
-                                    {weekday.map((day, index) => (
-                                        <td key={index}> Day {index + 1}</td>
-                                    ))}
+                                    <td>Day 01</td>
+                                    <td>Day 02</td>
+                                    <td>Day 03</td>
+                                    <td>Day 04</td>
+                                    <td>Day 05</td>
+                                    <td>Day 06</td>
+                                    <td>Day 07</td>
+                                    <td>Day 08</td>
                                 </tr>
                                 {Array.from({ length: 10 }).map((_, idx) => (
-                                    <tr key={idx}>
+                                    <tr>
                                         <td>
                                             <input
                                                 className="border-0 w-100 rounded text-center"
@@ -130,6 +111,7 @@ const CreateRoutineTable = ({ callFrom }) => {
                                         <td></td>
                                         <td></td>
                                         <td></td>
+                                        <td></td>
                                     </tr>
                                 ))}
                                 <tr>
@@ -144,6 +126,7 @@ const CreateRoutineTable = ({ callFrom }) => {
                                         </button>
                                     </td>
                                     <td className="border-start-0"></td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -174,13 +157,7 @@ const CreateRoutineTable = ({ callFrom }) => {
                 style={customStyles}
                 className="mx-auto"
                 contentLabel="Adjust Time Modal">
-                <AdjustTimePopup
-                    closeModal={closeModal}
-                    startDate={startDate}
-                    setStartDate={setStartDate}
-                    endDate={endDate}
-                    setEndDate={setEndDate}
-                />
+                <AdjustTimePopup closeModal={closeModal} />
             </Modal>
             {/* modal */}
         </Wrapper>

@@ -36,7 +36,7 @@ const SideNavBar = () => {
                     />
                 </div>
                 <div className={style.vendor_name}>
-                    <p> Md Masud Reja and</p> <span> Builder </span>
+                    <p> Md Masud Reja</p> <span> Builder </span>
                 </div>
             </div>
             {/* Vandor Details End */}

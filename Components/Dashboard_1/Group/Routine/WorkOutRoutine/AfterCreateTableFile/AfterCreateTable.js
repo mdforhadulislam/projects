@@ -7,8 +7,6 @@ import editIcon from '../../../../../../Assets/icon/edit.svg';
 import deleteIcon from '../../../../../../Assets/icon/android-delete.svg';
 import arrowBack from '../../../../../../Assets/icon/ArrowBackIcon.svg';
 import styled from 'styled-components';
-import user from '/Assets/images/dashboard/user.jpg';
-import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 
 const AfterCreateTable = () => {
     return (
@@ -25,7 +23,10 @@ const AfterCreateTable = () => {
                 <div className="d-flex justify-content-between align-items-center">
                     <div className="d-flex align-items-center">
                         <div className="singleMemberProfile">
-                            <Image src={user} alt="" width={70} height={70} />
+                            <img
+                                src="http://localhost:3000/assets/images/nav_image/brian-mercado-rm7rZYdl3rY-unsplash.jpg"
+                                alt=""
+                            />
                         </div>
                         <h4 className="ps-3 fw-normal">Masud Reja</h4>
                     </div>
@@ -43,16 +44,10 @@ const AfterCreateTable = () => {
                         Routine
                     </button>
                     <button className="border-0" style={{ width: '32px' }}>
-                        {/* <Image src={editIcon} /> */}
-                        <i>
-                            <FaEdit />
-                        </i>
+                        <Image src={editIcon} />
                     </button>
                     <button className="border-0" style={{ width: '32px' }}>
-                        {/* <Image src={deleteIcon} /> */}
-                        <i>
-                            <FaTrashAlt />
-                        </i>
+                        <Image src={deleteIcon} />
                     </button>
                 </div>
                 {/* custom scroll table start */}

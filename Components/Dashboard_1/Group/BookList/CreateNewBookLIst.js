@@ -1,0 +1,2520 @@
+import React, { useState } from 'react';
+import Modal from 'react-modal';
+// import {BookListWrapper} from './BookListWrapper'
+import Image from 'next/image';
+import addMore from '../../../../Assets/images/svg/add more plus.svg'
+import styled from 'styled-components';
+
+const CreateNewBookList = () => {
+    const [submitValues, setSubmitValues] = useState([
+        { bookName: 'N/A' || '', code: 'N/A', writerName: 'N/A', other: 'N/A' }
+    ]);
+    const [create, setCreate] = useState('');
+    const [createBookList, setCreateBookList] = useState(true);
+    const [formValues, setFormValues] = useState([
+        { bookName: '', code: '', writerName: '', other: '' }
+    ]);
+    // const [submitValues, setSubmitValues] = useState([
+    //     { bookName: 'N/A' || '', code: 'N/A', writerName: 'N/A', other: 'N/A' }
+    // ]);
+    const [form, setForm] = useState(true);
+    const [addData, setAddData] = useState(true);
+    const [editDelete, setEditDelete] = useState(false);
+    const [modalIsOpen, setIsOpen] = useState(false);
+
+    const customStyles = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%'
+        }
+    };
+
+    const openModal = () => {
+        setIsOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsOpen(false);
+    };
+
+    const deleteYes = () => {
+        setCreateBookList(true);
+        setCreate('');
+        setAddData(true);
+        setFormValues([{ bookName: '', code: '', writerName: '', other: '' }]);
+        closeModal();
+        setForm(true);
+    };
+
+    let handleChange = (i, e) => {
+        let newFormValues = [...formValues];
+        newFormValues[i][e.target.name] = e.target.value;
+        setFormValues(newFormValues);
+    };
+
+    let addFormFields = () => {
+        setFormValues([...formValues, { bookName: '', code: '', writerName: '', other: '' }]);
+    };
+
+    let handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(formValues);
+
+        setFormValues(formValues);
+        setSubmitValues(formValues);
+    };
+
+    const submit = () => {
+        console.log(formValues);
+        setForm(false);
+        setFormValues(formValues);
+        setSubmitValues(formValues);
+    };
+    return (
+        <TempBookListWrapper>
+            <div>
+                <form onSubmit={handleSubmit}>
+                    {/* {!createBookList && ( */}
+                    <div id="booklist-table" className="booklist-table">
+                        <div className="container">
+                            <div className="row  text-white text-center booklist-row">
+                                <div className="col-lg-3 col-md-3 booklist-table-head ">
+                                    <h5 className="left-border text-capitalize">Book Name</h5>
+                                </div>
+                                <div className="col-lg-3 col-md-3 booklist-table-head ">
+                                    <h5 className="left-border text-capitalize">Code</h5>
+                                </div>
+                                <div className="col-lg-3 col-md-3 booklist-table-head ">
+                                    <h5 className="left-border text-capitalize">Writer Name</h5>
+                                </div>
+                                <div className="col-lg-3 col-md-3 booklist-table-head ">
+                                    <h5 className="text-capitalize">Other</h5>
+                                </div>
+                            </div>
+
+                            <div id="main-table">
+                                {form &&
+                                    formValues.map((element, index) => (
+                                        <>
+                                            <div
+                                                id="first-table-row"
+                                                className="row user-input-box">
+                                                <div className="col-lg-3 col-md-3 px-0">
+                                                    <div className="left-border">
+                                                        <input
+                                                            type="text"
+                                                            name="bookName"
+                                                            className="user-input-text"
+                                                            onChange={(e) => handleChange(index, e)}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="col-lg-3 col-md-3 px-0">
+                                                    <div className="left-border">
+                                                        <input
+                                                            type="text"
+                                                            name="code"
+                                                            className="user-input-text"
+                                                            onChange={(e) => handleChange(index, e)}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="col-lg-3 col-md-3 px-0">
+                                                    <div className="left-border">
+                                                        <input
+                                                            type="text"
+                                                            name="writerName"
+                                                            className="user-input-text"
+                                                            onChange={(e) => handleChange(index, e)}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="col-lg-3 col-md-3 px-0">
+                                                    <div>
+                                                        <input
+                                                            type="text"
+                                                            name="other"
+                                                            className="user-input-text"
+                                                            onChange={(e) => handleChange(index, e)}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </>
+                                    ))}
+
+                                {!form &&
+                                    submitValues.map((element, index) => (
+                                        <>
+                                            <div
+                                                id="first-table-row"
+                                                className="row user-input-box">
+                                                <div className="col-lg-3 px-0">
+                                                    <div className="left-border">
+                                                        <input
+                                                            type="text"
+                                                            name="bookName"
+                                                            className="user-input-text"
+                                                            value={
+                                                                element.bookName
+                                                                    ? element.bookName
+                                                                    : 'N/A'
+                                                            }
+                                                            onChange={(e) => handleChange(index, e)}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="col-lg-3 px-0">
+                                                    <div className="left-border">
+                                                        <input
+                                                            type="text"
+                                                            name="code"
+                                                            className="user-input-text"
+                                                            value={
+                                                                element.code ? element.code : 'N/A'
+                                                            }
+                                                            onChange={(e) => handleChange(index, e)}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="col-lg-3 px-0">
+                                                    <div className="left-border">
+                                                        <input
+                                                            type="text"
+                                                            name="writerName"
+                                                            className="user-input-text"
+                                                            value={
+                                                                element.writerName
+                                                                    ? element.writerName
+                                                                    : 'N/A'
+                                                            }
+                                                            onChange={(e) => handleChange(index, e)}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="col-lg-3 px-0">
+                                                    <div>
+                                                        <input
+                                                            type="text"
+                                                            name="other"
+                                                            className="user-input-text"
+                                                            value={
+                                                                element.other
+                                                                    ? element.other
+                                                                    : 'N/A'
+                                                            }
+                                                            onChange={(e) => handleChange(index, e)}
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </>
+                                    ))}
+                            </div>
+                        </div>
+                        <div className="addBtn-group">
+                            {addData && (
+                                <div className='d-flex align-items-center add_more_container'>
+                                    <Image className='add_more_btn_icon' src={addMore}  alt="" />
+                                    <button
+                                        id="addMore-bookList"
+                                        className="addMore-btn"
+                                        type="button"
+                                        onClick={addFormFields}>
+                                        Add More
+                                    </button>
+                                </div>
+                            )}
+
+                            {addData && (
+                                <div id="addServerbuttonInner">
+                                    <div className="d-flex justify-content-end btn-bootom">
+                                        <button
+                                            id="postAddDataBtn"
+                                            className=" mr-3 submit"
+                                            onClick={() => {
+                                                submit();
+                                                setAddData(false);
+                                            }}
+                                            type="submit">
+                                            Add
+                                        </button>
+                                        <button
+                                            id="postCancelDataBtn"
+                                            className="cmnBtn"
+                                            type="button"
+                                            onClick={deleteYes}>
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+
+                            {editDelete && (
+                                <div id="tableButtonbottom">
+                                    <div className="d-flex justify-content-end btn-bootom">
+                                        <button
+                                            id="saveDataBtn"
+                                            className="cmnBtn mr-3"
+                                            onClick={() => {
+                                                submit();
+                                                setEditDelete(false);
+                                            }}>
+                                            Save
+                                        </button>
+                                        <button
+                                            id="cancleEditInput"
+                                            className="cmnBtn"
+                                            onClick={() => {
+                                                setEditDelete(false);
+                                            }}>
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                    {/* )} */}
+                </form>
+
+                <Modal
+                isOpen={modalIsOpen}
+                // onAfterOpen={afterOpenModal}
+                onRequestClose={closeModal}
+                style={customStyles}
+                // contentLabel="Example Modal"
+            >
+                <div className="popup-text" id="delete-booklist-popup">
+                    <h5 className="text-capitalize">Do You Want To Delete This Book List?</h5>
+                    <div className="d-flex justify-content-center btn-bootom">
+                        <button
+                            id="confirmDeleteBtn"
+                            className="cmnBtn mr-4 border-0"
+                            onClick={deleteYes}>
+                            Yes
+                        </button>
+                        <button id="denyBtn" className="cmnBtn" onClick={closeModal}>
+                            No
+                        </button>
+                    </div>
+                </div>
+            </Modal>
+            </div>
+        </TempBookListWrapper>
+    );
+};
+
+export default CreateNewBookList;
+
+const TempBookListWrapper = styled('div')`
+     html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: #fff1f2;
+        font-family: aller, sans-serif;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: black;
+    }
+
+    a {
+        color: black;
+    }
+
+    ul,
+    ol,
+    li {
+        list-style: none;
+    }
+
+    input[type='date']::-webkit-inner-spin-button,
+    input[type='date']::-webkit-calendar-picker-indicator {
+        display: none;
+        -webkit-appearance: none;
+    }
+
+    .down_arrow {
+        background-color: red;
+        color: white;
+        font-size: 22px;
+        position: absolute;
+    }
+
+    /* TOP NAV BAR START */
+
+    /* TOP NAV BAR START */
+
+    /* TOP NAV BAR START */
+
+    .top-nav-bar-section {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        align-items: center;
+        width: 100%;
+        height: 5vw;
+        box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.493);
+        background: white;
+        position: fixed;
+        z-index: 1000;
+    }
+
+    /* TOP NAV LEFT */
+
+    /* TOP NAV LEFT */
+
+    .top-nav-left {
+        display: flex;
+        align-items: center;
+        justify-self: start;
+        justify-content: space-between;
+        width: 12vw;
+        height: 90%;
+        margin-left: 1.5vw;
+        background: white;
+    }
+
+    /* logo */
+
+    .top-nav-left .logo {
+        height: 48%;
+        width: 6.5vw;
+    }
+
+    .top-nav-left .logo img {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* TOP BAR SECOND SECTION */
+
+    .top-navigation-button-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        justify-self: center;
+        height: 90%;
+        width: 28vw;
+        margin-left: 8vw;
+    }
+
+    .top-navigation-button-section .nav-button {
+        height: 3vw;
+        width: 3vw;
+        background: #f9f9f9;
+        border-radius: 100%;
+        padding: 0.7vw;
+        box-shadow: 0px 3px 10px -4px rgba(0, 0, 0, 0.397);
+        transition: 0.2s;
+    }
+
+    .top-navigation-button-section .nav-button:hover {
+        transform: scale(1.015);
+        box-shadow: 0px 3px 10px -3px rgba(0, 0, 0, 0.397);
+    }
+
+    .top-navigation-button-section .nav-button img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .top-navigation-button-section .nav-account {
+        display: flex;
+        align-items: center;
+        height: 57%;
+        width: 10vw;
+        border-radius: 2vw;
+        overflow: hidden;
+        box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.507);
+    }
+
+    .nav-account-image {
+        height: 2.5vw;
+        width: 2.5vw;
+        border-radius: 100%;
+        overflow: hidden;
+        border: 0.05vw solid rgba(255, 0, 0, 0.377);
+    }
+
+    .nav-account-image img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .top-navigation-button-section .nav-account p {
+        font-size: 0.9vw;
+        margin: auto;
+    }
+
+    /* Shadow remover & Filling top start */
+
+    .shadow-remover {
+        display: grid;
+        background: white;
+        position: absolute;
+        box-shadow: 0px 0px 0px -1px transparent;
+        top: 4.1vw;
+        width: 4vw;
+        height: 1.5vw;
+        position: fixed;
+        z-index: 1400;
+        transition: 0.5s;
+    }
+
+    .fill-space-top {
+        background-color: transparent;
+        width: 100%;
+        height: 5vw;
+    }
+
+    /* Shadow remover & Filling top end */
+
+    /* SIDE NAVIGATION START */
+
+    /* SIDE NAVIGATION START */
+
+    /* SIDE NAVIGATION START */
+
+    .vendor-section {
+        background: white;
+        height: 100%;
+        width: 4vw;
+        margin-top: 5vw;
+        box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.432);
+        /* box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.432); */
+        position: fixed;
+        z-index: 1000;
+        overflow: hidden;
+        transition: 0.5s;
+    }
+
+    /* closing Side bar start */
+
+    /* closing Side bar start */
+
+    .vendor-section .vendor-nav-text,
+    .vendor-section .vendor-nav-btn,
+    .vendor-section .vendor-about {
+        display: none !important;
+    }
+
+    .vendor-section:hover .vendor-nav-text,
+    .vendor-section:hover .vendor-nav-btn,
+    .vendor-section:hover .vendor-about {
+        display: grid !important;
+    }
+
+    .vendor-section:hover {
+        width: 20vw;
+    }
+
+    /* closing Side bar end */
+
+    /* closing Side bar end */
+
+    .vendor-section .vendor-about {
+        display: none;
+        min-width: 100%;
+        height: 12vw;
+        z-index: 100;
+        padding-top: 1.8vw;
+        transition: 0.5s;
+    }
+
+    .vendor-about .vendor-image {
+        width: 5.5vw;
+        height: 5.5vw;
+        margin: auto;
+        border-radius: 0.9vw;
+        overflow: hidden;
+        box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.308);
+    }
+
+    .vendor-about .vendor-image img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .vendor-about .vendor-name {
+        display: grid;
+        align-items: center;
+        text-align: center;
+        min-width: 100%;
+        height: 5.5vw;
+        font-size: 1vw;
+        font-family: aller, sans-serif;
+    }
+
+    .vendor-about .vendor-name p {
+        padding: 0vw;
+        margin: 0vw;
+    }
+
+    .vendor-about .vendor-name span {
+        margin-top: -2.4vw;
+        font-size: 0.8vw;
+        font-family: aller, sans-serif;
+    }
+
+    .vendor-section .vendor-navigation {
+        min-width: 100%;
+        height: 35vw;
+        padding: 0.6vw;
+        padding-left: 0vw;
+        padding-top: 0vw;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    /* Scrollbar customization */
+
+    .vendor-navigation::-webkit-scrollbar {
+        width: 0.5vw;
+        background: #fbf6f6;
+    }
+
+    .vendor-navigation::-webkit-scrollbar-thumb {
+        background: #9e9e9e;
+        border-radius: 5vw;
+        border: 0.2vw solid rgba(0, 0, 0, 0);
+    }
+
+    .vendor-navigation::-webkit-scrollbar-button:single-button {
+        background-color: #ffffff;
+        display: block;
+        border-style: solid;
+        height: 1.5vw;
+        width: 1vw;
+    }
+
+    .vendor-navigation::-webkit-scrollbar-button:single-button:vertical:decrement {
+        border-width: 0vw 0.3vw 0.4vw 0.3vw;
+        border-color: transparent transparent #555555 transparent;
+    }
+
+    .vendor-navigation::-webkit-scrollbar-button:single-button:vertical:increment {
+        border-width: 0vw 0.3vw 0.4vw 0 0.3vw;
+        border-color: #555555 transparent transparent transparent;
+    }
+
+    /* Vendor side Navigation Start */
+
+    /* Vendor side Navigation Start */
+
+    /* Vendor side Navigation Start */
+
+    .vendor-nav {
+        display: grid;
+        margin-top: 0.2vw;
+    }
+
+    .vendor-nav-main {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 2.8vw;
+        background: white;
+        margin: auto;
+        border-radius: 0.6vw;
+        padding: 0vw 0.8vw 0vw 0.8vw;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .vendor-nav-main:hover,
+    .vendor-nav-main:hover .vendor-nav-icon svg,
+    .vendor-nav-main:hover .vendor-nav-btn svg {
+        background: #c62333;
+        color: white;
+        fill: white;
+        stroke: white;
+    }
+
+    /* vendor navigation icon */
+
+    .vendor-nav-icon {
+        height: 2.2vw;
+        width: 2.4vw;
+        padding: 0.5vw;
+        pointer-events: none;
+    }
+
+    .vendor-nav-icon svg {
+        fill: #666;
+        height: 1.2vw;
+        width: 1.2vw;
+    }
+
+    .vendor-nav-icon img {
+        height: 100%;
+        width: 100%;
+    }
+
+    /* vendor navigation text */
+
+    .vendor-nav-text {
+        display: grid;
+        align-items: center;
+        padding-left: 0.4vw;
+        height: 2.2vw;
+        width: 12vw;
+        font-size: 1vw;
+        pointer-events: none;
+    }
+
+    /* vendor navigation btn */
+
+    .vendor-nav-btn {
+        height: 2vw;
+        width: 2vw;
+        padding: 0.4vw;
+        pointer-events: none;
+    }
+
+    .vendor-nav-btn svg {
+        stroke: rgb(143, 141, 141);
+        height: 1vw;
+        width: 1vw;
+    }
+
+    .vendor-nav-btn img {
+        height: 100%;
+        width: 100%;
+    }
+
+    /* vendor navigation more data */
+
+    .vendor-nav-more {
+        justify-self: flex-end;
+        padding-top: 0.4vw;
+        width: 75%;
+        height: 0vw;
+        opacity: 0;
+    }
+
+    .vendor-nav-more p {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 10% 90%;
+        width: 100%;
+        height: 1.8vw;
+        margin: 0;
+        font-size: 0.9vw;
+    }
+
+    .vendor-nav-more-icon img {
+        display: none;
+    }
+
+    .vendor-nav-more a:nth-child(1) .vendor-nav-more-icon img {
+        display: grid;
+    }
+
+    .vendor-nav-more a:nth-child(1) .vendor-nav-more-text {
+        color: red;
+    }
+
+    /* Vendor side Navigation End */
+
+    /* Vendor side Navigation End */
+
+    /* Vendor side Navigation End */
+
+    /* TOP NAV BAR END */
+
+    /* TOP NAV BAR END */
+
+    /* TOP NAV BAR END */
+
+    .full-screen-section {
+        display: inline-block;
+        background: #fff1f2;
+        width: calc(100% - 3vw);
+        margin-left: 3vw;
+        transition: 0.5s;
+    }
+
+    .full-screen-section-width-class {
+        margin-left: 19.5vw;
+        width: calc(100% - 19.5vw);
+    }
+
+    /* ========================================================================================================================= */
+
+    /* ============================================start my work (mojnu)================================================================== */
+
+    /* ========================================================================================================================= */
+
+    /*  gorup part start  */
+
+    /*  gorup part start  */
+
+    /*  gorup part start  */
+
+    button:focus {
+        outline: 0px;
+        outline: 0px;
+    }
+
+    .group-part {
+        background: #fff;
+        padding: 65px 20px 160px 50px;
+        border-radius: 30px;
+        /* box-shadow: 0 0 5px #0000008c; */
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        margin: 30px 25px 50px 50px;
+    }
+
+    .group-top-headline {
+        font-size: 32px;
+        margin-bottom: 53px;
+    }
+
+    .group-btn button {
+        color: #666666;
+        font-size: 18px;
+        border: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #d3d3d3;
+        background: transparent;
+        /* padding-right: 30px !important; */
+        position: relative;
+        font-weight: 500;
+        margin-left: -4px;
+        /* background: blue; */
+    }
+
+    .group-btn button h4 {
+        padding: 10px;
+        border-right: 1px solid #d3d3d3;
+        line-height: 10px;
+    }
+
+    .group-btn button:first-child {
+        /* color: #E22222;
+    border-color: #E22222; */
+        margin-left: 0px;
+    }
+
+    .group-btn .button {
+        color: #e22222;
+        border-color: #e22222;
+    }
+
+    .group-btn button:last-child {
+        padding-left: 18px !important;
+    }
+
+    .group-btn .btn-border:after {
+        content: '';
+        position: absolute;
+        right: -2px;
+        top: 7px;
+        width: 2px;
+        height: 23px;
+        background: rgb(34 15 15 / 45%);
+    }
+
+    .group-name {
+        font-size: 36px;
+        margin: 43px 0 22px;
+    }
+
+    .user-input-field {
+        height: 76px;
+        background: #ececec;
+        padding-left: 20px;
+        border: 0;
+        border-radius: 10px;
+        width: 100%;
+        margin-bottom: 35px;
+        width: 470px;
+        font-size: 20px;
+    }
+
+    .user-input-field:focus-visible {
+        outline: none;
+    }
+
+    .checkbox-container {
+        display: block;
+        position: relative;
+        padding-left: 42px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 16px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .checkbox-container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 4px;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        border-radius: 5px;
+        border: 0.5px solid #e22222;
+        background-color: #fff;
+    }
+
+    .checkmark-down {
+        top: -4px;
+    }
+
+    .checkmark:after {
+        content: '';
+        position: absolute;
+        display: none;
+    }
+    .checkbox-container input:checked ~ .checkmark {
+        background-color: #fff;
+        /* box-shadow: 0 0 3px red; */
+    }
+
+    .checkbox-container input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+    .checkbox-container .checkmark:after {
+        left: 2px;
+        top: -4px;
+        width: 23px;
+        height: 26px;
+        background-image: url(../images/svg/Path\ 4781.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .user-submit-btn {
+        border-radius: 10px;
+        background: #e22222;
+        border: 0;
+        font-size: 32px;
+        padding: 1px 55px 20px 55px;
+        height: 50px;
+        margin-top: 35px;
+    }
+
+    /*  create gorup part end  */
+
+    /*  create gorup part end  */
+
+    /*  create gorup part end  */
+
+    /* academic-activities-section start */
+
+    /* academic-activities-section start */
+
+    /* academic-activities-section start */
+
+    #academic-activities-section {
+        padding: 50px 0 70px;
+        margin: 28px 20px 44px 37px;
+        border-radius: 15px;
+        background: #fff;
+        /* display: none; */
+    }
+
+    #academic-activities-section .container {
+        max-width: 1270px;
+    }
+
+    .academic-headline h3 {
+        margin-bottom: 16px;
+    }
+
+    .academic-activities-inner .card-margin {
+        margin: 0 0 30px 0;
+    }
+
+    .activities-box {
+        padding: 33px 0 44px;
+        height: 100%;
+        border: 2px solid transparent;
+        border-radius: 6px;
+        box-shadow: 0 0 2px transparent;
+        transition: all linear 0.2s;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .activities-box h5 {
+        font-size: 24px;
+    }
+
+    .activities-box img {
+        padding-bottom: 18px;
+    }
+
+    .activities-box::after {
+        content: '';
+        position: absolute;
+        left: 31px;
+        bottom: -2px;
+        background: transparent;
+        width: 0%;
+        height: 4px;
+        border-radius: 68px;
+        transition: all linear 0.3s;
+        border-color: #fff;
+        box-shadow: 0 0 8px #00000030;
+    }
+
+    .b::after {
+        content: '';
+        position: absolute;
+        left: 31px;
+        bottom: -2px;
+        background: red;
+        width: 78%;
+        height: 4px;
+        border-radius: 68px;
+        transition: all linear 0.3s;
+    }
+
+    .b {
+        border-color: #fff;
+        box-shadow: 0 0 8px #00000030;
+    }
+
+    /* .activities-box:hover::after {
+    background: #E22424;
+    width: 78%;
+} */
+
+    .activities-box:hover {
+        border-color: #fff;
+        box-shadow: 0 0 8px #00000030;
+    }
+
+    .books-card {
+        background: #ffd4b7;
+    }
+
+    .routine-card {
+        background: #bedadf;
+    }
+
+    .member-card {
+        background: #f6f3ff;
+    }
+
+    .mentor-card {
+        background: #ffe8e8;
+    }
+
+    .meeting-card {
+        background: #d0d8c2;
+    }
+
+    .class-test-card {
+        background: #fff2ef;
+    }
+
+    .attendence-card {
+        background: #fbfbfb;
+    }
+
+    .member-review-card {
+        background: #fff4eb;
+    }
+
+    #created-book-list {
+        /* display: none; */
+    }
+
+    .created-book-list {
+        padding: 72px 0 55px;
+        box-shadow: 0px 0px 12px -3px rgba(194, 185, 185, 0.75);
+        margin-top: 40px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .created-book-list i {
+        font-size: 30px;
+        border: 1px solid #d3d3d3;
+        padding: 15px;
+        color: #d3d3d3;
+    }
+
+    .created-book-list h3 {
+        margin-top: 10px;
+    }
+
+    .item_title {
+        /* font-size: 3vw !important; */
+    }
+
+    /* book list table part start here */
+
+    .booklist-table {
+        /* margin-top: 30px; */
+        width: 90%;
+        /* margin-bottom: 100px; */
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 0 0 40px 0;
+        transform: translate(-1px, -40px);
+    }
+
+    .booklist-row {
+        border-radius: 7px;
+        height: 60px;
+        /* padding-bottom: 20px; */
+        background-color: #da1e37;
+    }
+
+    .booklist-table-head {
+        /* padding: 20px 0; */
+        padding-top: 18px;
+    }
+
+    .left-border {
+        position: relative;
+    }
+
+    .left-border::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 1px;
+        height: 27px;
+        background: #5c8b5c69;
+    }
+
+    .user-input-box {
+        box-shadow: 0 0 4px #66666675;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        border-radius: 7px;
+    }
+
+    .user-input-box input {
+        font-size: 18px;
+        border: 0;
+        height: 60px;
+        background: transparent;
+        padding-left: 20px;
+        text-transform: capitalize;
+        text-align: center;
+        width: 100%;
+    }
+
+    .user-input-box input:focus-visible {
+        outline: 0;
+    }
+
+    .user-input-box .left-border::after {
+        top: 16px;
+    }
+
+    .addBtn-group {
+        padding: 0 25px;
+    }
+
+    .container {
+        max-width: 1170px;
+    }
+
+    .addBtn-group button {
+        font-size: 16px;
+        border: 0;
+        background: #fff;
+        /* padding: 0 10px; */
+        /* width: 80%; */
+        font-size: 20px;
+        transition: all linear 0.2s;
+    }
+
+    .addMore-btn {
+        color: #666666;
+        margin-top: 35px;
+        font-size: 14px;
+    }
+
+    .add_more_container {
+        margin-top: -20px;
+    }
+    
+    .add_more_btn_icon {
+        object-fit: contain;
+        width: 12% !important;
+        position: relative !important;
+        height: 25px !important;
+        /* margin-left: 20px; */
+        margin-top: -49px;
+    }
+
+    /* .addMore-btn img {
+        width: 30px;
+        margin-right: 7px;
+        margin-top: -3px;
+    } */
+
+    .booklist-table {
+        /* display: none; */
+    }
+
+    #booklist-edit {
+        /* display: none; */
+    }
+    #routine-edit {
+        display: none;
+    }
+
+    .user-edit-input {
+        margin: 30px 0 -5px;
+    }
+
+    .user-edit-input i {
+        font-size: 20px;
+        color: #666;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+
+    .tableButtonbottom {
+        display: none;
+    }
+
+    #static-table-value {
+        display: none;
+    }
+
+    /* book list table part end here */
+
+    /* book list table part end here */
+
+    /* book list table part end here */
+
+    /* routine section start  */
+
+    /* routine section start  */
+
+    /* routine section start  */
+
+    .routine-inner .group-btn {
+        text-align: center;
+        margin: 40px 0 45px;
+    }
+
+    .routine-inner .group-btn button {
+        font-size: 22px;
+    }
+
+    .routine-inner .group-btn .btn-border:after {
+        display: none;
+    }
+
+    .routine-inner .group-btn button .activeBtn {
+        color: #e22222;
+        border-color: #e22222;
+    }
+
+    .routine-inner .routine-headline {
+        margin-top: 70px;
+    }
+
+    .routine-inner .user-input-field {
+        height: 65px;
+        margin: 15px 0 30px;
+    }
+
+    .routine-inner .checkbox-container {
+        margin-right: 23px;
+        margin-bottom: 12px;
+        padding-left: 28px;
+        font-size: 14px;
+    }
+
+    .routine-inner .checkmark {
+        margin-top: -3px;
+    }
+
+    .routine-inner .choose-day {
+        margin-bottom: 25px;
+    }
+
+    .chooseday-checkbox {
+        margin-bottom: 40px;
+    }
+
+    /* routine table section start  */
+
+    /* routine table section start  */
+
+    .table-head {
+        margin: 30px 0 15px;
+        font-size: 26px;
+    }
+
+    .routine-table-body-heading {
+        padding: 15px;
+    }
+
+    /* .routine-coloum:last-child {
+    margin-right: 40px;
+} */
+
+    .routine-coloum,
+    #addMore-routine-btn {
+        width: 384px;
+    }
+
+    .routine-col {
+        min-width: 50%;
+    }
+
+    .routine-table-body-section {
+        overflow-x: scroll;
+    }
+
+    .fixed-class-time {
+        width: 325px !important;
+        text-align: center;
+        padding: 20px 0;
+        margin: 0;
+        border-right: 1px solid #d3d3d3;
+        border-bottom: 1px solid #d3d3d3;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        border-left: 0;
+        border-top: 0;
+    }
+
+    .fixed-class-time i {
+        padding-right: 10px;
+    }
+
+    .fixed-class-time-conditional {
+        width: 0;
+        /* width: 325px !important; */
+        text-align: center;
+        padding: 20px 0;
+        margin: 0;
+        border-right: 1px solid #d3d3d3;
+        border-bottom: 1px solid #d3d3d3;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        border-left: 0;
+        border-top: 0;
+    }
+
+    .fixed-class-time-conditional i {
+        padding-right: 10px;
+    }
+
+    .set-routine-input {
+        position: relative;
+    }
+
+    .set-routine-input i {
+        position: absolute;
+        left: 63px;
+        top: 20px;
+    }
+
+    .set-routine-input-conditional {
+        position: relative;
+    }
+
+    .set-routine-input-conditional i {
+        position: absolute;
+        left: 183px;
+        top: 20px;
+    }
+
+    /* Scrollbar customization */
+
+    .routine-table-body-section {
+        overflow-y: auto;
+    }
+
+    .routine-table-body-section::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    .routine-table-body-section::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+    }
+
+    .routine-table-body-section::-webkit-scrollbar-thumb {
+        background: rgb(90, 90, 90);
+        border-radius: 10px;
+    }
+
+    .routine-table-body-section::-webkit-scrollbar-button:single-button {
+        background-color: white;
+        display: block;
+        border-style: solid;
+        height: 1.5vw;
+        width: 1vw;
+    }
+
+    .routine-table-body-section::-webkit-scrollbar-button:single-button:horizontal:decrement {
+        border-width: 5px;
+        border-color: transparent grey transparent transparent;
+    }
+
+    .routine-table-body-section::-webkit-scrollbar-button:single-button:horizontal:increment {
+        border-width: 5px;
+        border-color: transparent transparent transparent grey;
+    }
+
+    /* scrol bar customization  end*/
+
+    .addColoum-margin {
+        margin-right: 40px;
+    }
+
+    .selection-day-col {
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        background: #e22222;
+        border: 0;
+        border-top: 1px solid #666;
+        font-size: 20px;
+        color: #fff;
+    }
+
+    h4.selection-day-col {
+        border-left: 1px solid #e22222;
+        border-top-left-radius: 10px;
+    }
+
+    .addMore-routine-col {
+        border-top-right-radius: 10px;
+    }
+
+    input .selection-day-col {
+        margin-bottom: 7px;
+    }
+
+    .routine-table-body-section ul li:first-child {
+        padding: 0;
+        border: 0;
+    }
+
+    .routine-table-body-section ul li label,
+    .routine-table-body-section ul li .select-time-heading {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border: 1px solid #d3d3d3;
+        border-top: 0;
+    }
+
+    .select-time-heading {
+        padding-left: 69px;
+    }
+
+    .routine-table-body-section ul li {
+        text-align: left;
+    }
+
+    .routine-table-body-section .checkbox-container {
+        margin-right: 0;
+        margin-bottom: 0;
+        text-align: left;
+        padding-left: 70px;
+        padding-right: 33px;
+    }
+
+    .routine-table-body-section .checkmark {
+        top: 24px;
+        left: 33px;
+    }
+
+    input:focus-visible {
+        outline: 0;
+    }
+
+    .routine-table-body-section input {
+        width: 100%;
+    }
+
+    .select-time-input {
+        /* color: white; */
+        width: 110px !important;
+        border: 0;
+        margin: 5px 20px;
+        padding: 3px 5px;
+        padding-right: 0;
+        border-radius: 5px;
+        font-size: 14px;
+        border: 1px solid #e22222;
+    }
+
+    .selection-day-col span {
+        margin-top: 5px;
+    }
+
+    .time-input-container input[type='time']::-webkit-calendar-picker-indicator {
+        background-color: #00f7ff;
+        width: 20px;
+        height: 100%;
+        filter: invert(1);
+    }
+
+    .input-class-subject {
+        height: 62px;
+        padding-left: 20px;
+        border: 0;
+        border-bottom: 1px solid #d3d3d3;
+        border-right: 1px solid #d3d3d3;
+        text-align: center;
+    }
+
+    .time-input-container {
+        padding: 12px 0;
+        border-bottom: 1px solid #d3d3d3;
+        margin-top: -1;
+        border-right: 1px solid #d3d3d3;
+    }
+
+    .time-input-container span {
+        margin-top: 7px;
+    }
+
+    .border-handle {
+        border-left: 1px solid #d3d3d3;
+        border-top-left-radius: 15px;
+    }
+
+    .addMore-btn-input {
+        height: 65px;
+    }
+
+    #addMore-routine-btn {
+        cursor: pointer;
+    }
+
+    .routine-inner .addBtn-group {
+        margin-top: 30px;
+    }
+
+    #routine-top-btn-section,
+    #routine-user-input,
+    #class-routine-table-section,
+    #after-created-routine {
+        /* display: none; */
+    }
+
+    #class-test-routine {
+        position: relative;
+        padding-left: 13px !important;
+    }
+
+    #class-routine,
+    #class-test-routine,
+    #workout-routine,
+    #diet-routine {
+        position: relative;
+        padding-left: 0px !important;
+        padding-right: 5px !important;
+    }
+
+    #workout-routine h4 {
+        border: none;
+    }
+
+    /* #diet-routine::after {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 8px;
+    width: 5px;
+    height: 21px;
+    background: rgb(102 102 102 / 68%);
+}
+
+#diet-routine::before {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    width: 1px;
+    height: 21px;
+    background: rgb(102 102 102 / 68%);
+} */
+
+    #after-created-routine .user-edit-input {
+        margin: 0;
+        margin-right: 8px;
+    }
+
+    .after-created-routine-header {
+        margin-bottom: 25px;
+    }
+
+    .after-created-routine-header span {
+        font-size: 18px;
+    }
+
+    .after-created-routine-header span:last-child {
+        cursor: pointer;
+    }
+
+    .after-created-routine-header span i {
+        color: #666;
+        padding-right: 4px;
+    }
+
+    .after-created-routine-header span:first-child {
+        margin-right: 30px;
+        position: relative;
+    }
+
+    .after-created-routine-header span:first-child::after {
+        content: '';
+        position: absolute;
+        right: -16px;
+        top: 1px;
+        width: 2px;
+        height: 17px;
+        background: #666;
+    }
+
+    /* class routine table section end  */
+
+    /* routine table section end  */
+
+    /* routine section end  */
+
+    /* diet routine start here  */
+
+    /* ======================= 
+diet routine section start
+=====================================*/
+
+    .diet-routine-input {
+        /* display: none; */
+    }
+
+    #diet-routine-section .selectDiet-date {
+        height: 50px;
+        margin-bottom: 29px;
+        width: 215px;
+        padding: 0 14px;
+        border-radius: 5px;
+        border: 1px solid red;
+        padding-left: 51px;
+    }
+
+    .diet-routine-section-table {
+        overflow: auto;
+        height: 400px;
+    }
+
+    .clear {
+        clear: both;
+    }
+
+    .diet-routine-table {
+        width: 200%;
+        text-align: center;
+    }
+
+    .diet-routine-table-head-caption {
+        float: left;
+        width: 11.34%;
+        background: #e22424;
+        padding: 15px 0;
+        text-align: center;
+        color: #fff;
+        border-bottom: 1px solid #00000075;
+    }
+
+    .diet-routine-table-head-caption:first-child {
+        border-top-left-radius: 6px;
+    }
+
+    .last-day {
+        border-top-right-radius: 6px;
+    }
+
+    .diet-routine-table-head-caption:last-child,
+    .diet-routine-table-body-text:last-child {
+        margin-right: 30px;
+    }
+
+    .diet-routine-table-body-text {
+        float: left;
+        width: 11.34%;
+        border-right: 1px solid;
+        border-bottom: 1px solid;
+        border-color: #d5d5d5;
+        height: 113px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .diet-routine-table-body-text:first-child {
+        border-left: 1px solid #d5d5d5;
+    }
+
+    .diet-routine-table-head-caption:nth-child(2),
+    .diet-routine-table-body-text:nth-child(2) {
+        width: 8%;
+    }
+
+    .diet-meals-title {
+        width: 100%;
+        height: 59px;
+        border: 0;
+        padding: 21px;
+        text-align: center;
+    }
+
+    .choose-diet-day {
+        /* padding: 15px; when i = display :block */
+        padding: 29px;
+    }
+
+    .choose-diet-day i {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        color: green;
+        border-radius: 50%;
+        box-shadow: 0 0 4px #00000075;
+        display: none;
+    }
+
+    .diet-select-time {
+        margin: 13px 0 21px;
+        border: 1px solid #e22424;
+        padding: 0px 7px;
+        font-size: 14px;
+    }
+
+    .diet-routine-section-table .addMore-btn {
+        background: transparent;
+        margin-top: 28px;
+        margin-left: 15px;
+    }
+
+    /* scroolbar customization */
+
+    .diet-routine-section-table::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    .diet-routine-section-table::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+    }
+
+    .diet-routine-section-table::-webkit-scrollbar-thumb {
+        background: rgb(90, 90, 90);
+        border-radius: 10px;
+    }
+
+    .diet-routine-section-table::-webkit-scrollbar-button:single-button {
+        background-color: white;
+        display: block;
+        border-style: solid;
+        height: 1.5vw;
+        width: 1vw;
+    }
+
+    .diet-routine-section-table::-webkit-scrollbar-button:single-button:horizontal:decrement {
+        border-width: 5px;
+        border-color: transparent grey transparent transparent;
+    }
+
+    .diet-routine-section-table::-webkit-scrollbar-button:single-button:horizontal:increment {
+        border-width: 5px;
+        border-color: transparent transparent transparent grey;
+    }
+
+    .diet-routine-section-table::-webkit-scrollbar-button:single-button:vertical:decrement {
+        border-width: 0vw 0.3vw 0.4vw 0.3vw;
+        border-color: transparent transparent #555555 transparent;
+    }
+
+    .diet-routine-section-table::-webkit-scrollbar-button:single-button:vertical:increment {
+        border-width: 0vw 0.3vw 0.4vw 0 0.3vw;
+        border-color: #555555 transparent transparent transparent;
+    }
+
+    /* scroll barr customization end */
+
+    .diet-routine-bottom-btn {
+        margin-top: 60px;
+    }
+
+    #diet-rotine-chooseDay-popup {
+        width: 654px;
+        padding: 31px 28px;
+        display: none;
+    }
+
+    #diet-rotine-chooseDay-popup .diet-select-time {
+        margin-left: 50px;
+        margin-top: 0;
+    }
+
+    #diet-rotine-chooseDay-popup .checkbox-container {
+        padding-left: 33px;
+    }
+
+    #diet-rotine-chooseDay-popup .chooseday-checkbox {
+        margin-bottom: 0;
+    }
+
+    .diet-chooseDay-inner {
+        margin: 30px 0 20px;
+    }
+
+    .diet-routine-inner .user-edit-input {
+        margin: 0;
+        margin-right: 42px;
+    }
+
+    .diet-routine-edit-section {
+        margin: 33px 0 38px;
+    }
+
+    #diet-routine-section .calendar {
+        width: 60px;
+        height: 50px;
+        background: red;
+        border-radius: 8px;
+        margin-right: -6px;
+        z-index: 1;
+    }
+
+    #diet-routine-section .calendar img {
+        margin-top: 10px;
+        margin-left: 15px;
+    }
+
+    .select-date-field {
+        position: relative;
+    }
+
+    .left-angel,
+    .right-angel {
+        z-index: 99;
+        position: absolute;
+        top: 10px;
+    }
+
+    .right-angel {
+        right: 18px;
+    }
+
+    .left-angel {
+        left: 17px;
+    }
+
+    #diet-routine-getuserInput .calendar {
+        margin-top: -29px;
+    }
+
+    #diet-routine-getuserInput .choose-day {
+        font-size: 18px;
+        margin-right: 15px;
+        color: #c7c7c7;
+    }
+
+    #diet-routine-getusertInput,
+    #diet-routine-edit-section,
+    #diet-routine-getuserInput,
+    .diet-routine-section-table,
+    #diet-routine-table-btn {
+        /* display: none; */
+    }
+
+    .cmnBtn {
+        color: #fff;
+        width: 160px;
+        height: 45px;
+        /* padding: 15px 20px; */
+        background: #da1e37;
+        border-radius: 5px;
+    }
+
+    #postAddDataBtn {
+        color: #fff;
+        /* width: 160px;
+        height: 45px; */
+        background: #da1e37;
+        padding: 0 45px;
+        border-radius: 5px;
+    }
+    #postCancelDataBtn {
+        color: #da1e37;
+        width: 160px;
+        height: 45px;
+        border: 1px solid #da1e37;
+        border-radius: 5px;
+    }
+
+    .diet-routine-table-body-text .cmnBtn {
+        margin: 7px 0;
+    }
+
+    #diet-routine-table2 {
+        display: none;
+    }
+
+    /* diet routine end here  */
+
+    /* diet routine end here  */
+
+    /* routine section end  */
+
+    /* routine section end  */
+
+    /* member section start here */
+    /* member section start here */
+    /* member section start here */
+
+    #member-listing-section {
+        display: none;
+    }
+
+    .memberSearch__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 40px 0;
+        width: 97.5%;
+    }
+
+    #searchAddSection {
+        /* margin: 100px 0; */
+    }
+
+    .memberSearch__input {
+        flex: 6;
+        background-color: rgb(241, 240, 240);
+        border: none;
+        padding: 10px 30px;
+        border-radius: 8px;
+    }
+
+    #DeleteBtn {
+        /* display: none; */
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+        padding: 8px 12px;
+        border-radius: 4px;
+        display: none;
+    }
+
+    .DeleteBtnMentor {
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+        padding: 8px 12px;
+        border-radius: 4px;
+        display: none;
+    }
+
+    .DeleteBtnMentorShow {
+        display: block;
+    }
+
+    .member__add {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        cursor: pointer;
+        width: 200px;
+        transform: translate(15px, 0);
+    }
+
+    .member__add-text {
+        margin-top: 10%;
+        color: #8f8f8f;
+    }
+
+    .member__add-icon img {
+        height: 55px;
+    }
+
+    .icon-img {
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-radius: 0 8px 8px 0;
+    }
+
+    /* member Option */
+
+    .member__option {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        margin-top: -40px;
+        margin-bottom: 40px;
+        width: 98.1%;
+    }
+
+    .member__option-name {
+        font-size: 18px;
+        color: #fff;
+        width: 98.2%;
+        margin-top: -40px !important;
+        background-color: #da1e37;
+        padding: 10px 0 10px 10px;
+        border-radius: 3px;
+    }
+
+    .member__select-option {
+        flex: 1 1 15%;
+        border: 1px solid red;
+        padding: 8px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    .down_arrow {
+        background-color: red;
+        color: white;
+        font-size: 38px;
+        border-radius: 8px;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    /* member Item start here */
+
+    .member__item {
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        border-radius: 8px;
+        margin: 15px 20px 0 1px;
+        min-height: 75px;
+        box-shadow: 0px 0px 6px 0px rgba(165, 161, 161, 0.49);
+    }
+
+    .mentor__item {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ddd;
+        padding: 0 20px;
+        border-radius: 8px;
+        margin: 10px 0;
+        min-height: 85px;
+
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .member__item__details {
+        flex: 1 1 50%;
+
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+    }
+
+    .member__item__details__personal {
+        margin-top: 10px;
+    }
+
+    .member__item__details-name {
+        font-size: 18px;
+        color: rgb(49, 46, 46);
+    }
+    .dutypedia_name {
+        transform: translate(0, 6px);
+    }
+
+    .member__item__details-id {
+        font-size: 12px;
+        color: rgb(136, 136, 136);
+        font-weight: 500;
+        transform: translate(0, 2px);
+    }
+
+    .member__item__ingredients {
+        flex: 1 1 50%;
+        justify-content: flex-end;
+
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .member__item__ingredients_profile,
+    .member__item__ingredients_message {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #ddd;
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .member__item__ingredients_profile img,
+    .member__item__ingredients_message img {
+        width: 22px;
+        height: 22px;
+    }
+    .member__item__ingredients_message img {
+        margin-top: -3px;
+        margin-left: 3px;
+    }
+
+    .member__item__details img {
+        width: 50px;
+        height: 50px;
+        border-radius: 6px;
+        position: relative;
+    }
+
+    #isOnline {
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        bottom: 7px;
+        left: 44px;
+    }
+
+    .member__item__ingredients_option > * {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        border: 1px solid rgb(163, 163, 163);
+        margin: 5px 0;
+        margin-left: 20px;
+    }
+
+    .member__item__ingredients_option {
+        margin-right: 15px;
+        cursor: pointer;
+    }
+
+    .select__member {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .select__member-text {
+        color: #858585;
+        margin-right: 30px;
+    }
+
+    /* member list offline */
+
+    .member-lists-offline {
+        display: none;
+    }
+
+    /* Add Member Section start here */
+    /* Add Member Section start here */
+    /* Add Member Section start here */
+    .memberSearch__add-btn {
+        border: none;
+        padding: 12px 18px;
+        background-color: red;
+        color: #fff;
+        border-radius: 8px;
+    }
+
+    .memberSearch__add-btn i {
+        margin-right: 5px;
+    }
+
+    .member__item_icon {
+        margin-right: 30px;
+    }
+
+    /* member section end here */
+    /* ================================================================================== */
+    /*      all popup style here */
+    /* =================================================================================== */
+
+    /* pop up for delete row */
+
+    .popup-text {
+        /* background: #fff;
+    border-radius: 10px; */
+        /* text-align: center; */
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.383); */
+        /* padding: 70px 100px; */
+        /* display: none; */
+    }
+    .popup_text {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #delete-booklist-popup h5 {
+        font-size: 22px;
+        color: #e22424;
+        margin-bottom: 35px;
+    }
+
+    #delete-booklist-popup {
+        /* display: none; */
+        width: 585px;
+        padding: 100px 0;
+    }
+
+    #delete-routine-popup {
+        padding: 64px 0;
+        width: 457px;
+    }
+
+    #cancel-routine-popup,
+    #delete-member-popup {
+        padding: 64px 0;
+        width: 457px;
+        display: none;
+    }
+
+    #delete-routine-popup h5,
+    #delete-routine-popup h5,
+    #delete-member-popup h5 {
+        font-size: 17px;
+        color: #666666;
+        margin-bottom: 24px;
+    }
+
+    /* mentor popup */
+
+    .mentor-popup-text {
+        width: 35%;
+        min-height: 40vh;
+        background: #fff;
+        border-radius: 20px;
+        /* text-align: center; */
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.383); */
+        /* padding: 50px 30px; */
+        display: none;
+    }
+    .mentor-popup-tex {
+        width: 35%;
+        min-height: 40vh;
+        background: #fff;
+        border-radius: 20px;
+        text-align: center;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.383);
+        padding: 50px 30px;
+        /* display: none; */
+    }
+
+    .mentor-popup-input-container {
+        text-align: start;
+        position: relative;
+    }
+
+    .mentor-popup-input {
+        border: 1px solid #ddd;
+        padding: 25px 18px;
+        width: 90%;
+        border-radius: 8px;
+    }
+
+    .mentor-selected-popup-input {
+        border: 1px solid #ddd;
+        padding: 25px 18px;
+        min-height: 88px;
+        width: 95%;
+        border-radius: 8px;
+    }
+
+    .mentor-popup-input-search-icon {
+        position: absolute;
+        top: 50%;
+        right: 10%;
+        transform: translate(-50%, -50%);
+    }
+
+    .mentor-popup-greet {
+        text-align: start;
+        font-size: 28px;
+        color: rgb(119, 119, 119);
+        margin-bottom: 20px;
+    }
+
+    .mentor-popup-container {
+        padding: 30px;
+        margin: 20px 0;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.383);
+        border-radius: 14px;
+
+        max-height: 40vh;
+        overflow: scroll;
+    }
+
+    .mentor-item-popup {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin: 10px 0;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.383);
+        padding: 15px;
+        border-radius: 8px;
+        min-height: 89px;
+    }
+
+    .mentor-name-popup {
+        color: rgb(97, 97, 97);
+        font-size: 22px;
+        margin-bottom: 0;
+    }
+
+    .selected {
+        color: red;
+    }
+
+    .mentor-img-popup {
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+    }
+
+    .mentor-popup-img-container {
+        position: relative;
+    }
+
+    .mentor-popup-online {
+        position: absolute;
+        bottom: -10%;
+        right: -10%;
+    }
+
+    .cross-btn {
+        border: 2px solid red;
+        color: red;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+
+        top: -5%;
+        right: -5%;
+        cursor: pointer;
+    }
+
+    /* Selected PopUP Start */
+
+    #selected-mentor {
+        position: absolute;
+        top: 23%;
+        left: 12%;
+        font-size: 14px;
+        transform: translate(-40%, 0%);
+        background-color: rgb(243, 243, 243);
+        padding: 10px;
+        border-radius: 8px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #selected-mentor h4 {
+        margin-bottom: 0;
+    }
+
+    .selected-mentor-btn {
+        position: absolute;
+        border: none;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        color: #fff;
+        border-radius: 50%;
+        top: -14%;
+        right: -8%;
+    }
+
+    .mentor-popup-btn {
+        padding: 50px 0;
+        display: flex;
+        gap: 20px;
+    }
+
+    .popup-add-btn,
+    .popup-cancel-btn {
+        display: inline-block;
+        border: none;
+        padding: 10px 24px;
+        border-radius: 8px;
+    }
+
+    .popup-add-btn {
+        background-color: red;
+        color: #fff;
+    }
+
+    .popup-cancel-btn {
+        border: 1px solid red;
+        color: #000;
+        background-color: #fff;
+    }
+
+    /* @media screen and (max-width: 1268px) {
+    .memberSearch__container {
+        display: unset !important;
+        margin: 40px 0;
+    }
+} */
+
+    @media screen and (min-width: 775px) and (max-width: 892px) {
+        .group_card {
+            height: 200px !important;
+        }
+        .meeting_icon {
+            margin-top: -1px !important;
+        }
+        .attendance_icon {
+            margin-top: -1px !important;
+        }
+        .member_review_icon {
+            margin-top: -20px !important;
+        }
+    }
+
+    @media screen and (max-width: 810px) {
+        #academic-activities-section {
+            margin: 44px 20px 44px 8px !important;
+        }
+        .memberSearch__container {
+            display: unset !important;
+        }
+
+        .member__add {
+            width: 100%;
+            height: 50px;
+            margin-top: 10px;
+            transform: translate(5px, 0);
+        }
+        .member__add-text {
+            margin-top: 3%;
+        }
+        .member__option {
+            margin-top: -5px;
+            width: unset !important;
+            margin-bottom: -15px;
+        }
+        .member__item {
+            margin: 15px 3px 0 1px;
+        }
+        .member__add-icon img {
+            height: 45px;
+        }
+        .select__member-text {
+            margin-right: 10px;
+        }
+        .member__option-name {
+            width: 99.4%;
+            margin-top: -10px !important;
+        }
+    }
+    @media screen and (max-width: 556px) {
+        .routine_item {
+            margin-top: 17px;
+        }
+        .meeting_item {
+            margin-top: -11px;
+            margin-bottom: 17px;
+        }
+    }
+
+    @media screen and (max-width: 476px) {
+        .member__item__ingredients_profile img,
+        .member__item__ingredients_message img {
+            width: 18px;
+            height: 18px;
+        }
+        .member__item__ingredients_profile,
+        .member__item__ingredients_message {
+            width: 35px;
+            height: 35px;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        .member__item__details {
+            margin-left: -12px;
+        }
+        .member__item__details__personal {
+            margin-left: -7px;
+        }
+        .member__item__ingredients_profile img,
+        .member__item__ingredients_message img {
+            width: 16px;
+            height: 16px;
+        }
+        .member__item__ingredients_profile,
+        .member__item__ingredients_message {
+            width: 32px;
+            height: 32px;
+        }
+        .member__item__details-name {
+            font-size: 16px;
+        }
+    }
+    @media screen and (max-width: 350px) {
+        #isOnline {
+            bottom: 8px;
+            left: 36px;
+        }
+        .member__option-name {
+            font-size: 4.5vw;
+        }
+    }
+`;
