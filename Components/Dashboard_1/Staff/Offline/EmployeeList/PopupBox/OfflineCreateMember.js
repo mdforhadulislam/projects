@@ -11,10 +11,8 @@ import {
     offline_user_salary_date_every_day,
     offline_user_salary_date_every_month,
     offline_user_salary_date_every_week,
-    offline_user_salary_status_set_due,
-    offline_user_salary_status_set_upcoming,
     offline_user_salary_type
-} from '../../../../../../Redux/Dashboard_1/Action/Staff/Offline/index';
+} from '../../../../../../Redux/Dashboard_1/Action/Offline/index';
 import {
     JoiningDate,
     Position,
@@ -44,7 +42,7 @@ function OfflineCreateMember({
         permanentAddress,
         position_and_joining_date: { user_position, user_joining_date },
         offline_user_salary_system: user_salary_system
-    } = useSelector((state) => state.offline);
+    } = useSelector((state) => state.offline.employeeListReducers);
 
     const allofflineuser = useSelector((state) => state.offlineUser.offline_user);
 
@@ -76,10 +74,7 @@ function OfflineCreateMember({
                 salary_every_day: user_salary_system.user_salary_date_every_day,
                 salary_every_week: user_salary_system.user_salary_date_every_week,
                 salary_every_month: user_salary_system.user_salary_date_every_month,
-                no_salary_system: user_salary_system.user_no_salary_system,
-                salary_status_upcoming: user_salary_system.user_salary_status_upcoming,
-                salary_status_due: user_salary_system.user_salary_status_due,
-                salary_status_paid: user_salary_system.user_salary_status_paid
+                no_salary_system: user_salary_system.user_no_salary_system
             }
         };
         if (
@@ -97,12 +92,12 @@ function OfflineCreateMember({
 
     const customStyles = {
         content: {
-            top: '60%',
+            top: '56%',
             left: '50%',
             right: 'auto',
             bottom: 'auto',
             marginRight: '-50%',
-            transform: 'translate(-50%, -60%)',
+            transform: 'translate(-50%, -50%)',
             border: 'none',
             overflow: 'none',
             padding: '0',
@@ -112,7 +107,7 @@ function OfflineCreateMember({
 
     const dispatch = useDispatch();
     const { position_and_joining_date, offline_user_salary_system } = useSelector(
-        (state) => state.offline
+        (state) => state.offline.employeeListReducers
     );
     let [renderSalaryReletedBox, setRenderSalaryReletedBox] = useState(true);
 
@@ -126,7 +121,7 @@ function OfflineCreateMember({
                         setOfflineCreateMemberPopup(false);
                         setOfflineAddMemberInformationPopup(true);
                     }}>
-                    <ArrowBackIcon />
+                        <ArrowBackIcon />
                     Back
                 </div>
 
@@ -161,31 +156,25 @@ function OfflineCreateMember({
                         <div className={StyleSheet.offline__add__member__container__row__three}>
                             {offline_user_salary_system.user_salary_type === 'daily' && (
                                 <SalaryDateEveryDay
-                                    actions={(value) => {
-                                        dispatch(offline_user_salary_date_every_day(value));
-                                        dispatch(offline_user_salary_status_set_upcoming());
-                                        dispatch(offline_user_salary_status_set_due());
-                                    }}
+                                    actions={(value) =>
+                                        dispatch(offline_user_salary_date_every_day(value))
+                                    }
                                     value={offline_user_salary_system.user_salary_date_every_day}
                                 />
                             )}
                             {offline_user_salary_system.user_salary_type === 'weekly' && (
                                 <SalaryDateEveryWeek
-                                    actions={(value) => {
-                                        dispatch(offline_user_salary_date_every_week(value));
-                                        dispatch(offline_user_salary_status_set_upcoming());
-                                        dispatch(offline_user_salary_status_set_due());
-                                    }}
+                                    actions={(value) =>
+                                        dispatch(offline_user_salary_date_every_week(value))
+                                    }
                                     value={offline_user_salary_system.user_salary_date_every_week}
                                 />
                             )}
                             {offline_user_salary_system.user_salary_type === 'monthly' && (
                                 <SalaryDateEveryMonth
-                                    actions={(value) => {
-                                        dispatch(offline_user_salary_date_every_month(value));
-                                        dispatch(offline_user_salary_status_set_upcoming());
-                                        dispatch(offline_user_salary_status_set_due());
-                                    }}
+                                    actions={(value) =>
+                                        dispatch(offline_user_salary_date_every_month(value))
+                                    }
                                     value={offline_user_salary_system.user_salary_date_every_month}
                                 />
                             )}

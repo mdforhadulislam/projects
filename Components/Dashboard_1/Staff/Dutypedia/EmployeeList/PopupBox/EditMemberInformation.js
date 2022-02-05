@@ -20,7 +20,7 @@ import {
     user_staff_edit,
     user_uploading_file_delete_edit,
     user_uploading_file_edit
-} from '../../../../../../Redux/Dashboard_1/Action/Staff/Dutypedia/editHeandeler';
+} from '../../../../../../Redux/Dashboard_1/Action/Dutypedia/editHeandeler';
 import Address from '../../../../../../Utilities/Address';
 import UploadingFile from '../../../../../../Utilities/UploadingFile';
 import {

@@ -63,7 +63,7 @@
 .offline__add__member__container__row__four .create__employee__body__container__no__money {
     width: 100%;
     height: auto;
-    padding: 0.5vw 0vw 0vw 0vw;
+    padding: 1.5vw 0vw 0vw 0vw;
 }
 .offline__add__member__container__row__four
     .create__employee__body__container__no__money
@@ -146,7 +146,7 @@
 .offline__add__member__container__button {
     width: 100%;
     height: auto;
-    padding: 0.5vw 0vw 0vw 0vw;
+    padding: 2vw 0vw 0vw 0vw;
     display: flex;
 }
 .offline__add__member__container__button__save__btn {

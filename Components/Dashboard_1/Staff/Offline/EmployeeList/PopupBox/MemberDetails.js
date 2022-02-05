@@ -4,42 +4,41 @@ import backIcon from '../../../../../../Assets/images/dashboard/ArrowBackIcon.sv
 import PrintIcon from '../../../../../../Assets/images/dashboard/printer.svg';
 import StyleSheet from '../PopupBoxStyle/MemberDetails.module.css';
 
+
 export default function MemberDetails({
     userData,
     setViewMemberDetails,
     setViewMemberAllInformation
 }) {
     const printHendeler = (e) => {
-        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].style.display =
+        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].style.display =
             'none';
-        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[1].style.display =
+        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[1].style.display =
             'none';
-        // e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[2].style.display =
-        //     'none';
-        // e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[3].style.display =
-        //     'none';
-        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[2].style.marginLeft =
-            '-3.5vw';
+        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[2].style.display =
+            'none';
+        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[3].style.display =
+            'none';
+        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[4].style.marginLeft =
+            '-2vw';
         window.print();
-        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].style.display =
+        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].style.display =
             'grid';
-        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[1].style.display =
+        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[1].style.display =
             'block';
-        // e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[2].style.display =
-        //     'block';
-        // e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[3].style.display =
-        //     'block';
-        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[2].style.marginLeft =
-            '0vw';
+        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[2].style.display =
+            'block';
+        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[3].style.display =
+            'block';
+        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[4].style.marginLeft =
+            '0';
     };
 
     return (
         <div className={StyleSheet.member__details__container} id="printme">
             <div className={StyleSheet.member__details__container__main}>
                 <div className={StyleSheet.member__details__container__main__back__button}>
-                    <Image
-                        width={'100%'}
-                        height={'100%'}
+                    <Image width={"100%"} height={"100%"}
                         onClick={() => {
                             setViewMemberDetails(false);
                         }}
@@ -50,12 +49,7 @@ export default function MemberDetails({
 
                 <div className={StyleSheet.member__details__container__main__header}>
                     <div className={StyleSheet.member__details__container__main__header__left}>
-                        <Image
-                            width={'100%'}
-                            height={'100%'}
-                            src={userData.user_image}
-                            alt={userData.name}
-                        />
+                        <Image width={"100%"} height={"100%"} src={userData.user_image} alt={userData.name} />
                     </div>
 
                     <div className={StyleSheet.member__details__container__main__header__right}>
@@ -108,13 +102,7 @@ export default function MemberDetails({
                             className={
                                 StyleSheet.member__details__container__main__header__right__print__btn
                             }>
-                            <Image
-                                width={'100%'}
-                                height={'100%'}
-                                onClick={printHendeler}
-                                src={PrintIcon}
-                                alt="PrintIcon"
-                            />
+                            <Image width={"100%"} height={"100%"} onClick={printHendeler} src={PrintIcon} alt="PrintIcon" />
                         </div>
                     </div>
                 </div>

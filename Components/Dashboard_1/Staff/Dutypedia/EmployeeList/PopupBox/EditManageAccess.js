@@ -13,13 +13,13 @@ import {
     user_notice_access_edit,
     user_order_access_edit,
     user_staff_partner_access_edit
-} from '../../../../../../Redux/Dashboard_1/Action/Staff/Dutypedia/editHeandeler';
+} from '../../../../../../Redux/Dashboard_1/Action/Dutypedia/editHeandeler';
 import { CheckBox } from '../../../../../../Utilities/Utilites';
 import StyleSheet from '../PopupBoxStyle/EditManageAccess.module.css';
 
 Modal.setAppElement('#__next');
 
-function EditManageAccess({ userData, setRenderManageAccess, renderManageAccess }) {
+export default function EditManageAccess({ userData, setRenderManageAccess, renderManageAccess }) {
     const dispatch = useDispatch();
     const customStyles = {
         content: {
@@ -228,6 +228,7 @@ function EditManageAccess({ userData, setRenderManageAccess, renderManageAccess 
                                     );
                                 }}
                             />
+                            {console.log(userData.accessFunctionality)}
 
                             <CheckBox
                                 name="companyHoliday"
@@ -260,5 +261,3 @@ function EditManageAccess({ userData, setRenderManageAccess, renderManageAccess 
         </Modal>
     );
 }
-
-export default EditManageAccess;

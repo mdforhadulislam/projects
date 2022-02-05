@@ -89,6 +89,10 @@ const NewInputDateBox = ({ startDate, setStartDate }) => {
 export default NewInputDateBox;
 const DateMainBox = styled('div')`
     position: relative;
+    input {
+        border: 1px solid red;
+        border-radius: 8px;
+    }
 `;
 const DateIcon = styled('div')`
     position: absolute;
@@ -97,7 +101,7 @@ const DateIcon = styled('div')`
     align-items: center;
     height: 4rem;
     width: 4rem;
-    right: 50% !important;
+    right: 0% !important;
     top: 0%;
     pointer-events: none;
     z-index: 0;

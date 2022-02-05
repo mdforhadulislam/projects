@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Wrapper } from '../../../../../styles/attendenceWrapper';
+import { Wrapper } from '../../../../../styles/AttendenceWrapper';
 import calender from '/Assets/icon/calendar-line.svg';
 import Image from 'next/image';
 import Link from 'next/link';

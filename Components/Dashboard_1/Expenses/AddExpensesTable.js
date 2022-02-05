@@ -10,7 +10,7 @@ import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import InputNumberBoxEdit from '../../Common/InputNumberBox/InputNumberBoxEdit';
 import { useRouter } from 'next/router';
-import NewInputDateBox from '../../Common/InputDateBox/newInputDateBox';
+import NewInputDateBox from '../../Common/InputDateBox/NewInputDateBox';
 
 import {
     removeFromExpenses,

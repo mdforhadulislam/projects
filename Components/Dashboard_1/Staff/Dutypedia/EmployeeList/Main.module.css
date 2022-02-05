@@ -46,3 +46,200 @@
     height: auto;
     padding: 0.5vw 0vw 0vw 0vw;
 }
+
+/* header  */
+.employee__container .employee__container__header {
+    width: 100%;
+    height: 3vw;
+    margin: 0vw 0vw 1.4vw 0vw;
+    background: #da1e37;
+    color: white;
+    border-radius: 0.4vw;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.employee__container .employee__container__header ul {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+
+.employee__container .employee__container__header ul li {
+    text-align: center;
+    font-size: 1.1vw;
+}
+
+.employee__container .employee__container__header ul li:nth-child(1) {
+    width: 23vw;
+}
+.employee__container .employee__container__header ul li:nth-child(2) {
+    width: 10.5vw;
+}
+.employee__container .employee__container__header ul li:nth-child(3) {
+    width: 7.5vw;
+}
+.employee__container .employee__container__header ul li:nth-child(4) {
+    width: 10vw;
+}
+.employee__container .employee__container__header ul li:nth-child(5) {
+    width: 11.8vw;
+}
+.employee__container .employee__container__header ul li:nth-child(6) {
+    width: 7vw;
+}
+.employee__container .employee__container__header ul li:nth-child(7) {
+    width: 13vw;
+}
+/* body  */
+.employee__container .employee__container__body {
+    width: 100%;
+    height: auto;
+}
+
+.employee__container .employee__container__body .employee__container__body__employee__container {
+    width: 100%;
+    height: auto;
+    padding: 0.5vw;
+    border-radius: 0.35vw;
+    box-shadow: 0vw 0vw 0.5vw 0vw rgb(0 0 0 / 15%);
+    margin: 0vw 0vw 1vw 0vw;
+}
+
+.employee__container__body__employee__container__box {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-size: 1vw;
+}
+
+.employee__container__body__employee__container__box__row {
+    width: 0.05vw;
+    height: 2.5vw;
+    background-color: #bcbcbc;
+    margin: 0vw 0.5vw;
+}
+
+/* employee name and image  */
+.employee__container__body__employee__container__box__image__and__name {
+    width: 22vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+
+.employee__container__body__employee__container__box__image__and__name__image {
+    width: 5.5vw;
+    height: 4.4vw;
+    display: inline-block;
+    position: relative;
+}
+
+.employee__container__body__employee__container__box__image__and__name__image span {
+    width: 4.4vw;
+    height: 4.1vw;
+    display: inline-block;
+    border-radius: 0.25vw;
+}
+
+.employee__container__body__employee__container__box__image__and__name__image svg {
+    width: 1.5vw;
+    height: 1.5vw;
+    position: absolute;
+    top: 66%;
+    right: 10%;
+}
+
+.employee__container__body__employee__container__box__image__and__name__name {
+    font-size: 1.2vw;
+    font-weight: 500;
+}
+
+.employee__container__body__employee__container__box__position {
+    width: 10vw;
+    text-align: center;
+    padding: 0vw 0.5vw;
+}
+.employee__container__body__employee__container__box__gender {
+    width: 6vw;
+    height: auto;
+    text-align: center;
+}
+
+.employee__container__body__employee__container__box__mobile__no {
+    width: 10vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.employee__container__body__employee__container__box__email {
+    width: 11vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.employee__container__body__employee__container__box__joining__date {
+    width: 6vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.employee__container__body__employee__container__box__salary__date {
+    width: 13vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.employee__container__body__employee__container__box__option__icon {
+    width: 1vw;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.employee__container__body__employee__container__box__option__icon img {
+    width: 0.48vw;
+    height: auto;
+    cursor: pointer;
+}
+
+.employee__container__body__employee__container__box__option__popup {
+    width: 11vw;
+    height: auto;
+    background-color: white;
+    position: absolute;
+    top: -20%;
+    right: 200%;
+    box-shadow: 0vw 0vw 0.5vw 0vw rgb(0 0 0 / 15%);
+    border-radius: 0.45vw;
+}
+.employee__container__body__employee__container__box__option__popup ul {
+    list-style: none;
+    font-size: 1.15vw;
+}
+.employee__container__body__employee__container__box__option__popup li {
+    padding: 0.6vw 0.8vw 0.4vw 0.8vw;
+    cursor: pointer;
+    border-radius: 0.4vw;
+}
+.employee__container__body__employee__container__box__option__popup li:hover {
+    background-color: #da1e37;
+    color: white;
+    padding: 0.6vw 0.8vw 0.4vw 0.8vw;
+    border-radius: 0.4vw;
+    cursor: pointer;
+}
+
+/* employee box style end  */
+/* employee box style end  */
+/* employee box style end  */

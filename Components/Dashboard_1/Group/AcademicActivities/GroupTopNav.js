@@ -23,7 +23,7 @@ const GroupTopNav = ({ setCreate, create, handleMember }) => {
                         <div className="row card-margin">
                             <div className="col-xxl-3 col-md-3 col-sm-6">
                                 <Link href="/dashboard_1/groups/groupcard/bookList">
-                                    {/* <a> */}
+                                    <a>
                                         <div
                                             id="book-list"
                                             className={`activities-box books-card text-center ${
@@ -39,12 +39,12 @@ const GroupTopNav = ({ setCreate, create, handleMember }) => {
                                             />
                                             <h5 className="item_title">Book List</h5>
                                         </div>
-                                    {/* </a> */}
+                                    </a>
                                 </Link>
                             </div>
                             <div className="col-xxl-3 col-md-3 col-sm-6 routine_item">
                                 <Link href="/dashboard_1/groups/groupcard/routine">
-                                    {/* <a> */}
+                                    <a>
                                         <div
                                             className={`activities-box routine-card text-center ${
                                                 create === 'routine' && 'b'
@@ -55,12 +55,12 @@ const GroupTopNav = ({ setCreate, create, handleMember }) => {
                                             <Image src={schedule} alt="books" />
                                             <h5>Routine</h5>
                                         </div>
-                                    {/* </a> */}
+                                    </a>
                                 </Link>
                             </div>
                             <div className="col-xxl-3 col-md-3 col-sm-6 mt-md-0 mt-3">
                                 <Link href="/dashboard_1/groups/groupcard/member">
-                                    {/* <a> */}
+                                    <a>
                                         <div
                                             id="Member-list"
                                             className={`activities-box member-card text-center ${
@@ -70,12 +70,12 @@ const GroupTopNav = ({ setCreate, create, handleMember }) => {
                                             <Image src={member} alt="books" />
                                             <h5>Member</h5>
                                         </div>
-                                    {/* </a> */}
+                                    </a>
                                 </Link>
                             </div>
                             <div className="col-xxl-3 col-md-3 col-sm-6 mt-md-0 mt-3">
                                 <Link href="/dashboard_1/groups/groupcard/mentor">
-                                    {/* <a> */}
+                                    <a>
                                         <div
                                             className={`activities-box mentor-card text-center ${
                                                 create === 'mentor' && 'b'
@@ -86,14 +86,14 @@ const GroupTopNav = ({ setCreate, create, handleMember }) => {
                                             <Image src={mentor} alt="books" />
                                             <h5>Mentor</h5>
                                         </div>
-                                    {/* </a> */}
+                                    </a>
                                 </Link>
                             </div>
                         </div>
                         <div className="row card-margin">
                             <div className="col-xxl-3 col-md-3 col-sm-6 meeting_item">
                                 <Link href="/dashboard_1/groups/groupcard/meeting">
-                                    {/* <a> */}
+                                    <a>
                                         <div
                                             className={`activities-box meeting-card group_card text-center ${
                                                 create === 'meeting' && 'b'
@@ -108,12 +108,12 @@ const GroupTopNav = ({ setCreate, create, handleMember }) => {
                                             />
                                             <h5>Meeting</h5>
                                         </div>
-                                    {/* </a> */}
+                                    </a>
                                 </Link>
                             </div>
                             <div className="col-xxl-3 col-md-3 col-sm-6">
                                 <Link href="/dashboard_1/groups/groupcard/attendance">
-                                    {/* <a> */}
+                                    <a>
                                         <div
                                             className={`activities-box attendence-card group_card text-center ${
                                                 create === 'attendence' && 'b'
@@ -128,12 +128,12 @@ const GroupTopNav = ({ setCreate, create, handleMember }) => {
                                             />
                                             <h5>Attendance </h5>
                                         </div>
-                                    {/* </a> */}
+                                    </a>
                                 </Link>
                             </div>
                             <div className="col-xxl-3 col-md-3 col-sm-6 mt-md-0 mt-3">
                                 <Link href="/dashboard_1/groups/groupcard/memberReview">
-                                    {/* <a> */}
+                                    <a>
                                         <div
                                             className={`activities-box member-review-card group_card text-center ${
                                                 create === 'memberReview' && 'b'
@@ -148,7 +148,7 @@ const GroupTopNav = ({ setCreate, create, handleMember }) => {
                                             />
                                             <h5>Member Review</h5>
                                         </div>
-                                    {/* </a> */}
+                                    </a>
                                 </Link>
                             </div>
                         </div>
@@ -161,15 +161,6 @@ const GroupTopNav = ({ setCreate, create, handleMember }) => {
 
 export default GroupTopNav;
 const TopSection = styled('div')`
-#academic-activities-section {
-    padding: 50px 0 70px;
-    margin: 28px 20px 44px  85px;
-    /* border-radius: 15px; */
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    background: #fff;
-    /* display: none; */
-}
     #academic-activities-section .container {
         max-width: 1270px;
     }
@@ -180,9 +171,6 @@ const TopSection = styled('div')`
 
     .academic-activities-inner .card-margin {
         margin-bottom: 30px;
-    }
-    .card-margin a {
-        text-decoration: none;
     }
 
     .activities-box {
@@ -408,37 +396,5 @@ const TopSection = styled('div')`
 
     #static-table-value {
         display: none;
-    }
-
-    // responsive start here
-
-    @media screen and (min-width: 775px) and (max-width: 892px) {
-        .group_card {
-            height: 200px !important;
-        }
-        .meeting_icon {
-            margin-top: -1px !important;
-        }
-        .attendance_icon {
-            margin-top: -1px !important;
-        }
-        .member_review_icon {
-            margin-top: -20px !important;
-        }
-    }
-
-    @media screen and (max-width: 810px) {
-        #academic-activities-section {
-            margin: 44px 15px 44px  15px !important;
-        }
-    
-    @media screen and (max-width: 576px) {
-        .routine_item {
-            margin-top: 17px;
-        }
-        .meeting_item {
-            margin-top: -11px;
-            margin-bottom: 17px;
-        }
     }
 `;

@@ -11,9 +11,10 @@ import {
     user_last_name,
     user_middle_name,
     user_mobile_no
-} from '../../../../../../Redux/Dashboard_1/Action/Staff/Dutypedia/index';
+} from '../../../../../../Redux/Dashboard_1/Action/Dutypedia/index';
 import UserData from '../../../UserData.json';
 import StyleSheet from '../PopupBoxStyle/AddMemberInformationHeader.module.css';
+
 
 function AddMemberInformationHeader({ setHiddenPopupFrom }) {
     let [clickBox, setClickBox] = useState(false);
@@ -94,13 +95,8 @@ function SearchOutput({ searchValue, setHiddenPopupFrom, pickData, setPickData }
                                   className={StyleSheet.user__about__main}>
                                   <div className={StyleSheet.user__about__container}>
                                       <div className={StyleSheet.user__about__container__image}>
-                                          <Image
-                                              width={'82%'}
-                                              height={'82%'}
-                                              src={user.image}
-                                              alt={user.name}
-                                          />
-                                          <DutyPreIcon />
+                                          <Image width={"82%"} height={"82%"} src={user.image} alt={user.name} />
+                                          <DutyPreIcon/>
                                       </div>
                                       <div className={StyleSheet.user__about__container__name__id}>
                                           <div

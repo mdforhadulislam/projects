@@ -1,158 +1,156 @@
 .offline__add__member__information {
-    width: 100%;
-    min-height: 100%;
-    position: absolute;
-    padding: 3vw 0vw;
-    top: 0;
-    left: 0;
-    background: rgba(255, 255, 255, 0.5);
-    -webkit-backdrop-filter: blur(0.5vw);
-    backdrop-filter: blur(0.5vw);
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  padding: 3vw 0vw;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(0.5vw);
+  backdrop-filter: blur(0.5vw);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 .offline__add__member__information__container {
-    width: 38vw;
-    height: auto;
-    background: white;
-    padding: 2.5vw;
-    box-shadow: 0vw 0vw 0.5vw 0vw rgb(0 0 0 / 15%);
-    border-radius: 1vw;
-    position: relative;
+  width: 38vw;
+  height: auto;
+  background: white;
+  padding: 2.5vw;
+  box-shadow: 0vw 0vw 0.5vw 0vw rgb(0 0 0 / 15%);
+  border-radius: 1vw;
+  position: relative;
 }
 
 .offline__add__member__information__container__profile__container {
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0vw 0vw 1.5vw 0vw;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0vw 0vw 1.5vw 0vw;
 }
 
 .offline__add__member__information__container__row__one {
-    width: 100%;
-    height: auto;
-    padding: 0vw 0vw 0.8vw 0vw;
+  width: 100%;
+  height: auto;
+  padding: 0vw 0vw 0.8vw 0vw;
 }
 .offline__add__member__information__container__row__one__title {
-    font-size: 1.3vw;
+  font-size: 1.3vw;
 }
 .offline__add__member__information__container__row__one__checkBox {
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 .offline__add__member__information__container__row__two {
-    width: 100%;
-    height: auto;
-    padding-bottom: 0.8vw;
+  width: 100%;
+  height: auto;
+  padding-bottom: 0.8vw;
 }
 .offline__add__member__information__container__row__three {
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    padding: 0vw 0vw 0.5vw 0vw;
-    justify-content: space-between;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  padding: 0vw 0vw 0.5vw 0vw;
+  justify-content: space-between;
 }
 .offline__add__member__information__container__row__four {
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    padding: 0vw 0vw 0.5vw 0vw;
-    justify-content: space-between;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  padding: 0vw 0vw 0.5vw 0vw;
+  justify-content: space-between;
 }
 .offline__add__member__information__container__row__five {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 
-    padding: 0vw 0vw 0.5vw 0vw;
+  padding: 0vw 0vw 0.5vw 0vw;
 }
 
 .offline__add__member__information__container__row__six {
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .offline__add__member__information__container__row__six__left {
-    width: 58%;
+  width: 58%;
 }
 .offline__add__member__information__container__row__six__right {
-    margin-top: 1.9vw;
-    font-size: 1.2vw;
+  margin-top: 1.8vw;
 }
 
 .offline__add__member__information__container__row__seven {
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .offline__add__member__information__container__row__seven__left {
-    width: 58%;
+  width: 58%;
 }
 .offline__add__member__information__container__row__seven__right {
-    margin-top: 1.9vw;
-    font-size: 1.2vw;
+  margin-top: 1.8vw;
 }
 
 .offline__add__member__information__container__row__eight {
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    padding: 0vw 0vw 0.5vw 0vw;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  padding: 0vw 0vw 0.5vw 0vw;
 }
 .offline__add__member__information__container__row__nine {
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    padding: 0vw 0vw 0.5vw 0vw;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  padding: 0vw 0vw 0.5vw 0vw;
 }
 .offline__add__member__information__container__row__ten {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 
-    padding: 0vw 0vw 0.5vw 0vw;
+  padding: 0vw 0vw 0.5vw 0vw;
 }
 
 .offline__add__member__information__container__row__eleven {
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    padding: 0vw 0vw 0.5vw 0vw;
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  padding: 0vw 0vw 0.5vw 0vw;
 }
 .offline__add__member__information__container__row__eleven__next__btn {
-    width: 12vw;
-    height: auto;
-    padding: 0.8vw;
-    font-size: 1.1vw;
-    border-radius: 0.3vw;
-    border: none;
-    background: #da1e37;
-    color: white;
-    margin: 0vw 0.7vw 0vw 0vw;
-    cursor: pointer;
+  width: 12vw;
+  height: auto;
+  padding: 0.8vw;
+  font-size: 1.1vw;
+  border-radius: 0.3vw;
+  border: none;
+  background: #da1e37;
+  color: white;
+  margin: 0vw 0.7vw 0vw 0vw;
+  cursor: pointer;
 }
 .offline__add__member__information__container__row__eleven__cancel__btn {
-    width: 12vw;
-    height: auto;
-    padding: 0.6vw;
-    font-size: 1.1vw;
-    border-radius: 0.3vw;
-    border: 0.1vw solid #da1e37;
-    background: white;
-    color: #da1e37;
-    margin: 0vw vw 0vw 0.7vw;
-    cursor: pointer;
+  width: 12vw;
+  height: auto;
+  padding: 0.6vw;
+  font-size: 1.1vw;
+  border-radius: 0.3vw;
+  border: 0.1vw solid #da1e37;
+  background: white;
+  color: #da1e37;
+  margin: 0vw vw 0vw 0.7vw;
+  cursor: pointer;
 }

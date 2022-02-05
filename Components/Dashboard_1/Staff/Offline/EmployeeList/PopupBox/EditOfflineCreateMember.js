@@ -10,10 +10,8 @@ import {
     edit_offline_user_salary_date_every_day,
     edit_offline_user_salary_date_every_month,
     edit_offline_user_salary_date_every_week,
-    edit_offline_user_salary_status_set_due,
-    edit_offline_user_salary_status_set_upcoming,
     edit_offline_user_salary_type
-} from '../../../../../../Redux/Dashboard_1/Action/Staff/Offline/offlineEditHendeler';
+} from '../../../../../../Redux/Dashboard_1/Action/Offline/offlineEditHendeler';
 import {
     JoiningDate,
     Position,
@@ -35,12 +33,12 @@ export default function EditOfflineCreateMember({
 
     const customStyles = {
         content: {
-            top: '60%',
+            top: '56%',
             left: '50%',
             right: 'auto',
             bottom: 'auto',
             marginRight: '-50%',
-            transform: 'translate(-50%, -60%)',
+            transform: 'translate(-50%, -51%)',
             border: 'none',
             overflow: 'none',
             padding: '0',
@@ -63,7 +61,7 @@ export default function EditOfflineCreateMember({
                         setEditCreateMember(false);
                         setEditMemberInformation(true);
                     }}>
-                    <ArrowBackIcon />
+                        <ArrowBackIcon />
                     Back
                 </div>
 
@@ -107,6 +105,7 @@ export default function EditOfflineCreateMember({
                                 }}
                             />
                         </div>
+                        {console.log(user.user_salary)}
                         <div
                             className={
                                 StyleSheet.edit__offline__create__member__container__row__three
@@ -118,16 +117,6 @@ export default function EditOfflineCreateMember({
                                             edit_offline_user_salary_date_every_day({
                                                 id: user.user_id,
                                                 value
-                                            })
-                                        );
-                                        dispatch(
-                                            edit_offline_user_salary_status_set_upcoming({
-                                                id: user.user_id
-                                            })
-                                        );
-                                        dispatch(
-                                            edit_offline_user_salary_status_set_due({
-                                                id: user.user_id
                                             })
                                         );
                                     }}
@@ -143,17 +132,6 @@ export default function EditOfflineCreateMember({
                                                 value
                                             })
                                         );
-
-                                        dispatch(
-                                            edit_offline_user_salary_status_set_upcoming({
-                                                id: user.user_id
-                                            })
-                                        );
-                                        dispatch(
-                                            edit_offline_user_salary_status_set_due({
-                                                id: user.user_id
-                                            })
-                                        );
                                     }}
                                     value={user.user_salary.salary_every_week}
                                 />
@@ -165,17 +143,6 @@ export default function EditOfflineCreateMember({
                                             edit_offline_user_salary_date_every_month({
                                                 id: user.user_id,
                                                 value
-                                            })
-                                        );
-
-                                        dispatch(
-                                            edit_offline_user_salary_status_set_upcoming({
-                                                id: user.user_id
-                                            })
-                                        );
-                                        dispatch(
-                                            edit_offline_user_salary_status_set_due({
-                                                id: user.user_id
                                             })
                                         );
                                     }}

@@ -5,9 +5,9 @@ import EmployeeList from "./EmployeeList";
 import EmployeeSalary from "./EmployeeSalary/index";
 
 function Dutypedia() {
-  //create Employee state end
+  //create Employee state end 
 
-  // reander components state
+  // reander components state 
   let [employeeList, setEmployeeList] = useState(true);
   let [employeeAttendence, setEmployeeAttendence] = useState(false);
   let [employeeSalary, setEmployeeSalary] = useState(false);
@@ -33,15 +33,15 @@ function Dutypedia() {
 
           <div className={StyleSheet.ul}>
 
-            <div onClick={(e) => { setEmployeeList(true); setEmployeeAttendence(false); setEmployeeSalary(false); changeColor(e) }} className={StyleSheet.li} id="list__one">Employee List</div>
+            <div onClick={(e) => { setEmployeeList(true); setEmployeeAttendence(false);setEmployeeSalary(false); changeColor(e) }} className={StyleSheet.li} id="list__one">Employee List</div>
             <span className={StyleSheet.row}></span>
 
 
-            <div onClick={(e) => { setEmployeeList(false); setEmployeeAttendence(true); setEmployeeSalary(false); changeColor(e) }} className={StyleSheet.li} id="list__two">Employee Attendence</div>
+            <div onClick={(e) => { setEmployeeList(false); setEmployeeAttendence(true);setEmployeeSalary(false); changeColor(e) }} className={StyleSheet.li} id="list__two">Employee Attendence</div>
             <span className={StyleSheet.row}></span>
 
 
-            <div onClick={(e) => { setEmployeeList(false); setEmployeeAttendence(false); setEmployeeSalary(true); changeColor(e) }} className={StyleSheet.li} id="list__four">Employee Salary</div>
+            <div onClick={(e) => { setEmployeeList(false); setEmployeeAttendence(false);setEmployeeSalary(true); changeColor(e) }} className={StyleSheet.li} id="list__four">Employee Salary</div>
 
           </div>
         </div>

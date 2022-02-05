@@ -6,7 +6,7 @@ import { RiArrowDropUpLine, RiArrowDropDownLine } from 'react-icons/ri';
 import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
-import NewInputDateBox from '../../Common/InputDateBox/newInputDateBox';
+import NewInputDateBox from '../../Common/InputDateBox/NewInputDateBox';
 import { addToExpenses } from '../../../Redux/Dashboard_1/Action/expensesAction';
 
 const Expenses = () => {

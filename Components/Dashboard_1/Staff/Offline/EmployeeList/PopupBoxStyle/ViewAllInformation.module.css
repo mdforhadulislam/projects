@@ -9,11 +9,6 @@
     left: 0%;
 }
 
-.view__all__information__container p {
-    margin-top: 0;
-    margin-bottom: 0 !important;
-}
-
 .view__all__information__container {
     width: 38vw;
     height: auto;
@@ -61,7 +56,7 @@
     color: #666666;
 }
 .view__all__information__container__header__left__joining p {
-    padding: 0vw 1vw 0vw 0vw;
+    padding: 0vw 1.2vw 0vw 0vw;
     color: black;
 }
 .view__all__information__container__header__left__member__name {
@@ -84,11 +79,11 @@
     justify-content: flex-start;
     align-items: baseline;
     font-size: 1.2vw;
-    padding-bottom: 0.4vw;
+    padding-bottom: 0.6vw;
     color: #666666;
 }
 .view__all__information__container__body__gender p {
-    padding: 0vw 1vw 0vw 0vw;
+    padding: 0vw 1.2vw 0vw 0vw;
     color: black;
 }
 
@@ -103,7 +98,7 @@
     color: #666666;
 }
 .view__all__information__container__body__blood__group p {
-    padding: 0vw 1vw 0vw 0vw;
+    padding: 0vw 1.2vw 0vw 0vw;
     color: black;
 }
 .view__all__information__container__body__date__of__birth {
@@ -113,11 +108,11 @@
     justify-content: flex-start;
     align-items: baseline;
     font-size: 1.2vw;
-    padding-bottom: 0.4vw;
+    padding-bottom: 0.6vw;
     color: #666666;
 }
 .view__all__information__container__body__date__of__birth p {
-    padding: 0vw 1vw 0vw 0vw;
+    padding: 0vw 1.2vw 0vw 0vw;
     color: black;
 }
 
@@ -128,12 +123,12 @@
     justify-content: flex-start;
     align-items: baseline;
     font-size: 1.2vw;
-    padding-bottom: 0.4vw;
+    padding-bottom: 0.6vw;
     color: #666666;
 }
 
 .view__all__information__container__body__religion p {
-    padding: 0vw 1vw 0vw 0vw;
+    padding: 0vw 1.2vw 0vw 0vw;
     color: black;
 }
 
@@ -144,12 +139,12 @@
     justify-content: flex-start;
     align-items: baseline;
     font-size: 1.2vw;
-    padding-bottom: 0.4vw;
+    padding-bottom: 0.6vw;
     color: #666666;
 }
 
 .view__all__information__container__body__nationality p {
-    padding: 0vw 1vw 0vw 0vw;
+    padding: 0vw 1.2vw 0vw 0vw;
     color: black;
 }
 .view__all__information__container__body__present__address {
@@ -159,13 +154,13 @@
     justify-content: flex-start;
     align-items: baseline;
     font-size: 1.2vw;
-    padding-bottom: 0.4vw;
+    padding-bottom: 0.6vw;
     color: #666666;
 }
 
 .view__all__information__container__body__present__address p {
     width: 10.5vw;
-    padding: 0vw 1vw 0vw 0vw;
+    padding: 0vw 1.2vw 0vw 0vw;
     color: black;
 }
 .view__all__information__container__body__permanents__address {
@@ -175,13 +170,13 @@
     justify-content: flex-start;
     align-items: baseline;
     font-size: 1.2vw;
-    padding-bottom: 0.4vw;
+    padding-bottom: 0.6vw;
     color: #666666;
 }
 
 .view__all__information__container__body__permanents__address p {
     width: 12vw;
-    padding: 0vw 1vw 0vw 0vw;
+    padding: 0vw 1.2vw 0vw 0vw;
     color: black;
 }
 

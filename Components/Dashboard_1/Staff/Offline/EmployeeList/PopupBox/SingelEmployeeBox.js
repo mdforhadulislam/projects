@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import DeleteIcon from '../../../../../../Assets/images/dashboard/ThreeDotIcon.svg';
-import { clockTimer } from '../../../../../../Utilities/Utilites';
 import StyleSheet from '../PopupBoxStyle/SingelEmployeeBox.module.css';
 
 export default function SingelEmployeeBox({
@@ -12,8 +11,6 @@ export default function SingelEmployeeBox({
     setViewMemberDetails
 }) {
     const [optionPopup, setOptionPopup] = useState(false);
-
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
     return (
         <div className={StyleSheet.singel__employee__box__container}>
@@ -102,32 +99,11 @@ export default function SingelEmployeeBox({
             <div className={StyleSheet.singel__employee__box__container__salary__date}>
                 {userData.user_salary.no_salary_system
                     ? 'No Salary System'
-                    : userData.user_salary.salary_type === 'monthly'
-                    ? 'Every Month ' +
-                      ((userData.user_salary.salary_every_month.split('-')[0] === '1'
-                          ? userData.user_salary.salary_every_month.split('-')[0] + 'st'
-                          : userData.user_salary.salary_every_month.split('-')[0] === '10'
-                          ? userData.user_salary.salary_every_month.split('-')[0] + 'th'
-                          : userData.user_salary.salary_every_month.split('-')[0] === '20'
-                          ? userData.user_salary.salary_every_month.split('-')[0] + 'ty'
-                          : userData.user_salary.salary_every_month.split('-')[0] === '31'
-                          ? userData.user_salary.salary_every_month.split('-')[0]
-                          : '') +
-                          ' To ' +
-                          (userData.user_salary.salary_every_month.split('-')[1] === '1'
-                              ? userData.user_salary.salary_every_month.split('-')[1] + 'st'
-                              : userData.user_salary.salary_every_month.split('-')[1] === '10'
-                              ? userData.user_salary.salary_every_month.split('-')[1] + 'th'
-                              : userData.user_salary.salary_every_month.split('-')[1] === '20'
-                              ? userData.user_salary.salary_every_month.split('-')[1] + 'ty'
-                              : userData.user_salary.salary_every_month.split('-')[1] === '31'
-                              ? userData.user_salary.salary_every_month.split('-')[1]
-                              : ''))
-                    : userData.user_salary.salary_type === 'weekly'
-                    ? 'Every Week ' + days[userData.user_salary.salary_every_week]
-                    : userData.user_salary.salary_type === 'daily'
-                    ? 'Every Day ' + clockTimer(userData.user_salary.salary_every_day)
-                    : ' '}
+                    : `${userData.user_joining_date.getDate()}/${
+                          userData.user_joining_date.getMonth() + 2 > 9
+                              ? userData.user_joining_date.getMonth() + 2
+                              : '0' + (userData.user_joining_date.getMonth() + 2)
+                      }/${userData.user_joining_date.getFullYear()}`}
             </div>
 
             <div className={StyleSheet.singel__employee__box__container__option__box}>

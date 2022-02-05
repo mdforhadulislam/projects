@@ -2,8 +2,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css';
 import React from 'react';
 import store from '../Redux/store';
-import TopNavBar from '../Components/Nav/TopNavBar/TopNavBar';
-import SideNavBar from '../Components/Nav/SideNavBar/SideNavBar';
+import TopNavBar from '../Components/Nav/TopNavBarFile/TopNavBar';
+import SideNavBar from '../Components/Nav/SideNavBarFile/SideNavBar';
 import { Provider } from 'react-redux';
 import { useRouter } from 'next/dist/client/router';
 import { createWrapper } from 'next-redux-wrapper';
@@ -14,6 +14,9 @@ function MyApp({ Component, pageProps }) {
     const route = useRouter();
     // console.log(route.pathname === '/dashboard_1' ? 'true' : 'false');
     const routeArray = route.pathname.split('/');
+    React.useEffect(() => {
+        import('bootstrap/dist/js/bootstrap');
+    }, []);
 
     return (
         <Provider store={store}>

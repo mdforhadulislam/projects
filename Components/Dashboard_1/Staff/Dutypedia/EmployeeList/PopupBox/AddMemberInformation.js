@@ -21,7 +21,7 @@ import {
     user_present_address_city,
     user_present_address_region,
     user_religion
-} from '../../../../../../Redux/Dashboard_1/Action/Staff/Dutypedia/index';
+} from '../../../../../../Redux/Dashboard_1/Action/Dutypedia/index';
 import Address from '../../../../../../Utilities/Address';
 import UploadingFile from '../../../../../../Utilities/UploadingFile';
 import {
@@ -40,39 +40,67 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
     const [hiddenPopupFrom, setHiddenPopupFrom] = useState(true);
     const dispatch = useDispatch();
 
-    const member_and_staff = useSelector((state) => state.dutypedia.member_and_staff);
-    const firstName = useSelector((state) => state.dutypedia.name.user_furst_name);
-    const middleName = useSelector((state) => state.dutypedia.name.user_middle_name);
-    const lastName = useSelector((state) => state.dutypedia.name.user_last_name);
+    const member_and_staff = useSelector(
+        (state) => state.dutypedia.employeeListReducers.member_and_staff
+    );
+    const firstName = useSelector(
+        (state) => state.dutypedia.employeeListReducers.name.user_furst_name
+    );
+    const middleName = useSelector(
+        (state) => state.dutypedia.employeeListReducers.name.user_middle_name
+    );
+    const lastName = useSelector(
+        (state) => state.dutypedia.employeeListReducers.name.user_last_name
+    );
     const gender = useSelector(
-        (state) => state.dutypedia.gender_blood_birth_religion_desh.user_gender
+        (state) => state.dutypedia.employeeListReducers.gender_blood_birth_religion_desh.user_gender
     );
     const bloodGroup = useSelector(
-        (state) => state.dutypedia.gender_blood_birth_religion_desh.user_blood_group
+        (state) =>
+            state.dutypedia.employeeListReducers.gender_blood_birth_religion_desh.user_blood_group
     );
     const dateOfBirth = useSelector(
-        (state) => state.dutypedia.gender_blood_birth_religion_desh.user_date_of_birth
+        (state) =>
+            state.dutypedia.employeeListReducers.gender_blood_birth_religion_desh.user_date_of_birth
     );
     const religion = useSelector(
-        (state) => state.dutypedia.gender_blood_birth_religion_desh.user_religion
+        (state) =>
+            state.dutypedia.employeeListReducers.gender_blood_birth_religion_desh.user_religion
     );
     const nationality = useSelector(
-        (state) => state.dutypedia.gender_blood_birth_religion_desh.user_nationality
+        (state) =>
+            state.dutypedia.employeeListReducers.gender_blood_birth_religion_desh.user_nationality
     );
 
-    const presentAddressRegion = useSelector((state) => state.dutypedia.presentAddress.region);
-    const presentAddressCity = useSelector((state) => state.dutypedia.presentAddress.city);
-    const presentAddressArea = useSelector((state) => state.dutypedia.presentAddress.area);
-    const presentAddressAddress = useSelector((state) => state.dutypedia.presentAddress.address);
+    const presentAddressRegion = useSelector(
+        (state) => state.dutypedia.employeeListReducers.presentAddress.region
+    );
+    const presentAddressCity = useSelector(
+        (state) => state.dutypedia.employeeListReducers.presentAddress.city
+    );
+    const presentAddressArea = useSelector(
+        (state) => state.dutypedia.employeeListReducers.presentAddress.area
+    );
+    const presentAddressAddress = useSelector(
+        (state) => state.dutypedia.employeeListReducers.presentAddress.address
+    );
 
-    const permanentAddressRegion = useSelector((state) => state.dutypedia.permanentAddress.region);
-    const permanentAddressCity = useSelector((state) => state.dutypedia.permanentAddress.city);
-    const permanentAddressArea = useSelector((state) => state.dutypedia.permanentAddress.area);
+    const permanentAddressRegion = useSelector(
+        (state) => state.dutypedia.employeeListReducers.permanentAddress.region
+    );
+    const permanentAddressCity = useSelector(
+        (state) => state.dutypedia.employeeListReducers.permanentAddress.city
+    );
+    const permanentAddressArea = useSelector(
+        (state) => state.dutypedia.employeeListReducers.permanentAddress.area
+    );
     const permanentAddressAddress = useSelector(
-        (state) => state.dutypedia.permanentAddress.address
+        (state) => state.dutypedia.employeeListReducers.permanentAddress.address
     );
 
-    const uploadeFile = useSelector((state) => state.dutypedia.uploadingFile.user_documentes);
+    const uploadeFile = useSelector(
+        (state) => state.dutypedia.employeeListReducers.uploadingFile.user_documentes
+    );
 
     const fromSubmitHendeler = (e) => {
         e.preventDefault();

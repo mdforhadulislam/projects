@@ -1,5 +1,5 @@
 import React from 'react';
-import ViewAll from '../../../../../../Components/Dashboard_1/Group/Routine/WorkOutRoutine/ViewAll/ViewAll';
+import ViewAll from '../../../../../../Components/Dashboard_1/Group/Routine/WorkOutRoutine/ViewAllFile/ViewAll';
 import styled from 'styled-components';
 
 const viewAll = () => {
