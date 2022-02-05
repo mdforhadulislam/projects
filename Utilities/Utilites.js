@@ -575,7 +575,7 @@ export const firstDateFormet = (enterStartDate, dateObject) => {
         '/' +
         (Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`) < 10
             ? '0' +
-              Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`)
+            Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`)
             : dateObject.getMonth() + 2) +
         '/' +
         dateObject.getFullYear();
@@ -589,7 +589,7 @@ export const lastDateFormet = (enterEndDate, dateObject) => {
         '/' +
         (Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`) < 10
             ? '0' +
-              Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`)
+            Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`)
             : dateObject.getMonth() + 2) +
         '/' +
         dateObject.getFullYear();
@@ -605,7 +605,6 @@ export function AttendenceName({ title, action, value }) {
         </div>
     );
 }
-
 export function DutyTimer({ title, action, value }) {
     return (
         <div className={StyleSheet.duty__timer__container}>
@@ -618,24 +617,24 @@ export function DutyTimer({ title, action, value }) {
         </div>
     );
 }
-
 export function BrackTimer({ title, action, value }) {
     const [hour, setHour] = useState(0);
     const [minute, setMinute] = useState(0);
     const [timeFormat, setTimeFormat] = useState('Hour');
+    const [dropDown, setDropdown] = useState(false)
 
     function DropDown() {
         return (
             <ul>
                 <li
                     onClick={() => {
-                        setTimeFormat('Hour');
+                        setTimeFormat('Hour'); setDropdown(false)
                     }}>
                     Hour
                 </li>
                 <li
                     onClick={() => {
-                        setTimeFormat('Minute');
+                        setTimeFormat('Minute'); setDropdown(false)
                     }}>
                     Minute
                 </li>
@@ -680,7 +679,7 @@ export function BrackTimer({ title, action, value }) {
                             className={
                                 StyleSheet.brack__timer__container__input__box__timer__box__button__up
                             }>
-                            +
+                            <UpIcon />
                         </button>
                         <span></span>
                         <button
@@ -688,33 +687,28 @@ export function BrackTimer({ title, action, value }) {
                             className={
                                 StyleSheet.brack__timer__container__input__box__timer__box__button__down
                             }>
-                            -
+                            <DownIcon />
                         </button>
                     </div>
                 </div>
-                <div className={StyleSheet.brack__timer__container__input__box__timer__formater}>
+                <div className={StyleSheet.brack__timer__container__input__box__timer__formater} onClick={() => {
+                    dropDown ? setDropdown(false) : setDropdown(true)
+                }}>
+                    {timeFormat}
+
+                    {dropDown && <DropDown />}
                     <div
                         className={
-                            StyleSheet.brack__timer__container__input__box__timer__formater__value
-                        }>
-                        {timeFormat}
-                    </div>
-                    <div
-                        className={
-                            StyleSheet.brack__timer__container__input__box__timer__formater__select__box
-                        }>
-                        <DropDown />
-                        <div
-                            className={
-                                StyleSheet.brack__timer__container__input__box__timer__formater__select__box__icon
-                            }></div>
-                    </div>
+                            StyleSheet.brack__timer__container__input__box__timer__formater__select__box__icon
+                        } onClick={() => {
+                            dropDown ? setDropdown(false) : setDropdown(true)
+                        }}></div>
+
                 </div>
             </div>
         </div>
     );
 }
-
 export function DayCheckBox({ name, title, actions, value, style }) {
     const { width } = style;
     return (

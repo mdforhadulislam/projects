@@ -1149,6 +1149,9 @@
 
 .attendence__name__container__title {
     font-size: 1.5vw;
+    padding-bottom: 0.5vw;
+    color: #313131;
+    text-align: center;
 }
 .attendence__name__container input {
     width: 100%;
@@ -1170,16 +1173,17 @@
 /* duty timer style start */
 
 .duty__timer__container {
-    width: 16vw;
+    width: 13vw;
     height: auto;
     display: inline-block;
     padding: 1vw 0vw;
 }
 
 .duty__timer__container__title {
-    font-size: 1.2vw;
-    padding-bottom: 1vw;
+    font-size: 1.3vw;
+    padding-bottom: 0.5vw;
     color: #313131;
+    text-align: center;
 }
 .duty__timer__container__input__box {
     width: 100%;
@@ -1227,42 +1231,158 @@
 /* brack timer style start */
 
 .brack__timer__container {
+    width: 16vw;
 }
 .brack__timer__container .brack__timer__container__title {
+    font-size: 1.3vw;
+    padding-bottom: 0.5vw;
+    color: #313131;
+    text-align: center;
+}
+.brack__timer__container__input__box {
+    width: 100%;
+    height: 2.8vw;
+    position: relative;
+    border: 0.1vw solid #da1e37;
+    border-radius: 0.4vw;
+    display: flex;
 }
 .brack__timer__container__input__box__timer__box {
+    width: 50%;
+    height: auto;
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding-left: 0.8vw;
 }
 .brack__timer__container__input__box__timer__box__value {
+    width: 4vw;
+    height: auto;
+    display: flex;
+    cursor: pointer;
+    font-size: 1.2vw;
 }
-.brack__timer__container__input__box__timer__box__value .hours {
+/* .brack__timer__container__input__box__timer__box__value .hours {
 }
 .brack__timer__container__input__box__timer__box__value .minutes {
-}
+} */
 
 .brack__timer__container__input__box__timer__box__button {
+    width: 3.2vw;
+    height: 2.7vw;
+    position: absolute;
+    right: 0%;
+    top: -1px;
+    border-radius: 0.5vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background: #dddddd;
 }
 .brack__timer__container__input__box__timer__box__button
     .brack__timer__container__input__box__timer__box__button__up {
+    width: 100%;
+    height: 49%;
+    background-color: #da1e37;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    /* border-top-right-radius: 0.4vw; */
 }
+
+.brack__timer__container__input__box__timer__box__button
+    .brack__timer__container__input__box__timer__box__button__up
+    svg {
+    width: 1.5vw;
+    margin-top: -0.6vw;
+}
+
+.brack__timer__container__input__box__timer__box__button
+    .brack__timer__container__input__box__timer__box__button__up
+    span {
+    width: 59%;
+    height: 0.007vw;
+    background: #dddddd;
+    display: inline-block;
+}
+
 .brack__timer__container__input__box__timer__box__button
     .brack__timer__container__input__box__timer__box__button__down {
+    width: 100%;
+    height: 47.5%;
+    background-color: #da1e37;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    /* border-bottom-right-radius: 0.4vw; */
 }
 
+.brack__timer__container__input__box__timer__box__button
+    .brack__timer__container__input__box__timer__box__button__down
+    svg {
+    width: 1.5vw;
+    margin-top: -0.6vw;
+}
 .brack__timer__container__input__box__timer__formater {
+    width: 55%;
+    height: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1vw;
+    cursor: pointer;
 }
-.brack__timer__container__input__box__timer__formater
-    .brack__timer__container__input__box__timer__formater__value {
+.brack__timer__container__input__box__timer__formater ul {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 108%;
+    left: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: white;
+    box-shadow: 0vw 0vw 0.5vw 0vw rgb(32 32 32 / 15%);
+    border-radius: 0.5vw;
+    z-index: 10;
 }
-
-.brack__timer__container__input__box__timer__formater__select__box {
+.brack__timer__container__input__box__timer__formater ul li {
+    padding: 0.4vw 0.8vw;
+    border-radius: 0.5vw;
 }
-
-.brack__timer__container__input__box__timer__formater__select__box ul {
-}
-.brack__timer__container__input__box__timer__formater__select__box ul li {
+.brack__timer__container__input__box__timer__formater ul li:hover {
+    cursor: pointer;
+    background-color: #da1e37;
+    color: white;
 }
 
 .brack__timer__container__input__box__timer__formater__select__box__icon {
+    position: absolute;
+    background: #da1e37;
+    height: 2.8vw;
+    width: 3.2vw;
+    top: -0.1vw;
+    right: -0.1vw;
+    border-top-right-radius: 0.4vw;
+    border-bottom-right-radius: 0.4vw;
+    pointer-events: none;
+    background-image: url(../Assets/icon/downIcon.svg);
+    background-position: center center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 /* brack timer style end */

@@ -1,0 +1,79 @@
+.attendence__popup__form {
+    width: 38vw;
+    height: auto;
+    padding: 1.5vw;
+    background: white;
+    box-shadow: 0vw 0vw 0.5vw 0vw rgb(32 32 32 / 15%);
+    border-radius: 1vw;
+}
+.attendence__popup__form__back__button {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.attendence__popup__form__back__button svg {
+    width: 1.5vw;
+    height: 1vw;
+    margin: 0vw 0.5vw 0vw 0vw;
+}
+.attendence__popup__form__container {
+    width: 100%;
+    height: auto;
+}
+.attendence__propup__form__container__name__box {
+    width: 20vw;
+    height: auto;
+    margin: 0 auto;
+
+    padding: 0vw 0vw 0.5vw 0vw;
+}
+.attendence__popup__form__container__timer {
+    width: 100%;
+    height: auto;
+}
+.attendence__popup__form__container__timer__row__one {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+}
+.attendence__popup__form__container__timer__row__tow {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding: 0.5vw 0vw 1.5vw 0vw;
+}
+.attendence__popup__form__container__holiday__container {
+    width: 100%;
+    height: auto;
+}
+.attendence__popup__form__container__holiday__container__title {
+    font-size: 1.3vw;
+}
+.attendence__popup__form__container__holiday__container__checkbox {
+    width: 100%;
+    height: auto;
+}
+.attendence__popup__form__submit__button {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+.attendence__popup__form__submit__button button {
+    width: 9vw;
+    height: auto;
+    padding: 0.5vw;
+    font-size: 1.2vw;
+    outline: none;
+    border: none;
+    border-radius: 0.5vw;
+    margin: 1vw 0vw 0vw 0vw;
+    cursor: pointer;
+    background: #da1e37;
+    color: white;
+    /* box-shadow: 0vw 0vw 0.4vw 0vw rgb(0 0 0 / 23%); */
+}

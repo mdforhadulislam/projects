@@ -1,19 +1,28 @@
 import React, { useState } from 'react';
 import BigAddIcon from '../../../../../Assets/images/dashboard/BigAddIcon';
 import StyleSheet from './Main.module.css';
+import AttendenceEmployee from './PopupBox/AttendenceEmployee';
 import AttendencePopupForm from './PopupBox/AttendencePopupForm';
 
 export default function EmployeeAttendence() {
-    const [attendencePopupForm, setAttendencesPopupForm] = useState(false)
+    const [attendencePopupForm, setAttendencesPopupForm] = useState(false);
+    const [attendenceEmployee, setAttendenceEmployee] = useState(false);
 
     return (
         <>
             <div className={StyleSheet.employee__attendence__container}>
                 <div className={StyleSheet.employee__attendence__container__body}>
-
-                    <div className={StyleSheet.employee__attendence__container__body__create__button}>
-                        <div className={StyleSheet.employee__attendence__container__body__create__button__image}
-                            onClick={() => { setAttendencesPopupForm(true) }}>
+                    <div
+                        className={
+                            StyleSheet.employee__attendence__container__body__create__button
+                        }>
+                        <div
+                            className={
+                                StyleSheet.employee__attendence__container__body__create__button__image
+                            }
+                            onClick={() => {
+                                setAttendencesPopupForm(true);
+                            }}>
                             <BigAddIcon />
                         </div>
                     </div>
@@ -21,16 +30,23 @@ export default function EmployeeAttendence() {
                     <div className={StyleSheet.employee__attendence__container__body__title}>
                         <h1>Create Employee Attendence</h1>
                     </div>
-
                 </div>
             </div>
 
-
-            {
-                attendencePopupForm && <AttendencePopupForm setAttendencesPopupForm={setAttendencesPopupForm} attendencePopupForm={attendencePopupForm} />
-            }
-
-
+            {attendencePopupForm && (
+                <AttendencePopupForm
+                    setAttendencesPopupForm={setAttendencesPopupForm}
+                    attendencePopupForm={attendencePopupForm}
+                    setAttendenceEmployee={setAttendenceEmployee}
+                />
+            )}
+            {attendenceEmployee && (
+                <AttendenceEmployee
+                    setAttendencesPopupForm={setAttendencesPopupForm}
+                    setAttendenceEmployee={setAttendenceEmployee}
+                    attendenceEmployee={attendenceEmployee}
+                />
+            )}
         </>
     );
 }

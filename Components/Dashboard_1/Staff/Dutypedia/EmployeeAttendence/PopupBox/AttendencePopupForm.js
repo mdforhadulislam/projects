@@ -7,9 +7,14 @@ import {
     DayCheckBox,
     DutyTimer
 } from '../../../../../../Utilities/Utilites';
+import StyleSheet from '../PopupBoxStyle/AttendencePopupForm.module.css';
 
 Modal.setAppElement('#__next');
-export default function AttendencePopupForm({ setAttendencesPopupForm, attendencePopupForm }) {
+export default function AttendencePopupForm({
+    setAttendencesPopupForm,
+    attendencePopupForm,
+    setAttendenceEmployee
+}) {
     const customStyles = {
         content: {
             top: '50%',
@@ -31,29 +36,50 @@ export default function AttendencePopupForm({ setAttendencesPopupForm, attendenc
                 setAttendencesPopupForm(false);
             }}
             style={customStyles}>
-            <form className="attendence__popup__form">
-                <div className="attendence__popup__form__back__button">
-                    <ArrowBackIcon />
-                    Back
+            <form
+                className={StyleSheet.attendence__popup__form}
+                onSubmit={(e) => e.preventDefault()}>
+                <div className={StyleSheet.attendence__popup__form__back__button}>
+                    <div
+                        onClick={() => setAttendencesPopupForm(false)}
+                        style={{ cursor: 'pointer' }}>
+                        <ArrowBackIcon />
+                        Back
+                    </div>
                 </div>
-                <div className="attendence__popup__form__container">
-                    <div className="attendence__propup__form__container__name__box">
+                <div className={StyleSheet.attendence__popup__form__container}>
+                    <div className={StyleSheet.attendence__propup__form__container__name__box}>
                         <AttendenceName title="Attendence Name" />
                     </div>
-                    <div className="attendence__popup__form__container__timer">
-                        <div className="attendence__popup__form__container__timer__row__one">
+                    <div className={StyleSheet.attendence__popup__form__container__timer}>
+                        <div
+                            className={
+                                StyleSheet.attendence__popup__form__container__timer__row__one
+                            }>
                             <DutyTimer title="Duty Starting Time" />
                             <DutyTimer title="Duty Ending Time" />
                         </div>
-                        <div className="attendence__popup__form__container__timer__row__tow">
-                            <BrackTimer />
+                        <div
+                            className={
+                                StyleSheet.attendence__popup__form__container__timer__row__tow
+                            }>
+                            <BrackTimer title="Break Time" />
                         </div>
                     </div>
-                    <div className="attendence__popup__form__container__holiday__container">
-                        <div className="attendence__popup__form__container__holiday__container__title">
+                    <div
+                        className={
+                            StyleSheet.attendence__popup__form__container__holiday__container
+                        }>
+                        <div
+                            className={
+                                StyleSheet.attendence__popup__form__container__holiday__container__title
+                            }>
                             Holiday
                         </div>
-                        <div className="attendence__popup__form__container__holiday__container__checkbox">
+                        <div
+                            className={
+                                StyleSheet.attendence__popup__form__container__holiday__container__checkbox
+                            }>
                             <DayCheckBox
                                 title={'Saturday'}
                                 name={'Saturday'}
@@ -92,8 +118,15 @@ export default function AttendencePopupForm({ setAttendencesPopupForm, attendenc
                         </div>
                     </div>
                 </div>
-                <div className="attendence__popup__form__submit__button">
-                    <button type="submit">Next</button>
+                <div className={StyleSheet.attendence__popup__form__submit__button}>
+                    <button
+                        type="submit"
+                        onClick={() => {
+                            setAttendencesPopupForm(false);
+                            setAttendenceEmployee(true);
+                        }}>
+                        Next
+                    </button>
                 </div>
             </form>
         </Modal>
