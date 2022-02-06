@@ -1202,7 +1202,7 @@
 .attendence__name__container input {
     width: 100%;
     height: auto;
-    padding: 0.2vw;
+    padding: 0.3vw 0.6vw;
     font-size: 1.2vw;
     font-family: aller, sans-serif;
     outline: none;

@@ -30,12 +30,7 @@ export default function AttendencePopupForm({
         }
     };
     return (
-        <Modal
-            isOpen={attendencePopupForm}
-            onRequestClose={() => {
-                setAttendencesPopupForm(false);
-            }}
-            style={customStyles}>
+        <Modal isOpen={attendencePopupForm} style={customStyles}>
             <form
                 className={StyleSheet.attendence__popup__form}
                 onSubmit={(e) => e.preventDefault()}>

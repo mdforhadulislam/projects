@@ -27,16 +27,16 @@ export default function AttendenceEmployee({
         }
     };
     return (
-        <Modal
-            isOpen={attendenceEmployee}
-            onRequestClose={() => {
-                setAttendencesPopupForm(true);
-                setAttendenceEmployee(false);
-            }}
-            style={customStyles}>
+        <Modal isOpen={attendenceEmployee} style={customStyles}>
             <div className={StyleSheet.attendence__employee__container}>
                 <div className={StyleSheet.attendence__employee__container__back__button}>
-                    <ArrowBackIcon />
+                    <div
+                        onClick={() => {
+                            setAttendencesPopupForm(true);
+                            setAttendenceEmployee(false);
+                        }}>
+                        <ArrowBackIcon />
+                    </div>
                     Back
                 </div>
                 <div className={StyleSheet.attendence__employee__container__search__box}>
@@ -65,8 +65,20 @@ export default function AttendenceEmployee({
                     </div>
                 </div>
                 <div className={StyleSheet.attendence__employee__container__button}>
-                    <button>Create Now</button>
-                    <button>Cancel</button>
+                    <button
+                        onClick={() => {
+                            setAttendencesPopupForm(false);
+                            setAttendenceEmployee(false);
+                        }}>
+                        Create Now
+                    </button>
+                    <button
+                        onClick={() => {
+                            setAttendencesPopupForm(true);
+                            setAttendenceEmployee(false);
+                        }}>
+                        Cancel
+                    </button>
                 </div>
             </div>
         </Modal>

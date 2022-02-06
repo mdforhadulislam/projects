@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    margin-bottom: 0.6vw;
+    margin-bottom: 0.8vw;
     font-size: 1.2vw;
     color: #313131;
 }
@@ -21,6 +21,7 @@
     width: 1.5vw;
     height: 1vw;
     margin: 0vw 0.5vw 0vw 0vw;
+    cursor: pointer;
 }
 .attendence__employee__container__search__box {
     width: 100%;
@@ -28,8 +29,8 @@
     margin-bottom: 0.5vw;
 }
 .attendence__employee__container__search__box__title {
-    font-size: 1.2vw;
-    margin-bottom: 0.3vw;
+    font-size: 1.3vw;
+    margin-bottom: 0.8vw;
     margin-left: 1vw;
     color: #313131;
 }
@@ -39,6 +40,9 @@
 }
 
 .attendence__employee__container__user__selsect__box {
+}
+.attendence__employee__container__user__selsect__box__all__selsect__box {
+    margin: 0vw 0vw 0vw 1vw;
 }
 .attendence__employee__container__user__selsect__box__user__box {
     width: 100%;
