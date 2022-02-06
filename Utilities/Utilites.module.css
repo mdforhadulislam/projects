@@ -1,3 +1,49 @@
+/* search Box style Start  */
+/* search Box style Start  */
+/* search Box style Start  */
+.search__box__container {
+    width: 100%;
+    height: auto;
+}
+
+.search__box__container__main__box {
+    width: 100%;
+    height: auto;
+    padding: 0.2vw 0.2vw 0.2vw 0.8vw;
+    border: 0.1vw solid #ececec;
+    border-radius: 0.5vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.search__box__container__main__box input {
+    width: 93%;
+    height: 2.25vw;
+    outline: none;
+    border: none;
+    font-size: 1.2vw;
+    font-family: aller, sans-serif;
+}
+
+.search__box__container__main__box label {
+    width: auto;
+    height: 1.7vw;
+}
+
+.search__box__container__main__box label svg {
+    width: 1.4vw;
+    cursor: pointer;
+    margin-top: -0.2vw;
+}
+/* search Box style end  */
+/* search Box style end  */
+/* search Box style end  */
+
 /* add member informetation style start  */
 /* add member informetation style start  */
 /* add member informetation style start  */

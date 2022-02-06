@@ -1,8 +1,10 @@
 import React from 'react';
 import Modal from 'react-modal/lib/components/Modal';
 import ArrowBackIcon from '../../../../../../Assets/images/dashboard/ArrowBackIcon';
-import SearchIcon from '../../../../../../Assets/images/dashboard/SearchIcon';
-import { CheckBox } from '../../../../../../Utilities/Utilites';
+import { CheckBox, SearchBox } from '../../../../../../Utilities/Utilites';
+import Data from '../../../UserData.json';
+import SingleEmployeeBox from '../BoxAndDeatils/SingleEmployeeBox';
+import StyleSheet from '../PopupBoxStyle/AttendenceEmployee.module.css';
 
 Modal.setAppElement('#__next');
 export default function AttendenceEmployee({
@@ -12,7 +14,7 @@ export default function AttendenceEmployee({
 }) {
     const customStyles = {
         content: {
-            top: '50%',
+            top: '55%',
             left: '50%',
             right: 'auto',
             bottom: 'auto',
@@ -32,45 +34,37 @@ export default function AttendenceEmployee({
                 setAttendenceEmployee(false);
             }}
             style={customStyles}>
-            <div className="attendence__employee__container">
-                <div className="attendence__employee__container__back__button">
+            <div className={StyleSheet.attendence__employee__container}>
+                <div className={StyleSheet.attendence__employee__container__back__button}>
                     <ArrowBackIcon />
                     Back
                 </div>
-                <div className="attendence__employee__container__search__box">
-                    <div className="attendence__employee__container__search__box__title">
+                <div className={StyleSheet.attendence__employee__container__search__box}>
+                    <div className={StyleSheet.attendence__employee__container__search__box__title}>
                         Select Your Employee For Attendence
                     </div>
-                    <div className="attendence__employee__container__search__box__input">
-                        <input type="text" id="search" />
-                        <label htmlFor="search">
-                            <SearchIcon />
-                        </label>
+                    <div className={StyleSheet.attendence__employee__container__search__box__input}>
+                        <SearchBox placeholder={'Search Users......'} />
                     </div>
                 </div>
-                <div className="attendence__employee__container__user__selsect__box">
-                    <div className="attendence__employee__container__user__selsect__box__all__selsect__box">
+                <div className={StyleSheet.attendence__employee__container__user__selsect__box}>
+                    <div
+                        className={
+                            StyleSheet.attendence__employee__container__user__selsect__box__all__selsect__box
+                        }>
                         <CheckBox title="Select All" />
                     </div>
 
-                    <div className="attendence__employee__container__user__selsect__box__user__box">
-                        <div className="single__user__box">
-                            <div className="single__user__box__main">
-                                <div className="single__user__box__main__checkBox">
-                                    <CheckBox />
-                                </div>
-                                <div className="single__user__box__main__user__deatils">
-                                    <div className="single__user__box__main__user__deatils__image__log"></div>
-                                    <div className="single__user__box__main__user__deatils__name__id">
-                                        <div className="name">Maliha Mouly</div>
-                                        <div className="id">Id: 92973434</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div
+                        className={
+                            StyleSheet.attendence__employee__container__user__selsect__box__user__box
+                        }>
+                        {Data.map((user) => {
+                            return <SingleEmployeeBox key={user.id} user={user} />;
+                        })}
                     </div>
                 </div>
-                <div className="attendence__employee__container__button">
+                <div className={StyleSheet.attendence__employee__container__button}>
                     <button>Create Now</button>
                     <button>Cancel</button>
                 </div>

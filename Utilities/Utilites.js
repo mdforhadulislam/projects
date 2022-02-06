@@ -2,8 +2,30 @@ import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import DownIcon from '../Assets/images/dashboard/DownIcon';
+import SearchIcon from '../Assets/images/dashboard/SearchIcon';
 import UpIcon from '../Assets/images/dashboard/UpIcon';
 import StyleSheet from './Utilites.module.css';
+
+export function SearchBox({ placeholder, value, action, name }) {
+    return (
+        <div className={StyleSheet.search__box__container}>
+            <div className={StyleSheet.search__box__container__main__box}>
+                <input
+                    type="text"
+                    id={name}
+                    placeholder={placeholder}
+                    onChange={(e) => action(e)}
+                    value={value}
+                />
+
+                <label htmlFor={name}>
+                    <SearchIcon />
+                    {/* <Image src={SearchIcon} alt="SearchIcon" /> */}
+                </label>
+            </div>
+        </div>
+    );
+}
 
 export function MemberCheckbox({ name, title, actions, value }) {
     return (
@@ -504,12 +526,12 @@ export function SalaryStatus({ action, value }) {
         </div>
     );
 }
-export function CheckBox({ name, title, actions, value }) {
+export function CheckBox({ name, title, actions, value, style }) {
     return (
-        <div className={StyleSheet.checkbox__container}>
+        <div className={StyleSheet.checkbox__container} style={style}>
             <div
                 className={StyleSheet.checkbox__container__input}
-                style={name === 'noAccess' ? { width: '20vw' } : { width: '13vw' }}>
+                style={name === 'noAccess' ? { width: '20vw' } : style}>
                 <input
                     onChange={(e) => actions(e.target.checked)}
                     type="checkbox"
@@ -575,7 +597,7 @@ export const firstDateFormet = (enterStartDate, dateObject) => {
         '/' +
         (Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`) < 10
             ? '0' +
-            Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`)
+              Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`)
             : dateObject.getMonth() + 2) +
         '/' +
         dateObject.getFullYear();
@@ -589,7 +611,7 @@ export const lastDateFormet = (enterEndDate, dateObject) => {
         '/' +
         (Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`) < 10
             ? '0' +
-            Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`)
+              Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`)
             : dateObject.getMonth() + 2) +
         '/' +
         dateObject.getFullYear();
@@ -621,20 +643,22 @@ export function BrackTimer({ title, action, value }) {
     const [hour, setHour] = useState(0);
     const [minute, setMinute] = useState(0);
     const [timeFormat, setTimeFormat] = useState('Hour');
-    const [dropDown, setDropdown] = useState(false)
+    const [dropDown, setDropdown] = useState(false);
 
     function DropDown() {
         return (
             <ul>
                 <li
                     onClick={() => {
-                        setTimeFormat('Hour'); setDropdown(false)
+                        setTimeFormat('Hour');
+                        setDropdown(false);
                     }}>
                     Hour
                 </li>
                 <li
                     onClick={() => {
-                        setTimeFormat('Minute'); setDropdown(false)
+                        setTimeFormat('Minute');
+                        setDropdown(false);
                     }}>
                     Minute
                 </li>
@@ -691,19 +715,21 @@ export function BrackTimer({ title, action, value }) {
                         </button>
                     </div>
                 </div>
-                <div className={StyleSheet.brack__timer__container__input__box__timer__formater} onClick={() => {
-                    dropDown ? setDropdown(false) : setDropdown(true)
-                }}>
+                <div
+                    className={StyleSheet.brack__timer__container__input__box__timer__formater}
+                    onClick={() => {
+                        dropDown ? setDropdown(false) : setDropdown(true);
+                    }}>
                     {timeFormat}
 
                     {dropDown && <DropDown />}
                     <div
                         className={
                             StyleSheet.brack__timer__container__input__box__timer__formater__select__box__icon
-                        } onClick={() => {
-                            dropDown ? setDropdown(false) : setDropdown(true)
+                        }
+                        onClick={() => {
+                            dropDown ? setDropdown(false) : setDropdown(true);
                         }}></div>
-
                 </div>
             </div>
         </div>

@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import SearchIcon from '../../../../../../Assets/icon/search.svg';
 import DutyPreIcon from '../../../../../../Assets/images/dashboard/DutyPreIconSmall';
 import {
     user_email,
@@ -12,6 +11,7 @@ import {
     user_middle_name,
     user_mobile_no
 } from '../../../../../../Redux/Dashboard_1/Action/Staff/Dutypedia/index';
+import { SearchBox } from '../../../../../../Utilities/Utilites';
 import UserData from '../../../UserData.json';
 import StyleSheet from '../PopupBoxStyle/AddMemberInformationHeader.module.css';
 
@@ -30,7 +30,7 @@ function AddMemberInformationHeader({ setHiddenPopupFrom }) {
 
     return (
         <>
-            <div className={StyleSheet.add__member__imformation__header__container__input}>
+            {/* <div className={StyleSheet.add__member__imformation__header__container__input}>
                 <div
                     className={
                         StyleSheet.add__member__imformation__header__container__input__search__box
@@ -46,7 +46,14 @@ function AddMemberInformationHeader({ setHiddenPopupFrom }) {
                         <Image src={SearchIcon} alt="" />
                     </label>
                 </div>
-            </div>
+            </div> */}
+
+            <SearchBox
+                action={searchHendeler}
+                name="userSearch"
+                value={searchValue}
+                placeholder={'Search by user....'}
+            />
 
             {clickBox && (
                 <SearchOutput
