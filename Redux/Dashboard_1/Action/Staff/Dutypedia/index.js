@@ -288,3 +288,17 @@ export function create_user(payload) {
         payload
     };
 }
+
+export function add_attendenec(payload) {
+    return {
+        type: 'ATTENDENCE_FORM_FILED',
+        payload
+    };
+}
+
+export function selected_all(payload) {
+    return {
+        type: 'SELECTED_ALL',
+        payload
+    };
+}

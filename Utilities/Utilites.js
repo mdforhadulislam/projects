@@ -6,11 +6,11 @@ import SearchIcon from '../Assets/images/dashboard/SearchIcon';
 import UpIcon from '../Assets/images/dashboard/UpIcon';
 import StyleSheet from './Utilites.module.css';
 
-export function SearchBox({ placeholder, value, action, name }) {
+export function SearchBox({ placeholder, value, action, name,style }) {
     return (
         <div className={StyleSheet.search__box__container}>
-            <div className={StyleSheet.search__box__container__main__box}>
-                <input
+            <div className={StyleSheet.search__box__container__main__box}style={style}>
+                <input style={style}
                     type="text"
                     id={name}
                     placeholder={placeholder}
@@ -619,11 +619,16 @@ export const lastDateFormet = (enterEndDate, dateObject) => {
 };
 
 // attendence related common componentes
-export function AttendenceName({ title, action, value }) {
+export function AttendenceName({ title, action, value, placeholder }) {
     return (
         <div className={StyleSheet.attendence__name__container}>
             <div className={StyleSheet.attendence__name__container__title}>{title}</div>
-            <input type="text" onChange={(e) => action(e.target.value)} value={value} />
+            <input
+                type="text"
+                onChange={(e) => action(e.target.value)}
+                value={value}
+                placeholder={placeholder}
+            />
         </div>
     );
 }
@@ -672,6 +677,7 @@ export function BrackTimer({ title, action, value }) {
         } else if (timeFormat === 'Minute') {
             setMinute((prev) => (prev === 59 ? 0 : prev + 1));
         }
+        action(`${hour}:${minute}`);
     }
     function downHendeler() {
         if (timeFormat === 'Hour') {
@@ -679,6 +685,7 @@ export function BrackTimer({ title, action, value }) {
         } else if (timeFormat === 'Minute') {
             setMinute((prev) => (prev === 0 ? 59 : prev - 1));
         }
+        action(`${hour}:${minute}`);
     }
 
     return (
@@ -699,6 +706,7 @@ export function BrackTimer({ title, action, value }) {
                             StyleSheet.brack__timer__container__input__box__timer__box__button
                         }>
                         <button
+                            type="button"
                             onClick={upHendeler}
                             className={
                                 StyleSheet.brack__timer__container__input__box__timer__box__button__up
@@ -707,6 +715,7 @@ export function BrackTimer({ title, action, value }) {
                         </button>
                         <span></span>
                         <button
+                            type="button"
                             onClick={downHendeler}
                             className={
                                 StyleSheet.brack__timer__container__input__box__timer__box__button__down
@@ -748,7 +757,11 @@ export function DayCheckBox({ name, title, actions, value, style }) {
                 />
                 <label
                     htmlFor={name && name}
-                    style={value ? { color: '#da1e37' } : { color: 'none' }}
+                    style={
+                        value
+                            ? { color: '#da1e37', transition: 'all .4s' }
+                            : { color: '#313131', transition: 'all .4s' }
+                    }
                     className={value ? StyleSheet.checked : StyleSheet.unchecked}>
                     {title && title}
                 </label>

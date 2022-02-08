@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal/lib/components/Modal';
 import ArrowBackIcon from '../../../../../../Assets/images/dashboard/ArrowBackIcon';
 import {
@@ -29,6 +29,23 @@ export default function AttendencePopupForm({
             background: 'none'
         }
     };
+
+    const [attendanceName, setAttendanceName] = useState('');
+    const [brackTime, setBrackTime] = useState('');
+    const [dayStartAndEndTime, setDayStartAndEndTime] = useState({
+        dayStartTime: '10:00:00',
+        dayEndTime: '10:00:00'
+    });
+    const [holiday, setHoliday] = useState({
+        saturday: false,
+        sunday: false,
+        monday: false,
+        tuesday: false,
+        wednestday: false,
+        thursday: false,
+        friday: false
+    });
+
     return (
         <Modal isOpen={attendencePopupForm} style={customStyles}>
             <form
@@ -44,21 +61,48 @@ export default function AttendencePopupForm({
                 </div>
                 <div className={StyleSheet.attendence__popup__form__container}>
                     <div className={StyleSheet.attendence__propup__form__container__name__box}>
-                        <AttendenceName title="Attendence Name" />
+                        <AttendenceName
+                            title="Attendence Name"
+                            placeholder={'Staff Of Dutypedia...|'}
+                            value={attendanceName}
+                            action={(value) => setAttendanceName(value)}
+                        />
                     </div>
                     <div className={StyleSheet.attendence__popup__form__container__timer}>
                         <div
                             className={
                                 StyleSheet.attendence__popup__form__container__timer__row__one
                             }>
-                            <DutyTimer title="Duty Starting Time" />
-                            <DutyTimer title="Duty Ending Time" />
+                            <DutyTimer
+                                title="Duty Starting Time"
+                                value={dayStartAndEndTime.dayStartTime}
+                                action={(value) =>
+                                    setDayStartAndEndTime({
+                                        ...dayStartAndEndTime,
+                                        dayStartTime: value
+                                    })
+                                }
+                            />
+                            <DutyTimer
+                                title="Duty Ending Time"
+                                value={dayStartAndEndTime.dayEndTime}
+                                action={(value) =>
+                                    setDayStartAndEndTime({
+                                        ...dayStartAndEndTime,
+                                        dayEndTime: value
+                                    })
+                                }
+                            />
                         </div>
                         <div
                             className={
                                 StyleSheet.attendence__popup__form__container__timer__row__tow
                             }>
-                            <BrackTimer title="Break Time" />
+                            <BrackTimer
+                                title="Break Time"
+                                action={(value) => setBrackTime(value)}
+                                value={brackTime}
+                            />
                         </div>
                     </div>
                     <div
@@ -78,37 +122,79 @@ export default function AttendencePopupForm({
                             <DayCheckBox
                                 title={'Saturday'}
                                 name={'Saturday'}
-                                style={{ width: '8.5vw', display: 'inline-block' }}
+                                style={{ width: '9vw', display: 'inline-block' }}
+                                value={holiday.saturday}
+                                actions={() =>
+                                    holiday.saturday
+                                        ? setHoliday({ ...holiday, saturday: false })
+                                        : setHoliday({ ...holiday, saturday: true })
+                                }
                             />
                             <DayCheckBox
                                 title={'Sunday'}
                                 name={'Sunday'}
-                                style={{ width: '7.5vw', display: 'inline-block' }}
+                                style={{ width: '8vw', display: 'inline-block' }}
+                                value={holiday.sunday}
+                                actions={() =>
+                                    holiday.sunday
+                                        ? setHoliday({ ...holiday, sunday: false })
+                                        : setHoliday({ ...holiday, sunday: true })
+                                }
                             />
                             <DayCheckBox
                                 title={'Monday'}
                                 name={'Monday'}
-                                style={{ width: '7.5vw', display: 'inline-block' }}
+                                style={{ width: '8.5vw', display: 'inline-block' }}
+                                value={holiday.monday}
+                                actions={() =>
+                                    holiday.monday
+                                        ? setHoliday({ ...holiday, monday: false })
+                                        : setHoliday({ ...holiday, monday: true })
+                                }
                             />
                             <DayCheckBox
                                 title={'Tuesday'}
                                 name={'Tuesday'}
-                                style={{ width: '8vw', display: 'inline-block' }}
+                                style={{ width: '8.5vw', display: 'inline-block' }}
+                                value={holiday.tuesday}
+                                actions={() =>
+                                    holiday.tuesday
+                                        ? setHoliday({ ...holiday, tuesday: false })
+                                        : setHoliday({ ...holiday, tuesday: true })
+                                }
                             />
                             <DayCheckBox
                                 title={'Wednestday'}
                                 name={'Wednestday'}
-                                style={{ width: '10.5vw', display: 'inline-block' }}
+                                style={{ width: '11vw', display: 'inline-block' }}
+                                value={holiday.wednestday}
+                                actions={() =>
+                                    holiday.wednestday
+                                        ? setHoliday({ ...holiday, wednestday: false })
+                                        : setHoliday({ ...holiday, wednestday: true })
+                                }
                             />
                             <DayCheckBox
                                 title={'Thursday'}
                                 name={'Thursday'}
-                                style={{ width: '8.5vw', display: 'inline-block' }}
+                                style={{ width: '9vw', display: 'inline-block' }}
+                                value={holiday.thursday}
+                                actions={() =>
+                                    holiday.thursday
+                                        ? setHoliday({ ...holiday, thursday: false })
+                                        : setHoliday({ ...holiday, thursday: true })
+                                }
                             />
                             <DayCheckBox
                                 title={'Friday'}
                                 name={'Friday'}
-                                style={{ width: '8vw', display: 'inline-block' }}
+                                style={{ width: '8.5vw', display: 'inline-block' }}
+                                value={holiday.friday}
+                                actions={() =>
+                                    holiday.friday
+                                        ? setHoliday({ ...holiday, friday: false })
+                                        : setHoliday({ ...holiday, friday: true })
+                                }
                             />
                         </div>
                     </div>
