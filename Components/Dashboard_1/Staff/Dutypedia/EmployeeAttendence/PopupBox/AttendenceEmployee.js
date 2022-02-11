@@ -7,7 +7,7 @@ import SingleEmployeeBox from '../BoxAndDeatils/SingleEmployeeBox';
 import StyleSheet from '../PopupBoxStyle/AttendenceEmployee.module.css';
 
 Modal.setAppElement('#__next');
-export default function AttendenceEmployee({
+function AttendenceEmployee({
     attendenceEmployee,
     setAttendencesPopupForm,
     setAttendenceEmployee
@@ -84,3 +84,5 @@ export default function AttendenceEmployee({
         </Modal>
     );
 }
+
+export default React.memo(AttendenceEmployee);

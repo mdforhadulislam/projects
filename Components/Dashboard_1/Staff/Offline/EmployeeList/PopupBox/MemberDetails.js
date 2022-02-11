@@ -4,11 +4,7 @@ import backIcon from '../../../../../../Assets/images/dashboard/ArrowBackIcon.sv
 import PrintIcon from '../../../../../../Assets/images/dashboard/printer.svg';
 import StyleSheet from '../PopupBoxStyle/MemberDetails.module.css';
 
-export default function MemberDetails({
-    userData,
-    setViewMemberDetails,
-    setViewMemberAllInformation
-}) {
+function MemberDetails({ userData, setViewMemberDetails, setViewMemberAllInformation }) {
     const printHendeler = (e) => {
         e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].style.display =
             'none';
@@ -213,3 +209,4 @@ export default function MemberDetails({
         </div>
     );
 }
+export default React.memo(MemberDetails);

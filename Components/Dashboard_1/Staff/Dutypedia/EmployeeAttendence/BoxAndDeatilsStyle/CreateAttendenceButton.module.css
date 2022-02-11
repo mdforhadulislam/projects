@@ -1,0 +1,37 @@
+.box__container__add__attendenec__button {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    color: #313131;
+    padding: 0.5vw 0vw 1.4vw 0vw;
+    font-size: 1.2vw;
+}
+.box__container__add__attendenec__button__left {
+    width: auto;
+    height: auto;
+    padding: 0vw 1vw 0vw 0vw;
+    color: #313131;
+}
+.box__container__add__attendenec__button .row {
+    width: 0.1vw;
+    height: 1.5vw;
+    background: #313131;
+}
+.box__container__add__attendenec__button__right {
+    width: 17vw;
+    padding: 0vw 0vw 0vw 0.6vw;
+    justify-content: space-around;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+.box__container__add__attendenec__button__right .icon svg {
+    width: 2vw;
+    cursor: pointer;
+    height: auto;
+}
+.box__container__add__attendenec__button__right .button {
+    color: #313131;
+}

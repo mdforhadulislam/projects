@@ -1,19 +1,23 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
-import AddButtonIcon from '../../../../../Assets/images/dashboard/AddOutline';
+// import BigAddIcon from '../../../../../Assets/images/dashboard/BigAddIcon';
 import CalenderIcon from '../../../../../Assets/images/dashboard/CalenderIcon';
 import QrImage from '../../../../../Assets/images/dashboard/Group 7167.png';
 import LeftArrowGray from '../../../../../Assets/images/dashboard/LeftArrowGray';
 import RightArrowGray from '../../../../../Assets/images/dashboard/RightArrowGray';
 import ThreeDot from '../../../../../Assets/images/dashboard/ThreeDotIcon.svg';
 import { SearchBox } from '../../../../../Utilities/Utilites';
-// import AttendenceEmployee from './PopupBox/AttendenceEmployee';
-// import AttendencePopupForm from './PopupBox/AttendencePopupForm';
+import BoxDeatils from './BoxAndDeatils/BoxDeatils';
+import CreateAttendenceButton from './BoxAndDeatils/CreateAttendenceButton';
 import StyleSheet from './Main.module.css';
+import AttendenceEditPopup from './PopupBox/AttendenceEditPopup';
+import AttendenceEmployee from './PopupBox/AttendenceEmployee';
+import AttendencePopupForm from './PopupBox/AttendencePopupForm';
 
-export default function EmployeeAttendence() {
+function EmployeeAttendence() {
     const [attendencePopupForm, setAttendencesPopupForm] = useState(false);
     const [attendenceEmployee, setAttendenceEmployee] = useState(false);
+    const [attendenceEditPopup, setAttendenceEditPopup] = useState(true);
 
     return (
         <>
@@ -40,7 +44,7 @@ export default function EmployeeAttendence() {
                 </div>
             </div> */}
 
-            {/* {attendencePopupForm && (
+            {attendencePopupForm && (
                 <AttendencePopupForm
                     setAttendencesPopupForm={setAttendencesPopupForm}
                     attendencePopupForm={attendencePopupForm}
@@ -53,21 +57,20 @@ export default function EmployeeAttendence() {
                     setAttendenceEmployee={setAttendenceEmployee}
                     attendenceEmployee={attendenceEmployee}
                 />
-            )} */}
+            )}
+
+            {attendenceEditPopup && (
+                <AttendenceEditPopup
+                    attendenceEditPopup={attendenceEditPopup}
+                    setAttendenceEditPopup={setAttendenceEditPopup}
+                />
+            )}
 
             <div className={StyleSheet.box__container}>
-                <div className={StyleSheet.box__container__add__attendenec__button}>
-                    <div className={StyleSheet.box__container__add__attendenec__button__left}>
-                        Day Shift
-                    </div>
-                    <div className={StyleSheet.row}></div>
-                    <div className={StyleSheet.box__container__add__attendenec__button__right}>
-                        <div className={StyleSheet.icon}>
-                            <AddButtonIcon />
-                        </div>
-                        <div className={StyleSheet.button}>Create A New Attendence</div>
-                    </div>
-                </div>
+                <CreateAttendenceButton
+                    timeSetPopup={setAttendencesPopupForm}
+                    selectedEmployee={setAttendenceEmployee}
+                />
 
                 <div className={StyleSheet.box__container__search__box}>
                     <SearchBox
@@ -112,7 +115,41 @@ export default function EmployeeAttendence() {
                         </div>
                     </div>
                 </div>
+
+                <div className={StyleSheet.employee__container}>
+                    <div>
+                        <div className={StyleSheet.employee__main__container}>
+                            <div className={StyleSheet.employee__main__container__header}>
+                                <ul>
+                                    <li>Employee Name</li>
+                                    <li>Starting Time</li>
+                                    <li>Ending Time</li>
+                                    <li>Break Time</li>
+                                    <li>Today Status</li>
+                                    <li>Today Overtime</li>
+                                    <li>Total Hour</li>
+                                </ul>
+                            </div>
+
+                            <div className={StyleSheet.employee__main__container__body}>
+                                <BoxDeatils />
+                                <BoxDeatils />
+                                <BoxDeatils />
+                                <BoxDeatils />
+                                <BoxDeatils />
+                                <BoxDeatils />
+                                <BoxDeatils />
+                                <BoxDeatils />
+                                <BoxDeatils />
+                                <BoxDeatils />
+                                <BoxDeatils />
+                                <BoxDeatils />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     );
 }
+export default React.memo(EmployeeAttendence);

@@ -21,7 +21,7 @@ import {
 } from '../../../../../../Utilities/Utilites';
 import StyleSheet from '../PopupBoxStyle/EditEmployeeSalary.module.css';
 
-export default function EditEmployeeSalary({ editPopup, setEditPopup, user }) {
+function EditEmployeeSalary({ editPopup, setEditPopup, user }) {
     const customStyles = {
         content: {
             top: '50%',
@@ -159,3 +159,5 @@ export default function EditEmployeeSalary({ editPopup, setEditPopup, user }) {
         </Modal>
     );
 }
+
+export default React.memo(EditEmployeeSalary);

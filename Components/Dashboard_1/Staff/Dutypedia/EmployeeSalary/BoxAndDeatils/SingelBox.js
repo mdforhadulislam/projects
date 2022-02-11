@@ -5,7 +5,7 @@ import threeDotIcon from '../../../../../../Assets/images/dashboard/ThreeDotIcon
 import { clockTimer, firstDateFormet, lastDateFormet } from '../../../../../../Utilities/Utilites';
 import StyleSheet from '../BoxAndDeatilsStyle/SingelBox.module.css';
 
-export default function SingelBox({ user, setPaidPopup, setId, setEditPopup, setViewDeatils }) {
+function SingelBox({ user, setPaidPopup, setId, setEditPopup, setViewDeatils }) {
     const [optionPopup, setOptionPopup] = useState(false);
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const dateobj = new Date();
@@ -165,3 +165,5 @@ export default function SingelBox({ user, setPaidPopup, setId, setEditPopup, set
         </div>
     );
 }
+
+export default React.memo(SingelBox);

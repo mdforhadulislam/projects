@@ -39,11 +39,7 @@ import {
 } from '../../../../../../Utilities/Utilites';
 import StyleSheet from '../PopupBoxStyle/EditMemberInformation.module.css';
 
-export default function EditMemberInformation({
-    user,
-    setEditMemberInformation,
-    setEditCreateMember
-}) {
+function EditMemberInformation({ user, setEditMemberInformation, setEditCreateMember }) {
     const dispatch = useDispatch();
     return (
         <div className={StyleSheet.offline__edit__member__information}>
@@ -370,3 +366,5 @@ export default function EditMemberInformation({
         </div>
     );
 }
+
+export default React.memo(EditMemberInformation);

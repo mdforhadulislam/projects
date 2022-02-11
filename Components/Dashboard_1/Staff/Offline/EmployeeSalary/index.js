@@ -9,7 +9,7 @@ import StyleSheet from './Main.module.css';
 import EditEmployeeSalary from './PopupBox/EditEmployeeSalary';
 import PaidPopup from './PopupBox/PaidPopup';
 
-export default function EmployeeSalary() {
+function EmployeeSalary() {
     const allUser = useSelector((state) => state.offlineUser.offline_user);
     const dispatch = useDispatch();
 
@@ -164,3 +164,4 @@ export default function EmployeeSalary() {
         </>
     );
 }
+export default React.memo(EmployeeSalary);

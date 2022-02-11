@@ -4,7 +4,7 @@ import DeleteIcon from '../../../../../../Assets/images/dashboard/ThreeDotIcon.s
 import { clockTimer } from '../../../../../../Utilities/Utilites';
 import StyleSheet from '../PopupBoxStyle/SingelEmployeeBox.module.css';
 
-export default function SingelEmployeeBox({
+function SingelEmployeeBox({
     userData,
     setDeleteMember,
     setId,
@@ -171,3 +171,4 @@ export default function SingelEmployeeBox({
         </div>
     );
 }
+export default React.memo(SingelEmployeeBox);

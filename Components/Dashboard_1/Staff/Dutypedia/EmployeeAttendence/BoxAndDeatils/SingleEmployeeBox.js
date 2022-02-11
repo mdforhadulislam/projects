@@ -3,7 +3,7 @@ import DutyPreIcon from '../../../../../../Assets/images/dashboard/DutyPreIconSm
 import { CheckBox } from '../../../../../../Utilities/Utilites';
 import StyleSheet from '../BoxAndDeatilsStyle/SingleEmployeeBox.module.css';
 
-export default function SingleEmployeeBox({ user }) {
+function SingleEmployeeBox({ user }) {
     return (
         <div className={StyleSheet.single__user__box}>
             <div className={StyleSheet.single__user__box__main}>
@@ -30,3 +30,4 @@ export default function SingleEmployeeBox({ user }) {
         </div>
     );
 }
+export default React.memo(SingleEmployeeBox);

@@ -25,7 +25,7 @@ import {
 } from '../../../../../../Utilities/Utilites';
 import StyleSheet from '../PopupBoxStyle/EditOfflineCreateMember.module.css';
 
-export default function EditOfflineCreateMember({
+function EditOfflineCreateMember({
     user,
     setEditMemberInformation,
     setEditCreateMember,
@@ -245,3 +245,5 @@ export default function EditOfflineCreateMember({
         </Modal>
     );
 }
+
+export default React.memo(EditOfflineCreateMember);

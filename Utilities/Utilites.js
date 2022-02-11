@@ -6,11 +6,12 @@ import SearchIcon from '../Assets/images/dashboard/SearchIcon';
 import UpIcon from '../Assets/images/dashboard/UpIcon';
 import StyleSheet from './Utilites.module.css';
 
-export function SearchBox({ placeholder, value, action, name,style }) {
+export function SearchBox({ placeholder, value, action, name, style }) {
     return (
         <div className={StyleSheet.search__box__container}>
-            <div className={StyleSheet.search__box__container__main__box}style={style}>
-                <input style={style}
+            <div className={StyleSheet.search__box__container__main__box} style={style}>
+                <input
+                    style={style}
                     type="text"
                     id={name}
                     placeholder={placeholder}
@@ -26,7 +27,6 @@ export function SearchBox({ placeholder, value, action, name,style }) {
         </div>
     );
 }
-
 export function MemberCheckbox({ name, title, actions, value }) {
     return (
         <div className={StyleSheet.checkboxs__container}>
@@ -765,6 +765,121 @@ export function DayCheckBox({ name, title, actions, value, style }) {
                     className={value ? StyleSheet.checked : StyleSheet.unchecked}>
                     {title && title}
                 </label>
+            </div>
+        </div>
+    );
+}
+export function TodayStatus({ action, value }) {
+    return (
+        <div className={StyleSheet.today__status__container}>
+            <div className={StyleSheet.today__status__container__title}>Today Status</div>
+            <div className={StyleSheet.today__status__container__input__box}>
+                <select value={value} onChange={(e) => action(e.target.value)}>
+                    <option>Select</option>
+                    <option>Present</option>
+                    <option>Absent</option>
+                </select>
+            </div>
+        </div>
+    );
+}
+
+export function TimerSet({ title, value, action }) {
+    const [hour, setHour] = useState(0);
+    const [minute, setMinute] = useState(0);
+    const [timeFormat, setTimeFormat] = useState('Hour');
+    const [dropDown, setDropdown] = useState(false);
+
+    function DropDown() {
+        return (
+            <ul>
+                <li
+                    onClick={() => {
+                        setTimeFormat('Hour');
+                        setDropdown(false);
+                    }}>
+                    Hour
+                </li>
+                <li
+                    onClick={() => {
+                        setTimeFormat('Minute');
+                        setDropdown(false);
+                    }}>
+                    Minute
+                </li>
+            </ul>
+        );
+    }
+
+    function upHendeler() {
+        if (timeFormat === 'Hour') {
+            setHour((prev) => (prev === 12 ? 1 : prev + 1));
+        } else if (timeFormat === 'Minute') {
+            setMinute((prev) => (prev === 59 ? 0 : prev + 1));
+        }
+        action(`${hour}:${minute}`);
+    }
+    function downHendeler() {
+        if (timeFormat === 'Hour') {
+            setHour((prev) => (prev === 1 ? 12 : prev - 1));
+        } else if (timeFormat === 'Minute') {
+            setMinute((prev) => (prev === 0 ? 59 : prev - 1));
+        }
+        action(`${hour}:${minute}`);
+    }
+
+    return (
+        <div className={StyleSheet.brack__timer__container}>
+            <div className={StyleSheet.brack__timer__container__title}>{title}</div>
+            <div className={StyleSheet.brack__timer__container__input__box}>
+                <div className={StyleSheet.brack__timer__container__input__box__timer__box}>
+                    <div
+                        className={
+                            StyleSheet.brack__timer__container__input__box__timer__box__value
+                        }>
+                        <div className={StyleSheet.hours}>{hour}</div>
+                        <span>:</span>
+                        <div className={StyleSheet.minutes}>{minute}</div>
+                    </div>
+                    <div
+                        className={
+                            StyleSheet.brack__timer__container__input__box__timer__box__button
+                        }>
+                        <button
+                            type="button"
+                            onClick={upHendeler}
+                            className={
+                                StyleSheet.brack__timer__container__input__box__timer__box__button__up
+                            }>
+                            <UpIcon />
+                        </button>
+                        <span></span>
+                        <button
+                            type="button"
+                            onClick={downHendeler}
+                            className={
+                                StyleSheet.brack__timer__container__input__box__timer__box__button__down
+                            }>
+                            <DownIcon />
+                        </button>
+                    </div>
+                </div>
+                <div
+                    className={StyleSheet.brack__timer__container__input__box__timer__formater}
+                    onClick={() => {
+                        dropDown ? setDropdown(false) : setDropdown(true);
+                    }}>
+                    {timeFormat}
+
+                    {dropDown && <DropDown />}
+                    <div
+                        className={
+                            StyleSheet.brack__timer__container__input__box__timer__formater__select__box__icon
+                        }
+                        onClick={() => {
+                            dropDown ? setDropdown(false) : setDropdown(true);
+                        }}></div>
+                </div>
             </div>
         </div>
     );

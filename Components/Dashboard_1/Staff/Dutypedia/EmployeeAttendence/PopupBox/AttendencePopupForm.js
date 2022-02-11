@@ -10,7 +10,7 @@ import {
 import StyleSheet from '../PopupBoxStyle/AttendencePopupForm.module.css';
 
 Modal.setAppElement('#__next');
-export default function AttendencePopupForm({
+function AttendencePopupForm({
     setAttendencesPopupForm,
     attendencePopupForm,
     setAttendenceEmployee
@@ -213,3 +213,5 @@ export default function AttendencePopupForm({
         </Modal>
     );
 }
+
+export default React.memo(AttendencePopupForm);

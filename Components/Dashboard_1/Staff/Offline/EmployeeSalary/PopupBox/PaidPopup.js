@@ -5,7 +5,7 @@ import UpIcon from '../../../../../../Assets/images/dashboard/UpIcon';
 import StyleSheet from '../PopupBoxStyle/PaidPopup.module.css';
 
 Modal.setAppElement('#__next');
-export default function PaidPopup({ paidPopup, setPaidPopup, user, confirmActions, cencelAction }) {
+function PaidPopup({ paidPopup, setPaidPopup, user, confirmActions, cencelAction }) {
     const customStyles = {
         content: {
             top: '45%',
@@ -80,3 +80,5 @@ export default function PaidPopup({ paidPopup, setPaidPopup, user, confirmAction
         </Modal>
     );
 }
+
+export default React.memo(PaidPopup);
