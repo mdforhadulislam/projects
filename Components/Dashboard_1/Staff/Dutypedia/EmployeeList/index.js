@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import BigAddIcon from '../../../../../Assets/images/dashboard/BigAddIcon';
 import { delete_user } from '../../../../../Redux/Dashboard_1/Action/Staff/Dutypedia/editHeandeler';
@@ -6,6 +6,7 @@ import CanceledRequest from '../../../../../Utilities/CanceledRequest';
 import DeleteMember from '../../../../../Utilities/DeleteMember';
 import IsEmployeeHeader from '../../../../../Utilities/IsEmployeeHeader';
 import QrCodePopup from '../../../../../Utilities/QrCodePopup';
+import { getEmployeeList } from '../../api/onlineEmployeeListApi';
 import EmployeeListHeader from './BoxAndDeatils/EmployeeListHeader';
 import MemberDeatils from './BoxAndDeatils/MemberDeatils';
 import SingelEmployeeBox from './BoxAndDeatils/SingelEmployeeBox';
@@ -19,9 +20,6 @@ import SuccessfullyDone from './PopupBox/SuccessfullyDone';
 import ViewAllInformation from './PopupBox/ViewAllInformation';
 
 function EmployList() {
-    const allUser = useSelector((state) => state.onlineUser.user);
-
-    const dispatch = useDispatch();
     // this state doing render components
     const [qrCodePopup, setQrCodePopup] = useState(false);
     const [successfullyDonePopup, setSuccessfullyDonePopup] = useState(false);
@@ -35,6 +33,13 @@ function EmployList() {
     const [renderEditMemberInformation, setRenderEditMemberInformation] = useState(false);
     const [renderViewAllInformation, setRenderViewAllInformation] = useState(false);
     const [renderEditCreateEmployee, setRenderEditCreateEmployee] = useState(false);
+
+    const allUser = useSelector((state) => state.onlineUser.user);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        console.log(getEmployeeList());
+    });
 
     return (
         <>

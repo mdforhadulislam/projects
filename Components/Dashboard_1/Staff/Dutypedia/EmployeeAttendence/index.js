@@ -137,13 +137,6 @@ function EmployeeAttendence() {
                                 <BoxDeatils />
                                 <BoxDeatils />
                                 <BoxDeatils />
-                                <BoxDeatils />
-                                <BoxDeatils />
-                                <BoxDeatils />
-                                <BoxDeatils />
-                                <BoxDeatils />
-                                <BoxDeatils />
-                                <BoxDeatils />
                             </div>
                         </div>
                     </div>
