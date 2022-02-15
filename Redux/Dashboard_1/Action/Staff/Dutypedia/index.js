@@ -10,6 +10,7 @@ export function user_as_a_staff(payload) {
         payload
     };
 }
+
 export function user_first_name(payload) {
     return {
         type: 'USER_FIRST_NAME',
