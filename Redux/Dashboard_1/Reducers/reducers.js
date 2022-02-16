@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { dutypediaReducers } from '../../Dashboard_1/Reducers/Staff/Dutypedia';
+import dutypediaReducers from '../../Dashboard_1/Reducers/Staff/Dutypedia';
 import create_online_user from '../../Dashboard_1/Reducers/Staff/Dutypedia/onlineUser';
 import { offlineReducers } from '../../Dashboard_1/Reducers/Staff/Offline';
 import { offline_user } from '../../Dashboard_1/Reducers/Staff/Offline/offlineUser';

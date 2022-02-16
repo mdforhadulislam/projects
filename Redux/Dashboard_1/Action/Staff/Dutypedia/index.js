@@ -1,40 +1,49 @@
-export function user_as_a_member(payload) {
+// export function user_as_a_member(payload) {
+//     return {
+//         type: 'USER_AS_A_MEMBER',
+//         payload
+//     };
+// }
+// export function user_as_a_staff(payload) {
+//     return {
+//         type: 'USER_AS_A_STAFF',
+//         payload
+//     };
+// }
+
+export function join_as(payload) {
     return {
-        type: 'USER_AS_A_MEMBER',
-        payload
-    };
-}
-export function user_as_a_staff(payload) {
-    return {
-        type: 'USER_AS_A_STAFF',
+        type: 'JOIN_AS',
         payload
     };
 }
 
-export function user_first_name(payload) {
+export function first_name(payload) {
     return {
-        type: 'USER_FIRST_NAME',
+        type: 'FIRST_NAME',
         payload
     };
 }
-export function user_middle_name(payload) {
+export function middle_name(payload) {
     return {
-        type: 'USER_MIDDLE_NAME',
+        type: 'MIDDLE_NAME',
         payload
     };
 }
-export function user_last_name(payload) {
+export function last_name(payload) {
     return {
-        type: 'USER_Last_NAME',
+        type: 'LAST_NAME',
         payload
     };
 }
+
 export function user_gender(payload) {
     return {
         type: 'USER_GENDER',
         payload
     };
 }
+
 export function user_blood_group(payload) {
     return {
         type: 'USER_BLOOD_GROUP',
