@@ -1,4 +1,5 @@
 import React from 'react';
+import { getRegionData } from '../Components/Dashboard_1/Staff/api/onlineEmployeeListApi';
 import StyleSheet from './Address.module.css';
 
 function Address({
@@ -14,6 +15,20 @@ function Address({
     areaAction,
     addressAction
 }) {
+    // const [allRegionValue,setallRegionValue] = React.useState([]);
+    const [allCityValue, setallCityValue] = React.useState([]);
+    const [allAreaValue, setallAreaValue] = React.useState([]);
+
+    React.useEffect(() => {
+        try {
+            getRegionData().then((response) => {
+                setallCityValue(response);
+            });
+        } catch (err) {
+            console.log('Region Return Error');
+        }
+    }, []);
+
     // region component start
     function Region() {
         return (
@@ -22,13 +37,12 @@ function Address({
                 <div className={StyleSheet.region__container__selected__box}>
                     <select
                         style={
-                            regionValue !== 'none'
+                            regionValue !== ''
                                 ? { border: '0.13vw solid #da1e37' }
                                 : { border: 'none', backgroundColor: '#F5F5F5' }
                         }
                         onClick={(e) => {
                             e.target.style.border = '0.13vw solid #da1e37';
-                            e.target.style.backgroundColor = 'white';
                             e.target.style.backgroundColor = 'white';
                         }}
                         onChange={(e) => {
@@ -37,15 +51,15 @@ function Address({
                         value={regionValue}
                         name="region"
                         id="region">
-                        <option value="none">Region</option>
-                        <option value="Barishal">Barishal</option>
-                        <option value="Chattogram">Chattogram</option>
-                        <option value="Dhaka">Dhaka</option>
-                        <option value="Khulna">Khulna</option>
-                        <option value="Mymensingh">Mymensingh</option>
-                        <option value="Rajshahi">Rajshahi</option>
-                        <option value="Ranpur">Ranpur</option>
-                        <option value="Sylhet">Sylhet</option>
+                        <option value="null">Region</option>
+                        <option value="20">Barishal</option>
+                        <option value="50">Chattogram</option>
+                        <option value="120">Dhaka</option>
+                        <option value="150">Khulna</option>
+                        <option value="170">Mymensingh</option>
+                        <option value="185">Rajshahi</option>
+                        <option value="195">Ranpur</option>
+                        <option value="205">Sylhet</option>
                     </select>
                 </div>
             </div>
@@ -54,172 +68,15 @@ function Address({
     // region component end
 
     // all city component start
-    function City() {
-        return (
-            <div className={StyleSheet.city__container}>
-                <div className={StyleSheet.city__container__title}>City:</div>
-                <div className={StyleSheet.city__container__selected__box}>
-                    <select
-                        style={
-                            cityValue !== 'city'
-                                ? { border: '0.13vw solid #da1e37' }
-                                : { border: 'none', backgroundColor: '#F5F5F5' }
-                        }
-                        onClick={(e) => {
-                            e.target.style.border = '0.13vw solid #da1e37';
-                            e.target.style.backgroundColor = 'white';
-                        }}
-                        name="city"
-                        onChange={(e) => {
-                            cityAction(e.target.value);
-                        }}
-                        value={cityValue}>
-                        <option value="city">City</option>
-                    </select>
-                </div>
-            </div>
-        );
-    }
-    function BarishalCity() {
-        let barishalCityList = [
-            'City',
-            'barguna',
-            'agailjhara',
-            'babuganj',
-            'barajalia',
-            'gouranadi',
-            'mehendiganj',
-            'muladi',
-            'sahebganj',
-            'barishal-town',
-            'barishal-uzirpur',
-            'bhola',
-            'jhalokati',
-            'patuakhali',
-            'pirojpur'
-        ];
-        return (
-            <div className={StyleSheet.city__container}>
-                <div className={StyleSheet.city__container__title}>City:</div>
-                <div className={StyleSheet.city__container__selected__box}>
-                    <select
-                        style={
-                            cityValue !== 'city'
-                                ? { border: '0.13vw solid #da1e37' }
-                                : { border: 'none', backgroundColor: '#F5F5F5' }
-                        }
-                        onClick={(e) => {
-                            e.target.style.border = '0.13vw solid #da1e37';
-                            e.target.style.backgroundColor = 'white';
-                        }}
-                        name="barishalcity"
-                        id="barishalcity"
-                        onChange={(e) => {
-                            cityAction(e.target.value);
-                        }}
-                        value={cityValue}>
-                        {barishalCityList.map((city, index) => {
-                            return (
-                                <option key={index} value={city.toLowerCase()}>
-                                    {city}
-                                </option>
-                            );
-                        })}
-                    </select>
-                </div>
-            </div>
-        );
-    }
-    function ChattogramCity() {
-        let chattogramCityList = [
-            'City',
-            'anawara',
-            'bandarban',
-            'barakal',
-            'barura',
-            'basurhat',
-            'begumganj',
-            'bilaichhari',
-            'boalkhali',
-            'brahmanbaria',
-            'brahmanpara',
-            'burichang',
-            'chandina',
-            'chandpur',
-            'char alexgander',
-            'chatkhil',
-            'chattogram sadar',
-            'chhagalnaia',
-            'chiringga',
-            'chouddagram',
-            'comilla',
-            'coxs bazar',
-            'dagonbhuia',
-            'daudkandi',
-            'davidhar',
-            'diginala',
-            'east joara',
-            'faridganj',
-            'fatikchhari',
-            'feni',
-            'gorakghat',
-            'hajiganj',
-            'hathazari',
-            'hatiya',
-            'hayemchar',
-            'homna',
-            'jaldi',
-            'jarachhari',
-            'kachua',
-            'kalampati',
-            'kaptai',
-            'kasba',
-            'khagrachari',
-            'kutubdia',
-            'laksam',
-            'lakshmipur',
-            'langalkot',
-            'laxmichhari',
-            'lohagara',
-            'longachh',
-            'manikchhari',
-            'marishya',
-            'matiranga',
-            'matlobganj',
-            'mirsharai',
-            'muradnagar',
-            'nabinagar',
-            'naniachhar',
-            'noakhali',
-            'panchhari',
-            'pashurampur',
-            'patiya',
-            'rajsthali',
-            'ramganj',
-            'ramghar',
-            'ramu',
-            'rangamati',
-            'rangunia',
-            'raozan',
-            'raypur',
-            'sandwip',
-            'sarail',
-            'satkania',
-            'senbag',
-            'shahrasti',
-            'sitakunda',
-            'sonagazi',
-            'teknaf',
-            'ukhia'
-        ];
 
+    function CityModel({ title, name, list, value, action }) {
         return (
             <div className={StyleSheet.city__container}>
-                <div className={StyleSheet.city__container__title}>City:</div>
+                <div className={StyleSheet.city__container__title}>{title}:</div>
                 <div className={StyleSheet.city__container__selected__box}>
                     <select
                         style={
-                            cityValue !== 'city'
+                            value !== ''
                                 ? { border: '0.13vw solid #da1e37' }
                                 : { border: 'none', backgroundColor: '#F5F5F5' }
                         }
@@ -227,347 +84,24 @@ function Address({
                             e.target.style.border = '0.13vw solid #da1e37';
                             e.target.style.backgroundColor = 'white';
                         }}
-                        name="barishalcity"
-                        id="barishalcity"
+                        name={name}
                         onChange={(e) => {
-                            cityAction(e.target.value);
+                            action(e.target.value);
                         }}
-                        value={cityValue}>
-                        {chattogramCityList.map((city, index) => {
-                            return (
-                                <option key={index} value={city.toLowerCase()}>
-                                    {city}
-                                </option>
-                            );
+                        value={value}>
+                        <option value="null">City</option>
+                        {list?.map((item) => {
+                            if (item?.region_name === name) {
+                                return <option value={item?.city.id}>{item?.city.city_name}</option>;
+                            }
                         })}
                     </select>
                 </div>
             </div>
         );
     }
-    function DhakaCity() {
-        let dhakaCityList = [
-            'City',
-            'dhaka-north',
-            'dhaka-south',
-            'faridpur',
-            'gazipur',
-            'gopalganj',
-            'keranigonj',
-            'kishoreganj',
-            'madaripur',
-            'manikganj-shibloya',
-            'manikganj-singair',
-            'manikganj-town',
-            'munshiganj-gajaria',
-            'munshiganj-lohajong',
-            'munshiganj-sirajdikhan',
-            'munshiganj-town',
-            'narayanganj',
-            'narsingdi',
-            'nawabganj',
-            'rajbari-baliakandi',
-            'rajbari-pangsha',
-            'rajbari-town',
-            'savar',
-            'shariatpur-naria',
-            'shariatpur-town',
-            'tangail-basail',
-            'tangail-bhuapur',
-            'tangail-deldur',
-            'tangail-ghatail',
-            'tangail-gopalpur',
-            'tangail-kalihati',
-            'tangail-kashkawlia',
-            'tangail-madhupur',
-            'tangail-mirzapur',
-            'tangail-nagarpur',
-            'tangail-sakhipur',
-            'tangail-town',
-            'tongi'
-        ];
 
-        return (
-            <div className={StyleSheet.city__container}>
-                <div className={StyleSheet.city__container__title}>City:</div>
-                <div className={StyleSheet.city__container__selected__box}>
-                    <select
-                        style={
-                            cityValue !== 'city'
-                                ? { border: '0.13vw solid #da1e37' }
-                                : { border: 'none', backgroundColor: '#F5F5F5' }
-                        }
-                        onClick={(e) => {
-                            e.target.style.border = '0.13vw solid #da1e37';
-                            e.target.style.backgroundColor = 'white';
-                        }}
-                        name="barishalcity"
-                        id="barishalcity"
-                        onChange={(e) => {
-                            cityAction(e.target.value);
-                        }}
-                        value={cityValue}>
-                        {dhakaCityList.map((city, index) => {
-                            return (
-                                <option key={index} value={city.toLowerCase()}>
-                                    {city}
-                                </option>
-                            );
-                        })}
-                    </select>
-                </div>
-            </div>
-        );
-    }
-    function KhulnaCity() {
-        let khulnaCityList = [
-            'City',
-            'bagerhat',
-            'chuadanga',
-            'jashore',
-            'jhenaidah',
-            'khulna-alipur',
-            'khulna-amadee',
-            'khulna-batiaghat',
-            'khulna-chalna bazar',
-            'khulna-digalia',
-            'khulna-paikgachha',
-            'khulna-sajiara',
-            'khulna-terakhada',
-            'khulna-town',
-            'kushtia',
-            'magura',
-            'meherpur',
-            'narail',
-            'satkhira'
-        ];
 
-        return (
-            <div className={StyleSheet.city__container}>
-                <div className={StyleSheet.city__container__title}>City:</div>
-                <div className={StyleSheet.city__container__selected__box}>
-                    <select
-                        style={
-                            cityValue !== 'city'
-                                ? { border: '0.13vw solid #da1e37' }
-                                : { border: 'none', backgroundColor: '#F5F5F5' }
-                        }
-                        onClick={(e) => {
-                            e.target.style.border = '0.13vw solid #da1e37';
-                            e.target.style.backgroundColor = 'white';
-                        }}
-                        name="barishalcity"
-                        id="barishalcity"
-                        onChange={(e) => {
-                            cityAction(e.target.value);
-                        }}
-                        value={cityValue}>
-                        {khulnaCityList.map((city, index) => {
-                            return (
-                                <option key={index} value={city.toLowerCase()}>
-                                    {city}
-                                </option>
-                            );
-                        })}
-                    </select>
-                </div>
-            </div>
-        );
-    }
-    function MymensinghCity() {
-        let mymensinghCityList = [
-            'City',
-            'jamalpur-dewangonj',
-            'jamalpur-islampur',
-            'jamalpur-madarganj',
-            'jamalpur-malandha',
-            'jamalpur-shorishbari',
-            'jamalpur-town',
-            'mymensingh-gaforgaon',
-            'mymensingh-gouripur',
-            'mymensingh-haluaghat',
-            'mymensingh-isshwargonj',
-            'mymensingh-muktagacha',
-            'mymensingh-nandail',
-            'mymensingh-phulpur',
-            'mymensingh-town',
-            'mymensingh-trishal',
-            'netrakona',
-            'sherpur'
-        ];
-
-        return (
-            <div className={StyleSheet.city__container}>
-                <div className={StyleSheet.city__container__title}>City:</div>
-                <div className={StyleSheet.city__container__selected__box}>
-                    <select
-                        style={
-                            cityValue !== 'city'
-                                ? { border: '0.13vw solid #da1e37' }
-                                : { border: 'none', backgroundColor: '#F5F5F5' }
-                        }
-                        onClick={(e) => {
-                            e.target.style.border = '0.13vw solid #da1e37';
-                            e.target.style.backgroundColor = 'white';
-                        }}
-                        name="barishalcity"
-                        id="barishalcity"
-                        onChange={(e) => {
-                            cityAction(e.target.value);
-                        }}
-                        value={cityValue}>
-                        {mymensinghCityList.map((city, index) => {
-                            return (
-                                <option key={index} value={city.toLowerCase()}>
-                                    {city}
-                                </option>
-                            );
-                        })}
-                    </select>
-                </div>
-            </div>
-        );
-    }
-    function RajshahiCity() {
-        let rajshahiCityList = [
-            'City',
-            'bagura',
-            'chapai nawabganj',
-            'joypurhat',
-            'naogaon',
-            'natore',
-            'pabna',
-            'rajshahi',
-            'sirajganj'
-        ];
-
-        return (
-            <div className={StyleSheet.city__container}>
-                <div className={StyleSheet.city__container__title}>City:</div>
-                <div className={StyleSheet.city__container__selected__box}>
-                    <select
-                        style={
-                            cityValue !== 'city'
-                                ? { border: '0.13vw solid #da1e37' }
-                                : { border: 'none', backgroundColor: '#F5F5F5' }
-                        }
-                        onClick={(e) => {
-                            e.target.style.border = '0.13vw solid #da1e37';
-                            e.target.style.backgroundColor = 'white';
-                        }}
-                        name="barishalcity"
-                        id="barishalcity"
-                        onChange={(e) => {
-                            cityAction(e.target.value);
-                        }}
-                        value={cityValue}>
-                        {rajshahiCityList.map((city, index) => {
-                            return (
-                                <option key={index} value={city.toLowerCase()}>
-                                    {city}
-                                </option>
-                            );
-                        })}
-                    </select>
-                </div>
-            </div>
-        );
-    }
-    function RanpurCity() {
-        let ranpurCityList = [
-            'City',
-            'dinajpur',
-            'gaibandha',
-            'kurigram',
-            'lalmonirhat',
-            'nilphamari',
-            'panchagarh',
-            'rangpur',
-            'saidpur',
-            'thakurgaon'
-        ];
-
-        return (
-            <div className={StyleSheet.city__container}>
-                <div className={StyleSheet.city__container__title}>City:</div>
-                <div className={StyleSheet.city__container__selected__box}>
-                    <select
-                        style={
-                            cityValue !== 'city'
-                                ? { border: '0.13vw solid #da1e37' }
-                                : { border: 'none', backgroundColor: '#F5F5F5' }
-                        }
-                        onClick={(e) => {
-                            e.target.style.border = '0.13vw solid #da1e37';
-                            e.target.style.backgroundColor = 'white';
-                        }}
-                        name="barishalcity"
-                        id="barishalcity"
-                        onChange={(e) => {
-                            cityAction(e.target.value);
-                        }}
-                        value={cityValue}>
-                        {ranpurCityList.map((city, index) => {
-                            return (
-                                <option key={index} value={city.toLowerCase()}>
-                                    {city}
-                                </option>
-                            );
-                        })}
-                    </select>
-                </div>
-            </div>
-        );
-    }
-    function SylhetCity() {
-        let ranpurCityList = [
-            'City',
-            'balaganj',
-            'bianibazar',
-            'bishwanath',
-            'fenchuganj',
-            'goainhat',
-            'gopalganj',
-            'habiganj',
-            'jakiganj',
-            'kanaighat',
-            'moulvibazar',
-            'sunamganj',
-            'sylhet sadar'
-        ];
-
-        return (
-            <div className={StyleSheet.city__container}>
-                <div className={StyleSheet.city__container__title}>City:</div>
-                <div className={StyleSheet.city__container__selected__box}>
-                    <select
-                        style={
-                            cityValue !== 'city'
-                                ? { border: '0.13vw solid #da1e37' }
-                                : { border: 'none', backgroundColor: '#F5F5F5' }
-                        }
-                        onClick={(e) => {
-                            e.target.style.border = '0.13vw solid #da1e37';
-                            e.target.style.backgroundColor = 'white';
-                        }}
-                        name="barishalcity"
-                        id="barishalcity"
-                        onChange={(e) => {
-                            cityAction(e.target.value);
-                        }}
-                        value={cityValue}>
-                        {ranpurCityList.map((city, index) => {
-                            return (
-                                <option key={index} value={city.toLowerCase()}>
-                                    {city}
-                                </option>
-                            );
-                        })}
-                    </select>
-                </div>
-            </div>
-        );
-    }
     // all city component end
 
     // all area component start
@@ -10178,6 +9712,57 @@ function Address({
     }
     // Sylhte area end
 
+    function BarishalCity() {
+        let barishalCityList = [
+            'City',
+            'barguna',
+            'agailjhara',
+            'babuganj',
+            'barajalia',
+            'gouranadi',
+            'mehendiganj',
+            'muladi',
+            'sahebganj',
+            'barishal-town',
+            'barishal-uzirpur',
+            'bhola',
+            'jhalokati',
+            'patuakhali',
+            'pirojpur'
+        ];
+        return (
+            <div className={StyleSheet.city__container}>
+                <div className={StyleSheet.city__container__title}>City:</div>
+                <div className={StyleSheet.city__container__selected__box}>
+                    <select
+                        style={
+                            cityValue !== 'city'
+                                ? { border: '0.13vw solid #da1e37' }
+                                : { border: 'none', backgroundColor: '#F5F5F5' }
+                        }
+                        onClick={(e) => {
+                            e.target.style.border = '0.13vw solid #da1e37';
+                            e.target.style.backgroundColor = 'white';
+                        }}
+                        name="barishalcity"
+                        id="barishalcity"
+                        onChange={(e) => {
+                            cityAction(e.target.value);
+                        }}
+                        value={cityValue}>
+                        {barishalCityList.map((city, index) => {
+                            return (
+                                <option key={index} value={city.toLowerCase()}>
+                                    {city}
+                                </option>
+                            );
+                        })}
+                    </select>
+                </div>
+            </div>
+        );
+    }
+
     // all area component end
 
     return (
@@ -10187,7 +9772,7 @@ function Address({
                 <div className={StyleSheet.address__container__selected__box__row__one}>
                     <Region />
 
-                    {regionValue === 'none' ? <City /> : ''}
+                    {regionValue === '' ? <CityModel list={[]}title={"City"}value="null"action={(v)=>{}}name={"none"} /> : ''}
                     {regionValue === 'Barishal' ? <BarishalCity /> : ''}
                     {regionValue === 'Chattogram' ? <ChattogramCity /> : ''}
                     {regionValue === 'Dhaka' ? <DhakaCity /> : ''}
@@ -10196,6 +9781,7 @@ function Address({
                     {regionValue === 'Rajshahi' ? <RajshahiCity /> : ''}
                     {regionValue === 'Ranpur' ? <RanpurCity /> : ''}
                     {regionValue === 'Sylhet' ? <SylhetCity /> : ''}
+
                 </div>
                 <div className={StyleSheet.address__container__selected__box__row__two}>
                     {cityValue === 'city' ? <Area /> : ''}
@@ -10472,3 +10058,507 @@ function Address({
     );
 }
 export default React.memo(Address);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function BarishalCity() {
+//     let barishalCityList = [
+//         'City',
+//         'barguna',
+//         'agailjhara',
+//         'babuganj',
+//         'barajalia',
+//         'gouranadi',
+//         'mehendiganj',
+//         'muladi',
+//         'sahebganj',
+//         'barishal-town',
+//         'barishal-uzirpur',
+//         'bhola',
+//         'jhalokati',
+//         'patuakhali',
+//         'pirojpur'
+//     ];
+//     return (
+//         <div className={StyleSheet.city__container}>
+//             <div className={StyleSheet.city__container__title}>City:</div>
+//             <div className={StyleSheet.city__container__selected__box}>
+//                 <select
+//                     style={
+//                         cityValue !== 'city'
+//                             ? { border: '0.13vw solid #da1e37' }
+//                             : { border: 'none', backgroundColor: '#F5F5F5' }
+//                     }
+//                     onClick={(e) => {
+//                         e.target.style.border = '0.13vw solid #da1e37';
+//                         e.target.style.backgroundColor = 'white';
+//                     }}
+//                     name="barishalcity"
+//                     id="barishalcity"
+//                     onChange={(e) => {
+//                         cityAction(e.target.value);
+//                     }}
+//                     value={cityValue}>
+//                     {barishalCityList.map((city, index) => {
+//                         return (
+//                             <option key={index} value={city.toLowerCase()}>
+//                                 {city}
+//                             </option>
+//                         );
+//                     })}
+//                 </select>
+//             </div>
+//         </div>
+//     );
+// }
+// function ChattogramCity() {
+//     let chattogramCityList = [
+//         'City',
+//         'anawara',
+//         'bandarban',
+//         'barakal',
+//         'barura',
+//         'basurhat',
+//         'begumganj',
+//         'bilaichhari',
+//         'boalkhali',
+//         'brahmanbaria',
+//         'brahmanpara',
+//         'burichang',
+//         'chandina',
+//         'chandpur',
+//         'char alexgander',
+//         'chatkhil',
+//         'chattogram sadar',
+//         'chhagalnaia',
+//         'chiringga',
+//         'chouddagram',
+//         'comilla',
+//         'coxs bazar',
+//         'dagonbhuia',
+//         'daudkandi',
+//         'davidhar',
+//         'diginala',
+//         'east joara',
+//         'faridganj',
+//         'fatikchhari',
+//         'feni',
+//         'gorakghat',
+//         'hajiganj',
+//         'hathazari',
+//         'hatiya',
+//         'hayemchar',
+//         'homna',
+//         'jaldi',
+//         'jarachhari',
+//         'kachua',
+//         'kalampati',
+//         'kaptai',
+//         'kasba',
+//         'khagrachari',
+//         'kutubdia',
+//         'laksam',
+//         'lakshmipur',
+//         'langalkot',
+//         'laxmichhari',
+//         'lohagara',
+//         'longachh',
+//         'manikchhari',
+//         'marishya',
+//         'matiranga',
+//         'matlobganj',
+//         'mirsharai',
+//         'muradnagar',
+//         'nabinagar',
+//         'naniachhar',
+//         'noakhali',
+//         'panchhari',
+//         'pashurampur',
+//         'patiya',
+//         'rajsthali',
+//         'ramganj',
+//         'ramghar',
+//         'ramu',
+//         'rangamati',
+//         'rangunia',
+//         'raozan',
+//         'raypur',
+//         'sandwip',
+//         'sarail',
+//         'satkania',
+//         'senbag',
+//         'shahrasti',
+//         'sitakunda',
+//         'sonagazi',
+//         'teknaf',
+//         'ukhia'
+//     ];
+
+//     return (
+//         <div className={StyleSheet.city__container}>
+//             <div className={StyleSheet.city__container__title}>City:</div>
+//             <div className={StyleSheet.city__container__selected__box}>
+//                 <select
+//                     style={
+//                         cityValue !== 'city'
+//                             ? { border: '0.13vw solid #da1e37' }
+//                             : { border: 'none', backgroundColor: '#F5F5F5' }
+//                     }
+//                     onClick={(e) => {
+//                         e.target.style.border = '0.13vw solid #da1e37';
+//                         e.target.style.backgroundColor = 'white';
+//                     }}
+//                     name="barishalcity"
+//                     id="barishalcity"
+//                     onChange={(e) => {
+//                         cityAction(e.target.value);
+//                     }}
+//                     value={cityValue}>
+//                     {chattogramCityList.map((city, index) => {
+//                         return (
+//                             <option key={index} value={city.toLowerCase()}>
+//                                 {city}
+//                             </option>
+//                         );
+//                     })}
+//                 </select>
+//             </div>
+//         </div>
+//     );
+// }
+// function DhakaCity() {
+//     let dhakaCityList = [
+//         'City',
+//         'dhaka-north',
+//         'dhaka-south',
+//         'faridpur',
+//         'gazipur',
+//         'gopalganj',
+//         'keranigonj',
+//         'kishoreganj',
+//         'madaripur',
+//         'manikganj-shibloya',
+//         'manikganj-singair',
+//         'manikganj-town',
+//         'munshiganj-gajaria',
+//         'munshiganj-lohajong',
+//         'munshiganj-sirajdikhan',
+//         'munshiganj-town',
+//         'narayanganj',
+//         'narsingdi',
+//         'nawabganj',
+//         'rajbari-baliakandi',
+//         'rajbari-pangsha',
+//         'rajbari-town',
+//         'savar',
+//         'shariatpur-naria',
+//         'shariatpur-town',
+//         'tangail-basail',
+//         'tangail-bhuapur',
+//         'tangail-deldur',
+//         'tangail-ghatail',
+//         'tangail-gopalpur',
+//         'tangail-kalihati',
+//         'tangail-kashkawlia',
+//         'tangail-madhupur',
+//         'tangail-mirzapur',
+//         'tangail-nagarpur',
+//         'tangail-sakhipur',
+//         'tangail-town',
+//         'tongi'
+//     ];
+
+//     return (
+//         <div className={StyleSheet.city__container}>
+//             <div className={StyleSheet.city__container__title}>City:</div>
+//             <div className={StyleSheet.city__container__selected__box}>
+//                 <select
+//                     style={
+//                         cityValue !== 'city'
+//                             ? { border: '0.13vw solid #da1e37' }
+//                             : { border: 'none', backgroundColor: '#F5F5F5' }
+//                     }
+//                     onClick={(e) => {
+//                         e.target.style.border = '0.13vw solid #da1e37';
+//                         e.target.style.backgroundColor = 'white';
+//                     }}
+//                     name="barishalcity"
+//                     id="barishalcity"
+//                     onChange={(e) => {
+//                         cityAction(e.target.value);
+//                     }}
+//                     value={cityValue}>
+//                     {dhakaCityList.map((city, index) => {
+//                         return (
+//                             <option key={index} value={city.toLowerCase()}>
+//                                 {city}
+//                             </option>
+//                         );
+//                     })}
+//                 </select>
+//             </div>
+//         </div>
+//     );
+// }
+// function KhulnaCity() {
+//     let khulnaCityList = [
+//         'City',
+//         'bagerhat',
+//         'chuadanga',
+//         'jashore',
+//         'jhenaidah',
+//         'khulna-alipur',
+//         'khulna-amadee',
+//         'khulna-batiaghat',
+//         'khulna-chalna bazar',
+//         'khulna-digalia',
+//         'khulna-paikgachha',
+//         'khulna-sajiara',
+//         'khulna-terakhada',
+//         'khulna-town',
+//         'kushtia',
+//         'magura',
+//         'meherpur',
+//         'narail',
+//         'satkhira'
+//     ];
+
+//     return (
+//         <div className={StyleSheet.city__container}>
+//             <div className={StyleSheet.city__container__title}>City:</div>
+//             <div className={StyleSheet.city__container__selected__box}>
+//                 <select
+//                     style={
+//                         cityValue !== 'city'
+//                             ? { border: '0.13vw solid #da1e37' }
+//                             : { border: 'none', backgroundColor: '#F5F5F5' }
+//                     }
+//                     onClick={(e) => {
+//                         e.target.style.border = '0.13vw solid #da1e37';
+//                         e.target.style.backgroundColor = 'white';
+//                     }}
+//                     name="barishalcity"
+//                     id="barishalcity"
+//                     onChange={(e) => {
+//                         cityAction(e.target.value);
+//                     }}
+//                     value={cityValue}>
+//                     {khulnaCityList.map((city, index) => {
+//                         return (
+//                             <option key={index} value={city.toLowerCase()}>
+//                                 {city}
+//                             </option>
+//                         );
+//                     })}
+//                 </select>
+//             </div>
+//         </div>
+//     );
+// }
+// function MymensinghCity() {
+//     let mymensinghCityList = [
+//         'City',
+//         'jamalpur-dewangonj',
+//         'jamalpur-islampur',
+//         'jamalpur-madarganj',
+//         'jamalpur-malandha',
+//         'jamalpur-shorishbari',
+//         'jamalpur-town',
+//         'mymensingh-gaforgaon',
+//         'mymensingh-gouripur',
+//         'mymensingh-haluaghat',
+//         'mymensingh-isshwargonj',
+//         'mymensingh-muktagacha',
+//         'mymensingh-nandail',
+//         'mymensingh-phulpur',
+//         'mymensingh-town',
+//         'mymensingh-trishal',
+//         'netrakona',
+//         'sherpur'
+//     ];
+
+//     return (
+//         <div className={StyleSheet.city__container}>
+//             <div className={StyleSheet.city__container__title}>City:</div>
+//             <div className={StyleSheet.city__container__selected__box}>
+//                 <select
+//                     style={
+//                         cityValue !== 'city'
+//                             ? { border: '0.13vw solid #da1e37' }
+//                             : { border: 'none', backgroundColor: '#F5F5F5' }
+//                     }
+//                     onClick={(e) => {
+//                         e.target.style.border = '0.13vw solid #da1e37';
+//                         e.target.style.backgroundColor = 'white';
+//                     }}
+//                     name="barishalcity"
+//                     id="barishalcity"
+//                     onChange={(e) => {
+//                         cityAction(e.target.value);
+//                     }}
+//                     value={cityValue}>
+//                     {mymensinghCityList.map((city, index) => {
+//                         return (
+//                             <option key={index} value={city.toLowerCase()}>
+//                                 {city}
+//                             </option>
+//                         );
+//                     })}
+//                 </select>
+//             </div>
+//         </div>
+//     );
+// }
+// function RajshahiCity() {
+//     let rajshahiCityList = [
+//         'City',
+//         'bagura',
+//         'chapai nawabganj',
+//         'joypurhat',
+//         'naogaon',
+//         'natore',
+//         'pabna',
+//         'rajshahi',
+//         'sirajganj'
+//     ];
+
+//     return (
+//         <div className={StyleSheet.city__container}>
+//             <div className={StyleSheet.city__container__title}>City:</div>
+//             <div className={StyleSheet.city__container__selected__box}>
+//                 <select
+//                     style={
+//                         cityValue !== 'city'
+//                             ? { border: '0.13vw solid #da1e37' }
+//                             : { border: 'none', backgroundColor: '#F5F5F5' }
+//                     }
+//                     onClick={(e) => {
+//                         e.target.style.border = '0.13vw solid #da1e37';
+//                         e.target.style.backgroundColor = 'white';
+//                     }}
+//                     name="barishalcity"
+//                     id="barishalcity"
+//                     onChange={(e) => {
+//                         cityAction(e.target.value);
+//                     }}
+//                     value={cityValue}>
+//                     {rajshahiCityList.map((city, index) => {
+//                         return (
+//                             <option key={index} value={city.toLowerCase()}>
+//                                 {city}
+//                             </option>
+//                         );
+//                     })}
+//                 </select>
+//             </div>
+//         </div>
+//     );
+// }
+// function RanpurCity() {
+//     let ranpurCityList = [
+//         'City',
+//         'dinajpur',
+//         'gaibandha',
+//         'kurigram',
+//         'lalmonirhat',
+//         'nilphamari',
+//         'panchagarh',
+//         'rangpur',
+//         'saidpur',
+//         'thakurgaon'
+//     ];
+
+//     return (
+//         <div className={StyleSheet.city__container}>
+//             <div className={StyleSheet.city__container__title}>City:</div>
+//             <div className={StyleSheet.city__container__selected__box}>
+//                 <select
+//                     style={
+//                         cityValue !== 'city'
+//                             ? { border: '0.13vw solid #da1e37' }
+//                             : { border: 'none', backgroundColor: '#F5F5F5' }
+//                     }
+//                     onClick={(e) => {
+//                         e.target.style.border = '0.13vw solid #da1e37';
+//                         e.target.style.backgroundColor = 'white';
+//                     }}
+//                     name="barishalcity"
+//                     id="barishalcity"
+//                     onChange={(e) => {
+//                         cityAction(e.target.value);
+//                     }}
+//                     value={cityValue}>
+//                     {ranpurCityList.map((city, index) => {
+//                         return (
+//                             <option key={index} value={city.toLowerCase()}>
+//                                 {city}
+//                             </option>
+//                         );
+//                     })}
+//                 </select>
+//             </div>
+//         </div>
+//     );
+// }
+// function SylhetCity() {
+//     let ranpurCityList = [
+//         'City',
+//         'balaganj',
+//         'bianibazar',
+//         'bishwanath',
+//         'fenchuganj',
+//         'goainhat',
+//         'gopalganj',
+//         'habiganj',
+//         'jakiganj',
+//         'kanaighat',
+//         'moulvibazar',
+//         'sunamganj',
+//         'sylhet sadar'
+//     ];
+
+//     return (
+//         <div className={StyleSheet.city__container}>
+//             <div className={StyleSheet.city__container__title}>City:</div>
+//             <div className={StyleSheet.city__container__selected__box}>
+//                 <select
+//                     style={
+//                         cityValue !== 'city'
+//                             ? { border: '0.13vw solid #da1e37' }
+//                             : { border: 'none', backgroundColor: '#F5F5F5' }
+//                     }
+//                     onClick={(e) => {
+//                         e.target.style.border = '0.13vw solid #da1e37';
+//                         e.target.style.backgroundColor = 'white';
+//                     }}
+//                     name="barishalcity"
+//                     id="barishalcity"
+//                     onChange={(e) => {
+//                         cityAction(e.target.value);
+//                     }}
+//                     value={cityValue}>
+//                     {ranpurCityList.map((city, index) => {
+//                         return (
+//                             <option key={index} value={city.toLowerCase()}>
+//                                 {city}
+//                             </option>
+//                         );
+//                     })}
+//                 </select>
+//             </div>
+//         </div>
+//     );
+// }
+
+
+

@@ -50,17 +50,15 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
     const religion = useSelector((state) => state.dutypedia.religion);
     const nationality = useSelector((state) => state.dutypedia.nationality);
 
-    // const presentAddressRegion = useSelector((state) => state.dutypedia.presentAddress.region);
-    // const presentAddressCity = useSelector((state) => state.dutypedia.presentAddress.city);
-    // const presentAddressArea = useSelector((state) => state.dutypedia.presentAddress.area);
-    // const presentAddressAddress = useSelector((state) => state.dutypedia.presentAddress.address);
+    const presentAddressRegion = useSelector((state) => state.dutypedia.pres_region);
+    const presentAddressCity = useSelector((state) => state.dutypedia.pres_city);
+    const presentAddressArea = useSelector((state) => state.dutypedia.pres_area);
+    const presentAddressAddress = useSelector((state) => state.dutypedia.pres_address);
 
-    // const permanentAddressRegion = useSelector((state) => state.dutypedia.permanentAddress.region);
-    // const permanentAddressCity = useSelector((state) => state.dutypedia.permanentAddress.city);
-    // const permanentAddressArea = useSelector((state) => state.dutypedia.permanentAddress.area);
-    // const permanentAddressAddress = useSelector(
-    //     (state) => state.dutypedia.permanentAddress.address
-    // );
+    const permanentAddressRegion = useSelector((state) => state.dutypedia.perm_region);
+    const permanentAddressCity = useSelector((state) => state.dutypedia).perm_city;
+    const permanentAddressArea = useSelector((state) => state.dutypedia.perm_area);
+    const permanentAddressAddress = useSelector((state) => state.dutypedia.perm_address);
 
     // const uploadeFile = useSelector((state) => state.dutypedia.uploadingFile.user_documentes);
 
@@ -188,6 +186,10 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                 title="Present Address:"
                                 present={true}
                                 permanent={false}
+                                regionValue={presentAddressRegion}
+                                cityValue={presentAddressCity}
+                                areaValue={presentAddressArea}
+                                addressValue={presentAddressAddress}
                                 regionAction={(value) =>
                                     dispatch(user_present_address_region(value))
                                 }
@@ -206,6 +208,10 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                 title="Permanent Address:"
                                 present={false}
                                 permanent={true}
+                                regionValue={permanentAddressRegion}
+                                cityValue={permanentAddressCity}
+                                areaValue={permanentAddressArea}
+                                addressValue={permanentAddressAddress}
                                 regionAction={(value) =>
                                     dispatch(user_permanent_address_region(value))
                                 }
