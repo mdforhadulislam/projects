@@ -32,15 +32,15 @@ const initalState = {
     religion: '',
     nationality: '',
 
-    pres_region: null,
-    pres_city: null,
-    pres_area: null,
-    pres_address: null,
+    pres_region: '',
+    pres_city: '',
+    pres_area: '',
+    pres_address: '',
 
-    perm_region: null,
-    perm_city: null,
-    perm_area: null,
-    perm_address: null,
+    perm_region: '',
+    perm_city: '',
+    perm_area: '',
+    perm_address: '',
 
     file_uplaod: [],
 
@@ -109,6 +109,67 @@ const dutypediaReducers = (state = initalState, action) => {
             return {
                 ...state,
                 nationality: action.payload
+            };
+        }
+        case 'USER_PRESENT_ADDRESS_REGION': {
+            return {
+                ...state,
+                pres_region: action.payload
+            };
+        }
+        case 'USER_PRESENT_ADDRESS_CITY': {
+            return {
+                ...state,
+                pres_city: action.payload
+            };
+        }
+        case 'USER_PRESENT_ADDRESS_AREA': {
+            return {
+                ...state,
+                pres_area: action.payload
+            };
+        }
+        case 'USER_PRESENT_ADDRESS_ADDRESS': {
+            return {
+                ...state,
+                pres_address: action.payload
+            };
+        }
+
+        case 'USER_PERMANENT_ADDRESS_REGION': {
+            return {
+                ...state,
+                perm_region: action.payload
+            };
+        }
+        case 'USER_PERMANENT_ADDRESS_CITY': {
+            return {
+                ...state,
+                perm_city: action.payload
+            };
+        }
+        case 'USER_PERMANENT_ADDRESS_AREA': {
+            return {
+                ...state,
+                perm_area: action.payload
+            };
+        }
+        case 'USER_PERMANENT_ADDRESS_ADDRESS': {
+            return {
+                ...state,
+                perm_address: action.payload
+            };
+        }
+        case 'USER_DOCUMENTES': {
+            return {
+                ...state,
+                file_uplaod: [...state.file_uplaod, action.payload]
+            };
+        }
+        case 'REMOVED_USER_DOCUMENTES': {
+            return {
+                ...state,
+                file_uplaod: state.file_uplaod?.filter((file) => file?.id !== action.payload)
             };
         }
 

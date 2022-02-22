@@ -6,7 +6,6 @@ import CanceledRequest from '../../../../../Utilities/CanceledRequest';
 import DeleteMember from '../../../../../Utilities/DeleteMember';
 import IsEmployeeHeader from '../../../../../Utilities/IsEmployeeHeader';
 import QrCodePopup from '../../../../../Utilities/QrCodePopup';
-import { getEmployeeJoinType } from '../../api/onlineEmployeeListApi';
 // import { getEmployeeList } from '../../api/onlineEmployeeListApi';
 import EmployeeListHeader from './BoxAndDeatils/EmployeeListHeader';
 import MemberDeatils from './BoxAndDeatils/MemberDeatils';
@@ -40,7 +39,7 @@ function EmployList() {
 
     useEffect(() => {
         try {
-            getEmployeeJoinType().then((res) => console.log(res));
+            getEmployeeList().then((res) => console.log(res));
         } catch {
             console.log('Have an  error');
         }

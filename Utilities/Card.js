@@ -6,8 +6,7 @@ import CloudWhiteIcon from '../Assets/images/dashboard/CloudWhiteIcon';
 import DeleteIcon from '../Assets/images/dashboard/DeleteIcon';
 import StyleSheet from './Card.module.css';
 
-
-function Card({name,id,file, setLeftButton, setRightButton, actions }) {
+function Card({ title, id, file, setLeftButton, setRightButton, actions, progress }) {
     let [crossIcon, setCrossIcon] = useState(true);
     let [deleteIcon, setDeleteIcon] = useState(false);
     useEffect(() => {
@@ -16,21 +15,36 @@ function Card({name,id,file, setLeftButton, setRightButton, actions }) {
             setDeleteIcon(true);
         }, 3000);
     });
-
     return (
         <div className={StyleSheet.documents__container}>
             <div className={StyleSheet.documents__container__header}>
                 <div className={StyleSheet.documents__container__header__title}>
-                    {name}
+                    {title}
 
                     {deleteIcon && (
-                        <div onClick={(e) =>{actions(id);e.target.parentElement.parentElement.parentElement.parentElement.style.marginLeft ='0vw';setLeftButton(5);setRightButton(-5);}}style={{cursor:"pointer"}} >
-                                <DeleteIcon />
+                        <div
+                            onClick={(e) => {
+                                actions(id);
+                                e.target.parentElement.parentElement.parentElement.parentElement.style.marginLeft =
+                                    '0vw';
+                                setLeftButton(5);
+                                setRightButton(-5);
+                            }}
+                            style={{ cursor: 'pointer' }}>
+                            <DeleteIcon />
                         </div>
                     )}
 
                     {crossIcon && (
-                        <div onClick={(e) => {actions(id);e.target.parentElement.parentElement.parentElement.parentElement.style.marginLeft ='0vw';setLeftButton(5);setRightButton(-5);}}style={{cursor:"pointer"}} >
+                        <div
+                            onClick={(e) => {
+                                actions(id);
+                                e.target.parentElement.parentElement.parentElement.parentElement.style.marginLeft =
+                                    '0vw';
+                                setLeftButton(5);
+                                setRightButton(-5);
+                            }}
+                            style={{ cursor: 'pointer' }}>
                             <BroderCross />
                         </div>
                     )}
@@ -46,7 +60,7 @@ function Card({name,id,file, setLeftButton, setRightButton, actions }) {
                         <div
                             style={{
                                 width: '13vw',
-                                height: '13vw',
+                                height: progress,
                                 position: 'absolute',
                                 zIndex: '10',
                                 borderRadius: '.5vw'
@@ -87,7 +101,7 @@ function Card({name,id,file, setLeftButton, setRightButton, actions }) {
                                 color: 'white',
                                 zIndex: '6'
                             }}>
-                            Upload {0}%
+                            Upload {progress + 100} %
                         </div>
                     </div>
                 </div>

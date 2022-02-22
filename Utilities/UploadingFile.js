@@ -9,17 +9,16 @@ function UploadingFile({ uploadeFile, actions, deleteActions }) {
     let [uploadIcon, setUploadIcon] = useState(true);
     let [leftButton, setLeftButton] = useState(5);
     let [rightButton, setRightButton] = useState(-5);
+    let [progress, setProgress] = useState(0);
 
-    let imageHandler = (e) => {
-        setTimeout(() => {
-            const reader = new FileReader();
-            reader.onload = () => {
-                if (reader.readyState === 2) {
-                    actions({ id: uploadeFile.length, name: documentName, file: reader.result });
-                }
-            };
-            reader.readAsDataURL(e.target.files[0]);
-        }, 100);
+    let imageHandler = async (e) => {
+        const formData = new FormData();
+        formData.append('file', e.target.files[0]);
+        formData.append('title', documentName);
+        actions(formData, (ProgressEvent) => {
+            let progress = 100 - Math.round((ProgressEvent.loaded / ProgressEvent.total) * 100);
+            setProgress(progress);
+        });
     };
 
     useEffect(() => {
@@ -34,6 +33,7 @@ function UploadingFile({ uploadeFile, actions, deleteActions }) {
             <div className={StyleSheet.uploading__file__container__main__box}>
                 {uploadeFile.length !== 0 ? (
                     <div
+                        style={{ width: `${uploadeFile.length * 14}vw` }}
                         className={
                             StyleSheet.uploading__file__container__main__box__image__carousel__container
                         }>
@@ -59,12 +59,13 @@ function UploadingFile({ uploadeFile, actions, deleteActions }) {
                             return (
                                 <Card
                                     key={aboutImage.id}
-                                    name={aboutImage.name}
+                                    title={aboutImage.title}
                                     id={aboutImage.id}
                                     file={aboutImage.file}
                                     setLeftButton={setLeftButton}
                                     setRightButton={setRightButton}
                                     actions={(value) => deleteActions(value)}
+                                    progress={progress}
                                 />
                             );
                         })}

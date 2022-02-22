@@ -7,12 +7,14 @@ import appointmentReducers from './appointmentReducers';
 import expensesReducers from './expensesReducers';
 import groupUserSelect from './groupUserSelect';
 import mentorListReducer from './mentorListReducer';
+import employeeDocuments from './Staff/Dutypedia/employeesDocuments';
 const reducers = combineReducers({
     expensesReducers,
     appointmentReducers,
     groupUserSelect,
     mentorListReducer,
     dutypedia: dutypediaReducers,
+    onlineEmployeeDocuments: employeeDocuments,
     onlineUser: create_online_user,
     offline: offlineReducers,
     offlineUser: offline_user

@@ -1,26 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     first_name,
     last_name,
     middle_name,
-    //     removed_user_documents,
+    removed_user_documents,
     user_blood_group,
     user_date_of_birth,
+    user_documents,
     user_gender,
-    //     user_documents,
     user_nationality,
-    //     user_permanent_address_address,
-    //     user_permanent_address_area,
-    //     user_permanent_address_city,
-    //     user_permanent_address_region,
-    //     user_present_address_address,
-    //     user_present_address_area,
-    //     user_present_address_city,
-    //     user_present_address_region,
+    user_permanent_address_address,
+    user_permanent_address_area,
+    user_permanent_address_city,
+    user_permanent_address_region,
+    user_present_address_address,
+    user_present_address_area,
+    user_present_address_city,
+    user_present_address_region,
     user_religion
 } from '../../../../../../Redux/Dashboard_1/Action/Staff/Dutypedia/index';
 import Address from '../../../../../../Utilities/Address';
+import UploadingFile from '../../../../../../Utilities/UploadingFile';
 import {
     BloodGroup,
     DateOfBirth,
@@ -30,6 +31,7 @@ import {
     Nationality,
     Religion
 } from '../../../../../../Utilities/Utilites';
+import getEmployeeDocuments, { postEmployeeDocuments } from '../../../api/onlineEmployeeListApi';
 import StyleSheet from '../PopupBoxStyle/AddMemberInformation.module.css';
 import AddMemberInformationHeader from './AddMemberInformationHeader';
 
@@ -37,6 +39,7 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
     const [hiddenPopupFrom, setHiddenPopupFrom] = useState(true);
 
     const [joinAs, setJoinAs] = useState({ staff: false, member: false });
+    const [uploadeFile, setUploadeFile] = useState([]);
 
     const dispatch = useDispatch();
 
@@ -60,7 +63,15 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
     const permanentAddressArea = useSelector((state) => state.dutypedia.perm_area);
     const permanentAddressAddress = useSelector((state) => state.dutypedia.perm_address);
 
-    // const uploadeFile = useSelector((state) => state.dutypedia.uploadingFile.user_documentes);
+    // const uploadeFiles = useSelector((state) => state.dutypedia.file_uplaod);
+
+    useEffect(() => {
+        try {
+            getEmployeeDocuments().then((res) => setUploadeFile(res));
+        } catch (error) {
+            console.log('return error');
+        }
+    }, []);
 
     const fromSubmitHendeler = (e) => {
         e.preventDefault();
@@ -226,13 +237,23 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                             className={
                                 StyleSheet.information__container__from__box__upload__documents__box
                             }>
-                            {/* <UploadingFile
-                            uploadeFile={uploadeFile}
-                            actions={(value) => dispatch(user_documents(value))}
-                            deleteActions={(value) => {
-                                dispatch(removed_user_documents(value));
-                            }}
-                            /> */}
+                            <UploadingFile
+                                uploadeFile={uploadeFile}
+                                actions={(formData, progress) => {
+                                    postEmployeeDocuments(formData, progress)
+                                        .then((res) => {
+                                            setUploadeFile([...uploadeFile, res]);
+                                            dispatch(user_documents({ id: res.id }));
+                                        })
+                                        .catch((err) => {
+                                            console.log('uploading error');
+                                        });
+                                }}
+                                deleteActions={(value) => {
+                                    dispatch(removed_user_documents(value));
+                                    setUploadeFile(uploadeFile.filter((item) => item.id !== value));
+                                }}
+                            />
                         </div>
                         <div
                             className={
