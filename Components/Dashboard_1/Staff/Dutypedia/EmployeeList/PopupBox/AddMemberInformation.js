@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     first_name,
+    join_as,
     last_name,
     middle_name,
     removed_user_documents,
@@ -31,7 +32,11 @@ import {
     Nationality,
     Religion
 } from '../../../../../../Utilities/Utilites';
-import getEmployeeDocuments, { postEmployeeDocuments } from '../../../api/onlineEmployeeListApi';
+import getEmployeeDocuments, {
+    deleteEmployeeDocuments,
+    getEmployeeJoinType,
+    postEmployeeDocuments
+} from '../../../api/onlineEmployeeListApi';
 import StyleSheet from '../PopupBoxStyle/AddMemberInformation.module.css';
 import AddMemberInformationHeader from './AddMemberInformationHeader';
 
@@ -40,10 +45,10 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
 
     const [joinAs, setJoinAs] = useState({ staff: false, member: false });
     const [uploadeFile, setUploadeFile] = useState([]);
+    const [ApiResJoinType, setApiResJoinType] = useState([]);
 
     const dispatch = useDispatch();
 
-    // const member_and_staff = useSelector((state) => state.dutypedia.member_and_staff);
     const firstName = useSelector((state) => state.dutypedia.first_name);
     const middleName = useSelector((state) => state.dutypedia.middle_name);
     const lastName = useSelector((state) => state.dutypedia.last_name);
@@ -63,10 +68,9 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
     const permanentAddressArea = useSelector((state) => state.dutypedia.perm_area);
     const permanentAddressAddress = useSelector((state) => state.dutypedia.perm_address);
 
-    // const uploadeFiles = useSelector((state) => state.dutypedia.file_uplaod);
-
     useEffect(() => {
         try {
+            getEmployeeJoinType().then((res) => setApiResJoinType(res));
             getEmployeeDocuments().then((res) => setUploadeFile(res));
         } catch (error) {
             console.log('return error');
@@ -112,6 +116,13 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                                 ? { ...prev, staff: true, member: false }
                                                 : { ...prev, staff: false, member: true }
                                         );
+                                        joinAs.member
+                                            ? ApiResJoinType.filter(
+                                                  (item) => item.title === 'Member'
+                                              ).map((item) => dispatch(join_as(item.id)))
+                                            : ApiResJoinType.filter(
+                                                  (item) => item.title === 'Staff'
+                                              ).map((item) => dispatch(join_as(item.id)));
                                     }}
                                     value={joinAs.member}
                                 />
@@ -124,6 +135,13 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                                 ? { ...prev, staff: false, member: true }
                                                 : { ...prev, staff: true, member: false }
                                         );
+                                        joinAs.staff
+                                            ? ApiResJoinType.filter(
+                                                  (item) => item.title === 'Staff'
+                                              ).map((item) => dispatch(join_as(item.id)))
+                                            : ApiResJoinType.filter(
+                                                  (item) => item.title === 'Member'
+                                              ).map((item) => dispatch(join_as(item.id)));
                                     }}
                                     value={joinAs.staff}
                                 />
@@ -242,6 +260,7 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                 actions={(formData, progress) => {
                                     postEmployeeDocuments(formData, progress)
                                         .then((res) => {
+                                            console.log(res);
                                             setUploadeFile([...uploadeFile, res]);
                                             dispatch(user_documents({ id: res.id }));
                                         })
@@ -251,7 +270,11 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                 }}
                                 deleteActions={(value) => {
                                     dispatch(removed_user_documents(value));
-                                    setUploadeFile(uploadeFile.filter((item) => item.id !== value));
+                                    deleteEmployeeDocuments(value).then((res) => {
+                                        setUploadeFile(
+                                            uploadeFile.filter((item) => item.id !== value)
+                                        );
+                                    });
                                 }}
                             />
                         </div>

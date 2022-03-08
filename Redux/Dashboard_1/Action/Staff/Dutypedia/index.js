@@ -130,12 +130,6 @@ export function removed_user_documents(payload) {
         payload
     };
 }
-export function removed_user_all_file(payload) {
-    return {
-        type: 'REMOVED_ALL_USER_FILE',
-        payload
-    };
-}
 
 export function user_id(payload) {
     return {
@@ -162,6 +156,8 @@ export function user_image(payload) {
     };
 }
 
+/** */
+
 export function user_position(payload) {
     return {
         type: 'USER_POSITION',
@@ -174,6 +170,14 @@ export function user_joining_date(payload) {
         payload
     };
 }
+
+export function user_no_salary(payload) {
+    return {
+        type: 'USER_NO_SALARY',
+        payload
+    };
+}
+
 export function user_salary_amount(payload) {
     return {
         type: 'USER_SALARY_AMOUNT',
@@ -194,7 +198,7 @@ export function user_salary_date_every_day(payload) {
 }
 export function user_salary_date_every_week(payload) {
     return {
-        type: 'USER_SALARY_DATE_EVERY_WEEk',
+        type: 'USER_SALARY_DATE_EVERY_WEEK',
         payload
     };
 }
@@ -204,6 +208,8 @@ export function user_salary_date_every_month(payload) {
         payload
     };
 }
+
+/** */
 
 export function user_salary_status_set_upcoming(payload) {
     return {

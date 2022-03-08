@@ -47,11 +47,12 @@ const initalState = {
     user: null,
     position: '',
     joining_date: new Date(),
-    salary_amount: null,
-    salary_type: null,
-    salary_date_every_day: null,
-    salary_date_every_month: null,
-    salary_date_every_week: null,
+    no_salary: false,
+    salary_amount: '',
+    salary_type: '',
+    salary_date_every_day: '',
+    salary_date_every_month: '',
+    salary_date_every_week: '',
     access: []
 };
 
@@ -170,6 +171,60 @@ const dutypediaReducers = (state = initalState, action) => {
             return {
                 ...state,
                 file_uplaod: state.file_uplaod?.filter((file) => file?.id !== action.payload)
+            };
+        }
+        case 'USER_POSITION': {
+            return {
+                ...state,
+                position: action.payload
+            };
+        }
+        case 'USER_JOINING_DATE': {
+            return {
+                ...state,
+                joining_date: action.payload
+            };
+        }
+        case 'USER_NO_SALARY': {
+            return {
+                ...state,
+                no_salary: action.payload
+            };
+        }
+        case 'USER_SALARY_AMOUNT': {
+            return {
+                ...state,
+                salary_amount: Number(action.payload)
+            };
+        }
+        case 'USER_SALARY_TYPE': {
+            return {
+                ...state,
+                salary_type: action.payload
+            };
+        }
+        case 'USER_SALARY_DATE_EVERY_DAY': {
+            return {
+                ...state,
+                salary_date_every_day: action.payload
+            };
+        }
+        case 'USER_SALARY_DATE_EVERY_MONTH': {
+            return {
+                ...state,
+                salary_date_every_month: Number(action.payload)
+            };
+        }
+        case 'USER_SALARY_DATE_EVERY_WEEK': {
+            return {
+                ...state,
+                salary_date_every_week: Number(action.payload)
+            };
+        }
+        case 'USER_ACCESS': {
+            return {
+                ...state,
+                access: [...state.access, action.payload]
             };
         }
 

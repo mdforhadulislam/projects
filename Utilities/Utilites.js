@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import DownIcon from '../Assets/images/dashboard/DownIcon';
 import SearchIcon from '../Assets/images/dashboard/SearchIcon';
 import UpIcon from '../Assets/images/dashboard/UpIcon';
+import {
+    getEmployeeSalaryMonth,
+    getEmployeeSalaryWeekDay
+} from '../Components/Dashboard_1/Staff/api/onlineEmployeeListApi';
 import StyleSheet from './Utilites.module.css';
 
 export function SearchBox({ placeholder, value, action, name, style }) {
@@ -454,6 +458,18 @@ export function clockTimer(timeString) {
     );
 }
 export function SalaryDateEveryMonth({ actions, value }) {
+    const [monthDate, setMonthDate] = useState([]);
+
+    useEffect(() => {
+        try {
+            getEmployeeSalaryMonth()
+                .then((res) => setMonthDate(res))
+                .catch((err) => console.log('error'));
+        } catch (error) {
+            console.log('err');
+        }
+    }, []);
+
     return (
         <div className={StyleSheet.salary__date__every__month__container}>
             <div className={StyleSheet.salary__date__every__month__container__title}>
@@ -469,9 +485,13 @@ export function SalaryDateEveryMonth({ actions, value }) {
                         StyleSheet.salary__date__every__month__container__selected__box__select
                     }>
                     <option value="">select</option>
-                    <option value="1-10">1st To 10th</option>
-                    <option value="10-20">10th To 20ty</option>
-                    <option value="20-31">20ty To 31</option>
+                    {monthDate.map((date) => {
+                        return (
+                            <option key={date.id} value={date?.id}>
+                                {date?.starting_day} to {date?.ending_day}
+                            </option>
+                        );
+                    })}
                 </select>
                 <div className={StyleSheet.salary__date__every__month__container__icon}></div>
             </div>
@@ -479,6 +499,18 @@ export function SalaryDateEveryMonth({ actions, value }) {
     );
 }
 export function SalaryDateEveryWeek({ actions, value }) {
+    const [weekDay, setWeekDay] = useState([]);
+
+    useEffect(() => {
+        try {
+            getEmployeeSalaryWeekDay()
+                .then((res) => setWeekDay(res))
+                .catch((err) => console.log('err'));
+        } catch (error) {
+            console.log('error');
+        }
+    }, []);
+
     return (
         <div className={StyleSheet.salary__date__every__week__container}>
             <div className={StyleSheet.salary__date__every__week__container__title}>
@@ -494,13 +526,13 @@ export function SalaryDateEveryWeek({ actions, value }) {
                         StyleSheet.salary__date__every__week__container__selected__box__select
                     }>
                     <option value="">select</option>
-                    <option value="6">Saturday</option>
-                    <option value="0">Sunday</option>
-                    <option value="1">Monday</option>
-                    <option value="2">Tuesday</option>
-                    <option value="3">Wednestday</option>
-                    <option value="4">Thursday</option>
-                    <option value="5">Friday</option>
+                    {weekDay?.map((day) => {
+                        return (
+                            <option key={day.id} value={day.id}>
+                                {day.day_name}
+                            </option>
+                        );
+                    })}
                 </select>
                 <div className={StyleSheet.salary__date__every__week__container__icon}></div>
             </div>
