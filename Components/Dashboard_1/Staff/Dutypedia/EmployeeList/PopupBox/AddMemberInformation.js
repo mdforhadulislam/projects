@@ -271,11 +271,12 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                 }}
                                 deleteActions={(value) => {
                                     dispatch(removed_user_documents(value));
-                                    deleteEmployeeDocuments(value).then((res) => {
-                                        setUploadeFile(
-                                            uploadeFile.filter((item) => item.id !== value)
-                                        );
-                                    });
+                                    setUploadeFile(uploadeFile.filter((item) => item.id !== value));
+                                    setTimeout(() => {
+                                        deleteEmployeeDocuments(value).then((res) => {
+                                            console.log('Sucessfully Deleted');
+                                        });
+                                    }, 2000);
                                 }}
                             />
                         </div>

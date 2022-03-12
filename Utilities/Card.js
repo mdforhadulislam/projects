@@ -22,7 +22,7 @@ function Card({
         setTimeout(() => {
             setCrossIcon(false);
             setDeleteIcon(true);
-        }, 3000);
+        }, 5000);
     });
     return (
         <div className={StyleSheet.documents__container}>

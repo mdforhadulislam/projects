@@ -50,14 +50,14 @@
     animation-name: displayNone;
     animation-duration: 0.1s;
     animation-fill-mode: forwards;
-    animation-delay: 3.5s;
+    animation-delay: 10s;
 }
 @keyframes displayNone {
     0% {
         height: 100%;
     }
     100% {
-        height: 0vw;
+        height: 0%;
         opacity: 0;
     }
 }
