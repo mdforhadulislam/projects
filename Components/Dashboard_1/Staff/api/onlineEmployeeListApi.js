@@ -38,13 +38,13 @@ export async function getAreaData() {
 }
 
 export async function getEmployeeDocuments() {
-    const URL = `https://dutychoice.com/app-api/extra-files/?format=json`;
+    const URL = 'https://dutychoice.com/app-api/extra-files/';
     const response = await axios.get(URL, options);
     return response.data;
 }
 
 export async function postEmployeeDocuments(data, progress) {
-    const URL = `https://dutychoice.com/app-api/extra-files/`;
+    const URL = 'https://dutychoice.com/app-api/extra-files/';
     const response = await axios.post(URL, data, { onUploadProgress: progress });
     return response.data;
 }

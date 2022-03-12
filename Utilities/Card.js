@@ -6,7 +6,16 @@ import CloudWhiteIcon from '../Assets/images/dashboard/CloudWhiteIcon';
 import DeleteIcon from '../Assets/images/dashboard/DeleteIcon';
 import StyleSheet from './Card.module.css';
 
-function Card({ title, id, file, setLeftButton, setRightButton, actions, progress }) {
+function Card({
+    title,
+    id,
+    file,
+    setLeftButton,
+    setRightButton,
+    actions,
+    progress,
+    progressHeight
+}) {
     let [crossIcon, setCrossIcon] = useState(true);
     let [deleteIcon, setDeleteIcon] = useState(false);
     useEffect(() => {
@@ -60,7 +69,7 @@ function Card({ title, id, file, setLeftButton, setRightButton, actions, progres
                         <div
                             style={{
                                 width: '13vw',
-                                height: progress,
+                                height: progressHeight + '%',
                                 position: 'absolute',
                                 zIndex: '10',
                                 borderRadius: '.5vw'
@@ -101,7 +110,7 @@ function Card({ title, id, file, setLeftButton, setRightButton, actions, progres
                                 color: 'white',
                                 zIndex: '6'
                             }}>
-                            Upload {progress + 100} %
+                            Upload {progress} %
                         </div>
                     </div>
                 </div>

@@ -39,7 +39,7 @@ function EmployList() {
 
     useEffect(() => {
         try {
-            getEmployeeList().then((res) => console.log(res));
+            console.log(getEmployeeList())
         } catch {
             console.log('Have an  error');
         }

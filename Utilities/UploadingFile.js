@@ -10,15 +10,31 @@ function UploadingFile({ uploadeFile, actions, deleteActions }) {
     let [leftButton, setLeftButton] = useState(5);
     let [rightButton, setRightButton] = useState(-5);
     let [progress, setProgress] = useState(0);
+    let [progressHeight, setProgressHeight] = useState(100);
 
     let imageHandler = async (e) => {
         const formData = new FormData();
+        const id = Math.round(Math.random() * 1000000000000);
         formData.append('file', e.target.files[0]);
         formData.append('title', documentName);
-        actions(formData, (ProgressEvent) => {
-            let progress = 100 - Math.round((ProgressEvent.loaded / ProgressEvent.total) * 100);
-            setProgress(progress);
-        });
+        formData.append('id', id);
+        const reader = new FileReader();
+        reader.onload = () => {
+            actions(
+                formData,
+                (ProgressEvent) => {
+                    let progress = Math.round((ProgressEvent.loaded / ProgressEvent.total) * 100);
+                    let progressHeight =
+                        100 - Math.round((ProgressEvent.loaded / ProgressEvent.total) * 100);
+                    setProgress(progress);
+                    setProgressHeight(progressHeight);
+                },
+                reader.result,
+                documentName,
+                id
+            );
+        };
+        reader.readAsDataURL(e.target.files[0]);
     };
 
     useEffect(() => {
@@ -66,6 +82,7 @@ function UploadingFile({ uploadeFile, actions, deleteActions }) {
                                     setRightButton={setRightButton}
                                     actions={(value) => deleteActions(value)}
                                     progress={progress}
+                                    progressHeight={progressHeight}
                                 />
                             );
                         })}

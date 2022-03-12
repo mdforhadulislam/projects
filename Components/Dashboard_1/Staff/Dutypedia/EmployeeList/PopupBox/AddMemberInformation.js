@@ -32,7 +32,7 @@ import {
     Nationality,
     Religion
 } from '../../../../../../Utilities/Utilites';
-import getEmployeeDocuments, {
+import {
     deleteEmployeeDocuments,
     getEmployeeJoinType,
     postEmployeeDocuments
@@ -64,14 +64,13 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
     const presentAddressAddress = useSelector((state) => state.dutypedia.pres_address);
 
     const permanentAddressRegion = useSelector((state) => state.dutypedia.perm_region);
-    const permanentAddressCity = useSelector((state) => state.dutypedia).perm_city;
+    const permanentAddressCity = useSelector((state) => state.dutypedia.perm_city);
     const permanentAddressArea = useSelector((state) => state.dutypedia.perm_area);
     const permanentAddressAddress = useSelector((state) => state.dutypedia.perm_address);
 
     useEffect(() => {
         try {
             getEmployeeJoinType().then((res) => setApiResJoinType(res));
-            getEmployeeDocuments().then((res) => setUploadeFile(res));
         } catch (error) {
             console.log('return error');
         }
@@ -257,11 +256,13 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                             }>
                             <UploadingFile
                                 uploadeFile={uploadeFile}
-                                actions={(formData, progress) => {
+                                actions={(formData, progress, file, title, id) => {
+                                    setUploadeFile([
+                                        ...uploadeFile,
+                                        { id, file: file, title: title }
+                                    ]);
                                     postEmployeeDocuments(formData, progress)
                                         .then((res) => {
-                                            console.log(res);
-                                            setUploadeFile([...uploadeFile, res]);
                                             dispatch(user_documents({ id: res.id }));
                                         })
                                         .catch((err) => {
