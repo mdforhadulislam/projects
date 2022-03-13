@@ -19,7 +19,8 @@ import {
     user_present_address_area,
     user_present_address_city,
     user_present_address_region,
-    user_religion
+    user_religion,
+    user_remove_data
 } from '../../../../../../Redux/Dashboard_1/Action/Staff/Dutypedia/index';
 import Address from '../../../../../../Utilities/Address';
 import UploadingFile from '../../../../../../Utilities/UploadingFile';
@@ -33,10 +34,11 @@ import {
     Religion
 } from '../../../../../../Utilities/Utilites';
 import {
-    deleteEmployeeDocuments,
-    getEmployeeJoinType,
-    postEmployeeDocuments
-} from '../../../api/onlineEmployeeListApi';
+    deleteEmployeeDocumentsURL,
+    getEmployeeJoinTypeURL,
+    postEmployeeDocumentsURL
+} from '../../../api/apiUrl';
+import { deleteApiCall, getApiCall, postApiCall } from '../../../api/onlineEmployeeListApi';
 import StyleSheet from '../PopupBoxStyle/AddMemberInformation.module.css';
 import AddMemberInformationHeader from './AddMemberInformationHeader';
 
@@ -69,11 +71,13 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
     const permanentAddressAddress = useSelector((state) => state.dutypedia.perm_address);
 
     useEffect(() => {
-        try {
-            getEmployeeJoinType().then((res) => setApiResJoinType(res));
-        } catch (error) {
-            console.log('return error');
-        }
+        getApiCall(getEmployeeJoinTypeURL)
+            .then((response) => {
+                setApiResJoinType(response);
+            })
+            .catch((error) => {
+                console.log(`Error ${error}`);
+            });
     }, []);
 
     const fromSubmitHendeler = (e) => {
@@ -115,6 +119,7 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                                 ? { ...prev, staff: true, member: false }
                                                 : { ...prev, staff: false, member: true }
                                         );
+
                                         joinAs.member
                                             ? ApiResJoinType.filter(
                                                   (item) => item.title === 'Member'
@@ -261,21 +266,25 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                         ...uploadeFile,
                                         { id, file: file, title: title }
                                     ]);
-                                    postEmployeeDocuments(formData, progress)
+                                    postApiCall(postEmployeeDocumentsURL, formData, progress)
                                         .then((res) => {
-                                            dispatch(user_documents({ id: res.id }));
+                                            setTimeout(() => {
+                                                dispatch(user_documents({ id: res.id }));
+                                            }, 1000);
                                         })
                                         .catch((err) => {
-                                            console.log('uploading error');
+                                            console.log(`Error ${err}`);
                                         });
                                 }}
                                 deleteActions={(value) => {
                                     dispatch(removed_user_documents(value));
                                     setUploadeFile(uploadeFile.filter((item) => item.id !== value));
                                     setTimeout(() => {
-                                        deleteEmployeeDocuments(value).then((res) => {
-                                            console.log('Sucessfully Deleted');
-                                        });
+                                        deleteApiCall(deleteEmployeeDocumentsURL(value)).then(
+                                            (res) => {
+                                                console.log('Sucessfully Deleted');
+                                            }
+                                        );
                                     }, 2000);
                                 }}
                             />
@@ -298,6 +307,42 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                 }
                                 onClick={() => {
                                     setAddInformationPopup(false);
+                                    dispatch(
+                                        user_remove_data({
+                                            join_as: [],
+                                            first_name: '',
+                                            middle_name: '',
+                                            last_name: '',
+                                            gender: '',
+                                            blood_group: '',
+                                            date_of_birth: new Date(),
+                                            religion: '',
+                                            nationality: '',
+
+                                            pres_region: '',
+                                            pres_city: '',
+                                            pres_area: '',
+                                            pres_address: '',
+
+                                            perm_region: '',
+                                            perm_city: '',
+                                            perm_area: '',
+                                            perm_address: '',
+
+                                            file_uplaod: [],
+
+                                            user: null,
+                                            position: '',
+                                            joining_date: new Date(),
+                                            no_salary: false,
+                                            salary_amount: '',
+                                            salary_type: '',
+                                            salary_date_every_day: '',
+                                            salary_date_every_month: '',
+                                            salary_date_every_week: '',
+                                            access: []
+                                        })
+                                    );
                                 }}>
                                 Cencel
                             </button>

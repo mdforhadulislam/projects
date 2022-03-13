@@ -17,7 +17,7 @@ import AttendencePopupForm from './PopupBox/AttendencePopupForm';
 function EmployeeAttendence() {
     const [attendencePopupForm, setAttendencesPopupForm] = useState(false);
     const [attendenceEmployee, setAttendenceEmployee] = useState(false);
-    const [attendenceEditPopup, setAttendenceEditPopup] = useState(true);
+    const [attendenceEditPopup, setAttendenceEditPopup] = useState(false);
 
     return (
         <>
@@ -132,7 +132,7 @@ function EmployeeAttendence() {
                             </div>
 
                             <div className={StyleSheet.employee__main__container__body}>
-                                <BoxDeatils />
+                                <BoxDeatils setAttendenceEditPopup={setAttendenceEditPopup} />
                                 <BoxDeatils />
                                 <BoxDeatils />
                                 <BoxDeatils />

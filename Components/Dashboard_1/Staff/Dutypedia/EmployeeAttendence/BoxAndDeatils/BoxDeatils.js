@@ -4,7 +4,8 @@ import DownIcon from '../../../../../../Assets/images/dashboard/downIcon.svg';
 import DutyPreIcon from '../../../../../../Assets/images/dashboard/DutyPreIconSmall';
 import ThreeDot from '../../../../../../Assets/images/dashboard/ThreeDotIcon.svg';
 import StyleSheet from '../BoxAndDeatilsStyle/BoxDeatils.module.css';
-function BoxDeatils() {
+
+function BoxDeatils({ setAttendenceEditPopup }) {
     const [isOption, setIsOption] = useState(false);
 
     return (
@@ -62,6 +63,7 @@ function BoxDeatils() {
                             <li
                                 onClick={() => {
                                     setIsOption(false);
+                                    setAttendenceEditPopup(true);
                                 }}>
                                 Edit
                             </li>

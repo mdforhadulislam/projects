@@ -5,9 +5,10 @@ import DownIcon from '../Assets/images/dashboard/DownIcon';
 import SearchIcon from '../Assets/images/dashboard/SearchIcon';
 import UpIcon from '../Assets/images/dashboard/UpIcon';
 import {
-    getEmployeeSalaryMonth,
-    getEmployeeSalaryWeekDay
-} from '../Components/Dashboard_1/Staff/api/onlineEmployeeListApi';
+    getSalaryMonthDateURL,
+    getSalaryWeekDayURL
+} from '../Components/Dashboard_1/Staff/api/apiUrl';
+import { getApiCall } from '../Components/Dashboard_1/Staff/api/onlineEmployeeListApi';
 import StyleSheet from './Utilites.module.css';
 
 export function SearchBox({ placeholder, value, action, name, style }) {
@@ -427,47 +428,50 @@ export function SalaryDateEveryDay({ actions, value }) {
         </div>
     );
 }
-export function clockTimer(timeString) {
-    var hour = Number(timeString.split(':')[0]);
-    var minute = Number(timeString.split(':')[1]);
+export function SalaryDateEveryWeek({ actions, value }) {
+    const [weekDay, setWeekDay] = useState([]);
 
-    var prepand = hour >= 12 ? ' PM ' : ' AM ';
+    useEffect(() => {
+        getApiCall(getSalaryWeekDayURL)
+            .then((res) => setWeekDay(res))
+            .catch((err) => console.log(`Error ${err}`));
+    }, []);
 
-    hour = hour >= 12 ? hour - 12 : hour;
-
-    if (hour === 0 && prepand === ' PM ') {
-        if (minute === 0) {
-            hour = 12;
-            prepand = ' Noon';
-        } else {
-            hour = 12;
-            prepand = ' PM';
-        }
-    }
-    if (hour === 0 && prepand === ' AM ') {
-        if (minute === 0) {
-            hour = 12;
-            prepand = ' Midnight';
-        } else {
-            hour = 12;
-            prepand = ' AM';
-        }
-    }
     return (
-        (hour < 10 ? '0' + hour : hour) + ' : ' + (minute < 10 ? '0' + minute : minute) + prepand
+        <div className={StyleSheet.salary__date__every__week__container}>
+            <div className={StyleSheet.salary__date__every__week__container__title}>
+                Salary Date Every Week
+            </div>
+            <div className={StyleSheet.salary__date__every__week__container__selected__box}>
+                <select
+                    onChange={(e) => {
+                        actions(e.target.value);
+                    }}
+                    value={value}
+                    className={
+                        StyleSheet.salary__date__every__week__container__selected__box__select
+                    }>
+                    <option value="">select</option>
+                    {weekDay?.map((day) => {
+                        return (
+                            <option key={day.id} value={day.id}>
+                                {day.day_name}
+                            </option>
+                        );
+                    })}
+                </select>
+                <div className={StyleSheet.salary__date__every__week__container__icon}></div>
+            </div>
+        </div>
     );
 }
 export function SalaryDateEveryMonth({ actions, value }) {
     const [monthDate, setMonthDate] = useState([]);
 
     useEffect(() => {
-        try {
-            getEmployeeSalaryMonth()
-                .then((res) => setMonthDate(res))
-                .catch((err) => console.log('error'));
-        } catch (error) {
-            console.log('err');
-        }
+        getApiCall(getSalaryMonthDateURL)
+            .then((res) => setMonthDate(res))
+            .catch((err) => console.log(`Error ${err}`));
     }, []);
 
     return (
@@ -498,45 +502,34 @@ export function SalaryDateEveryMonth({ actions, value }) {
         </div>
     );
 }
-export function SalaryDateEveryWeek({ actions, value }) {
-    const [weekDay, setWeekDay] = useState([]);
+export function clockTimer(timeString) {
+    var hour = Number(timeString.split(':')[0]);
+    var minute = Number(timeString.split(':')[1]);
 
-    useEffect(() => {
-        try {
-            getEmployeeSalaryWeekDay()
-                .then((res) => setWeekDay(res))
-                .catch((err) => console.log('err'));
-        } catch (error) {
-            console.log('error');
+    var prepand = hour >= 12 ? ' PM ' : ' AM ';
+
+    hour = hour >= 12 ? hour - 12 : hour;
+
+    if (hour === 0 && prepand === ' PM ') {
+        if (minute === 0) {
+            hour = 12;
+            prepand = ' Noon';
+        } else {
+            hour = 12;
+            prepand = ' PM';
         }
-    }, []);
-
+    }
+    if (hour === 0 && prepand === ' AM ') {
+        if (minute === 0) {
+            hour = 12;
+            prepand = ' Midnight';
+        } else {
+            hour = 12;
+            prepand = ' AM';
+        }
+    }
     return (
-        <div className={StyleSheet.salary__date__every__week__container}>
-            <div className={StyleSheet.salary__date__every__week__container__title}>
-                Salary Date Every Week
-            </div>
-            <div className={StyleSheet.salary__date__every__week__container__selected__box}>
-                <select
-                    onChange={(e) => {
-                        actions(e.target.value);
-                    }}
-                    value={value}
-                    className={
-                        StyleSheet.salary__date__every__week__container__selected__box__select
-                    }>
-                    <option value="">select</option>
-                    {weekDay?.map((day) => {
-                        return (
-                            <option key={day.id} value={day.id}>
-                                {day.day_name}
-                            </option>
-                        );
-                    })}
-                </select>
-                <div className={StyleSheet.salary__date__every__week__container__icon}></div>
-            </div>
-        </div>
+        (hour < 10 ? '0' + hour : hour) + ' : ' + (minute < 10 ? '0' + minute : minute) + prepand
     );
 }
 export function SalaryStatus({ action, value }) {
@@ -805,17 +798,18 @@ export function TodayStatus({ action, value }) {
     return (
         <div className={StyleSheet.today__status__container}>
             <div className={StyleSheet.today__status__container__title}>Today Status</div>
-            <div className={StyleSheet.today__status__container__input__box}>
+            <div className={StyleSheet.today__status__container__select__box}>
                 <select value={value} onChange={(e) => action(e.target.value)}>
                     <option>Select</option>
                     <option>Present</option>
                     <option>Absent</option>
                 </select>
+
+                <div className={StyleSheet.today__status__container__select__box__icon}></div>
             </div>
         </div>
     );
 }
-
 export function TimerSet({ title, value, action }) {
     const [hour, setHour] = useState(0);
     const [minute, setMinute] = useState(0);

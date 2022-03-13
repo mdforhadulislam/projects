@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { BrackTimer, DutyTimer, TimerSet, TodayStatus } from '../../../../../../Utilities/Utilites';
+import StyleSheet from '../PopupBoxStyle/AttendenceEditPopup.module.css';
 
 function AttendenceEditPopup({ attendenceEditPopup, setAttendenceEditPopup }) {
     const customStyles = {
@@ -20,24 +21,32 @@ function AttendenceEditPopup({ attendenceEditPopup, setAttendenceEditPopup }) {
 
     return (
         <Modal isOpen={attendenceEditPopup} style={customStyles}>
-            <div className="attendence__edit__container__main">
-                <div className="attendence__edit__container__main__row__one">
+            <div className={StyleSheet.attendence__edit__container__main}>
+                <div className={StyleSheet.attendence__edit__container__main__row__one}>
                     <DutyTimer title="Stating Time" />
                     <DutyTimer title="Ending Time" />
                 </div>
-                <div className="attendence__edit__container__main__row__two">
+                <div className={StyleSheet.attendence__edit__container__main__row__two}>
                     <TodayStatus />
                     <BrackTimer title="Bracking Time" />
                 </div>
-                <div className="attendence__edit__container__main__row__three">
-                    <TimerSet />
-                    <TimerSet />
+                <div className={StyleSheet.attendence__edit__container__main__row__three}>
+                    <TimerSet title="Bracking Time" />
+                    <TimerSet title="Bracking Time" />
                 </div>
-                <div className="attendence__edit__container__main__button">
-                    <button className="attendence__edit__container__main__button__save">
+                <div className={StyleSheet.attendence__edit__container__main__button}>
+                    <button
+                        onClick={() => {
+                            setAttendenceEditPopup(false);
+                        }}
+                        className={StyleSheet.attendence__edit__container__main__button__save}>
                         Save
                     </button>
-                    <button className="attendence__edit__container__main__button__cancel">
+                    <button
+                        onClick={() => {
+                            setAttendenceEditPopup(false);
+                        }}
+                        className={StyleSheet.attendence__edit__container__main__button__cancel}>
                         Cancel
                     </button>
                 </div>

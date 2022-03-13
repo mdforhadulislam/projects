@@ -1197,7 +1197,7 @@
     font-size: 1.5vw;
     padding-bottom: 0.5vw;
     color: #313131;
-    text-align: center;
+    text-align: left;
 }
 .attendence__name__container input {
     width: 100%;
@@ -1219,17 +1219,17 @@
 /* duty timer style start */
 
 .duty__timer__container {
-    width: 13vw;
+    width: 16vw;
     height: auto;
     display: inline-block;
-    padding: 1vw 0vw;
+    /* padding: 1vw 0vw; */
 }
 
 .duty__timer__container__title {
     font-size: 1.3vw;
     padding-bottom: 0.5vw;
     color: #313131;
-    text-align: center;
+    text-align: left;
 }
 .duty__timer__container__input__box {
     width: 100%;
@@ -1278,12 +1278,13 @@
 
 .brack__timer__container {
     width: 16vw;
+    display: inline-block;
 }
 .brack__timer__container .brack__timer__container__title {
     font-size: 1.3vw;
     padding-bottom: 0.5vw;
     color: #313131;
-    text-align: center;
+    text-align: left;
 }
 .brack__timer__container__input__box {
     width: 100%;
@@ -1434,3 +1435,53 @@
 /* brack timer style end */
 /* brack timer style end */
 /* brack timer style end */
+
+/* today status style start  */
+/* today status style start  */
+/* today status style start  */
+
+.today__status__container {
+    width: 16.2vw;
+    height: auto;
+    position: relative;
+    display: inline-block;
+}
+
+.today__status__container .today__status__container__title {
+    font-size: 1.3vw;
+    padding-bottom: 0.5vw;
+    text-align: left;
+    color: #313131;
+}
+
+.today__status__container .today__status__container__select__box select {
+    width: 16.2vw;
+    height: 2.8vw;
+    border-radius: 0.4vw;
+    border: 0.1vw solid #da1e37;
+    font-size: 1.2vw;
+    outline: none;
+    position: relative;
+    font-family: aller, sans-serif;
+}
+
+.today__status__container .today__status__container__select__box__icon {
+    width: 3.2vw;
+    height: 2.8vw;
+    background: #da1e37;
+    position: absolute;
+    display: inline-block;
+    right: 0%;
+    top: 47%;
+    border-top-right-radius: 0.5vw;
+    border-bottom-right-radius: 0.5vw;
+    cursor: pointer;
+    background-image: url(../Assets/icon/downIcon.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+
+/* today status style end  */
+/* today status style end  */
+/* today status style end  */

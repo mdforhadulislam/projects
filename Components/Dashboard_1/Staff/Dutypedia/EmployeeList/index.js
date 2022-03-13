@@ -6,7 +6,8 @@ import CanceledRequest from '../../../../../Utilities/CanceledRequest';
 import DeleteMember from '../../../../../Utilities/DeleteMember';
 import IsEmployeeHeader from '../../../../../Utilities/IsEmployeeHeader';
 import QrCodePopup from '../../../../../Utilities/QrCodePopup';
-import { getEmployeeList } from '../../api/onlineEmployeeListApi';
+import { getEmployeeURL } from '../../api/apiUrl';
+import { getApiCall } from '../../api/onlineEmployeeListApi';
 import EmployeeListHeader from './BoxAndDeatils/EmployeeListHeader';
 import MemberDeatils from './BoxAndDeatils/MemberDeatils';
 import SingelEmployeeBox from './BoxAndDeatils/SingelEmployeeBox';
@@ -38,11 +39,13 @@ function EmployList() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        try {
-            console.log(getEmployeeList())
-        } catch {
-            console.log('Have an  error');
-        }
+        getApiCall(getEmployeeURL)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     });
 
     return (

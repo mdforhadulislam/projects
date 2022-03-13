@@ -225,96 +225,23 @@ export function user_salary_status_set_due(payload) {
     };
 }
 
-export function user_dashbord_access(payload) {
+export function user_access(payload) {
     return {
-        type: 'USER_DASHBORD_ACCESS',
-        payload
-    };
-}
-export function user_staff_and_partner_access(payload) {
-    return {
-        type: 'USER_STAFF_AND_PARTNER_ACCESS',
-        payload
-    };
-}
-export function user_order_access(payload) {
-    return {
-        type: 'USER_ORDER_ACCESS',
-        payload
-    };
-}
-export function user_account_balance_access(payload) {
-    return {
-        type: 'USER_ACCOUNT_BALANCE_ACCESS',
-        payload
-    };
-}
-export function user_expencess_access(payload) {
-    return {
-        type: 'USER_EXPENCESS_ACCESS',
-        payload
-    };
-}
-export function user_customer_review_access(payload) {
-    return {
-        type: 'USER_CUSTOMER_REVIEW_ACCESS',
-        payload
-    };
-}
-export function user_member_access(payload) {
-    return {
-        type: 'USER_MEMBER_ACCESS',
-        payload
-    };
-}
-export function user_group_access(payload) {
-    return {
-        type: 'USER_GROUP_ACCESS',
-        payload
-    };
-}
-export function user_notice_access(payload) {
-    return {
-        type: 'USER_NOTICE_ACCESS',
-        payload
-    };
-}
-export function user_company_holiday_access(payload) {
-    return {
-        type: 'USER_COMPANY_HOLIDAY_ACCESS',
-        payload
-    };
-}
-export function user_no_access(payload) {
-    return {
-        type: 'USER_NO_ACCESS_FUCTIONALITY',
-        payload
-    };
-}
-export function user_no_salary_system_access(payload) {
-    return {
-        type: 'USER_NO_SALARY_SYSTEM',
+        type: 'USER_ACCESS',
         payload
     };
 }
 
-export function create_user(payload) {
+export function user_removed_access(payload) {
     return {
-        type: 'CREATE_SUBMIT_USER',
+        type: 'USER_REMOVE_ACCESS',
         payload
     };
 }
 
-export function add_attendenec(payload) {
+export function user_remove_data(payload) {
     return {
-        type: 'ATTENDENCE_FORM_FILED',
-        payload
-    };
-}
-
-export function selected_all(payload) {
-    return {
-        type: 'SELECTED_ALL',
+        type: 'USER_REMOVE_DATA',
         payload
     };
 }

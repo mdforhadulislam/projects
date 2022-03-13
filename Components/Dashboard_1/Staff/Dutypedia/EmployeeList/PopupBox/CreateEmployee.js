@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import BackIcon from '../../../../../../Assets/images/dashboard/ArrowBackIcon.svg';
+import { user_remove_data } from '../../../../../../Redux/Dashboard_1/Action/Staff/Dutypedia';
 import StyleSheet from '../PopupBoxStyle/CreateEmployee.module.css';
 import CreateEmployeeBody from './CreateEmployeeBody';
 
@@ -17,6 +18,42 @@ function CreateEmployee({
         setCreateEmployeePopup(false);
         setSuccessfullyDonePopup(true);
         setAddInformationPopup(false);
+        dispatch(
+            user_remove_data({
+                join_as: [],
+                first_name: '',
+                middle_name: '',
+                last_name: '',
+                gender: '',
+                blood_group: '',
+                date_of_birth: new Date(),
+                religion: '',
+                nationality: '',
+
+                pres_region: '',
+                pres_city: '',
+                pres_area: '',
+                pres_address: '',
+
+                perm_region: '',
+                perm_city: '',
+                perm_area: '',
+                perm_address: '',
+
+                file_uplaod: [],
+
+                user: null,
+                position: '',
+                joining_date: new Date(),
+                no_salary: false,
+                salary_amount: '',
+                salary_type: '',
+                salary_date_every_day: '',
+                salary_date_every_month: '',
+                salary_date_every_week: '',
+                access: []
+            })
+        );
     };
 
     return (

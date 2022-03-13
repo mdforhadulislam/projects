@@ -227,7 +227,15 @@ const dutypediaReducers = (state = initalState, action) => {
                 access: [...state.access, action.payload]
             };
         }
-
+        case 'USER_REMOVE_ACCESS': {
+            return {
+                ...state,
+                access: [...state.access.filter((item) => item.id !== action.payload.id)]
+            };
+        }
+        case 'USER_REMOVE_DATA': {
+            return action.payload;
+        }
         default:
             return state;
     }

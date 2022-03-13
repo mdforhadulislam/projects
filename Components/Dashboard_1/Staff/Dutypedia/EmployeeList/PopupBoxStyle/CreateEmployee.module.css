@@ -20,10 +20,10 @@
 }
 
 .creact__employee__popup__container {
-    width: 37vw;
+    width: 38vw;
     height: auto;
     background: white;
-    padding: 1.5vw;
+    padding: 2vw;
     -webkit-box-shadow: 0vw 0vw 0.5vw 0vw rgb(0 0 0 / 15%);
     box-shadow: 0vw 0vw 0.5vw 0vw rgb(0 0 0 / 15%);
     border-radius: 1vw;
