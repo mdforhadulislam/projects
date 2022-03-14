@@ -39,7 +39,6 @@ import {
     postEmployeeDocumentsURL
 } from '../../../api/apiUrl';
 import { deleteApiCall, getApiCall, postApiCall } from '../../../api/onlineEmployeeListApi';
-import StyleSheet from '../PopupBoxStyle/AddMemberInformation.module.css';
 import AddMemberInformationHeader from './AddMemberInformationHeader';
 
 function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }) {
@@ -87,29 +86,20 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
     };
 
     return (
-        <div className={StyleSheet.information__container}>
+        <div
+            className="w-full min-h-[100%] absolute pt-[40px] pb-[40px] top-0 left-0 flex justify-center align-top"
+            style={{ background: 'rgba(255, 255, 255, 0.5)', backdropFilter: ' blur(0.5vw)' }}>
             <form
-                className={StyleSheet.information__container__from__box}
+                className="w-[525px] h-auto bg-white p-[33px] shadow-4xl relative rounded-[13px]"
                 onSubmit={fromSubmitHendeler}>
-                <div className={StyleSheet.information__container__from__box__search__box}>
+                <div className="w-full h-auto">
                     <AddMemberInformationHeader setHiddenPopupFrom={setHiddenPopupFrom} />
                 </div>
                 {hiddenPopupFrom ? (
                     <>
-                        <div
-                            className={
-                                StyleSheet.information__container__from__box__joining__checkBox
-                            }>
-                            <div
-                                className={
-                                    StyleSheet.information__container__from__box__joining__checkBox__title
-                                }>
-                                Join
-                            </div>
-                            <div
-                                className={
-                                    StyleSheet.information__container__from__box__joining__checkBox__box
-                                }>
+                        <div className="w-full h-auto pt-[13px]">
+                            <div className="text-[17.5px] text-[#313131]">Join</div>
+                            <div className="w-full h-auto flex align-middle justify-start flex-row">
                                 <MemberCheckbox
                                     title="As A Member"
                                     name="as_a_member"
@@ -151,7 +141,7 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                 />
                             </div>
                         </div>
-                        <div className={StyleSheet.information__container__from__box__name__box}>
+                        <div className="w-full h-auto">
                             <Name
                                 title="First Name"
                                 actions={(value) => dispatch(first_name(value))}
@@ -169,11 +159,8 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                 value={lastName}
                             />
                         </div>
-                        <div className={StyleSheet.information__container__from__box__select__box}>
-                            <div
-                                className={
-                                    StyleSheet.information__container__from__box__select__box__row__one
-                                }>
+                        <div className="w-full h-auto">
+                            <div className="w-full h-auto flex justify-between align-middle">
                                 <Gender
                                     title="Gender"
                                     actions={(value) => dispatch(user_gender(value))}
@@ -185,10 +172,7 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                     value={bloodGroup}
                                 />
                             </div>
-                            <div
-                                className={
-                                    StyleSheet.information__container__from__box__select__box__row__two
-                                }>
+                            <div className="w-full h-auto flex justify-between align-middle flex-row">
                                 <DateOfBirth
                                     title="Date Of Birth"
                                     actions={(value) => dispatch(user_date_of_birth(value))}
@@ -201,20 +185,14 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                 />
                             </div>
                         </div>
-                        <div
-                            className={
-                                StyleSheet.information__container__from__box__nationality__box
-                            }>
+                        <div className="w-full h-auto pt-[8px] pb-[8px]">
                             <Nationality
                                 title="Nationality"
                                 actions={(value) => dispatch(user_nationality(value))}
                                 value={nationality}
                             />
                         </div>
-                        <div
-                            className={
-                                StyleSheet.information__container__from__box__present__address
-                            }>
+                        <div className="w-full h-auto pt-[6.5px] pb-[6.5px]">
                             <Address
                                 title="Present Address:"
                                 present={true}
@@ -233,10 +211,7 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                 }
                             />
                         </div>
-                        <div
-                            className={
-                                StyleSheet.information__container__from__box__permanent__address
-                            }>
+                        <div className="w-full h-auto pb-[6px]">
                             <Address
                                 title="Permanent Address:"
                                 present={false}
@@ -255,10 +230,7 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                 }
                             />
                         </div>
-                        <div
-                            className={
-                                StyleSheet.information__container__from__box__upload__documents__box
-                            }>
+                        <div className="w-full h-auto pb-[20px]">
                             <UploadingFile
                                 uploadeFile={uploadeFile}
                                 actions={(formData, progress, file, title, id) => {
@@ -289,22 +261,15 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                 }}
                             />
                         </div>
-                        <div
-                            className={
-                                StyleSheet.information__container__from__box__next__and__cencel__btn
-                            }>
+                        <div className="w-full h-auto flex align-middle">
                             <button
                                 type="submit"
-                                className={
-                                    StyleSheet.information__container__from__box__next__and__cencel__btn__next__btn
-                                }>
+                                className="w-[155px] h-auto p-[11px] text-[15px] rounded-[3.5px] border-none bg-[#da1e37] text-white mr-[9px] cursor-pointer">
                                 Next
                             </button>
                             <button
                                 type="button"
-                                className={
-                                    StyleSheet.information__container__from__box__next__and__cencel__btn__cencel__btn
-                                }
+                                className="w-[155px] h-auto p-[10px] text-[15px] rounded-[3.5px] border-[1.5px] bg-white border-[#da1e37] text-[#da1e37] ml-[9px] cursor-pointer"
                                 onClick={() => {
                                     setAddInformationPopup(false);
                                     dispatch(
