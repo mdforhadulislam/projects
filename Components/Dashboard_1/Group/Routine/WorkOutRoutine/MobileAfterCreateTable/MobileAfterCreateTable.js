@@ -78,7 +78,7 @@ const MobileAfterCreateTable = () => {
                             </div>
                         </div>
                         <button
-                            className="carousel-control-prev"
+                            className="carousel-control-prev slider-left-btn"
                             type="button"
                             data-bs-target="#carouselExampleControls"
                             data-bs-slide="prev">
@@ -101,7 +101,7 @@ const MobileAfterCreateTable = () => {
                             <span className="visually-hidden">Previous</span>
                         </button>
                         <button
-                            className="carousel-control-next"
+                            className="carousel-control-next slider-right-btn"
                             type="button"
                             data-bs-target="#carouselExampleControls"
                             data-bs-slide="next">
@@ -158,7 +158,7 @@ const MobileAfterCreateTable = () => {
                 {items.map((item) => (
                     <AccordionItem
                         key={item.id}
-                        className="accordionItem my-2 bg-light shadow"
+                        className="accordionItem my-3 bg-white mx-2 shadow-all"
                         uuid={`${item.id}`}>
                         <AccordionItemHeading className="text-light">
                             <AccordionItemButton className="accordion-button">
@@ -178,7 +178,7 @@ const MobileAfterCreateTable = () => {
                             </div>
                             <div className="row py-2">
                                 <h5>Workout Day</h5>
-                                <div className="row row-cols-3 row-cols-sm-4 g-2 mt-0 text-gray">
+                                <div className="row row-cols-3 row-cols-sm-4 g-2 mt-0 ms-1 text-gray">
                                     <div>
                                         <span>1.</span> Sunday
                                     </div>
@@ -207,38 +207,42 @@ const MobileAfterCreateTable = () => {
                                 <p className="mb-1">N/A</p>
                             </div>
                             {/* table row */}
-                            <div className="row table-header mt-2 py-2">
-                                <div className="col-4">Day</div>
-                                <div className="col-8 text-center">Date</div>
-                            </div>
-                            <div className="row shadow-sm">
-                                <div className="col-4 border py-2">1</div>
-                                <div className="col-8 border py-2 text-center">
-                                    Sat, 15Th July 2021
+                            <div className="container shadow-all my-4 rounded10">
+                                <div className="row table-header py-2">
+                                    <div className="col-4">Day</div>
+                                    <div className="col-8 text-center">Date</div>
                                 </div>
-                            </div>
-                            <div className="row shadow-sm text-center py-2 bottom-radius">
-                                <div>
-                                    <span>Duration:</span>{' '}
-                                    <span className="ps-1 text-gray"> 15 Minutes</span>
+                                <div className="row border-bottom">
+                                    <div className="col-4 py-2">1</div>
+                                    <div className="col-8 border-start py-2 text-center">
+                                        Sat, 15Th July 2021
+                                    </div>
+                                </div>
+                                <div className="row text-center py-2">
+                                    <div>
+                                        <span>Duration:</span>{' '}
+                                        <span className="ps-1 text-gray"> 15 Minutes</span>
+                                    </div>
                                 </div>
                             </div>
                             {/* end table row */}
                             {/* table row */}
-                            <div className="row table-header mt-2 py-2">
-                                <div className="col-4">Day</div>
-                                <div className="col-8 text-center">Date</div>
-                            </div>
-                            <div className="row shadow-sm">
-                                <div className="col-4 border py-2">1</div>
-                                <div className="col-8 border py-2 text-center">
-                                    Sat, 15Th July 2021
+                            <div className="container shadow-all rounded10 my-4">
+                                <div className="row table-header py-2">
+                                    <div className="col-4">Day</div>
+                                    <div className="col-8 text-center">Date</div>
                                 </div>
-                            </div>
-                            <div className="row shadow-sm text-center py-2 bottom-radius">
-                                <div>
-                                    <span>Duration:</span>{' '}
-                                    <span className="ps-1 text-gray"> 15 Minutes</span>
+                                <div className="row border-bottom">
+                                    <div className="col-4 py-2">1</div>
+                                    <div className="col-8 border-start py-2 text-center">
+                                        Sat, 15Th July 2021
+                                    </div>
+                                </div>
+                                <div className="row text-center py-2">
+                                    <div>
+                                        <span>Duration:</span>{' '}
+                                        <span className="ps-1 text-gray"> 15 Minutes</span>
+                                    </div>
                                 </div>
                             </div>
                             {/* end table row */}
@@ -256,6 +260,7 @@ const Wrapper = styled('div')`
     padding: 30px 10px;
     button {
         background: none;
+        opacity: 1;
     }
     .singleMemberProfile h4 {
         font-size: 14px;
@@ -310,11 +315,14 @@ const Wrapper = styled('div')`
         border-radius: 10px 10px 0 0;
         color: #fff;
     }
-    .bottom-radius {
-        border-radius: 0 0 8px 8px;
+    .rounded10 {
+        border-radius: 10px;
     }
     i {
         color: #666;
+    }
+    .shadow-all {
+        box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 10%);
     }
     //responsive position for indicator arrow
     @media (max-width: 768px) {
@@ -322,14 +330,22 @@ const Wrapper = styled('div')`
             font-size: 2vw;
             font-weight: 300;
         }
+        .carousel button.slider-left-btn {
+            margin-left: -12px;
+        }
+        .carousel button.slider-right-btn {
+            margin-right: -12px;
+        }
         .carousel button svg {
             border-radius: 6px;
-            background: #e23434;
-            color: #fff;
+            background: #ececec;
+            color: #000;
             border-radius: 50%;
             padding: 5px;
-            -webkit-box-shadow: 6px 6px 25px #dedede, -6px -6px 25px #ffffff;
-            box-shadow: 6px 6px 25px #dedede, -6px -6px 25px #ffffff;
+        }
+        .carousel button svg:hover {
+            background: #e22424;
+            color: #dedede;
         }
     }
     @media (max-width: 476px) {

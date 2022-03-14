@@ -1,6 +1,115 @@
 import styled from 'styled-components';
 
+export const DropdownIcon = styled('div')`
+    width: 25px;
+    height: 38px;
+    background-color: #fff;
+    pointer-events: none;
+    margin-left: -30px;
+    margin-top: 1px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    img {
+        width: 25px !important;
+    }
+`;
+//workout date customization
+export const DateBox = styled('div')`
+    height: 40px;
+    max-height: 40px;
+    .NewInputDateBox__DateMainBox-sc-1pbplnh-0 {
+        width: 127%;
+    }
+    .NewInputDateBox__DateMainBox-sc-1pbplnh-0 {
+        width: 76%;
+    }
+
+    input,
+    .NewInputDateBox__DateIcon-sc-1pbplnh-1 {
+        height: 40px;
+    }
+    .NewInputDateBox__DateIcon-sc-1pbplnh-1 {
+        width: 2.5rem;
+        span {
+            width: 1.2rem !important;
+            height: 20px !important;
+        }
+    }
+    @media (max-width: 768px) {
+        input {
+            padding-left: 10px;
+            width: 100%;
+        }
+    }
+    @media (max-width: 600px) {
+        .NewInputDateBox__DateMainBox-sc-1pbplnh-0 {
+            width: 100%;
+        }
+    }
+    @media (max-width: 350px) {
+        .NewInputDateBox__DateMainBox-sc-1pbplnh-0 {
+            width: 100%;
+        }
+    }
+`;
+
+// input number for workout customization
+export const InputNumber = styled('div')`
+    /* number input box customization */
+    .InputNumberBoxEdit__InputNumberBox-sc-3p9v36-1 {
+        width: 85px;
+        height: 40px;
+        border-radius: 5px 0 0 5px;
+        input {
+            width: 50px;
+            height: auto;
+        }
+        .NewInputDateBox__DateMainBox-sc-1pbplnh-0 {
+            width: 70%;
+        }
+        .InputNumberBoxEdit__ButtonGroupBox-sc-3p9v36-0 {
+            border-radius: 0;
+            height: 38px;
+            background: #e22424;
+            border-left: 4px solid #e22424;
+            border-right: 4px solid #e22424;
+            button {
+                /* height: 20px; */
+            }
+            button:first-child {
+                margin-top: 0 !important;
+            }
+            button img {
+                width: 18px;
+            }
+        }
+    }
+`;
+export const WhiteBg = styled('div')`
+    background: #fff;
+    border-radius: 0 0 29px 29px;
+    padding: 0px 20px 40px;
+    /* padding-bottom: 80px; */
+    margin-bottom: 20px;
+    @media (max-width: 768px) {
+        padding: 0px 5px 45px;
+    }
+`;
+
+// wrapper styled
 export const Wrapper = styled('div')`
+    /* background: #fff; */
+    padding: 20px 0;
+    .NewInputDateBox__DateMainBox-sc-1pbplnh-0 {
+        width: 127%;
+        input {
+            padding-left: 10px;
+        }
+    }
+    .rounded10 {
+        border-radius: 10px !important;
+    }
     //button style for bottom
     .group-btn {
         display: flex;
@@ -30,6 +139,9 @@ export const Wrapper = styled('div')`
         height: 30px;
         padding: 0 25px 2px 25px;
         color: white;
+    }
+    .add-more-icon {
+        background: none;
     }
     .add-more-icon img {
         width: 32px !important;
@@ -62,10 +174,9 @@ export const Wrapper = styled('div')`
         margin-left: -50px;
         font-weight: 400;
     }
-    input.singleMember,
-    select.singleMember {
+    input.singleMember {
         background: #ececec;
-        height: 65px;
+        height: 60px;
         margin: 15px 0 30px;
         padding-left: 20px;
         border: 0;
@@ -74,7 +185,12 @@ export const Wrapper = styled('div')`
         max-width: 100%;
         font-size: 20px;
     }
-    /* select dropdown icon */
+    input.selectMemberInput {
+        width: 600px;
+        height: 50px;
+        max-width: 100%;
+    }
+
     /*first disable default dropdown*/
     select.select {
         -webkit-appearance: none;
@@ -134,6 +250,7 @@ Routine 39 style
     /* after creating routine styles start */
     .workout-table {
         margin-bottom: 40px;
+        margin-right: 15px;
         color: #666;
     }
     .workout-table th {
@@ -157,19 +274,23 @@ Routine 39 style
     }
     .workout-table th td,
     .workout-table tr td {
-        width: 176px;
+        width: 221px;
         display: inline-block;
         text-align: center;
         align-items: center;
         justify-content: center;
+    }
+    .workout-table tr td input {
+        background: none;
     }
     .workout-table tr:first-child {
         border-top: none;
     }
     .workout-table tr:first-child td {
         padding: 5px;
-        height: 40px;
-        border: 1px solid #c7c7c7;
+        height: 50px;
+        border: 1px solid #ececec;
+        border-color: collapse;
         border-top: none;
     }
     .workout-table tr:first-child td:first-child {
@@ -179,83 +300,17 @@ Routine 39 style
         border-top: none;
     }
     .workout-table tr td {
-        border: 1px solid #c7c7c7;
-        height: 70px;
+        border: 1px solid #ececec;
+        border-collapse: collapse;
+        font-size: 16px;
+        height: 90px;
         padding: 5px;
         display: inline-flex;
         align-items: center;
     }
-    .workout-table tr td:first-child {
-        border-left: 2px solid #c7c7c7;
+    i {
+        color: #666;
     }
-    .workout-table tr td:last-child {
-        border-right: 2px solid #c7c7c7;
-    }
-    .workout-table tr:last-child td {
-        border-bottom: 2px solid #c7c7c7;
-    }
-
-    /* scroll bar styling custom table */
-    .custom-table-container {
-        margin: 40px 0;
-        height: 600px;
-        overflow: auto;
-    }
-    .custom-table-container::-webkit-scrollbar {
-        width: 10px;
-        height: 10px;
-    }
-
-    .custom-table-container::-webkit-scrollbar-track {
-        background-color: #f1f1f1;
-    }
-
-    .custom-table-container::-webkit-scrollbar-thumb {
-        background-color: #666;
-        border-radius: 5px;
-    }
-    .custom-table-container::-webkit-scrollbar-button:single-button {
-        background-color: #f1f1f1;
-        display: block;
-        background-size: 10px;
-        background-repeat: no-repeat;
-    }
-
-    /* Up */
-    .custom-table-container::-webkit-scrollbar-button:single-button:vertical:decrement {
-        border-radius: 5px 5px 0 0;
-        height: 16px;
-        width: 16px;
-        background-position: center 4px;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='50,00 0,50 100,50'/></svg>");
-    }
-    /* Down */
-    .custom-table-container::-webkit-scrollbar-button:single-button:vertical:increment {
-        border-radius: 0px 0px 5px 5px;
-        height: 16px;
-        width: 16px;
-        background-position: center 4px;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='0,0 100,0 50,50'/></svg>");
-    }
-
-    /* Left */
-    .custom-table-container::-webkit-scrollbar-button:single-button:horizontal:decrement {
-        border-radius: 5px 0px 0 5px;
-        height: 12px;
-        width: 12px;
-        background-position: 0px 0px;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='0,50 50,100 50,0'/></svg>");
-    }
-
-    /* Right */
-    .custom-table-container::-webkit-scrollbar-button:single-button:horizontal:increment {
-        border-radius: 0 5px 5px 0;
-        height: 12px;
-        width: 12px;
-        background-position: 0px 0px;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='0,0 0,100 50,50'/></svg>");
-    }
-    /* End scroll bar modify */
 
     /* workout 11 / adjust time style start */
     .modal-content-adjust-time {
@@ -341,11 +396,59 @@ Routine 39 style
     .table-checkBox {
         border-radius: 50%;
     }
+    /** rounded bottom corner  */
+    .rounded-bottom8 {
+        border-radius: 0 0 8px 8px;
+    }
 
+    //view all page start
+    .viewAll a {
+        text-decoration: underline;
+    }
+    .viewAll a:hover,
+    .link:hover {
+        color: #da1e37 !important;
+    }
+    .shadow-all {
+        box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 10%);
+    }
+    .link {
+        text-decoration: underline;
+    }
+    .accordion-item {
+        box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 10%);
+        border: none;
+    }
+    .accordion-button {
+        border-radius: 10px !important;
+        border: 1px solid #ececec;
+    }
+    .accordion-button[aria-expanded='true'] {
+        border-radius: 10px 10px 0 0 !important;
+    }
+    /** accordion button active color */
+    .accordion-button:not(.collapsed) {
+        color: #da1e37;
+        background-color: #ffc9c9;
+        box-shadow: 0 0 10px 0 #ececec;
+    }
+    .accordion-button:focus {
+        border-color: #da1e37;
+        box-shadow: 0 0 0 1px #da1e37;
+    }
     /* responsive query */
-    @media screen AND (max-width: 767px) {
+    @media (max-width: 768px) {
         select + i.fa {
             right: 10%;
+        }
+        #order-1 {
+            order: 1;
+        }
+        div#order-2 {
+            order: 3;
+        }
+        div#order-3 {
+            order: 2;
         }
     }
     @media screen and (max-width: 810px) {
@@ -353,7 +456,10 @@ Routine 39 style
             width: 100%;
         }
     }
-    @media screen and (max-width: 556px) {
+    @media (max-width: 600px) {
+        .u-name {
+            font-size: 15px;
+        }
     }
     @media screen and (max-width: 476px) {
     }

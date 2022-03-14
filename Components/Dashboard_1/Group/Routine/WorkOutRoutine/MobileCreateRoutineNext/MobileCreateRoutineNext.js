@@ -12,6 +12,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import user from '/Assets/images/dashboard/user.jpg';
 import InputNumberBoxEdit from '../../../../../Common/InputNumberBox/InputNumberBoxEdit';
+import { DropdownIcon, InputNumber } from '../StyledCssFile/StyledCss';
+import dropdown from '../../../../../../Assets/icon/DropDownGray.svg';
 
 const items = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }];
 
@@ -38,7 +40,7 @@ const MobileCreateRoutineNext = () => {
                 {items.map((item) => (
                     <AccordionItem
                         key={item.id}
-                        className="accordionItem my-3 bg-light shadow"
+                        className="accordionItem my-3 bg-white mx-3 shadow"
                         uuid={`${item.id}`}>
                         <AccordionItemHeading className="text-light">
                             <AccordionItemButton className="accordion-button">
@@ -47,59 +49,73 @@ const MobileCreateRoutineNext = () => {
                         </AccordionItemHeading>
                         <AccordionItemPanel>
                             {/* table row */}
-                            <div className="row table-header mt-2 py-2">
-                                <div className="col-4">Day</div>
-                                <div className="col-8 text-center">Date</div>
-                            </div>
-                            <div className="row shadow-sm">
-                                <div className="col-4 border py-2">1</div>
-                                <div className="col-8 border py-2 text-center">
-                                    Sat, 15Th July 2021
+                            <div className="container shadow-all my-4 rounded10">
+                                <div className="row table-header mt-2 py-2">
+                                    <div className="col-4">Day</div>
+                                    <div className="col-8 text-center">Date</div>
                                 </div>
-                            </div>
-                            <div className="row shadow-sm text-center py-2 bottom-radius">
-                                <div className="d-flex align-items-center justify-content-center">
-                                    <div className="pe-2">Duration:</div>
-                                    <div className="d-flex my-2  justify-content-center">
-                                        <div className="position-relative">
-                                            <InputNumberBoxEdit
-                                                setNumberInc={setNumberInc}
-                                                numberInc={numberInc}
-                                            />
+                                <div className="row border-bottom">
+                                    <div className="col-4 py-3">1</div>
+                                    <div className="col-8 border-start py-3 text-center">
+                                        Sat, 15Th July 2021
+                                    </div>
+                                </div>
+                                <div className="row text-center py-2">
+                                    <div className="d-flex align-items-center justify-content-center">
+                                        <div className="pe-2">Duration:</div>
+                                        <div className="d-flex my-2  justify-content-center">
+                                            <div className="position-relative">
+                                                <InputNumber>
+                                                    <InputNumberBoxEdit
+                                                        setNumberInc={setNumberInc}
+                                                        numberInc={numberInc}
+                                                    />
+                                                </InputNumber>
+                                            </div>
+                                            <select name="" id="" className="select-time">
+                                                <option>Minutes</option>
+                                                <option>Hours</option>
+                                            </select>
+                                            <DropdownIcon>
+                                                <Image src={dropdown} alt="123655" />
+                                            </DropdownIcon>
                                         </div>
-                                        <select name="" id="" className="select-time">
-                                            <option>Minutes</option>
-                                            <option>Hours</option>
-                                        </select>
                                     </div>
                                 </div>
                             </div>
                             {/* end table row */}
                             {/* table row */}
-                            <div className="row table-header mt-2 py-2">
-                                <div className="col-4">Day</div>
-                                <div className="col-8 text-center">Date</div>
-                            </div>
-                            <div className="row shadow-sm">
-                                <div className="col-4 border py-2">1</div>
-                                <div className="col-8 border py-2 text-center">
-                                    Sat, 15Th July 2021
+                            <div className="container shadow-all my-4 rounded10">
+                                <div className="row table-header border mt-2 py-2">
+                                    <div className="col-4">Day</div>
+                                    <div className="col-8 text-center">Date</div>
                                 </div>
-                            </div>
-                            <div className="row shadow-sm text-center py-2 bottom-radius">
-                                <div className="d-flex align-items-center justify-content-center">
-                                    <div className="pe-2">Duration:</div>
-                                    <div className="d-flex my-2  justify-content-center">
-                                        <div className="position-relative">
-                                            <InputNumberBoxEdit
-                                                setNumberInc={setNumberInc}
-                                                numberInc={numberInc}
-                                            />
+                                <div className="row border-bottom">
+                                    <div className="col-4 py-3">30</div>
+                                    <div className="col-8 border-start py-3 text-center">
+                                        Sat, 15Th July 2021
+                                    </div>
+                                </div>
+                                <div className="row text-center py-2">
+                                    <div className="d-flex align-items-center justify-content-center">
+                                        <div className="pe-2">Duration:</div>
+                                        <div className="d-flex my-2 justify-content-center">
+                                            <div className="position-relative">
+                                                <InputNumber>
+                                                    <InputNumberBoxEdit
+                                                        setNumberInc={setNumberInc}
+                                                        numberInc={numberInc}
+                                                    />
+                                                </InputNumber>
+                                            </div>
+                                            <select name="" id="" className="select-time">
+                                                <option>Minutes</option>
+                                                <option>Hours</option>
+                                            </select>
+                                            <DropdownIcon>
+                                                <Image src={dropdown} alt="123655" />
+                                            </DropdownIcon>
                                         </div>
-                                        <select name="" id="" className="select-time">
-                                            <option>Minutes</option>
-                                            <option>Hours</option>
-                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -178,12 +194,13 @@ const Wrapper = styled('div')`
         border-radius: 10px 10px 0 0;
         color: #fff;
     }
-    .bottom-radius {
-        border-radius: 0 0 8px 8px;
+    .rounded10 {
+        border-radius: 10px;
     }
     .select-time {
         border: 1px solid rgb(226, 36, 36);
         border-left: 0;
+        padding: 0 20px 0 15px;
         border-radius: 0 5px 5px 0;
         background: none;
     }
@@ -204,6 +221,9 @@ const Wrapper = styled('div')`
         background: #fff;
         border: 1px solid #e22424;
         color: #e22424;
+    }
+    .shadow-all {
+        box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 10%);
     }
     //responsive position for indicator arrow
     @media screen and (max-width: 476px) {

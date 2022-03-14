@@ -1,4 +1,4 @@
-.employee__list__container {
+.employee__attendence__container {
     width: 100%;
     height: auto;
     padding: 3vw;
@@ -9,40 +9,30 @@
     position: relative;
 }
 
-.employee__list__container__body {
+.employee__attendence__container__body {
     width: 100%;
     height: auto;
 }
 
-.employee__list__container__body__create__button {
+.employee__attendence__container__body__create__button {
     padding: 2vw;
     width: 11vw;
     margin: auto;
 }
 
-.employee__list__container__body__create__button__image svg {
+.employee__attendence__container__body__create__button__image svg {
     width: 7vw !important;
     height: 7vw !important;
     cursor: pointer;
 }
 
-.employee__list__container__body__title {
+.employee__attendence__container__body__title {
     margin: 0.5vw 0vw 0vw 0vw;
     padding: 0vw 0vw 1vw 0vw;
 }
 
-.employee__list__container__body__title h1 {
+.employee__attendence__container__body__title h1 {
     font-weight: 400;
     font-size: 2.5vw;
     color: #313131;
-}
-
-/* employee box style start  */
-/* employee box style start  */
-/* employee box style start  */
-
-.employee__container {
-    width: 100%;
-    height: auto;
-    padding: 0.5vw 0vw 0vw 0vw;
 }

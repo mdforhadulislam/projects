@@ -788,10 +788,10 @@ export default function create_online_user(state = initialState, action) {
                                     ? user.user_salary.salary_every_day.split(':')[0] > hours
                                     : // &&user.user_salary.salary_every_day.split(':')[1] >= '00'
                                     user.user_salary.salary_every_week !== ''
-                                        ? user.user_salary.salary_every_week > day
-                                        : user.user_salary.salary_every_month !== ''
-                                            ? user.user_salary.salary_every_month.split('-')[0] >= today
-                                            : false;
+                                    ? user.user_salary.salary_every_week > day
+                                    : user.user_salary.salary_every_month !== ''
+                                    ? user.user_salary.salary_every_month.split('-')[0] >= today
+                                    : false;
 
                             if (isTrue) {
                                 return {
@@ -808,12 +808,10 @@ export default function create_online_user(state = initialState, action) {
                                     ...user,
                                     user_salary: {
                                         ...user.user_salary,
-                                        salary_status_upcoming: false,
+                                        salary_status_upcoming: false
                                     }
                                 };
                             }
-
-
                         })
                 ]
             };
@@ -836,10 +834,10 @@ export default function create_online_user(state = initialState, action) {
                                     ? user.user_salary.salary_every_day.split(':')[0] <= hours
                                     : // &&user.user_salary.salary_every_day.split(':')[1] <= '59'
                                     user.user_salary.salary_every_week !== ''
-                                        ? user.user_salary.salary_every_week <= day
-                                        : user.user_salary.salary_every_month !== ''
-                                            ? user.user_salary.salary_every_month.split('-')[0] <= today
-                                            : false;
+                                    ? user.user_salary.salary_every_week <= day
+                                    : user.user_salary.salary_every_month !== ''
+                                    ? user.user_salary.salary_every_month.split('-')[0] <= today
+                                    : false;
                             if (isTrue) {
                                 return {
                                     ...user,
@@ -855,12 +853,10 @@ export default function create_online_user(state = initialState, action) {
                                     ...user,
                                     user_salary: {
                                         ...user.user_salary,
-                                        salary_status_due: false,
+                                        salary_status_due: false
                                     }
                                 };
                             }
-
-
                         })
                 ]
             };

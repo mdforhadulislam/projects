@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
-// import BigAddIcon from '../../../../../Assets/images/dashboard/BigAddIcon';
 import CalenderIcon from '../../../../../Assets/images/dashboard/CalenderIcon';
 import QrImage from '../../../../../Assets/images/dashboard/Group 7167.png';
 import LeftArrowGray from '../../../../../Assets/images/dashboard/LeftArrowGray';
@@ -10,6 +9,8 @@ import DeleteMember from '../../../../../Utilities/DeleteMember';
 import { SearchBox } from '../../../../../Utilities/Utilites';
 import BoxDeatils from './BoxAndDeatils/BoxDeatils';
 import CreateAttendenceButton from './BoxAndDeatils/CreateAttendenceButton';
+import MainCreateButton from './BoxAndDeatils/MainCreateButton';
+import MemberDeatils from './BoxAndDeatils/MemberDeatils';
 import StyleSheet from './Main.module.css';
 import AttendenceEditPopup from './PopupBox/AttendenceEditPopup';
 import AttendenceEmployee from './PopupBox/AttendenceEmployee';
@@ -20,32 +21,11 @@ function EmployeeAttendence() {
     const [attendenceEmployee, setAttendenceEmployee] = useState(false);
     const [attendenceEditPopup, setAttendenceEditPopup] = useState(false);
     const [attendenceDeletePopup, setAttendenceDeletePopup] = useState(false);
+    const [attendenceMemberDeatils, setAttendenceMemberDeatils] = useState(false);
 
     return (
         <>
-            {/* <div className={StyleSheet.employee__attendence__container}>
-                <div className={StyleSheet.employee__attendence__container__body}>
-                    <div
-                        className={
-                            StyleSheet.employee__attendence__container__body__create__button
-                        }>
-                        <div
-                            className={
-                                StyleSheet.employee__attendence__container__body__create__button__image
-                            }
-                            onClick={() => {
-                                setAttendencesPopupForm(true);
-                            }}>
-                            <BigAddIcon />
-                        </div>
-                    </div>
-
-                    <div className={StyleSheet.employee__attendence__container__body__title}>
-                        <h1>Create Employee Attendence</h1>
-                    </div>
-                </div>
-            </div> */}
-
+            <MainCreateButton setAttendencesPopupForm={setAttendencesPopupForm} />
             {attendencePopupForm && (
                 <AttendencePopupForm
                     setAttendencesPopupForm={setAttendencesPopupForm}
@@ -74,6 +54,9 @@ function EmployeeAttendence() {
                     actions={() => {}}
                 />
             )}
+            {attendenceMemberDeatils && (
+                <MemberDeatils setAttendenceMemberDeatils={setAttendenceMemberDeatils} />
+            )}
 
             <div className={StyleSheet.box__container}>
                 <CreateAttendenceButton
@@ -84,7 +67,7 @@ function EmployeeAttendence() {
                 <div className={StyleSheet.box__container__search__box}>
                     <SearchBox
                         placeholder={'Search By  Name Or Id......'}
-                        style={{ background: '#f5f5f5', paddingBottom: '.4vw', paddingTop: '.4vw' }}
+                        style={{ background: '#f5f5f5', paddingBottom: '.5vw', paddingTop: '.5vw' }}
                     />
                 </div>
 
@@ -144,6 +127,7 @@ function EmployeeAttendence() {
                                 <BoxDeatils
                                     setAttendenceEditPopup={setAttendenceEditPopup}
                                     setAttendenceDeletePopup={setAttendenceDeletePopup}
+                                    setAttendenceMemberDeatils={setAttendenceMemberDeatils}
                                 />
                                 <BoxDeatils />
                                 <BoxDeatils />

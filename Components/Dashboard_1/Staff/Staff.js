@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Dutypedia from './Dutypedia/Dutypeadia';
-import StyleSheet from './MainApp.module.css';
 import Offline from './Offline/Offline';
 
 function Staff() {
@@ -18,13 +17,13 @@ function Staff() {
     };
 
     return (
-        <div className={StyleSheet.main__app}>
-            <div className={StyleSheet.main__app__container}>
-                <div className={StyleSheet.main__app__container__header}>
-                    <div className={StyleSheet.main__app__container__header__box}>
+        <div className="w-full h-auto bg-none inline-block p-[35px] pl-[95px] transition-all ease-linear relative">
+            <div className="w-full min-h-[430px] bg-white p-[26px] shadow-3xl rounded-[16px]">
+                <div className=" w-full h-auto pb-[20px]">
+                    <div className="w-full h-auto flex justify-center align-middle text-[#313131]">
                         <div
                             onClick={clickDutypedia}
-                            className={StyleSheet.main__app__container__header__box__dutypedia}
+                            className="w-[158px] text-[26px] pr-[20px] pb-[6.5px] pl-[20px] cursor-pointer border-b-[1px] border-[#da1e37]"
                             style={
                                 reanderDutypedia
                                     ? {
@@ -39,11 +38,11 @@ function Staff() {
                             Dutypedia
                         </div>
 
-                        <div className={StyleSheet.main__app__container__header__box__row}></div>
+                        <div className="w-[.66px] h-[26px] mt-[8px] bg-[#313131] cursor-pointer"></div>
 
                         <div
                             onClick={clickOffline}
-                            className={StyleSheet.main__app__container__header__box__offline}
+                            className="w-[158px] text-[26px] pr-[20px] pb-[6.5px] pl-[20px] cursor-pointer border-b-[1px] border-[#da1e37]"
                             style={
                                 reanderOffline
                                     ? {
@@ -60,7 +59,7 @@ function Staff() {
                     </div>
                 </div>
 
-                <div className={StyleSheet.main__app__container__body}>
+                <div className="w-full h-auto">
                     {reanderDutypedia && <Dutypedia />}
                     {reanderOffline && <Offline />}
                 </div>

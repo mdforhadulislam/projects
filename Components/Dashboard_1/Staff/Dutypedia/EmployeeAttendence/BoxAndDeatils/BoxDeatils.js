@@ -5,7 +5,11 @@ import DutyPreIcon from '../../../../../../Assets/images/dashboard/DutyPreIconSm
 import ThreeDot from '../../../../../../Assets/images/dashboard/ThreeDotIcon.svg';
 import StyleSheet from '../BoxAndDeatilsStyle/BoxDeatils.module.css';
 
-function BoxDeatils({ setAttendenceEditPopup, setAttendenceDeletePopup }) {
+function BoxDeatils({
+    setAttendenceEditPopup,
+    setAttendenceDeletePopup,
+    setAttendenceMemberDeatils
+}) {
     const [isOption, setIsOption] = useState(false);
 
     return (
@@ -77,6 +81,7 @@ function BoxDeatils({ setAttendenceEditPopup, setAttendenceDeletePopup }) {
                             <li
                                 onClick={() => {
                                     setIsOption(false);
+                                    setAttendenceMemberDeatils(true);
                                 }}>
                                 View Deatils
                             </li>

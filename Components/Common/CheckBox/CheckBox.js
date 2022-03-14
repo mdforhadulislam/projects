@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CheckBox = ({ name }) => {
+const CheckBox = ({ name}) => {
+ 
     return (
-        <Wrapper>
+        <Wrapper >
             <label className="checkbox-container-adjust-time text-capitalize">
                 <p>{name ? name : ''}</p>
 

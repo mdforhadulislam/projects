@@ -1,3 +1,7 @@
+/* @tailwind base; */
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
     background: #fff1f2;
@@ -73,4 +77,67 @@ a {
     font-weight: 400;
     src: local('Aller Light'), url('https://fonts.cdnfonts.com/s/12/Aller_LtIt.woff') format('woff');
 }
-/* //////////////////////// */
+
+/* scroll bar styling custom table */
+.custom-table-container {
+    margin: 10px 0;
+    height: 700px;
+    position: relative;
+    margin-right: -6px;
+    overflow: auto;
+}
+.custom-table-container::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.custom-table-container::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+.custom-table-container::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 5px;
+}
+.custom-table-container::-webkit-scrollbar-button:single-button {
+    background-color: #f1f1f1;
+    display: block;
+    background-size: 10px;
+    background-repeat: no-repeat;
+}
+
+/* Up */
+.custom-table-container::-webkit-scrollbar-button:single-button:vertical:decrement {
+    border-radius: 5px 5px 0 0;
+    height: 16px;
+    width: 16px;
+    background-position: center 4px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='50,00 0,50 100,50'/></svg>");
+}
+/* Down */
+.custom-table-container::-webkit-scrollbar-button:single-button:vertical:increment {
+    border-radius: 0px 0px 5px 5px;
+    height: 16px;
+    width: 16px;
+    background-position: center 4px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='0,0 100,0 50,50'/></svg>");
+}
+
+/* Left */
+.custom-table-container::-webkit-scrollbar-button:single-button:horizontal:decrement {
+    border-radius: 5px 0px 0 5px;
+    height: 16px;
+    width: 16px;
+    background-position: 0px 0px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='0,50 50,100 50,0'/></svg>");
+}
+
+/* Right */
+.custom-table-container::-webkit-scrollbar-button:single-button:horizontal:increment {
+    border-radius: 0 5px 5px 0;
+    height: 16px;
+    width: 16px;
+    background-position: 0px 0px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='0,0 0,100 50,50'/></svg>");
+}
+/* End scroll bar modify */

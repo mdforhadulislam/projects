@@ -63,6 +63,20 @@ const RoutineNavbar = () => {
 export default RoutineNavbar;
 const Wrapper = styled('div')`
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f4537e2a1bf4f1b6ab7c64bf24e593febae768ab
+    width: 76%;
+    margin: 0 auto;
+    .group-btn button {
+=======
+    display: flex;
+    justify-content: center;
+    button {
+<<<<<<< HEAD
+>>>>>>> rishad
+=======
     display: flex;
     justify-content: center;
     button {
@@ -71,6 +85,10 @@ const Wrapper = styled('div')`
     margin: 0 auto;
     .group-btn button {
 >>>>>>> faruk
+>>>>>>> main
+=======
+>>>>>>> e26798bf3045af350a40234c297542d59cf91f97
+>>>>>>> f4537e2a1bf4f1b6ab7c64bf24e593febae768ab
         color: #666666;
         font-size: 18px;
         border: 0;

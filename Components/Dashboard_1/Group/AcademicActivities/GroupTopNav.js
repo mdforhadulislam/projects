@@ -163,12 +163,13 @@ export default GroupTopNav;
 const TopSection = styled('div')`
 #academic-activities-section {
     padding: 50px 0 70px;
-    margin: 28px 20px 44px  85px;
-    /* border-radius: 15px; */
+    width: 90%;
+    margin: 20px auto;
+    display: block;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background: #fff;
-    /* display: none; */
+    /* position: absolute; */
 }
     #academic-activities-section .container {
         max-width: 1270px;
@@ -429,7 +430,7 @@ const TopSection = styled('div')`
 
     @media screen and (max-width: 810px) {
         #academic-activities-section {
-            margin: 44px 15px 44px  15px !important;
+            width: 97%;
         }
     
     @media screen and (max-width: 576px) {
@@ -441,4 +442,4 @@ const TopSection = styled('div')`
             margin-bottom: 17px;
         }
     }
-`;
+`

@@ -11,7 +11,6 @@ import { getApiCall } from '../../api/onlineEmployeeListApi';
 import EmployeeListHeader from './BoxAndDeatils/EmployeeListHeader';
 import MemberDeatils from './BoxAndDeatils/MemberDeatils';
 import SingelEmployeeBox from './BoxAndDeatils/SingelEmployeeBox';
-import StyleSheet from './Main.module.css';
 import AddMemberInformation from './PopupBox/AddMemberInformation';
 import CreateEmployee from './PopupBox/CreateEmployee';
 import EditCreateEmployee from './PopupBox/EditCreateEmployee';
@@ -53,20 +52,18 @@ function EmployList() {
             {allUser.length ? (
                 ''
             ) : (
-                <div className={StyleSheet.employee__list__container}>
-                    <div className={StyleSheet.employee__list__container__body}>
-                        <div className={StyleSheet.employee__list__container__body__create__button}>
+                <div className="w-full h-auto p-[40px] text-center rounded-[16px] shadow-4xl relative">
+                    <div className="w-full h-auto">
+                        <div className="p-[25px] pb-[20px] w-[146px] m-auto">
                             <div
-                                className={
-                                    StyleSheet.employee__list__container__body__create__button__image
-                                }
+                                className="w-[95px] h-[95px] cursor-pointer"
                                 onClick={() => setQrCodePopup(true)}>
                                 <BigAddIcon />
                             </div>
                         </div>
 
-                        <div className={StyleSheet.employee__list__container__body__title}>
-                            <h1>Create Employee List</h1>
+                        <div className="mt-[6.5px]">
+                            <h1 className="text-[33px] font-[500]">Create Employee List</h1>
                         </div>
                     </div>
                 </div>
@@ -75,9 +72,9 @@ function EmployList() {
             {allUser.length ? <IsEmployeeHeader setQrCodePopup={setQrCodePopup} /> : ''}
 
             {allUser.length ? (
-                <div className={StyleSheet.employee__container}>
+                <div className="w-full h-auto p-[6.5px]">
                     <EmployeeListHeader />
-                    <div className={StyleSheet.employee__container__body}>
+                    <div className="">
                         {allUser.map((userData) => {
                             return (
                                 <SingelEmployeeBox

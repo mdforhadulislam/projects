@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import StyleSheet from './Dutypedia.module.css';
 import EmployeeAttendence from './EmployeeAttendence/index';
 import EmployeeList from './EmployeeList';
 import EmployeeSalary from './EmployeeSalary/index';
@@ -13,10 +12,10 @@ function Dutypedia() {
     let [employeeSalary, setEmployeeSalary] = useState(false);
 
     return (
-        <div className={StyleSheet.dutypedia__container}>
-            <div className={StyleSheet.dutypedia__container__header}>
-                <div className={StyleSheet.dutypedia__container__header__navbar}>
-                    <div className={StyleSheet.ul}>
+        <div className="w-full h-auto">
+            <div className="w-full h-auto">
+                <div className="w-full h-auto">
+                    <div className="w-full h-auto flex align-middle justify-start flex-row">
                         <div
                             onClick={(e) => {
                                 setEmployeeList(true);
@@ -34,11 +33,11 @@ function Dutypedia() {
                                           borderBottom: '0.1vw solid #313131'
                                       }
                             }
-                            className={StyleSheet.li}
+                            className="w-[160px] p-0 pr-[13px] pb-[5px] text-[#da1e37] cursor-pointer border-b-[1px] border-[#da1e37] text-[20px]"
                             id="list__one">
                             Employee List
                         </div>
-                        <span className={StyleSheet.row}></span>
+                        <span className="w-[1px] h-[24px] inline-block bg-[#666666]"></span>
 
                         <div
                             onClick={(e) => {
@@ -57,11 +56,11 @@ function Dutypedia() {
                                           borderBottom: '0.1vw solid #313131'
                                       }
                             }
-                            className={StyleSheet.li}
+                            className="w-[240px] pr-[13px] pb-[5px] pl-[13px] text-[#313131] cursor-pointer border-b-[1px] border-[#666666] text-[20px]"
                             id="list__two">
                             Employee Attendence
                         </div>
-                        <span className={StyleSheet.row}></span>
+                        <span className="w-[1px] h-[24px] inline-block bg-[#666666]"></span>
 
                         <div
                             onClick={(e) => {
@@ -80,7 +79,7 @@ function Dutypedia() {
                                           borderBottom: '0.1vw solid #313131'
                                       }
                             }
-                            className={StyleSheet.li}
+                            className="w-[200px] pr-[13px] pb-[5px]  pl-[13px] text-[#313131] cursor-pointer border-b-[1px] border-[#666666] text-[20px]"
                             id="list__four">
                             Employee Salary
                         </div>
@@ -88,7 +87,7 @@ function Dutypedia() {
                 </div>
             </div>
 
-            <div className={StyleSheet.dutypedia__container__body}>
+            <div className="w-full h-auto pt-[25px] pb-[5px]">
                 {employeeList && <EmployeeList />}
 
                 {employeeAttendence && <EmployeeAttendence />}

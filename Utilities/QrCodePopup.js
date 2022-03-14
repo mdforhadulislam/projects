@@ -23,7 +23,9 @@ function QrCodePopup({ qrCodePopup, setQrCodePopup, setAddInformationPopup }) {
     return (
         <Modal isOpen={qrCodePopup} style={customStyles}>
             <div className={StyleSheet.qr__code__main__container}>
-                <div className={StyleSheet.qr__code__main__container__cencel__btn} onClick={() => setQrCodePopup(false)}>
+                <div
+                    className={StyleSheet.qr__code__main__container__cencel__btn}
+                    onClick={() => setQrCodePopup(false)}>
                     <CrossIcon />
                 </div>
 
