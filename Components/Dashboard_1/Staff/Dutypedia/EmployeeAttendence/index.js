@@ -6,6 +6,7 @@ import QrImage from '../../../../../Assets/images/dashboard/Group 7167.png';
 import LeftArrowGray from '../../../../../Assets/images/dashboard/LeftArrowGray';
 import RightArrowGray from '../../../../../Assets/images/dashboard/RightArrowGray';
 import ThreeDot from '../../../../../Assets/images/dashboard/ThreeDotIcon.svg';
+import DeleteMember from '../../../../../Utilities/DeleteMember';
 import { SearchBox } from '../../../../../Utilities/Utilites';
 import BoxDeatils from './BoxAndDeatils/BoxDeatils';
 import CreateAttendenceButton from './BoxAndDeatils/CreateAttendenceButton';
@@ -18,6 +19,7 @@ function EmployeeAttendence() {
     const [attendencePopupForm, setAttendencesPopupForm] = useState(false);
     const [attendenceEmployee, setAttendenceEmployee] = useState(false);
     const [attendenceEditPopup, setAttendenceEditPopup] = useState(false);
+    const [attendenceDeletePopup, setAttendenceDeletePopup] = useState(false);
 
     return (
         <>
@@ -63,6 +65,13 @@ function EmployeeAttendence() {
                 <AttendenceEditPopup
                     attendenceEditPopup={attendenceEditPopup}
                     setAttendenceEditPopup={setAttendenceEditPopup}
+                />
+            )}
+            {attendenceDeletePopup && (
+                <DeleteMember
+                    setDeleteMember={setAttendenceDeletePopup}
+                    deleteMember={attendenceDeletePopup}
+                    actions={() => {}}
                 />
             )}
 
@@ -132,7 +141,10 @@ function EmployeeAttendence() {
                             </div>
 
                             <div className={StyleSheet.employee__main__container__body}>
-                                <BoxDeatils setAttendenceEditPopup={setAttendenceEditPopup} />
+                                <BoxDeatils
+                                    setAttendenceEditPopup={setAttendenceEditPopup}
+                                    setAttendenceDeletePopup={setAttendenceDeletePopup}
+                                />
                                 <BoxDeatils />
                                 <BoxDeatils />
                                 <BoxDeatils />

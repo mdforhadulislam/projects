@@ -14,10 +14,10 @@
 }
 
 .delete__member__container .delete__member__container__box {
-    width: 40vw;
-    height: 17vw;
+    width: 33vw;
+    height: auto;
     margin: auto;
-    padding: 5vw;
+    padding: 3vw;
     display: flex;
     background: white;
     border-radius: 1vw;
@@ -29,11 +29,11 @@
 }
 .delete__member__container .delete__member__container__box .delete__member__container__box__title {
     font-size: 1.6vw;
-    padding-bottom: 1.7vw;
+    padding-bottom: 1.5vw;
     color: rgb(102, 102, 102);
 }
 .delete__member__container .delete__member__container__box .delete__member__container__box__button {
-    width: 100%;
+    width: 90%;
     height: auto;
     text-align: center;
     display: flex;
@@ -45,7 +45,7 @@
     .delete__member__container__box__button
     button {
     width: auto;
-    padding: 0.34vw 5vw;
+    padding: 0.34vw 4vw;
     font-size: 1.4vw;
     border: none;
     border-radius: 0.4vw;

@@ -10,19 +10,11 @@ function Staff() {
     let clickDutypedia = (e) => {
         setStateRenderDutypedia(true);
         setStateRenderOffline(false);
-        e.target.style.color = '#da1e37';
-        e.target.style.borderBottom = '0.1vw solid #da1e37';
-        e.target.parentElement.children[2].style.color = '#313131';
-        e.target.parentElement.children[2].style.borderBottom = '0.1vw solid #313131';
     };
 
     let clickOffline = (e) => {
         setStateRenderDutypedia(false);
         setStateRenderOffline(true);
-        e.target.style.color = '#da1e37';
-        e.target.style.borderBottom = '0.1vw solid #da1e37';
-        e.target.parentElement.children[0].style.color = '#313131';
-        e.target.parentElement.children[0].style.borderBottom = '0.1vw solid #313131';
     };
 
     return (
@@ -32,13 +24,37 @@ function Staff() {
                     <div className={StyleSheet.main__app__container__header__box}>
                         <div
                             onClick={clickDutypedia}
-                            className={StyleSheet.main__app__container__header__box__dutypedia}>
+                            className={StyleSheet.main__app__container__header__box__dutypedia}
+                            style={
+                                reanderDutypedia
+                                    ? {
+                                          color: '#da1e37',
+                                          borderBottom: '0.1vw solid #da1e37'
+                                      }
+                                    : {
+                                          color: '#313131',
+                                          borderBottom: '0.1vw solid #313131'
+                                      }
+                            }>
                             Dutypedia
                         </div>
+
                         <div className={StyleSheet.main__app__container__header__box__row}></div>
+
                         <div
                             onClick={clickOffline}
-                            className={StyleSheet.main__app__container__header__box__offline}>
+                            className={StyleSheet.main__app__container__header__box__offline}
+                            style={
+                                reanderOffline
+                                    ? {
+                                          color: '#da1e37',
+                                          borderBottom: '0.1vw solid #da1e37'
+                                      }
+                                    : {
+                                          color: '#313131',
+                                          borderBottom: '0.1vw solid #313131'
+                                      }
+                            }>
                             Offline
                         </div>
                     </div>
