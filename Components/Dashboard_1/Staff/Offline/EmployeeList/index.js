@@ -35,19 +35,21 @@ function EmployList() {
     const allUser = useSelector((state) => state.offlineUser.offline_user);
 
     return (
-        <>
+        <div>
             {allUser.length ? (
                 ''
             ) : (
-                <div className={StyleSheet.create__employee__list__container}>
-                    <div className={StyleSheet.create__employee__list__container__body}>
-                        <div className={StyleSheet.create__employee__list__container__body__button}>
-                            <div onClick={() => setOfflineQrCodePopup(true)}>
+                <div className="w-full h-auto p-[40px] text-center rounded-[16px] shadow-4xl relative">
+                    <div className="w-full h-auto">
+                        <div className="p-[25px] pb-[20px] w-[146px] m-auto">
+                            <div
+                                className="w-[95px] h-[95px] cursor-pointer"
+                                onClick={() => setOfflineQrCodePopup(true)}>
                                 <BigAddIcon />
                             </div>
                         </div>
-                        <div className={StyleSheet.create__employee__list__container__body__title}>
-                            <h1>Create Employee List</h1>
+                        <div className="mt-[6.5px]">
+                            <h1 className="text-[33px] font-[500]">Create Employee List</h1>
                         </div>
                     </div>
                 </div>
@@ -175,7 +177,7 @@ function EmployList() {
                     }}
                 />
             )}
-        </>
+        </div>
     );
 }
 

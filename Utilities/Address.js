@@ -110,8 +110,8 @@ function Address({
                         <option value="null">City</option>
                         {list?.map((item) =>
                             item?.region?.id === Number(regionValue) ? (
-                                <option key={item.id} value={item?.id}>
-                                    {item.city_name}
+                                <option key={item?.id} value={item?.id}>
+                                    {item?.city_name}
                                 </option>
                             ) : (
                                 ''
@@ -147,7 +147,7 @@ function Address({
                         value={areaValue}>
                         <option value="">Area</option>
                         {areaList?.map((item, index) => {
-                            if (item?.city.id === Number(cityValue)) {
+                            if (item?.city?.id === Number(cityValue)) {
                                 return (
                                     <option key={index} value={item?.id}>
                                         {item?.area_name}

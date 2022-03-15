@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ArrowDownIcon() {
+export default function ArrowDownIcon({ color }) {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="42" height="39" viewBox="0 0 42 39">
             <g id="Group_11216" data-name="Group 11216" transform="translate(-214 14151)">
@@ -17,7 +17,7 @@ export default function ArrowDownIcon() {
                     d="M222.054-14137.251l9.335,9.335,9.335-9.335"
                     transform="translate(3.446 0.751)"
                     fill="none"
-                    stroke="#666666"
+                    stroke={color !== '' ? color : '#666666'}
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="1"

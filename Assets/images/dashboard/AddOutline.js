@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function AddOutline() {
+export default function AddOutline({ width }) {
     return (
         <svg
-            width="35"
-            height="34"
+            width={width !== '' ? width : '35'}
+            height={width !== '' ? width : '35'}
             viewBox="0 0 35 34"
             fill="none"
             xmlns="http://www.w3.org/2000/svg">

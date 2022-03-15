@@ -2,66 +2,81 @@ import React, { useState } from 'react';
 import EmployeeAttendence from './EmployeeAttendence';
 import EmployeeList from './EmployeeList';
 import EmployeeSalary from './EmployeeSalary';
-import StyleSheet from './Offline.module.css';
 
 function Offline() {
     let [employeeList, setEmployeeList] = useState(true);
     let [employeeAttendence, setEmployeeAttendence] = useState(false);
     let [employeeSalary, setEmployeeSalary] = useState(false);
 
-    let changeColor = (e) => {
-        let list = e.target.parentElement.children;
-        for (let i = 0; i < list.length; i++) {
-            if (list[i].id === e.target.id) {
-                list[i].style.color = '#da1e37';
-                list[i].style.borderBottom = '0.1vw solid #da1e37';
-            }
-            if (list[i].id !== e.target.id) {
-                list[i].style.color = '#313131';
-                list[i].style.borderBottom = '0.1vw solid #313131';
-            }
-        }
-    };
-
     return (
-        <div className={StyleSheet.offline__container}>
-            <div className={StyleSheet.offline__container__header}>
-                <div className={StyleSheet.offline__container__header__navbar}>
-                    <div className={StyleSheet.ul}>
+        <div className="w-full h-auto">
+            <div className="w-full h-auto">
+                <div className="w-full h-auto">
+                    <div className="w-full h-auto flex align-middle justify-start flex-row">
                         <div
+                            className="w-[160px] p-0 pr-[13px] pb-[5px] text-[#da1e37] cursor-pointer border-b-[1px] border-[#da1e37] text-[20px]"
                             onClick={(e) => {
                                 setEmployeeList(true);
                                 setEmployeeAttendence(false);
                                 setEmployeeSalary(false);
-                                changeColor(e);
                             }}
-                            className={StyleSheet.li}
+                            style={
+                                employeeList
+                                    ? {
+                                          color: '#da1e37',
+                                          borderBottom: '0.1vw solid #da1e37'
+                                      }
+                                    : {
+                                          color: '#313131',
+                                          borderBottom: '0.1vw solid #313131'
+                                      }
+                            }
                             id="list__one">
                             Employee List
                         </div>
-                        <span className={StyleSheet.row}></span>
+                        <span className="w-[1px] h-[24px] inline-block bg-[#666666]"></span>
 
                         <div
+                            className="w-[240px] pr-[13px] pb-[5px] pl-[13px] text-[#313131] cursor-pointer border-b-[1px] border-[#666666] text-[20px]"
                             onClick={(e) => {
                                 setEmployeeList(false);
                                 setEmployeeAttendence(true);
                                 setEmployeeSalary(false);
-                                changeColor(e);
                             }}
-                            className={StyleSheet.li}
+                            style={
+                                employeeAttendence
+                                    ? {
+                                          color: '#da1e37',
+                                          borderBottom: '0.1vw solid #da1e37'
+                                      }
+                                    : {
+                                          color: '#313131',
+                                          borderBottom: '0.1vw solid #313131'
+                                      }
+                            }
                             id="list__two">
                             Employee Attendence
                         </div>
-                        <span className={StyleSheet.row}></span>
+                        <span className="w-[1px] h-[24px] inline-block bg-[#666666]"></span>
 
                         <div
+                            className="w-[200px] pr-[13px] pb-[5px] pl-[13px] text-[#313131] cursor-pointer border-b-[1px] border-[#666666] text-[20px]"
                             onClick={(e) => {
                                 setEmployeeList(false);
                                 setEmployeeAttendence(false);
                                 setEmployeeSalary(true);
-                                changeColor(e);
                             }}
-                            className={StyleSheet.li}
+                            style={
+                                employeeSalary
+                                    ? {
+                                          color: '#da1e37',
+                                          borderBottom: '0.1vw solid #da1e37'
+                                      }
+                                    : {
+                                          color: '#313131',
+                                          borderBottom: '0.1vw solid #313131'
+                                      }
+                            }
                             id="list__four">
                             Employee Salary
                         </div>
@@ -69,7 +84,7 @@ function Offline() {
                 </div>
             </div>
 
-            <div className={StyleSheet.offline__container__body}>
+            <div className="w-full h-auto pt-[25px] pb-[5px]">
                 {employeeList && <EmployeeList />}
 
                 {employeeAttendence && <EmployeeAttendence />}

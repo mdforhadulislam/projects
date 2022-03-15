@@ -11,19 +11,19 @@ import {
 import { getApiCall } from '../Components/Dashboard_1/Staff/api/onlineEmployeeListApi';
 import StyleSheet from './Utilites.module.css';
 
-export function SearchBox({ placeholder, value, action, name, style }) {
+export function SearchBox({ placeholder, value, action, name, style, iconStyle }) {
     return (
         <div className="w-full h-auto">
-            <div className="w-full h-auto flex justify-start align-middle relative" style={style}>
+            <div className="w-full h-auto flex justify-start align-middle relative">
                 <input
                     className="w-full h-auto outline-none text-[14.5px] p-[5px] pl-[12px] border-[1px] border-[#ececec]"
                     style={{
-                        ...style,
                         fontFamily: ' aller, sans-serif',
                         outline: 'none',
                         border: '1px solid #ececec',
                         padding: '7px 7px 7px 14px',
-                        borderRadius: '6px'
+                        borderRadius: '6px',
+                        ...style
                     }}
                     type="text"
                     id={name}
@@ -34,7 +34,7 @@ export function SearchBox({ placeholder, value, action, name, style }) {
 
                 <label
                     className="w-auto absolute"
-                    style={{ top: '7px', right: '13px' }}
+                    style={{ top: '7px', right: '13px', ...iconStyle }}
                     htmlFor={name}>
                     <div className="w-full cursor-pointer mt-[3px]">
                         <SearchIcon width={'18.5'} />
@@ -466,8 +466,8 @@ export function SalaryDateEveryWeek({ actions, value }) {
                     <option value="">select</option>
                     {weekDay?.map((day) => {
                         return (
-                            <option key={day.id} value={day.id}>
-                                {day.day_name}
+                            <option key={day?.id} value={day?.id}>
+                                {day?.day_name}
                             </option>
                         );
                     })}
@@ -501,9 +501,9 @@ export function SalaryDateEveryMonth({ actions, value }) {
                         StyleSheet.salary__date__every__month__container__selected__box__select
                     }>
                     <option value="">select</option>
-                    {monthDate.map((date) => {
+                    {monthDate?.map((date) => {
                         return (
-                            <option key={date.id} value={date?.id}>
+                            <option key={date?.id} value={date?.id}>
                                 {date?.starting_day} to {date?.ending_day}
                             </option>
                         );
@@ -815,6 +815,8 @@ export function TodayStatus({ action, value }) {
                     <option>Select</option>
                     <option>Present</option>
                     <option>Absent</option>
+                    <option>Company Holiday</option>
+                    <option>Leave For Holiday</option>
                 </select>
 
                 <div className={StyleSheet.today__status__container__select__box__icon}></div>

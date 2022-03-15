@@ -111,12 +111,12 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                         );
 
                                         joinAs.member
-                                            ? ApiResJoinType.filter(
-                                                  (item) => item.title === 'Member'
-                                              ).map((item) => dispatch(join_as(item.id)))
-                                            : ApiResJoinType.filter(
-                                                  (item) => item.title === 'Staff'
-                                              ).map((item) => dispatch(join_as(item.id)));
+                                            ? ApiResJoinType?.filter(
+                                                  (item) => item?.title === 'Member'
+                                              )?.map((item) => dispatch(join_as(item.id)))
+                                            : ApiResJoinType?.filter(
+                                                  (item) => item?.title === 'Staff'
+                                              )?.map((item) => dispatch(join_as(item.id)));
                                     }}
                                     value={joinAs.member}
                                 />
@@ -130,12 +130,12 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                                 : { ...prev, staff: true, member: false }
                                         );
                                         joinAs.staff
-                                            ? ApiResJoinType.filter(
-                                                  (item) => item.title === 'Staff'
-                                              ).map((item) => dispatch(join_as(item.id)))
-                                            : ApiResJoinType.filter(
-                                                  (item) => item.title === 'Member'
-                                              ).map((item) => dispatch(join_as(item.id)));
+                                            ? ApiResJoinType?.filter(
+                                                  (item) => item?.title === 'Staff'
+                                              )?.map((item) => dispatch(join_as(item.id)))
+                                            : ApiResJoinType?.filter(
+                                                  (item) => item?.title === 'Member'
+                                              )?.map((item) => dispatch(join_as(item.id)));
                                     }}
                                     value={joinAs.staff}
                                 />

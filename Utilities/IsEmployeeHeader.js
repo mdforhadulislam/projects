@@ -20,5 +20,5 @@ export default function IsEmployeeHeader({ setQrCodePopup }) {
                 </div>
             </div>
         </div>
-    )
+    );
 }

@@ -45,7 +45,7 @@ function EmployList() {
             .catch((error) => {
                 console.log(error);
             });
-    });
+    }, []);
 
     return (
         <>

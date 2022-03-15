@@ -1,24 +1,25 @@
 import React from 'react';
 import AddButtonIcon from '../../../../../../Assets/images/dashboard/AddOutline';
-import StyleSheet from '../BoxAndDeatilsStyle/CreateAttendenceButton.module.css';
 
 function CreateAttendenceButton({ timeSetPopup, selectedEmployee }) {
     return (
-        <div className={StyleSheet.box__container__add__attendenec__button}>
-            <div className={StyleSheet.box__container__add__attendenec__button__left}>
-                Day Shift
-            </div>
-            <div className={StyleSheet.row}></div>
-            <div className={StyleSheet.box__container__add__attendenec__button__right}>
+        <div
+            className="w-full h-auto flex align-middle flex-row text-[#313131] pt-[4px] pb-[16px] text-[17px]"
+            style={{ alignItems: 'center' }}>
+            <div className="w-auto h-auro pr-[10px] text-[#313131]  text-[17px]">Day Shift</div>
+            <div className="w-[1px] h-[22px] bg-[#313131]"></div>
+            <div
+                className="w-[240px] pl-[8px] justify-around h-auto flex align-middle"
+                style={{ alignItems: 'center' }}>
                 <div
-                    className={StyleSheet.icon}
+                    className="w-[27px] cursor-pointer h-auto"
                     onClick={() => {
                         timeSetPopup(true);
                         selectedEmployee(false);
                     }}>
-                    <AddButtonIcon />
+                    <AddButtonIcon width={'27'} />
                 </div>
-                <div className={StyleSheet.button}>Create A New Attendence</div>
+                <div className="text-[#313131]  text-[17px]">Create A New Attendence</div>
             </div>
         </div>
     );

@@ -119,7 +119,7 @@ a {
 /* Left */
 .scrollbar::-webkit-scrollbar-button:single-button:horizontal:decrement {
     border-radius: 10px 0px 0 10px;
-    height: 10px;
+    height: 7px;
     width: 7px;
     background-position: 0px 0px;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='0,50 50,100 50,0'/></svg>");
@@ -128,9 +128,36 @@ a {
 /* Right */
 .scrollbar::-webkit-scrollbar-button:single-button:horizontal:increment {
     border-radius: 0 10px 10px 0;
-    height: 10px;
+    height: 7px;
     width: 7px;
     background-position: 0px 0px;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(102, 102, 102)'><polygon points='0,0 0,100 50,50'/></svg>");
 }
 /* End scroll bar modify */
+
+.calender__year__changeing__left {
+    width: 1.5vw;
+    height: 2.5vw;
+    background: url(../Assets/images/dashboard/LEFT\ GREY.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.calender__year__changeing__left:hover {
+    background: url(../Assets/images/dashboard/LEFT\ RED.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.calender__year__changeing__right {
+    width: 1.5vw;
+    height: 2.5vw;
+    background: url(../Assets/images/dashboard/RIGHT\ GREY.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.calender__year__changeing__right:hover {
+    background: url(../Assets/images/dashboard/RIGHT\ RED.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
