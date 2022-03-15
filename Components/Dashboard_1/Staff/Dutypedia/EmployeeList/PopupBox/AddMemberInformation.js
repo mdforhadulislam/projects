@@ -241,7 +241,7 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                     postApiCall(postEmployeeDocumentsURL, formData, progress)
                                         .then((res) => {
                                             setTimeout(() => {
-                                                dispatch(user_documents({ id: res.id }));
+                                                dispatch(user_documents({ id: res?.id }));
                                             }, 1000);
                                         })
                                         .catch((err) => {
@@ -264,12 +264,12 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                         <div className="w-full h-auto flex align-middle">
                             <button
                                 type="submit"
-                                className="w-[155px] h-auto p-[11px] text-[15px] rounded-[3.5px] border-none bg-[#da1e37] text-white mr-[9px] cursor-pointer">
+                                className="w-[155px] h-auto p-[11px] text-[15px] rounded-[3.5px] border-none bg-[#da1e37] text-white mr-[9px] cursor-pointer outline-none">
                                 Next
                             </button>
                             <button
                                 type="button"
-                                className="w-[155px] h-auto p-[10px] text-[15px] rounded-[3.5px] border-[1.5px] bg-white border-[#da1e37] text-[#da1e37] ml-[9px] cursor-pointer"
+                                className="w-[155px] h-auto p-[10px] text-[15px] rounded-[3.5px] border-[1.5px] bg-white border-[#da1e37] text-[#da1e37] ml-[9px] cursor-pointer outline-none"
                                 onClick={() => {
                                     setAddInformationPopup(false);
                                     dispatch(

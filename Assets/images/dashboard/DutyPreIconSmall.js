@@ -1,11 +1,11 @@
-const DutyPreIcon = () => {
+const DutyPreIcon = ({ width, height }) => {
     return (
         <svg
             id="Group_9956"
             data-name="Group 9956"
             xmlns="http://www.w3.org/2000/svg"
-            width="40.543"
-            height="40.543"
+            width={width !== '' ? width : '40'}
+            height={height !== '' ? height : '40'}
             viewBox="0 0 40.543 40.543">
             <circle
                 id="Ellipse_1674"

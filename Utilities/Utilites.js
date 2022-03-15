@@ -13,10 +13,18 @@ import StyleSheet from './Utilites.module.css';
 
 export function SearchBox({ placeholder, value, action, name, style }) {
     return (
-        <div className={StyleSheet.search__box__container}>
-            <div className={StyleSheet.search__box__container__main__box} style={style}>
+        <div className="w-full h-auto">
+            <div className="w-full h-auto flex justify-start align-middle relative" style={style}>
                 <input
-                    style={style}
+                    className="w-full h-auto outline-none text-[14.5px] p-[5px] pl-[12px] border-[1px] border-[#ececec]"
+                    style={{
+                        ...style,
+                        fontFamily: ' aller, sans-serif',
+                        outline: 'none',
+                        border: '1px solid #ececec',
+                        padding: '7px 7px 7px 14px',
+                        borderRadius: '6px'
+                    }}
                     type="text"
                     id={name}
                     placeholder={placeholder}
@@ -24,9 +32,13 @@ export function SearchBox({ placeholder, value, action, name, style }) {
                     value={value}
                 />
 
-                <label htmlFor={name}>
-                    <SearchIcon />
-                    {/* <Image src={SearchIcon} alt="SearchIcon" /> */}
+                <label
+                    className="w-auto absolute"
+                    style={{ top: '7px', right: '13px' }}
+                    htmlFor={name}>
+                    <div className="w-full cursor-pointer mt-[3px]">
+                        <SearchIcon width={'18.5'} />
+                    </div>
                 </label>
             </div>
         </div>

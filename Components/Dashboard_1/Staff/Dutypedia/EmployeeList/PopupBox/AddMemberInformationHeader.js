@@ -13,7 +13,6 @@ import {
 } from '../../../../../../Redux/Dashboard_1/Action/Staff/Dutypedia/index';
 import { SearchBox } from '../../../../../../Utilities/Utilites';
 import UserData from '../../../UserData.json';
-import StyleSheet from '../PopupBoxStyle/AddMemberInformationHeader.module.css';
 
 function AddMemberInformationHeader({ setHiddenPopupFrom }) {
     let [clickBox, setClickBox] = useState(false);
@@ -84,7 +83,7 @@ function SearchOutput({ searchValue, setHiddenPopupFrom, pickData, setPickData }
     };
 
     return (
-        <div className={StyleSheet.add__member__imformation__header__container__output}>
+        <div className="w-full h-[370px] mt-[20px] pr-[13px] pl-[4px] overflow-auto scrollbar">
             {setHiddenPopupFrom
                 ? pickData
                     ? UserData.filter((user) => {
@@ -98,34 +97,31 @@ function SearchOutput({ searchValue, setHiddenPopupFrom, pickData, setPickData }
                               <div
                                   key={index}
                                   onClick={() => boxClickHendeler(name, user)}
-                                  className={StyleSheet.user__about__main}>
-                                  <div className={StyleSheet.user__about__container}>
-                                      <div className={StyleSheet.user__about__container__image}>
+                                  className="w-full h-[80px] relative mt-[6px] mb-[13px]">
+                                  <div className="w-full h-[80px] grid align-middle justify-start pt-[8px] pb-[8px] pl-[13px] pr-[13px] shadow-3xl rounded-[7px] grid-cols-5 grid-rows-2 ">
+                                      <div className="w-full col-start-1 col-end-1 row-span-2 relative">
                                           <Image
-                                              width={'82%'}
-                                              height={'82%'}
+                                              className="w-full h-full rounded-[5px]"
+                                              width={68}
+                                              height={58}
                                               src={user.image}
                                               alt={user.name}
                                           />
-                                          <DutyPreIcon />
+                                          <div className="w-[22px] h-[22px] absolute inline-block top-[70%] left-[68%]">
+                                              <DutyPreIcon height={'22'} width={'22'} />
+                                          </div>
                                       </div>
-                                      <div className={StyleSheet.user__about__container__name__id}>
-                                          <div
-                                              className={
-                                                  StyleSheet.user__about__container__name__id__name
-                                              }>
+                                      <div className="col-start-2 col-end-6 row-start-1 row-end-3">
+                                          <div className="w-full h-auto text-[21px] text-[#666666]">
                                               {user.name}
                                           </div>
-                                          <div
-                                              className={
-                                                  StyleSheet.user__about__container__name__id__id
-                                              }>
+                                          <div className="w-full h-auto text-[14.5px] pt-[3px] text-[#bcbcbc]">
                                               Id: DP0324-23{user.id}
                                           </div>
                                       </div>
                                   </div>
                                   <div
-                                      className={StyleSheet.main__click__box}
+                                      className="w-full h-[80px] absolute top-0 left-0"
                                       onClick={(e) => {
                                           e.target.parentElement.parentElement.style.height = '0vw';
                                       }}></div>
