@@ -1,29 +1,34 @@
 import React from 'react';
 import DutyPreIcon from '../../../../../../Assets/images/dashboard/DutyPreIconSmall';
 import { CheckBox } from '../../../../../../Utilities/Utilites';
-import StyleSheet from '../BoxAndDeatilsStyle/SingleEmployeeBox.module.css';
 
 function SingleEmployeeBox({ user }) {
     return (
-        <div className={StyleSheet.single__user__box}>
-            <div className={StyleSheet.single__user__box__main}>
-                <div className={StyleSheet.single__user__box__main__checkBox}>
+        <div className="w-full h-auto p-[7px] shadow-3xl rounded-[6px] mt-[8px] mb-[12px] ">
+            <div
+                className="w-full h-auto flex flex-row align-middle"
+                style={{ alignItems: 'center' }}>
+                <div className="mt-[-21px]">
                     <CheckBox style={{ width: '3vw', marginTop: '-.1.5vw' }} />
                 </div>
-                <div className={StyleSheet.single__user__box__main__user__deatils}>
-                    <div className={StyleSheet.single__user__box__main__user__deatils__image__log}>
+                <div
+                    className="w-full h-auto flex  justify-start align-middle"
+                    style={{ alignItems: 'center' }}>
+                    <div className="w-[72px] h-[60px] relative">
                         <div
-                            className={StyleSheet.image}
+                            className="w-[55px] h-[50px] rounded-[6px]"
                             style={{
                                 background: `url(${user.image})`,
                                 backgroundSize: 'cover',
                                 backgroundPosition: 'center'
                             }}></div>
-                        <DutyPreIcon />
+                        <div className="w-[20px] h-[20px] absolute top-[60%] right-[10%]">
+                            <DutyPreIcon width={'20'} height={'20'} />
+                        </div>
                     </div>
-                    <div className={StyleSheet.single__user__box__main__user__deatils__name__id}>
-                        <div className={StyleSheet.name}>{user.name}</div>
-                        <div className={StyleSheet.id}>Id: 9297343{user.id}</div>
+                    <div className="">
+                        <div className="text-[19px] text-[#313131]">{user.name}</div>
+                        <div className="text-[16px] text-[#666666]">Id: 9297343{user.id}</div>
                     </div>
                 </div>
             </div>

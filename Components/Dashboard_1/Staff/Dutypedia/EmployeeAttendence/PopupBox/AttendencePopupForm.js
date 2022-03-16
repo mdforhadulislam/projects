@@ -7,7 +7,6 @@ import {
     DayCheckBox,
     DutyTimer
 } from '../../../../../../Utilities/Utilites';
-import StyleSheet from '../PopupBoxStyle/AttendencePopupForm.module.css';
 
 Modal.setAppElement('#__next');
 function AttendencePopupForm({
@@ -49,18 +48,22 @@ function AttendencePopupForm({
     return (
         <Modal isOpen={attendencePopupForm} style={customStyles}>
             <form
-                className={StyleSheet.attendence__popup__form}
+                className="w-[550px] h-auto p-[20px] bg-white shadow-3xl rounded-[10px]"
                 onSubmit={(e) => e.preventDefault()}>
-                <div className={StyleSheet.attendence__popup__form__back__button}>
+                <div
+                    className="w-full h-auto flex align-middle justify-start"
+                    style={{ alignItems: 'center' }}>
                     <div
                         onClick={() => setAttendencesPopupForm(false)}
-                        style={{ cursor: 'pointer' }}>
-                        <ArrowBackIcon />
+                        className="cursor-pointer text-[#313131]">
+                        <div className=" inline-block mr-[8px]">
+                            <ArrowBackIcon width={'18'} height={'12'} />
+                        </div>
                         Back
                     </div>
                 </div>
-                <div className={StyleSheet.attendence__popup__form__container}>
-                    <div className={StyleSheet.attendence__propup__form__container__name__box}>
+                <div className="w-full h-auto">
+                    <div className="w-[265px] h-auto m-auto pb-[12px]">
                         <AttendenceName
                             title="Attendence Name"
                             placeholder={'Staff Of Dutypedia...|'}
@@ -68,11 +71,8 @@ function AttendencePopupForm({
                             action={(value) => setAttendanceName(value)}
                         />
                     </div>
-                    <div className={StyleSheet.attendence__popup__form__container__timer}>
-                        <div
-                            className={
-                                StyleSheet.attendence__popup__form__container__timer__row__one
-                            }>
+                    <div className="w-full h-auto">
+                        <div className="w-full h-auto flex justify-around pb-[10px]">
                             <DutyTimer
                                 title="Duty Starting Time"
                                 value={dayStartAndEndTime.dayStartTime}
@@ -94,10 +94,7 @@ function AttendencePopupForm({
                                 }
                             />
                         </div>
-                        <div
-                            className={
-                                StyleSheet.attendence__popup__form__container__timer__row__tow
-                            }>
+                        <div className="w-full h-auto flex justify-center pt-[6px] pb-[15px]">
                             <BrackTimer
                                 title="Break Time"
                                 action={(value) => setBrackTime(value)}
@@ -105,20 +102,9 @@ function AttendencePopupForm({
                             />
                         </div>
                     </div>
-                    <div
-                        className={
-                            StyleSheet.attendence__popup__form__container__holiday__container
-                        }>
-                        <div
-                            className={
-                                StyleSheet.attendence__popup__form__container__holiday__container__title
-                            }>
-                            Holiday
-                        </div>
-                        <div
-                            className={
-                                StyleSheet.attendence__popup__form__container__holiday__container__checkbox
-                            }>
+                    <div className="w-full h-auto">
+                        <div className="text-[17.5px]">Holiday</div>
+                        <div className="w-full h-auto">
                             <DayCheckBox
                                 title={'Saturday'}
                                 name={'Saturday'}
@@ -199,8 +185,9 @@ function AttendencePopupForm({
                         </div>
                     </div>
                 </div>
-                <div className={StyleSheet.attendence__popup__form__submit__button}>
+                <div className="w-full h-auto flex justify-end">
                     <button
+                        className="w-[120px] h-auto p-[6px] text-[16px] outline-none border-none rounded-[6px] mt-[13px] cursor-pointer bg-[#da1e37] text-white "
                         type="submit"
                         onClick={() => {
                             setAttendencesPopupForm(false);

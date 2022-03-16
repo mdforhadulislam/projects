@@ -1,9 +1,9 @@
-export default function ArrowBackIcon() {
+export default function ArrowBackIcon({ width, height }) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="16.543"
-            height="10.564"
+            width={width !== '' ? width : '16.543'}
+            height={height !== '' ? height : '10.564'}
             viewBox="0 0 16.543 10.564">
             <g id="Group_7032" data-name="Group 7032" transform="translate(-390.457 -610.793)">
                 <path

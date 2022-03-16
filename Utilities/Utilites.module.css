@@ -1193,7 +1193,7 @@
     font-size: 1.5vw;
     padding-bottom: 0.5vw;
     color: #313131;
-    text-align: left;
+    text-align: center;
 }
 .attendence__name__container input {
     width: 100%;
@@ -1225,7 +1225,7 @@
     font-size: 1.3vw;
     padding-bottom: 0.5vw;
     color: #313131;
-    text-align: left;
+    text-align: center;
 }
 .duty__timer__container__input__box {
     width: 100%;
@@ -1280,7 +1280,7 @@
     font-size: 1.3vw;
     padding-bottom: 0.5vw;
     color: #313131;
-    text-align: left;
+    text-align: center;
 }
 .brack__timer__container__input__box {
     width: 100%;
