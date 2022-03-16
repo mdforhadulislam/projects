@@ -67,9 +67,15 @@ export function MemberCheckbox({ name, title, actions, value }) {
 }
 export function Name({ title, actions, value }) {
     return (
-        <div className={StyleSheet.name__container}>
-            <div className={StyleSheet.name__container__title}>{title}</div>
+        <div className="w-full h-auto p-2 px-0">
+            <div className="text-[17.5px] pb-[6px] text-[#313131]">{title}</div>
             <input
+                className="w-full h-auto p-2 text-[16px] outline-none border-none rounded-md bg-[#f5f5f5]"
+                style={{
+                    background: '#f5f5f5',
+                    fontFamily: ' aller, sans-serif',
+                    borderRadius: '5px'
+                }}
                 type="text"
                 onChange={(e) => {
                     actions(e.target.value);

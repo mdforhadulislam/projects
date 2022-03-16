@@ -4,6 +4,7 @@ import backIcon from '../../../../../../Assets/images/dashboard/ArrowBackIcon.sv
 import ArrowDownIcon from '../../../../../../Assets/images/dashboard/ArrowDownIcon';
 import DutyPreIcon from '../../../../../../Assets/images/dashboard/DutyPreIconSmall';
 import PrintIcon from '../../../../../../Assets/images/dashboard/printer.svg';
+import MonthlyAttendence from './MonthlyAttendence';
 
 function MemberDeatils({ setAttendenceMemberDeatils }) {
     const [year, setYear] = useState(new Date().getFullYear());
@@ -81,7 +82,9 @@ function MemberDeatils({ setAttendenceMemberDeatils }) {
                     </div>
                 </div>
 
-                <div className="w-full h-auto flex justify-between align-middle">
+                {/* calender and filter start  */}
+
+                <div className="w-full h-auto flex justify-between align-middle mt-[30px] mb-[40px]">
                     <div className="w-[280px] h-auto flex align-middle justify-between text-[#313131] py-[10px]">
                         <div
                             className="calender__year__changeing__left"
@@ -101,17 +104,25 @@ function MemberDeatils({ setAttendenceMemberDeatils }) {
                         style={{ alignItems: 'center' }}>
                         <div className="text-[18px]">Filter By</div>
                         <select
-                            className=" w-[180px] h-[40px] border-[1px] border-[#da1e37] outline-none p-[5px] rounded"
+                            className=" w-[180px] h-[40px] border-[1px] border-[#da1e37] outline-none p-[5px] rounded-[6px]"
                             name=""
                             id="filterIcon">
                             <option value="">Select</option>
                         </select>
-                        <div className="w-[40px] h-auto pointer-events-none cursor-pointer flex bg-[#da1e37] rounded-tr-[4.5px] rounded-br-[4.5px] absolute  right-0">
-                            {/* <div className="absolute right-0 flex items-center pointer-events-none bg-[#Da1E37] rounded-r-lg"> */}
+                        <div className="w-[40px] h-auto pointer-events-none cursor-pointer flex bg-[#da1e37] rounded-r-[6px] absolute  right-0">
                             <ArrowDownIcon color={'white'} />
                         </div>
                     </div>
                 </div>
+
+                {/* calender and filter end  */}
+
+                <div className="w-full h-auto ">
+                    <MonthlyAttendence />
+                    <MonthlyAttendence />
+                </div>
+
+                {/*  */}
             </div>
         </div>
     );
