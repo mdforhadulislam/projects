@@ -177,7 +177,7 @@
 }
 .gender__container__box__selecte__box {
     width: 100%;
-    height: 2.6vw;
+    height: 3vw;
     border-radius: 0.4vw;
     font-size: 1.2vw;
     border: 0.13vw solid #da1e37;
@@ -189,7 +189,7 @@
 
 .gender__container__box__icon {
     width: 3.2vw;
-    height: 2.6vw;
+    height: 3vw;
     background: #da1e37;
     position: absolute;
     right: 0%;
@@ -230,7 +230,7 @@
 }
 .Blood__group__container__box__selecte__box {
     width: 100%;
-    height: 2.6vw;
+    height: 3vw;
     border-radius: 0.4vw;
     font-size: 1.2vw;
     border: 0.13vw solid #da1e37;
@@ -242,7 +242,7 @@
 
 .Blood__group__container__selected__box__icon {
     width: 3.2vw;
-    height: 2.6vw;
+    height: 3vw;
     /* padding: 0.2vw; */
     background: #da1e37;
     position: absolute;
@@ -266,26 +266,26 @@
 /* date of birth style start  */
 /* date of birth style start  */
 
-.date__of__birth__container {
+.date__container {
     width: 48%;
     height: auto;
     display: inline-block;
     padding: 0.5vw 0vw;
 }
-.date__of__birth__container__title {
+.date__container__title {
     font-size: 1.3vw;
     padding: 0vw 0vw 0.5vw 0vw;
     color: #313131;
 }
-.date__of__birth__container__date__box {
+.date__container__date__box {
     width: 100%;
-    height: 2.6vw;
+    height: 3vw;
     position: relative;
 }
 
-.date__of__birth__container__date__box__input {
+.date__container__date__box__input {
     width: 100%;
-    height: 2.6vw;
+    height: 3vw;
     padding: 0.4vw;
     border-radius: 0.4vw;
     font-size: 1.2vw;
@@ -296,9 +296,9 @@
     font-family: aller, sans-serif;
 }
 
-.date__of__birth__container__date__box__icon {
+.date__container__date__box__icon {
     width: 3.2vw;
-    height: 2.6vw;
+    height: 3vw;
     padding: 0.2vw;
     background: #da1e37;
     position: absolute;
@@ -335,7 +335,7 @@
 }
 .religion__container__input__box input {
     width: 100%;
-    height: 2.6vw;
+    height: 3vw;
     outline: none;
     border: none;
     background: #f5f5f5;
@@ -355,6 +355,10 @@
     width: 100%;
     height: auto;
     background-color: #fff;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
     position: absolute;
     top: 102%;
     left: 0;
@@ -398,7 +402,7 @@
 }
 .nationlity__container input {
     width: 100%;
-    height: 2.6vw;
+    height: 3vw;
     outline: none;
     border: none;
     background: #f5f5f5;
@@ -417,6 +421,9 @@
 .nationlity__container__dropdown ul {
     width: 100%;
     height: auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
     background-color: #fff;
     position: absolute;
     top: 102%;

@@ -30,14 +30,14 @@ import UploadingFile from '../../../../../../Utilities/UploadingFile';
 import UploadProfileImage from '../../../../../../Utilities/UploadProfileImage';
 import {
     BloodGroup,
-    DateOfBirth,
     Email,
     Gender,
     MemberCheckbox,
     MobileNo,
     Name,
     Nationality,
-    Religion
+    Religion,
+    SetDate
 } from '../../../../../../Utilities/Utilites';
 import StyleSheet from '../PopupBoxStyle/OfflineAddMemberInformation.module.css';
 
@@ -141,7 +141,7 @@ function OfflineAddMemberInformation({
                 </div>
 
                 <div className={StyleSheet.offline__add__member__information__container__row__four}>
-                    <DateOfBirth
+                    <SetDate
                         title="Date Of Birth"
                         value={birthDate_and_religion.user_date_of_birth}
                         actions={(value) => dispatch(offline_user_date_of_birth(value))}

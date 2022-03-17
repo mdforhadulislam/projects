@@ -18,13 +18,13 @@ import {
 } from '../../../../../../Redux/Dashboard_1/Action/Staff/Dutypedia';
 import {
     CheckBox,
-    JoiningDate,
     Position,
     SalaryAmount,
     SalaryDateEveryDay,
     SalaryDateEveryMonth,
     SalaryDateEveryWeek,
-    SalaryType
+    SalaryType,
+    SetDate
 } from '../../../../../../Utilities/Utilites';
 import { getEmployeePermitionURL } from '../../../api/apiUrl';
 import { getApiCall } from '../../../api/onlineEmployeeListApi';
@@ -150,7 +150,10 @@ function CreateEmployee({
                                 actions={(value) => dispatch(user_position(value))}
                                 value={userPosition}
                             />
-                            <JoiningDate
+                            <SetDate
+                                titleStyle={{ paddingBottom: '1vw' }}
+                                rootStyle={{ padding: '0' }}
+                                title={'Joining Date'}
                                 actions={(value) => dispatch(user_joining_date(value))}
                                 value={joiningDate}
                             />

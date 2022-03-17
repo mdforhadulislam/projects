@@ -69,7 +69,7 @@ function AttendenceEmployee({
                         Create Now
                     </button>
                     <button
-                        className="w-[120px] h-auto p-[6px] px-[10px] text-[16px] rounded-[4px] ml-[8px] cursor-pointer border-[1px] border-[#da1e37]  text-[#313131] bg-white"
+                        className="w-[120px] h-auto p-[6px] px-[10px] text-[16px] rounded-[4px] ml-[8px] cursor-pointer border-[1px] border-[#da1e37]  text-[#da1e37] bg-white"
                         onClick={() => {
                             setAttendencesPopupForm(true);
                             setAttendenceEmployee(false);

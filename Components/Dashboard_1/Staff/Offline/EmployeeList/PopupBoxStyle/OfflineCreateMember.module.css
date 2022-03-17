@@ -12,7 +12,7 @@
 .offline__add__member__container {
     width: 38vw;
     height: auto;
-    padding: 2vw;
+    padding: 1.2vw 2vw;
     background: white;
     box-shadow: 0vw 0vw 0.5vw 0vw rgb(0 0 0 / 15%);
     border-radius: 1vw;
@@ -23,7 +23,7 @@
     height: auto;
     font-size: 1.3vw;
     display: flex;
-    padding-bottom: 1.6vw;
+    padding-bottom: 0.8vw;
     cursor: pointer;
     align-items: center;
 }
@@ -63,7 +63,7 @@
 .offline__add__member__container__row__four .create__employee__body__container__no__money {
     width: 100%;
     height: auto;
-    padding: 0.5vw 0vw 0vw 0vw;
+    margin: -0.8vw 0vw 0vw 0vw;
 }
 .offline__add__member__container__row__four
     .create__employee__body__container__no__money

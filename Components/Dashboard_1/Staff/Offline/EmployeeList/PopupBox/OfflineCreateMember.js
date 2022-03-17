@@ -97,12 +97,12 @@ function OfflineCreateMember({
 
     const customStyles = {
         content: {
-            top: '60%',
+            top: '50%',
             left: '50%',
             right: 'auto',
             bottom: 'auto',
             marginRight: '-50%',
-            transform: 'translate(-50%, -60%)',
+            transform: 'translate(-50%, -40%)',
             border: 'none',
             overflow: 'none',
             padding: '0',

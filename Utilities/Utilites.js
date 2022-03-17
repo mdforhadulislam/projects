@@ -1,3 +1,4 @@
+import { default as getMonth, default as getYear } from 'date-fns/getYear';
 import React, { useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -133,21 +134,87 @@ export function BloodGroup({ title, actions, value }) {
         </div>
     );
 }
-export function DateOfBirth({ title, actions, value }) {
+export function SetDate({ title, actions, value, titleStyle, rootStyle }) {
+    const range = (start, end) => {
+        return new Array(end - start).fill().map((d, i) => i + start);
+    };
+    const years = range(1990, getYear(new Date()) + 1, 1);
+    const months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+    ];
+
     return (
-        <div className={StyleSheet.date__of__birth__container}>
-            <div className={StyleSheet.date__of__birth__container__title}>{title}</div>
-            <div className={StyleSheet.date__of__birth__container__date__box}>
+        <div className={StyleSheet.date__container} style={rootStyle}>
+            <div className={StyleSheet.date__container__title} style={titleStyle}>
+                {title}
+            </div>
+            <div className={StyleSheet.date__container__date__box}>
                 <DatePicker
+                    className={StyleSheet.date__container__date__box__input}
                     id="datePicker"
-                    className={StyleSheet.date__of__birth__container__date__box__input}
+                    renderCustomHeader={({
+                        date,
+                        changeYear,
+                        changeMonth,
+                        decreaseMonth,
+                        increaseMonth,
+                        prevMonthButtonDisabled,
+                        nextMonthButtonDisabled
+                    }) => (
+                        <div
+                            style={{
+                                margin: 10,
+                                display: 'flex',
+                                justifyContent: 'center'
+                            }}>
+                            <button onClick={decreaseMonth} disabled={prevMonthButtonDisabled}>
+                                {'<'}
+                            </button>
+                            <select
+                                value={getYear(date)}
+                                onChange={({ target: { value } }) => changeYear(value)}>
+                                {years.map((option) => (
+                                    <option key={option} value={option}>
+                                        {option}
+                                    </option>
+                                ))}
+                            </select>
+
+                            <select
+                                value={months[getMonth(date)]}
+                                onChange={({ target: { value } }) =>
+                                    changeMonth(months.indexOf(value))
+                                }>
+                                {months.map((option) => (
+                                    <option key={option} value={option}>
+                                        {option}
+                                    </option>
+                                ))}
+                            </select>
+
+                            <button onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
+                                {'>'}
+                            </button>
+                        </div>
+                    )}
                     selected={value}
                     onChange={(date) => {
                         actions(date);
                     }}
                 />
                 <label htmlFor="datePicker">
-                    <div className={StyleSheet.date__of__birth__container__date__box__icon}></div>
+                    <div className={StyleSheet.date__container__date__box__icon}></div>
                 </label>
             </div>
         </div>

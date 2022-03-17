@@ -26,12 +26,12 @@ import Address from '../../../../../../Utilities/Address';
 import UploadingFile from '../../../../../../Utilities/UploadingFile';
 import {
     BloodGroup,
-    DateOfBirth,
     Gender,
     MemberCheckbox,
     Name,
     Nationality,
-    Religion
+    Religion,
+    SetDate
 } from '../../../../../../Utilities/Utilites';
 import {
     deleteEmployeeDocumentsURL,
@@ -173,11 +173,12 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                 />
                             </div>
                             <div className="w-full h-auto flex justify-between align-middle flex-row">
-                                <DateOfBirth
+                                <SetDate
                                     title="Date Of Birth"
                                     actions={(value) => dispatch(user_date_of_birth(value))}
                                     value={dateOfBirth}
                                 />
+
                                 <Religion
                                     title="Religion"
                                     actions={(value) => dispatch(user_religion(value))}
