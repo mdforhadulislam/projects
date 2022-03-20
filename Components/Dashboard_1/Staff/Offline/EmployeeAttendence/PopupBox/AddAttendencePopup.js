@@ -9,11 +9,7 @@ import {
 } from '../../../../../../Utilities/Utilites';
 
 Modal.setAppElement('#__next');
-function AttendencePopupForm({
-    setAttendencesPopupForm,
-    attendencePopupForm,
-    setAttendenceEmployee
-}) {
+function AddAttendencePopup({ createAttendence, setCreateAttendence, setAddAttendenceEmployee }) {
     const customStyles = {
         content: {
             top: '50%',
@@ -29,13 +25,13 @@ function AttendencePopupForm({
         }
     };
 
-    const [attendanceName, setAttendanceName] = useState('');
-    const [brackTime, setBrackTime] = useState('');
-    const [dayStartAndEndTime, setDayStartAndEndTime] = useState({
+    const [offlineAttendanceName, setOfflineAttendanceName] = useState('');
+    const [offlineBrackTime, setOfflineBrackTime] = useState('');
+    const [offlneDayStartAndEndTime, setOfflneDayStartAndEndTime] = useState({
         dayStartTime: '10:00:00',
         dayEndTime: '10:00:00'
     });
-    const [holiday, setHoliday] = useState({
+    const [offlineHoliday, setOfflineHoliday] = useState({
         saturday: false,
         sunday: false,
         monday: false,
@@ -46,7 +42,7 @@ function AttendencePopupForm({
     });
 
     return (
-        <Modal isOpen={attendencePopupForm} style={customStyles}>
+        <Modal isOpen={createAttendence} style={customStyles}>
             <form
                 className="w-[550px] h-auto p-[20px] bg-white shadow-3xl rounded-[10px]"
                 onSubmit={(e) => e.preventDefault()}>
@@ -54,7 +50,7 @@ function AttendencePopupForm({
                     className="w-full h-auto flex align-middle justify-start"
                     style={{ alignItems: 'center' }}>
                     <div
-                        onClick={() => setAttendencesPopupForm(false)}
+                        onClick={() => setCreateAttendence(false)}
                         className="cursor-pointer text-[#313131]">
                         <div className=" inline-block mr-[8px]">
                             <ArrowBackIcon width={'23'} height={'18'} />
@@ -67,17 +63,17 @@ function AttendencePopupForm({
                         <AttendenceName
                             title="Attendence Name"
                             placeholder={'Staff Of Dutypedia...|'}
-                            value={attendanceName}
-                            action={(value) => setAttendanceName(value)}
+                            value={offlineAttendanceName}
+                            action={(value) => setOfflineAttendanceName(value)}
                         />
                     </div>
                     <div className="w-full h-auto">
                         <div className="w-full h-auto flex justify-around pb-[10px]">
                             <DutyTimer
                                 title="Duty Starting Time"
-                                value={dayStartAndEndTime.dayStartTime}
+                                value={offlneDayStartAndEndTime.dayStartTime}
                                 action={(value) =>
-                                    setDayStartAndEndTime({
+                                    setOfflneDayStartAndEndTime({
                                         ...dayStartAndEndTime,
                                         dayStartTime: value
                                     })
@@ -85,9 +81,9 @@ function AttendencePopupForm({
                             />
                             <DutyTimer
                                 title="Duty Ending Time"
-                                value={dayStartAndEndTime.dayEndTime}
+                                value={offlneDayStartAndEndTime.dayEndTime}
                                 action={(value) =>
-                                    setDayStartAndEndTime({
+                                    setOfflneDayStartAndEndTime({
                                         ...dayStartAndEndTime,
                                         dayEndTime: value
                                     })
@@ -97,8 +93,8 @@ function AttendencePopupForm({
                         <div className="w-full h-auto flex justify-center pt-[6px] pb-[15px]">
                             <BrackTimer
                                 title="Break Time"
-                                action={(value) => setBrackTime(value)}
-                                value={brackTime}
+                                action={(value) => setOfflineBrackTime(value)}
+                                value={offlineBrackTime}
                             />
                         </div>
                     </div>
@@ -109,77 +105,80 @@ function AttendencePopupForm({
                                 title={'Saturday'}
                                 name={'Saturday'}
                                 style={{ width: '9vw', display: 'inline-block' }}
-                                value={holiday.saturday}
+                                value={offlineHoliday.saturday}
                                 actions={() =>
-                                    holiday.saturday
-                                        ? setHoliday({ ...holiday, saturday: false })
-                                        : setHoliday({ ...holiday, saturday: true })
+                                    offlineHoliday.saturday
+                                        ? setOfflineHoliday({ ...offlineHoliday, saturday: false })
+                                        : setOfflineHoliday({ ...offlineHoliday, saturday: true })
                                 }
                             />
                             <DayCheckBox
                                 title={'Sunday'}
                                 name={'Sunday'}
                                 style={{ width: '8vw', display: 'inline-block' }}
-                                value={holiday.sunday}
+                                value={offlineHoliday.sunday}
                                 actions={() =>
-                                    holiday.sunday
-                                        ? setHoliday({ ...holiday, sunday: false })
-                                        : setHoliday({ ...holiday, sunday: true })
+                                    offlineHoliday.sunday
+                                        ? setOfflineHoliday({ ...offlineHoliday, sunday: false })
+                                        : setOfflineHoliday({ ...offlineHoliday, sunday: true })
                                 }
                             />
                             <DayCheckBox
                                 title={'Monday'}
                                 name={'Monday'}
                                 style={{ width: '8.5vw', display: 'inline-block' }}
-                                value={holiday.monday}
+                                value={offlineHoliday.monday}
                                 actions={() =>
-                                    holiday.monday
-                                        ? setHoliday({ ...holiday, monday: false })
-                                        : setHoliday({ ...holiday, monday: true })
+                                    offlineHoliday.monday
+                                        ? setOfflineHoliday({ ...offlineHoliday, monday: false })
+                                        : setOfflineHoliday({ ...offlineHoliday, monday: true })
                                 }
                             />
                             <DayCheckBox
                                 title={'Tuesday'}
                                 name={'Tuesday'}
                                 style={{ width: '8.5vw', display: 'inline-block' }}
-                                value={holiday.tuesday}
+                                value={offlineHoliday.tuesday}
                                 actions={() =>
-                                    holiday.tuesday
-                                        ? setHoliday({ ...holiday, tuesday: false })
-                                        : setHoliday({ ...holiday, tuesday: true })
+                                    offlineHoliday.tuesday
+                                        ? setOfflineHoliday({ ...offlineHoliday, tuesday: false })
+                                        : setOfflineHoliday({ ...offlineHoliday, tuesday: true })
                                 }
                             />
                             <DayCheckBox
                                 title={'Wednestday'}
                                 name={'Wednestday'}
                                 style={{ width: '11vw', display: 'inline-block' }}
-                                value={holiday.wednestday}
+                                value={offlineHoliday.wednestday}
                                 actions={() =>
-                                    holiday.wednestday
-                                        ? setHoliday({ ...holiday, wednestday: false })
-                                        : setHoliday({ ...holiday, wednestday: true })
+                                    offlineHoliday.wednestday
+                                        ? setOfflineHoliday({
+                                              ...offlineHoliday,
+                                              wednestday: false
+                                          })
+                                        : setOfflineHoliday({ ...offlineHoliday, wednestday: true })
                                 }
                             />
                             <DayCheckBox
                                 title={'Thursday'}
                                 name={'Thursday'}
                                 style={{ width: '9vw', display: 'inline-block' }}
-                                value={holiday.thursday}
+                                value={offlineHoliday.thursday}
                                 actions={() =>
-                                    holiday.thursday
-                                        ? setHoliday({ ...holiday, thursday: false })
-                                        : setHoliday({ ...holiday, thursday: true })
+                                    offlineHoliday.thursday
+                                        ? setOfflineHoliday({ ...offlineHoliday, thursday: false })
+                                        : setOfflineHoliday({ ...offlineHoliday, thursday: true })
                                 }
                             />
                             <DayCheckBox
                                 title={'Friday'}
                                 name={'Friday'}
                                 style={{ width: '8.5vw', display: 'inline-block' }}
-                                value={holiday.friday}
+                                value={offlineHoliday.friday}
                                 actions={() =>
-                                    holiday.friday
-                                        ? setHoliday({ ...holiday, friday: false })
-                                        : setHoliday({ ...holiday, friday: true })
+                                    offlineHoliday.friday
+                                        ? setOfflineHoliday({ ...offlineHoliday, friday: false })
+                                        : setOfflineHoliday({ ...offlineHoliday, friday: true })
                                 }
                             />
                         </div>
@@ -190,8 +189,8 @@ function AttendencePopupForm({
                         className="w-[120px] h-auto p-[6px] text-[16px] outline-none border-none rounded-[6px] mt-[13px] cursor-pointer bg-[#da1e37] text-white "
                         type="submit"
                         onClick={() => {
-                            setAttendencesPopupForm(false);
-                            setAttendenceEmployee(true);
+                            setCreateAttendence(false);
+                            setAddAttendenceEmployee(true);
                         }}>
                         Next
                     </button>
@@ -201,4 +200,4 @@ function AttendencePopupForm({
     );
 }
 
-export default React.memo(AttendencePopupForm);
+export default AddAttendencePopup;

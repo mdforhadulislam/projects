@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import ThreeDot from '../../../../../../Assets/images/dashboard/ThreeDotIcon.svg';
 
-function SingleAttendenceBox() {
+function SingleAttendenceDeatils() {
     return (
         <div
             className="w-full h-auto mb-3 shadow-3xl py-[12px] px-[10px] rounded-[6px]"
@@ -31,4 +31,4 @@ function SingleAttendenceBox() {
     );
 }
 
-export default SingleAttendenceBox;
+export default SingleAttendenceDeatils;

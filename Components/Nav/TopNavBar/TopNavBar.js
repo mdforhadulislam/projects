@@ -16,7 +16,7 @@ const TopNavBar = () => {
                 height: '5rem',
                 display: 'block',
                 position: 'relative',
-                zIndex: '10000'
+                zIndex: '1000'
             }}>
             <section className={styles.top_nav_bar_section}>
                 <div className={styles.top_nav_left}>

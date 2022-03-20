@@ -134,7 +134,7 @@ export function BloodGroup({ title, actions, value }) {
         </div>
     );
 }
-export function SetDate({ title, actions, value, titleStyle, rootStyle }) {
+export function SetDate({ title, actions, value, titleStyle, rootStyle, iconStayle, inputStyle }) {
     const range = (start, end) => {
         return new Array(end - start).fill().map((d, i) => i + start);
     };
@@ -156,12 +156,16 @@ export function SetDate({ title, actions, value, titleStyle, rootStyle }) {
 
     return (
         <div className={StyleSheet.date__container} style={rootStyle}>
-            <div className={StyleSheet.date__container__title} style={titleStyle}>
-                {title}
-            </div>
+            {title !== '' ? (
+                <div className={StyleSheet.date__container__title} style={titleStyle}>
+                    {title}
+                </div>
+            ) : (
+                ''
+            )}
             <div className={StyleSheet.date__container__date__box}>
                 <DatePicker
-                    className={StyleSheet.date__container__date__box__input}
+                    className={[StyleSheet.date__container__date__box__input, inputStyle].join(' ')}
                     id="datePicker"
                     renderCustomHeader={({
                         date,
@@ -214,7 +218,9 @@ export function SetDate({ title, actions, value, titleStyle, rootStyle }) {
                     }}
                 />
                 <label htmlFor="datePicker">
-                    <div className={StyleSheet.date__container__date__box__icon}></div>
+                    <div
+                        className={StyleSheet.date__container__date__box__icon}
+                        style={iconStayle}></div>
                 </label>
             </div>
         </div>
@@ -783,7 +789,7 @@ export function BrackTimer({ title, action, value }) {
 
     function upHendeler() {
         if (timeFormat === 'Hour') {
-            setHour((prev) => (prev === 12 ? 1 : prev + 1));
+            setHour((prev) => (prev === 12 ? 0 : prev + 1));
         } else if (timeFormat === 'Minute') {
             setMinute((prev) => (prev === 59 ? 0 : prev + 1));
         }

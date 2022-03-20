@@ -31,6 +31,11 @@ a {
     color: inherit;
     text-decoration: none;
 }
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
 .ReactModal__Overlay {
     background: rgba(255, 255, 255, 0.5) !important;
