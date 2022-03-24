@@ -7,6 +7,7 @@ const options = {
     }
 };
 
+// get api call function
 export const getApiCall = async (url) => {
     try {
         const URL = url;
@@ -16,6 +17,8 @@ export const getApiCall = async (url) => {
         console.log(`Error  ${error}`);
     }
 };
+
+//post api call function
 export const postApiCall = async (url, datas, progress) => {
     try {
         const URL = url;
@@ -28,6 +31,8 @@ export const postApiCall = async (url, datas, progress) => {
         console.log(`Error  ${error}`);
     }
 };
+
+//delete api call function
 export const deleteApiCall = async (url) => {
     try {
         const URL = url;
