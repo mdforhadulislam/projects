@@ -167,6 +167,7 @@ export function SetDate({ title, actions, value, titleStyle, rootStyle, iconStay
                 <DatePicker
                     className={[StyleSheet.date__container__date__box__input, inputStyle].join(' ')}
                     id="datePicker"
+                    dateFormat="yyyy-MM-dd"
                     renderCustomHeader={({
                         date,
                         changeYear,
@@ -215,6 +216,7 @@ export function SetDate({ title, actions, value, titleStyle, rootStyle, iconStay
                     selected={value}
                     onChange={(date) => {
                         actions(date);
+                        console.log(date);
                     }}
                 />
                 <label htmlFor="datePicker">

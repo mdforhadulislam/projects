@@ -41,6 +41,12 @@ const dutypediaReducers = (state = initalState, action) => {
                 join_as: [{ id: action.payload }]
             };
         }
+        case 'USER_USER_NAME': {
+            return {
+                ...state,
+                user: action.payload
+            };
+        }
         case 'FIRST_NAME': {
             return {
                 ...state,
@@ -89,6 +95,7 @@ const dutypediaReducers = (state = initalState, action) => {
                 nationality: action.payload
             };
         }
+
         case 'USER_PRESENT_ADDRESS_REGION': {
             return {
                 ...state,

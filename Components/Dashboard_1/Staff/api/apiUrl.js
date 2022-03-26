@@ -1,5 +1,6 @@
 // all get url start
 
+export const getAllUserURL = 'https://dutychoice.com/app-api/user-profile/?format=json';
 export const getEmployeeURL = 'https://dutychoice.com/app-api/employee/?format=json';
 export const getEmployeeJoinTypeURL = 'https://dutychoice.com/app-api/join-type/?format=json';
 export const getRegionDataURL = 'https://dutychoice.com/app-api/region/?format=json';

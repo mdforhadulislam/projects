@@ -1,23 +1,33 @@
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import DutyPreIcon from '../../../../../../Assets/images/dashboard/DutyPreIconSmall';
 import {
-    user_email,
-    user_first_name,
-    user_id,
-    user_image,
-    user_last_name,
-    user_middle_name,
-    user_mobile_no
+    first_name,
+    last_name,
+    user_gender,
+    user_religion,
+    user_user_name
 } from '../../../../../../Redux/Dashboard_1/Action/Staff/Dutypedia/index';
 import { SearchBox } from '../../../../../../Utilities/Utilites';
-import UserData from '../../../UserData.json';
+import { getAllUserURL } from '../../../api/apiUrl';
+import { getApiCall } from '../../../api/onlineEmployeeListApi';
 
 function AddMemberInformationHeader({ setHiddenPopupFrom }) {
+    const [allUser, setAllUser] = useState([]);
     let [clickBox, setClickBox] = useState(false);
     let [searchValue, setSearchValue] = useState('');
     let [pickData, setPickData] = useState(true);
+
+    useEffect(() => {
+        getApiCall(getAllUserURL)
+            .then((res) => {
+                setAllUser(res);
+            })
+            .catch((err) => {
+                console.log(`Error: ${err}`);
+            });
+    }, []);
 
     function searchHendeler(e) {
         e.preventDefault();
@@ -60,6 +70,7 @@ function AddMemberInformationHeader({ setHiddenPopupFrom }) {
                     setHiddenPopupFrom={setHiddenPopupFrom}
                     pickData={pickData}
                     setPickData={setPickData}
+                    allUser={allUser}
                 />
             )}
         </>
@@ -67,67 +78,75 @@ function AddMemberInformationHeader({ setHiddenPopupFrom }) {
 }
 
 // another function
-function SearchOutput({ searchValue, setHiddenPopupFrom, pickData, setPickData }) {
+function SearchOutput({ searchValue, setHiddenPopupFrom, pickData, setPickData, allUser }) {
     const dispatch = useDispatch();
 
-    const boxClickHendeler = (name, user) => {
+    const boxClickHendeler = (user) => {
+        console.log(user);
         setHiddenPopupFrom(true);
         setPickData(false);
-        dispatch(user_first_name(name.length <= 3 ? name[0] : name[0]));
-        dispatch(user_middle_name(name.length === 3 && name.length < 4 ? name[1] : ''));
-        dispatch(user_last_name(name.length === 2 && name.length >= 2 ? name[1] : name[2]));
-        dispatch(user_id(user.id));
-        dispatch(user_mobile_no(user.mobileNo));
-        dispatch(user_email(user.email));
-        dispatch(user_image(user.image));
+        dispatch(user_user_name(user?.user?.username));
+        dispatch(first_name(user?.user?.first_name));
+        dispatch(last_name(user?.user?.last_name));
+        dispatch(user_gender(user?.gender));
+        dispatch(user_religion(user?.religion));
     };
 
     return (
         <div className="w-full h-[370px] mt-[20px] pr-[13px] pl-[4px] overflow-auto scrollbar">
             {setHiddenPopupFrom
                 ? pickData
-                    ? UserData.filter((user) => {
-                          if (user.name.toLowerCase().includes(searchValue.toLowerCase())) {
-                              return user;
-                          }
-                          return false;
-                      }).map((user, index) => {
-                          let name = user.name.split(' ');
-                          return (
-                              <div
-                                  key={index}
-                                  onClick={() => boxClickHendeler(name, user)}
-                                  className="w-full h-[80px] relative mt-[6px] mb-[13px]">
-                                  <div className="w-full h-[80px] grid align-middle justify-start pt-[8px] pb-[8px] pl-[13px] pr-[13px] shadow-3xl rounded-[7px] grid-cols-5 grid-rows-2 ">
-                                      <div className="w-full col-start-1 col-end-1 row-span-2 relative">
-                                          <Image
-                                              className="w-full h-full rounded-[5px]"
-                                              width={68}
-                                              height={58}
-                                              src={user.image}
-                                              alt={user.name}
-                                          />
-                                          <div className="w-[22px] h-[22px] absolute inline-block top-[70%] left-[68%]">
-                                              <DutyPreIcon height={'22'} width={'22'} />
-                                          </div>
-                                      </div>
-                                      <div className="col-start-2 col-end-6 row-start-1 row-end-3">
-                                          <div className="w-full h-auto text-[21px] text-[#666666]">
-                                              {user.name}
-                                          </div>
-                                          <div className="w-full h-auto text-[14.5px] pt-[3px] text-[#bcbcbc]">
-                                              Id: DP0324-23{user.id}
-                                          </div>
-                                      </div>
-                                  </div>
+                    ? allUser
+                          ?.filter((user) => {
+                              if (
+                                  user?.user?.first_name
+                                      ?.toLowerCase()
+                                      .includes(searchValue.toLowerCase()) ||
+                                  user?.user?.last_name
+                                      ?.toLowerCase()
+                                      .includes(searchValue.toLowerCase())
+                              ) {
+                                  return user;
+                              }
+                              return false;
+                          })
+                          .map((user, index) => {
+                              return (
                                   <div
-                                      className="w-full h-[80px] absolute top-0 left-0"
-                                      onClick={(e) => {
-                                          e.target.parentElement.parentElement.style.height = '0vw';
-                                      }}></div>
-                              </div>
-                          );
-                      })
+                                      key={index}
+                                      onClick={() => boxClickHendeler(user)}
+                                      className="w-full h-[80px] relative mt-[6px] mb-[13px]">
+                                      <div className="w-full h-[80px] grid align-middle justify-start pt-[8px] pb-[8px] pl-[13px] pr-[13px] shadow-3xl rounded-[7px] grid-cols-5 grid-rows-2 ">
+                                          <div className="w-full col-start-1 col-end-1 row-span-2 relative">
+                                              <Image
+                                                  className="w-full h-full rounded-[5px]"
+                                                  width={68}
+                                                  height={62}
+                                                  src={user?.profile_picture}
+                                                  alt={user?.user?.first_name}
+                                              />
+                                              <div className="w-[22px] h-[22px] absolute inline-block top-[70%] left-[68%]">
+                                                  <DutyPreIcon height={'22'} width={'22'} />
+                                              </div>
+                                          </div>
+                                          <div className="col-start-2 col-end-6 row-start-1 row-end-3">
+                                              <div className="w-full h-auto text-[21px] text-[#666666]">
+                                                  {user?.user?.first_name} {user?.user?.last_name}
+                                              </div>
+                                              <div className="w-full h-auto text-[14.5px] pt-[3px] text-[#bcbcbc]">
+                                                  Id:{user?.user?.id}
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div
+                                          className="w-full h-[80px] absolute top-0 left-0"
+                                          onClick={(e) => {
+                                              e.target.parentElement.parentElement.style.height =
+                                                  '0vw';
+                                          }}></div>
+                                  </div>
+                              );
+                          })
                     : ''
                 : ''}
         </div>

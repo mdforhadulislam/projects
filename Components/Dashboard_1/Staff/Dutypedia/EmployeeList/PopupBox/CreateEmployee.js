@@ -26,8 +26,8 @@ import {
     SalaryType,
     SetDate
 } from '../../../../../../Utilities/Utilites';
-import { getEmployeePermitionURL } from '../../../api/apiUrl';
-import { getApiCall } from '../../../api/onlineEmployeeListApi';
+import { getEmployeePermitionURL, postEmployeeDetailsURL } from '../../../api/apiUrl';
+import { getApiCall, postApiCall } from '../../../api/onlineEmployeeListApi';
 
 function CreateEmployee({
     setAddInformationPopup,
@@ -44,7 +44,7 @@ function CreateEmployee({
     const salaryDayTime = useSelector((state) => state.dutypedia.salary_date_every_day);
     const salaryDayWeek = useSelector((state) => state.dutypedia.salary_date_every_week);
     const salaryDayMonth = useSelector((state) => state.dutypedia.salary_date_every_date);
-    // const accessFunctionality = useSelector((state) => state.dutypedia.accessFunctionality);
+    const postUserOBJ = useSelector((state) => state.dutypedia);
 
     const dispatch = useDispatch();
 
@@ -76,48 +76,52 @@ function CreateEmployee({
                 console.log(`Error ${error}`);
             });
     }, []);
-
     const submitHendeler = (e) => {
         e.preventDefault();
-        setCreateEmployeePopup(false);
-        setSuccessfullyDonePopup(true);
-        setAddInformationPopup(false);
-        dispatch(
-            user_remove_data({
-                join_as: [],
-                first_name: '',
-                middle_name: '',
-                last_name: '',
-                gender: '',
-                blood_group: '',
-                date_of_birth: new Date(),
-                religion: '',
-                nationality: '',
+        console.log();
+        postApiCall(postEmployeeDetailsURL, postUserOBJ).then((res) => {
+            console.log(res);
+            setCreateEmployeePopup(false);
+            setSuccessfullyDonePopup(true);
+            setAddInformationPopup(false);
+            setUserData({});
+            dispatch(
+                user_remove_data({
+                    join_as: [],
+                    first_name: '',
+                    middle_name: '',
+                    last_name: '',
+                    gender: '',
+                    blood_group: '',
+                    date_of_birth: new Date(),
+                    religion: '',
+                    nationality: '',
 
-                pres_region: '',
-                pres_city: '',
-                pres_area: '',
-                pres_address: '',
+                    pres_region: '',
+                    pres_city: '',
+                    pres_area: '',
+                    pres_address: '',
 
-                perm_region: '',
-                perm_city: '',
-                perm_area: '',
-                perm_address: '',
+                    perm_region: '',
+                    perm_city: '',
+                    perm_area: '',
+                    perm_address: '',
 
-                file_uplaod: [],
+                    file_uplaod: [],
 
-                user: null,
-                position: '',
-                joining_date: new Date(),
-                no_salary: false,
-                salary_amount: '',
-                salary_type: '',
-                salary_date_every_day: '',
-                salary_date_every_month: '',
-                salary_date_every_week: '',
-                access: []
-            })
-        );
+                    user: null,
+                    position: '',
+                    joining_date: new Date(),
+                    no_salary: false,
+                    salary_amount: '',
+                    salary_type: '',
+                    salary_date_every_day: '',
+                    salary_date_every_month: '',
+                    salary_date_every_week: '',
+                    access: []
+                })
+            );
+        });
     };
 
     return (

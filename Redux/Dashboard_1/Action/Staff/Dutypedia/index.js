@@ -18,6 +18,13 @@ export function join_as(payload) {
     };
 }
 
+export function user_user_name(payload) {
+    return {
+        type: 'USER_USER_NAME',
+        payload
+    };
+}
+
 export function first_name(payload) {
     return {
         type: 'FIRST_NAME',

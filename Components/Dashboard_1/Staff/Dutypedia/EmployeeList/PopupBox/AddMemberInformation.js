@@ -241,6 +241,7 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                     ]);
                                     postApiCall(postEmployeeDocumentsURL, formData, progress)
                                         .then((res) => {
+                                            console.log(res);
                                             setTimeout(() => {
                                                 dispatch(user_documents({ id: res?.id }));
                                             }, 1000);
