@@ -22,8 +22,8 @@ function Address({
     addressAction
 }) {
     const [allRegionValue, setAllRegionValue] = useState([]);
-    const [allCityValue, setallCityValue] = React.useState([]);
-    const [allAreaValue, setallAreaValue] = React.useState([]);
+    const [allCityValue, setallCityValue] = useState([]);
+    const [allAreaValue, setallAreaValue] = useState([]);
 
     useEffect(() => {
         getApiCall(getRegionDataURL)
