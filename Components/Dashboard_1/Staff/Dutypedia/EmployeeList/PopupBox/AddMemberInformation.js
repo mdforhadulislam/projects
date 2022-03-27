@@ -175,7 +175,9 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                             <div className="w-full h-auto flex justify-between align-middle flex-row">
                                 <SetDate
                                     title="Date Of Birth"
-                                    actions={(value) => dispatch(user_date_of_birth(value))}
+                                    actions={(value) => {
+                                        dispatch(user_date_of_birth(value));
+                                    }}
                                     value={dateOfBirth}
                                 />
 

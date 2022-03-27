@@ -5,6 +5,7 @@ import BackIcon from '../../../../../../Assets/images/dashboard/ArrowBackIcon.sv
 import {
     user_access,
     user_joining_date,
+    user_no_salary,
     user_position,
     user_removed_access,
     user_remove_data,
@@ -78,13 +79,12 @@ function CreateEmployee({
     }, []);
     const submitHendeler = (e) => {
         e.preventDefault();
-        console.log();
+        console.log(postUserOBJ);
         postApiCall(postEmployeeDetailsURL, postUserOBJ).then((res) => {
-            console.log(res);
             setCreateEmployeePopup(false);
             setSuccessfullyDonePopup(true);
             setAddInformationPopup(false);
-            setUserData({});
+            console.log(res);
             dispatch(
                 user_remove_data({
                     join_as: [],
@@ -176,7 +176,7 @@ function CreateEmployee({
                                     />
                                 </div>
                                 <div className="w-full h-auto">
-                                    {salaryType === 'daily' || salaryType === '' ? (
+                                    {salaryType === 'Daily' || salaryType === '' ? (
                                         <SalaryDateEveryDay
                                             actions={(value) => {
                                                 dispatch(user_salary_date_every_day(value));
@@ -185,16 +185,16 @@ function CreateEmployee({
                                                 dispatch(user_salary_status_set_upcoming());
                                                 dispatch(user_salary_status_set_due());
                                             }}
-                                            value={salaryDayTime}
+                                            value={salaryDayTime === null ? '' : value}
                                         />
                                     ) : (
                                         ''
                                     )}
-                                    {salaryType === 'weekly' && (
+                                    {salaryType === 'Weekly' && (
                                         <SalaryDateEveryWeek
                                             actions={(value) => {
                                                 dispatch(user_salary_date_every_week(value));
-                                                dispatch(user_salary_date_every_day(''));
+                                                dispatch(user_salary_date_every_day(null));
                                                 dispatch(user_salary_date_every_month(''));
                                                 dispatch(user_salary_status_set_upcoming());
                                                 dispatch(user_salary_status_set_due());
@@ -202,12 +202,12 @@ function CreateEmployee({
                                             value={salaryDayWeek}
                                         />
                                     )}
-                                    {salaryType === 'monthly' && (
+                                    {salaryType === 'Monthly' && (
                                         <SalaryDateEveryMonth
                                             actions={(value) => {
                                                 dispatch(user_salary_date_every_month(value));
                                                 dispatch(user_salary_date_every_week(''));
-                                                dispatch(user_salary_date_every_day(''));
+                                                dispatch(user_salary_date_every_day(null));
                                                 dispatch(user_salary_status_set_upcoming());
                                                 dispatch(user_salary_status_set_due());
                                             }}

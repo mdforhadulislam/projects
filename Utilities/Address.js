@@ -68,7 +68,7 @@ function Address({
                             e.target.style.backgroundColor = 'white';
                         }}
                         onChange={(e) => {
-                            regionAction(e.target.value);
+                            regionAction(Number(e.target.value));
                         }}
                         value={regionValue}
                         name="region"
@@ -104,7 +104,7 @@ function Address({
                         }}
                         name={name}
                         onChange={(e) => {
-                            action(e.target.value);
+                            action(Number(e.target.value));
                         }}
                         value={value}>
                         <option value="null">City</option>
@@ -142,7 +142,7 @@ function Address({
                                 : { border: 'area', backgroundColor: '#F5F5F5' }
                         }
                         onChange={(e) => {
-                            action(e.target.value);
+                            action(Number(e.target.value));
                         }}
                         value={areaValue}>
                         <option value="">Area</option>

@@ -213,10 +213,11 @@ export function SetDate({ title, actions, value, titleStyle, rootStyle, iconStay
                             </button>
                         </div>
                     )}
-                    selected={value}
+                    selected={new Date(value)}
                     onChange={(date) => {
-                        actions(date);
-                        console.log(date);
+                        const dateFormat =
+                            date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+                        actions(dateFormat);
                     }}
                 />
                 <label htmlFor="datePicker">
@@ -482,15 +483,15 @@ export function SalaryType({ actions, value }) {
 
             <select
                 onChange={(e) => {
-                    actions(e.target.value);
+                    actions(e.target.value === '' ? null : e.target.value);
                 }}
                 name="salaryType"
                 value={value}
                 className={StyleSheet.salary__type__container__selected__box}>
                 <option value="">select</option>
-                <option value="daily">Daily</option>
-                <option value="weekly">Weekly</option>
-                <option value="monthly">Monthly</option>
+                <option value="Daily">Daily</option>
+                <option value="Weekly">Weekly</option>
+                <option value="Monthly">Monthly</option>
             </select>
 
             <div className={StyleSheet.salary__type__container__icon}></div>

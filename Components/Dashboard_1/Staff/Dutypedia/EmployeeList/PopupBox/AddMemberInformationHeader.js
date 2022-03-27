@@ -82,7 +82,6 @@ function SearchOutput({ searchValue, setHiddenPopupFrom, pickData, setPickData, 
     const dispatch = useDispatch();
 
     const boxClickHendeler = (user) => {
-        console.log(user);
         setHiddenPopupFrom(true);
         setPickData(false);
         dispatch(user_user_name(user?.user?.username));
