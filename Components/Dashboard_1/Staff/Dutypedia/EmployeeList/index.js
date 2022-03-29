@@ -52,18 +52,20 @@ function EmployList() {
             {allUser.length ? (
                 ''
             ) : (
-                <div className="w-full h-auto p-[40px] text-center rounded-[16px] shadow-4xl relative">
+                <div className="w-full h-auto p-[20px] lg:p-[40px] text-center rounded-[10px] lg:rounded-[16px] shadow-5xl lg:shadow-4xl relative">
                     <div className="w-full h-auto">
                         <div className="p-[25px] pb-[20px] w-[146px] m-auto">
                             <div
-                                className="w-[95px] h-[95px] cursor-pointer"
+                                className=" lg:w-[95px] lg:h-[95px] cursor-pointer"
                                 onClick={() => setQrCodePopup(true)}>
-                                <BigAddIcon />
+                                <BigAddIcon width={'50'} />
                             </div>
                         </div>
 
                         <div className="mt-[6.5px]">
-                            <h1 className="text-[33px] font-[500]">Create Employee List</h1>
+                            <h1 className="text-[20px] lg:text-[33px] font-[500]">
+                                Create Employee List
+                            </h1>
                         </div>
                     </div>
                 </div>

@@ -15,73 +15,79 @@ function Dutypedia() {
         <div className="w-full h-auto">
             <div className="w-full h-auto">
                 <div className="w-full h-auto">
-                    <div className="w-full h-auto flex align-middle justify-start flex-row">
+                    <div
+                        className="  w-full overflow-auto hiddenScrollBar "
+                        style={{ alignItems: 'center' }}>
                         <div
-                            onClick={(e) => {
-                                setEmployeeList(true);
-                                setEmployeeAttendence(false);
-                                setEmployeeSalary(false);
-                            }}
-                            style={
-                                employeeList
-                                    ? {
-                                          color: '#da1e37',
-                                          borderBottom: '0.1vw solid #da1e37'
-                                      }
-                                    : {
-                                          color: '#313131',
-                                          borderBottom: '0.1vw solid #313131'
-                                      }
-                            }
-                            className="w-[160px] p-0 pr-[13px] pb-[5px] text-[#da1e37] cursor-pointer border-b-[1px] border-[#da1e37] text-[20px]"
-                            id="list__one">
-                            Employee List
-                        </div>
-                        <span className="w-[1px] h-[24px] inline-block bg-[#666666]"></span>
+                            className=" lg:p-[0px] p-[8px] pl-0 w-[460px] lg:w-full h-auto flex align-middle justify-start flex-row "
+                            style={{ alignItems: 'center' }}>
+                            <div
+                                className=" w-[120px] lg:w-[160px] p-[8px] lg:text-left text-center lg:p-0 lg:pr-[13px] lg:pb-[5px] text-[#da1e37] cursor-pointer border-b-[1px] border-[#da1e37] lg:text-[20px]"
+                                id="list__one"
+                                onClick={(e) => {
+                                    setEmployeeList(true);
+                                    setEmployeeAttendence(false);
+                                    setEmployeeSalary(false);
+                                }}
+                                style={
+                                    employeeList
+                                        ? {
+                                              color: '#da1e37',
+                                              borderBottom: '0.1vw solid #da1e37'
+                                          }
+                                        : {
+                                              color: '#313131',
+                                              borderBottom: '0.1vw solid #313131'
+                                          }
+                                }>
+                                Employee List
+                            </div>
+                            <span className="w-[1px] h-[24px] inline-block bg-[#666666]"></span>
 
-                        <div
-                            onClick={(e) => {
-                                setEmployeeList(false);
-                                setEmployeeAttendence(true);
-                                setEmployeeSalary(false);
-                            }}
-                            style={
-                                employeeAttendence
-                                    ? {
-                                          color: '#da1e37',
-                                          borderBottom: '0.1vw solid #da1e37'
-                                      }
-                                    : {
-                                          color: '#313131',
-                                          borderBottom: '0.1vw solid #313131'
-                                      }
-                            }
-                            className="w-[240px] pr-[13px] pb-[5px] pl-[13px] text-[#313131] cursor-pointer border-b-[1px] border-[#666666] text-[20px]"
-                            id="list__two">
-                            Employee Attendence
-                        </div>
-                        <span className="w-[1px] h-[24px] inline-block bg-[#666666]"></span>
+                            <div
+                                className="w-[180px] lg:w-[240px]  lg:text-left text-center lg:p-0 p-[8px] lg:pr-[13px] lg:pb-[5px] lg:pl-[13px] text-[#313131] cursor-pointer border-b-[1px] border-[#666666] lg:text-[20px]"
+                                id="list__two"
+                                onClick={(e) => {
+                                    setEmployeeList(false);
+                                    setEmployeeAttendence(true);
+                                    setEmployeeSalary(false);
+                                }}
+                                style={
+                                    employeeAttendence
+                                        ? {
+                                              color: '#da1e37',
+                                              borderBottom: '0.1vw solid #da1e37'
+                                          }
+                                        : {
+                                              color: '#313131',
+                                              borderBottom: '0.1vw solid #313131'
+                                          }
+                                }>
+                                Employee Attendence
+                            </div>
+                            <span className="w-[1px] h-[24px] inline-block bg-[#666666]"></span>
 
-                        <div
-                            onClick={(e) => {
-                                setEmployeeList(false);
-                                setEmployeeAttendence(false);
-                                setEmployeeSalary(true);
-                            }}
-                            style={
-                                employeeSalary
-                                    ? {
-                                          color: '#da1e37',
-                                          borderBottom: '0.1vw solid #da1e37'
-                                      }
-                                    : {
-                                          color: '#313131',
-                                          borderBottom: '0.1vw solid #313131'
-                                      }
-                            }
-                            className="w-[200px] pr-[13px] pb-[5px]  pl-[13px] text-[#313131] cursor-pointer border-b-[1px] border-[#666666] text-[20px]"
-                            id="list__four">
-                            Employee Salary
+                            <div
+                                className="w-[140px] lg:w-[200px] p-[8px] lg:text-left text-center lg:p-[0px] lg:pr-[13px] lg:pb-[5px]  lg:pl-[13px] text-[#313131] cursor-pointer border-b-[1px] border-[#666666] lg:text-[20px]"
+                                id="list__four"
+                                onClick={(e) => {
+                                    setEmployeeList(false);
+                                    setEmployeeAttendence(false);
+                                    setEmployeeSalary(true);
+                                }}
+                                style={
+                                    employeeSalary
+                                        ? {
+                                              color: '#da1e37',
+                                              borderBottom: '0.1vw solid #da1e37'
+                                          }
+                                        : {
+                                              color: '#313131',
+                                              borderBottom: '0.1vw solid #313131'
+                                          }
+                                }>
+                                Employee Salary
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,10 @@
-export default function BigAddIcon() {
+export default function BigAddIcon({ width }) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="95" height="95" viewBox="0 0 491 491">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={width !== '' ? width : '95'}
+            height={width !== '' ? width : '95'}
+            viewBox="0 0 491 491">
             <g id="Group_10115" data-name="Group 10115" transform="translate(-11568 5616)">
                 <g
                     id="Rectangle_6022"
