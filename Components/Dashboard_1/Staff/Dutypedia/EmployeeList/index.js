@@ -58,7 +58,12 @@ function EmployList() {
                             <div
                                 className=" lg:w-[95px] lg:h-[95px] cursor-pointer"
                                 onClick={() => setQrCodePopup(true)}>
-                                <BigAddIcon width={'50'} />
+                                <div className=" block lg:hidden">
+                                    <BigAddIcon width={'50'} />
+                                </div>
+                                <div className=" hidden lg:block ">
+                                    <BigAddIcon />
+                                </div>
                             </div>
                         </div>
 
