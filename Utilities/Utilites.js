@@ -582,7 +582,7 @@ export function SalaryDateEveryMonth({ actions, value }) {
                     className={
                         StyleSheet.salary__date__every__month__container__selected__box__select
                     }>
-                    <option value="">select</option>
+                    <option value={null}>select</option>
                     {monthDate?.map((date) => {
                         return (
                             <option key={date?.id} value={date?.id}>
@@ -716,7 +716,7 @@ export const firstDateFormet = (enterStartDate, dateObject) => {
         '/' +
         (Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`) < 10
             ? '0' +
-              Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`)
+            Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`)
             : dateObject.getMonth() + 2) +
         '/' +
         dateObject.getFullYear();
@@ -730,7 +730,7 @@ export const lastDateFormet = (enterEndDate, dateObject) => {
         '/' +
         (Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`) < 10
             ? '0' +
-              Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`)
+            Number(`${dateObject.getMonth() + 2 === 13 ? 0 + 1 : dateObject.getMonth() + 2}`)
             : dateObject.getMonth() + 2) +
         '/' +
         dateObject.getFullYear();

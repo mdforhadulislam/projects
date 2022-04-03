@@ -79,7 +79,7 @@ function CreateEmployee({
     }, []);
     const submitHendeler = (e) => {
         e.preventDefault();
-        console.log(postUserOBJ);
+        console.log(JSON.stringify(postUserOBJ));
         postApiCall(postEmployeeDetailsURL, postUserOBJ).then((res) => {
             setCreateEmployeePopup(false);
             setSuccessfullyDonePopup(true);
@@ -202,7 +202,7 @@ function CreateEmployee({
                                             value={salaryDayWeek}
                                         />
                                     )}
-                                    {salaryType === 'Monthly' && (
+                                    {salaryType === (null || 'Monthly') && (
                                         <SalaryDateEveryMonth
                                             actions={(value) => {
                                                 dispatch(user_salary_date_every_month(value));
@@ -243,19 +243,19 @@ function CreateEmployee({
                                         });
                                         access.dashboard
                                             ? getPermitionData
-                                                  .filter(
-                                                      (items) => items.access_title === 'Dashboard'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_removed_access({ id: item.id }))
-                                                  )
+                                                .filter(
+                                                    (items) => items.access_title === 'Dashboard'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_removed_access({ id: item.id }))
+                                                )
                                             : getPermitionData
-                                                  .filter(
-                                                      (items) => items.access_title === 'Dashboard'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_access({ id: item.id }))
-                                                  );
+                                                .filter(
+                                                    (items) => items.access_title === 'Dashboard'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_access({ id: item.id }))
+                                                );
                                     }}
                                     value={access.dashboard}
                                 />
@@ -271,15 +271,15 @@ function CreateEmployee({
                                         });
                                         access.order
                                             ? getPermitionData
-                                                  .filter((items) => items.access_title === 'Order')
-                                                  .map((item) =>
-                                                      dispatch(user_removed_access({ id: item.id }))
-                                                  )
+                                                .filter((items) => items.access_title === 'Order')
+                                                .map((item) =>
+                                                    dispatch(user_removed_access({ id: item.id }))
+                                                )
                                             : getPermitionData
-                                                  .filter((items) => items.access_title === 'Order')
-                                                  .map((item) =>
-                                                      dispatch(user_access({ id: item.id }))
-                                                  );
+                                                .filter((items) => items.access_title === 'Order')
+                                                .map((item) =>
+                                                    dispatch(user_access({ id: item.id }))
+                                                );
                                     }}
                                     value={access.order}
                                 />
@@ -295,19 +295,19 @@ function CreateEmployee({
                                         });
                                         access.member
                                             ? getPermitionData
-                                                  .filter(
-                                                      (items) => items.access_title === 'Member'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_removed_access({ id: item.id }))
-                                                  )
+                                                .filter(
+                                                    (items) => items.access_title === 'Member'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_removed_access({ id: item.id }))
+                                                )
                                             : getPermitionData
-                                                  .filter(
-                                                      (items) => items.access_title === 'Member'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_access({ id: item.id }))
-                                                  );
+                                                .filter(
+                                                    (items) => items.access_title === 'Member'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_access({ id: item.id }))
+                                                );
                                     }}
                                     value={access.member}
                                 />
@@ -323,19 +323,19 @@ function CreateEmployee({
                                         });
                                         access.group
                                             ? getPermitionData
-                                                  .filter(
-                                                      (items) => items.access_title === 'Groups'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_removed_access({ id: item.id }))
-                                                  )
+                                                .filter(
+                                                    (items) => items.access_title === 'Groups'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_removed_access({ id: item.id }))
+                                                )
                                             : getPermitionData
-                                                  .filter(
-                                                      (items) => items.access_title === 'Groups'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_access({ id: item.id }))
-                                                  );
+                                                .filter(
+                                                    (items) => items.access_title === 'Groups'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_access({ id: item.id }))
+                                                );
                                     }}
                                     value={access.group}
                                 />
@@ -351,19 +351,19 @@ function CreateEmployee({
                                         });
                                         access.notice
                                             ? getPermitionData
-                                                  .filter(
-                                                      (items) => items.access_title === 'Notices'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_removed_access({ id: item.id }))
-                                                  )
+                                                .filter(
+                                                    (items) => items.access_title === 'Notices'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_removed_access({ id: item.id }))
+                                                )
                                             : getPermitionData
-                                                  .filter(
-                                                      (items) => items.access_title === 'Notices'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_access({ id: item.id }))
-                                                  );
+                                                .filter(
+                                                    (items) => items.access_title === 'Notices'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_access({ id: item.id }))
+                                                );
                                     }}
                                     value={access.notice}
                                 />
@@ -387,23 +387,23 @@ function CreateEmployee({
                                         });
                                         access.no_access
                                             ? getPermitionData
-                                                  .filter(
-                                                      (items) =>
-                                                          items.access_title ===
-                                                          'No Access In Functionality'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_removed_access({ id: item.id }))
-                                                  )
+                                                .filter(
+                                                    (items) =>
+                                                        items.access_title ===
+                                                        'No Access In Functionality'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_removed_access({ id: item.id }))
+                                                )
                                             : getPermitionData
-                                                  .filter(
-                                                      (items) =>
-                                                          items.access_title ===
-                                                          'No Access In Functionality'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_access({ id: item.id }))
-                                                  );
+                                                .filter(
+                                                    (items) =>
+                                                        items.access_title ===
+                                                        'No Access In Functionality'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_access({ id: item.id }))
+                                                );
                                     }}
                                     value={access.no_access}
                                 />
@@ -422,21 +422,21 @@ function CreateEmployee({
                                         });
                                         access.staff_and_partner
                                             ? getPermitionData
-                                                  .filter(
-                                                      (items) =>
-                                                          items.access_title === 'Staff & Partner'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_removed_access({ id: item.id }))
-                                                  )
+                                                .filter(
+                                                    (items) =>
+                                                        items.access_title === 'Staff & Partner'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_removed_access({ id: item.id }))
+                                                )
                                             : getPermitionData
-                                                  .filter(
-                                                      (items) =>
-                                                          items.access_title === 'Staff & Partner'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_access({ id: item.id }))
-                                                  );
+                                                .filter(
+                                                    (items) =>
+                                                        items.access_title === 'Staff & Partner'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_access({ id: item.id }))
+                                                );
                                     }}
                                     value={access.staff_and_partner}
                                 />
@@ -452,19 +452,19 @@ function CreateEmployee({
                                         });
                                         access.expencess
                                             ? getPermitionData
-                                                  .filter(
-                                                      (items) => items.access_title === 'Expencess'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_removed_access({ id: item.id }))
-                                                  )
+                                                .filter(
+                                                    (items) => items.access_title === 'Expencess'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_removed_access({ id: item.id }))
+                                                )
                                             : getPermitionData
-                                                  .filter(
-                                                      (items) => items.access_title === 'Expencess'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_access({ id: item.id }))
-                                                  );
+                                                .filter(
+                                                    (items) => items.access_title === 'Expencess'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_access({ id: item.id }))
+                                                );
                                     }}
                                     value={access.expencess}
                                 />
@@ -480,21 +480,21 @@ function CreateEmployee({
                                         });
                                         access.account_balance
                                             ? getPermitionData
-                                                  .filter(
-                                                      (items) =>
-                                                          items.access_title === 'Account Balance'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_removed_access({ id: item.id }))
-                                                  )
+                                                .filter(
+                                                    (items) =>
+                                                        items.access_title === 'Account Balance'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_removed_access({ id: item.id }))
+                                                )
                                             : getPermitionData
-                                                  .filter(
-                                                      (items) =>
-                                                          items.access_title === 'Account Balance'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_access({ id: item.id }))
-                                                  );
+                                                .filter(
+                                                    (items) =>
+                                                        items.access_title === 'Account Balance'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_access({ id: item.id }))
+                                                );
                                     }}
                                     value={access.account_balance}
                                 />
@@ -510,21 +510,21 @@ function CreateEmployee({
                                         });
                                         access.customer_review
                                             ? getPermitionData
-                                                  .filter(
-                                                      (items) =>
-                                                          items.access_title === 'Customer Review'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_removed_access({ id: item.id }))
-                                                  )
+                                                .filter(
+                                                    (items) =>
+                                                        items.access_title === 'Customer Review'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_removed_access({ id: item.id }))
+                                                )
                                             : getPermitionData
-                                                  .filter(
-                                                      (items) =>
-                                                          items.access_title === 'Customer Review'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_access({ id: item.id }))
-                                                  );
+                                                .filter(
+                                                    (items) =>
+                                                        items.access_title === 'Customer Review'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_access({ id: item.id }))
+                                                );
                                     }}
                                     value={access.customer_review}
                                 />
@@ -540,21 +540,21 @@ function CreateEmployee({
                                         });
                                         access.company_holiday
                                             ? getPermitionData
-                                                  .filter(
-                                                      (items) =>
-                                                          items.access_title === 'Company Holiday'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_removed_access({ id: item.id }))
-                                                  )
+                                                .filter(
+                                                    (items) =>
+                                                        items.access_title === 'Company Holiday'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_removed_access({ id: item.id }))
+                                                )
                                             : getPermitionData
-                                                  .filter(
-                                                      (items) =>
-                                                          items.access_title === 'Company Holiday'
-                                                  )
-                                                  .map((item) =>
-                                                      dispatch(user_access({ id: item.id }))
-                                                  );
+                                                .filter(
+                                                    (items) =>
+                                                        items.access_title === 'Company Holiday'
+                                                )
+                                                .map((item) =>
+                                                    dispatch(user_access({ id: item.id }))
+                                                );
                                     }}
                                     value={access.company_holiday}
                                 />
