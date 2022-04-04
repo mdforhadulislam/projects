@@ -27,9 +27,9 @@ const initalState = {
     no_salary: false,
     salary_amount: '',
     salary_type: '',
-    salary_date_every_day: "",
+    salary_date_every_day: '00:00',
     salary_date_every_month: null,
-    salary_date_every_week: '',
+    salary_date_every_week: null,
     access: [],
     payment: []
 };

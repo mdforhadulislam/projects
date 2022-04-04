@@ -78,13 +78,13 @@ function CreateEmployee({
             });
     }, []);
     const submitHendeler = (e) => {
+        console.log(postUserOBJ);
         e.preventDefault();
-        console.log(JSON.stringify(postUserOBJ));
         postApiCall(postEmployeeDetailsURL, postUserOBJ).then((res) => {
+            console.log(res);
             setCreateEmployeePopup(false);
             setSuccessfullyDonePopup(true);
             setAddInformationPopup(false);
-            console.log(res);
             dispatch(
                 user_remove_data({
                     join_as: [],
@@ -180,12 +180,12 @@ function CreateEmployee({
                                         <SalaryDateEveryDay
                                             actions={(value) => {
                                                 dispatch(user_salary_date_every_day(value));
-                                                dispatch(user_salary_date_every_week(''));
-                                                dispatch(user_salary_date_every_month(''));
+                                                dispatch(user_salary_date_every_week(null));
+                                                dispatch(user_salary_date_every_month(null));
                                                 dispatch(user_salary_status_set_upcoming());
                                                 dispatch(user_salary_status_set_due());
                                             }}
-                                            value={salaryDayTime === null ? '' : value}
+                                            value={salaryDayTime}
                                         />
                                     ) : (
                                         ''
@@ -194,8 +194,8 @@ function CreateEmployee({
                                         <SalaryDateEveryWeek
                                             actions={(value) => {
                                                 dispatch(user_salary_date_every_week(value));
-                                                dispatch(user_salary_date_every_day(null));
-                                                dispatch(user_salary_date_every_month(''));
+                                                dispatch(user_salary_date_every_day(""));
+                                                dispatch(user_salary_date_every_month(null));
                                                 dispatch(user_salary_status_set_upcoming());
                                                 dispatch(user_salary_status_set_due());
                                             }}
@@ -206,8 +206,8 @@ function CreateEmployee({
                                         <SalaryDateEveryMonth
                                             actions={(value) => {
                                                 dispatch(user_salary_date_every_month(value));
-                                                dispatch(user_salary_date_every_week(''));
-                                                dispatch(user_salary_date_every_day(null));
+                                                dispatch(user_salary_date_every_week(null));
+                                                dispatch(user_salary_date_every_day(""));
                                                 dispatch(user_salary_status_set_upcoming());
                                                 dispatch(user_salary_status_set_due());
                                             }}

@@ -545,7 +545,7 @@ export function SalaryDateEveryWeek({ actions, value }) {
                     className={
                         StyleSheet.salary__date__every__week__container__selected__box__select
                     }>
-                    <option value="">select</option>
+                    <option value={null}>select</option>
                     {weekDay?.map((day) => {
                         return (
                             <option key={day?.id} value={day?.id}>
