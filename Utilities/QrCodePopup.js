@@ -58,7 +58,7 @@ export default React.memo(QrCodePopup);
 
 const Wrraper = style.div`
 .qr__code__main__container {
-    width: 300px;
+    width: 310px;
     height: 160px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -77,16 +77,16 @@ const Wrraper = style.div`
     padding: 20px 0vw;
 }
 .qr__code__main__container__cencel__btn {
-    width: 53px;
-    height: 40px;
+    width: 60px;
+    height: 50px;
     position: absolute;
-    top: -32px;
-    right: -40px;
+    top: -40px;
+    right: -45px;
 }
 .qr__code__main__container__cencel__btn svg {
     cursor: pointer;
-    height: 38px;
-    width: 38px;
+    height: 45px;
+    width: 45px;
 }
 .qr__code__main__container__main__body {
     width: 100%;
@@ -98,7 +98,7 @@ const Wrraper = style.div`
     height: auto;
     padding: 6px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 20px;
     color: #313131;
     transition: all 0.2s;
     margin-top: 28px;
@@ -119,7 +119,7 @@ const Wrraper = style.div`
     color: #313131;
     padding: 6px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 20px;
     transition: all 0.2s;
 }
 

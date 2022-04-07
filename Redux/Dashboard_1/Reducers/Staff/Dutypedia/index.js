@@ -197,13 +197,13 @@ const dutypediaReducers = (state = initalState, action) => {
         case 'USER_SALARY_DATE_EVERY_MONTH': {
             return {
                 ...state,
-                salary_date_every_month: Number(action.payload)
+                salary_date_every_month: action.payload === null ? action.payload : Number(action.payload)
             };
         }
         case 'USER_SALARY_DATE_EVERY_WEEK': {
             return {
                 ...state,
-                salary_date_every_week: Number(action.payload)
+                salary_date_every_week: action.payload === null ? action.payload : Number(action.payload)
             };
         }
         case 'USER_ACCESS': {

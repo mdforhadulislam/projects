@@ -27,8 +27,8 @@ import {
     SalaryType,
     SetDate
 } from '../../../../../../Utilities/Utilites';
+import { getApiCall, postApiCall } from '../../../api/apiFatchMethod';
 import { getEmployeePermitionURL, postEmployeeDetailsURL } from '../../../api/apiUrl';
-import { getApiCall, postApiCall } from '../../../api/onlineEmployeeListApi';
 
 function CreateEmployee({
     setAddInformationPopup,
@@ -78,10 +78,9 @@ function CreateEmployee({
             });
     }, []);
     const submitHendeler = (e) => {
-        console.log(postUserOBJ);
         e.preventDefault();
+        console.log(JSON.stringify(postUserOBJ));
         postApiCall(postEmployeeDetailsURL, postUserOBJ).then((res) => {
-            console.log(res);
             setCreateEmployeePopup(false);
             setSuccessfullyDonePopup(true);
             setAddInformationPopup(false);
@@ -116,8 +115,8 @@ function CreateEmployee({
                     salary_amount: '',
                     salary_type: '',
                     salary_date_every_day: '',
-                    salary_date_every_month: '',
-                    salary_date_every_week: '',
+                    salary_date_every_month: null,
+                    salary_date_every_week: null,
                     access: []
                 })
             );

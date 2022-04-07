@@ -1,8 +1,9 @@
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DutyPreIcon from '../../../../../../Assets/images/dashboard/DutyPreIconSmall';
 import DeleteIcon from '../../../../../../Assets/images/dashboard/ThreeDotIcon.svg';
-import { clockTimer } from '../../../../../../Utilities/Utilites';
+import { getApiCall } from '../../../api/apiFatchMethod';
+import { getSingleUserURL } from '../../../api/apiUrl';
 import StyleSheet from '../BoxAndDeatilsStyle/SingleEmployeeBox.module.css';
 
 function SingelEmployeeBox({
@@ -14,6 +15,13 @@ function SingelEmployeeBox({
     setDeleteMember,
     setCanceledRequested
 }) {
+
+    const [user, setUser] = useState({})
+
+    useEffect(() => {
+        getApiCall(getSingleUserURL(userData?.user?.id)).then((res) => { setUser(res); })
+    }, [user])
+
     const [optionPopup, setOptionPopup] = useState(false);
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -28,12 +36,19 @@ function SingelEmployeeBox({
                         className={
                             StyleSheet.employee__container__body__employee__container__box__image__and__name__image
                         }>
-                        <Image
-                            width={'60vw'}
-                            height={'55vw'}
-                            src={userData.user_image}
-                            alt={userData.name}
-                        />
+
+
+                        <div style={{
+                            width: "80%",
+                            height: "90%",
+                            background: `url(${user?.profile_picture}) center no-repeat`,
+                            borderRadius: "6px"
+                        }}>
+
+                        </div>
+
+
+
                         <DutyPreIcon />
                     </div>
 
@@ -41,7 +56,7 @@ function SingelEmployeeBox({
                         className={
                             StyleSheet.employee__container__body__employee__container__box__image__and__name__name
                         }>
-                        {userData.name}
+                        {userData?.first_name} {userData?.middle_name} {userData?.last_name}
 
                         <div
                             className="employee__container__body__employee__box__image__and__name__name__and__id"
@@ -53,21 +68,22 @@ function SingelEmployeeBox({
                                 alignItems: 'center',
                                 justifyContent: 'space-between'
                             }}>
-                            <p style={{ fontSize: '1vw' }}>Id: DP0324-23{userData.user_id}</p>
+                            <p style={{ fontSize: '1vw' }}>Id: DP-{userData?.id}</p>
                             <div
                                 style={{
                                     width: '7vw',
                                     color: '#da1e37',
                                     fontSize: '.9vw',
-                                    textAlign: 'right'
+                                    textAlign: 'right',
+                                    paddingRight: "10px"
                                 }}>
-                                {userData.accept === false && userData.cancel === false
+                                {user?.is_accepted === false && user?.status === 'sending'
                                     ? 'Invitation Sent'
-                                    : userData.accept
-                                    ? 'Accepted'
-                                    : userData.cancel
-                                    ? 'Canceled'
-                                    : 'Invitation Sent'}
+                                    : user?.is_accepted
+                                        ? 'Accepted'
+                                        : user?.status === "cancel"
+                                            ? 'Canceled'
+                                            : 'Invitation Sent'}
                             </div>
                         </div>
                     </div>
@@ -81,7 +97,7 @@ function SingelEmployeeBox({
                     className={
                         StyleSheet.employee__container__body__employee__container__box__position
                     }>
-                    {userData.user_position}
+                    {userData?.position}
                 </div>
                 <div
                     className={
@@ -91,7 +107,7 @@ function SingelEmployeeBox({
                     className={
                         StyleSheet.employee__container__body__employee__container__box__gender
                     }>
-                    {userData.user_gender}
+                    {userData?.gender}
                 </div>
                 <div
                     className={
@@ -101,7 +117,7 @@ function SingelEmployeeBox({
                     className={
                         StyleSheet.employee__container__body__employee__container__box__mobile__no
                     }>
-                    {userData.user_mobile_no}
+                    {user?.contact_number}
                 </div>
                 <div
                     className={
@@ -111,7 +127,7 @@ function SingelEmployeeBox({
                     className={
                         StyleSheet.employee__container__body__employee__container__box__email
                     }>
-                    {userData.user_email}
+                    {user?.user?.email}
                 </div>
                 <div
                     className={
@@ -121,13 +137,7 @@ function SingelEmployeeBox({
                     className={
                         StyleSheet.employee__container__body__employee__container__box__joining__date
                     }>
-                    {userData.user_joining_date.getDate() +
-                        '/' +
-                        (userData.user_joining_date.getMonth() + 1 >= 10
-                            ? userData.user_joining_date.getMonth() + 1
-                            : '0' + (userData.user_joining_date.getMonth() + 1)) +
-                        '/' +
-                        userData.user_joining_date.getFullYear()}
+                    {userData?.joining_date}
                 </div>
                 <div
                     className={
@@ -137,34 +147,9 @@ function SingelEmployeeBox({
                     className={
                         StyleSheet.employee__container__body__employee__container__box__salary__date
                     }>
-                    {userData.user_salary.no_salary_system
-                        ? 'No Salary System'
-                        : userData.user_salary.salary_type === 'monthly'
-                        ? 'Every Month ' +
-                          ((userData.user_salary.salary_every_month.split('-')[0] === '1'
-                              ? userData.user_salary.salary_every_month.split('-')[0] + 'st'
-                              : userData.user_salary.salary_every_month.split('-')[0] === '10'
-                              ? userData.user_salary.salary_every_month.split('-')[0] + 'th'
-                              : userData.user_salary.salary_every_month.split('-')[0] === '20'
-                              ? userData.user_salary.salary_every_month.split('-')[0] + 'ty'
-                              : userData.user_salary.salary_every_month.split('-')[0] === '31'
-                              ? userData.user_salary.salary_every_month.split('-')[0]
-                              : '') +
-                              ' To ' +
-                              (userData.user_salary.salary_every_month.split('-')[1] === '1'
-                                  ? userData.user_salary.salary_every_month.split('-')[1] + 'st'
-                                  : userData.user_salary.salary_every_month.split('-')[1] === '10'
-                                  ? userData.user_salary.salary_every_month.split('-')[1] + 'th'
-                                  : userData.user_salary.salary_every_month.split('-')[1] === '20'
-                                  ? userData.user_salary.salary_every_month.split('-')[1] + 'ty'
-                                  : userData.user_salary.salary_every_month.split('-')[1] === '31'
-                                  ? userData.user_salary.salary_every_month.split('-')[1]
-                                  : ''))
-                        : userData.user_salary.salary_type === 'weekly'
-                        ? 'Every Week ' + days[userData.user_salary.salary_every_week]
-                        : userData.user_salary.salary_type === 'daily'
-                        ? 'Every Day ' + clockTimer(userData.user_salary.salary_every_day)
-                        : ' '}
+                    {
+                        userData?.salary_type === "Daily" ? userData?.salary_date_every_day : userData?.salary_type === "Weekly" ? userData?.salary_date_every_week : userData?.salary_type === "Monthly" ? userData?.salary_date_every_month : "N/A"
+                    }
                 </div>
                 <div
                     className={
@@ -200,21 +185,21 @@ function SingelEmployeeBox({
                                 <li
                                     onClick={() => {
                                         setOptionPopup(false);
-                                        userData.accept === false && userData.cancel === false
+                                        userData?.accept === false && userData?.cancel === false
                                             ? setDeleteMember(true)
-                                            : userData.accept
-                                            ? setDeleteMember(true)
-                                            : userData.cancel
-                                            ? setCanceledRequested(true)
-                                            : setDeleteMember(true);
+                                            : userData?.accept
+                                                ? setDeleteMember(true)
+                                                : userData?.cancel
+                                                    ? setCanceledRequested(true)
+                                                    : setDeleteMember(true);
                                     }}>
-                                    {userData.accept === false && userData.cancel === false
+                                    {userData?.accept === false && userData?.cancel === false
                                         ? 'Delete Member'
-                                        : userData.accept
-                                        ? 'Delete Member'
-                                        : userData.cancel
-                                        ? 'Cenceled Request'
-                                        : ''}
+                                        : userData?.accept
+                                            ? 'Delete Member'
+                                            : userData?.cancel
+                                                ? 'Cenceled Request'
+                                                : ''}
                                 </li>
                             </ul>
                         </div>
@@ -223,14 +208,14 @@ function SingelEmployeeBox({
                     <Image
                         onClick={() => {
                             optionPopup ? setOptionPopup(false) : setOptionPopup(true);
-                            setId(userData.user_id);
+                            setId(userData?.user_id);
                         }}
                         src={DeleteIcon}
                         alt="DeleteIcon"
                     />
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 

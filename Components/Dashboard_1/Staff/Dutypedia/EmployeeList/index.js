@@ -6,8 +6,8 @@ import CanceledRequest from '../../../../../Utilities/CanceledRequest';
 import DeleteMember from '../../../../../Utilities/DeleteMember';
 import IsEmployeeHeader from '../../../../../Utilities/IsEmployeeHeader';
 import QrCodePopup from '../../../../../Utilities/QrCodePopup';
-import { getEmployeeURL } from '../../api/apiUrl';
-import { getApiCall } from '../../api/onlineEmployeeListApi';
+import { getApiCall } from '../../api/apiFatchMethod';
+import { getEmployeeURL, getSingleEmployeeURL } from '../../api/apiUrl';
 import EmployeeListHeader from './BoxAndDeatils/EmployeeListHeader';
 import MemberDeatils from './BoxAndDeatils/MemberDeatils';
 import SingelEmployeeBox from './BoxAndDeatils/SingelEmployeeBox';
@@ -20,6 +20,9 @@ import SuccessfullyDone from './PopupBox/SuccessfullyDone';
 import ViewAllInformation from './PopupBox/ViewAllInformation';
 
 function EmployList() {
+    const [allMemberAndStaff, setAllMemberAndStaff] = useState([]);
+    const [singleMemberAndStaff, setSingleMemberAndStaff] = useState({});
+
     // this state doing render components
     const [qrCodePopup, setQrCodePopup] = useState(false);
     const [successfullyDonePopup, setSuccessfullyDonePopup] = useState(false);
@@ -34,22 +37,19 @@ function EmployList() {
     const [renderViewAllInformation, setRenderViewAllInformation] = useState(false);
     const [renderEditCreateEmployee, setRenderEditCreateEmployee] = useState(false);
 
+
     const allUser = useSelector((state) => state.onlineUser.user);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        getApiCall(getEmployeeURL)
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }, []);
+        getApiCall(getEmployeeURL).then((response) => setAllMemberAndStaff(response));
+        getApiCall(getSingleEmployeeURL(id)).then(response => setSingleMemberAndStaff(response))
+
+    }, [allMemberAndStaff,]);
 
     return (
         <>
-            {allUser.length ? (
+            {allMemberAndStaff?.length > 0 ? (
                 ''
             ) : (
                 <div className="w-full h-auto p-[20px] lg:p-[40px] text-center rounded-[10px] lg:rounded-[16px] shadow-5xl lg:shadow-4xl relative">
@@ -76,16 +76,16 @@ function EmployList() {
                 </div>
             )}
 
-            {allUser.length ? <IsEmployeeHeader setQrCodePopup={setQrCodePopup} /> : ''}
+            {allMemberAndStaff?.length ? <IsEmployeeHeader setQrCodePopup={setQrCodePopup} /> : ''}
 
-            {allUser.length ? (
+            {allMemberAndStaff?.length ? (
                 <div className="w-full h-auto p-[6.5px]">
                     <EmployeeListHeader />
                     <div className="">
-                        {allUser.map((userData) => {
+                        {allMemberAndStaff.map((userData) => {
                             return (
                                 <SingelEmployeeBox
-                                    key={userData.user_id}
+                                    key={userData.id}
                                     setDeleteMember={setDeleteMember}
                                     setId={setId}
                                     setRenderManageAccess={setRenderManageAccess}
@@ -94,7 +94,7 @@ function EmployList() {
                                     userData={userData}
                                     setRenderEditMemberInformation={setRenderEditMemberInformation}
                                 />
-                            );
+                            )
                         })}
                     </div>
                 </div>
@@ -131,18 +131,12 @@ function EmployList() {
                     })}
 
             {renderEditMemberInformation &&
-                allUser
-                    .filter((user) => user.user_id === id)
-                    .map((user) => {
-                        return (
-                            <EditMemberInformation
-                                key={user.user_id}
-                                user={user}
-                                setRenderEditMemberInformation={setRenderEditMemberInformation}
-                                setRenderEditCreateEmployee={setRenderEditCreateEmployee}
-                            />
-                        );
-                    })}
+                <EditMemberInformation
+                    user={singleMemberAndStaff}
+                    setRenderEditMemberInformation={setRenderEditMemberInformation}
+                    setRenderEditCreateEmployee={setRenderEditCreateEmployee}
+                />
+            }
 
             {renderViewAllInformation &&
                 allUser

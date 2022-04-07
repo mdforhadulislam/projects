@@ -33,12 +33,12 @@ import {
     Religion,
     SetDate
 } from '../../../../../../Utilities/Utilites';
+import { deleteApiCall, getApiCall, postApiCall } from '../../../api/apiFatchMethod';
 import {
     deleteEmployeeDocumentsURL,
     getEmployeeJoinTypeURL,
     postEmployeeDocumentsURL
 } from '../../../api/apiUrl';
-import { deleteApiCall, getApiCall, postApiCall } from '../../../api/onlineEmployeeListApi';
 import AddMemberInformationHeader from './AddMemberInformationHeader';
 
 function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }) {
@@ -112,11 +112,11 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
 
                                         joinAs.member
                                             ? ApiResJoinType?.filter(
-                                                  (item) => item?.title === 'Member'
-                                              )?.map((item) => dispatch(join_as(item.id)))
+                                                (item) => item?.title === 'Member'
+                                            )?.map((item) => dispatch(join_as(item.id)))
                                             : ApiResJoinType?.filter(
-                                                  (item) => item?.title === 'Staff'
-                                              )?.map((item) => dispatch(join_as(item.id)));
+                                                (item) => item?.title === 'Staff'
+                                            )?.map((item) => dispatch(join_as(item.id)));
                                     }}
                                     value={joinAs.member}
                                 />
@@ -131,11 +131,11 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                         );
                                         joinAs.staff
                                             ? ApiResJoinType?.filter(
-                                                  (item) => item?.title === 'Staff'
-                                              )?.map((item) => dispatch(join_as(item.id)))
+                                                (item) => item?.title === 'Staff'
+                                            )?.map((item) => dispatch(join_as(item.id)))
                                             : ApiResJoinType?.filter(
-                                                  (item) => item?.title === 'Member'
-                                              )?.map((item) => dispatch(join_as(item.id)));
+                                                (item) => item?.title === 'Member'
+                                            )?.map((item) => dispatch(join_as(item.id)));
                                     }}
                                     value={joinAs.staff}
                                 />
@@ -243,7 +243,6 @@ function AddMemberInformation({ setAddInformationPopup, setCreateEmployeePopup }
                                     ]);
                                     postApiCall(postEmployeeDocumentsURL, formData, progress)
                                         .then((res) => {
-                                            console.log(res);
                                             setTimeout(() => {
                                                 dispatch(user_documents({ id: res?.id }));
                                             }, 1000);
