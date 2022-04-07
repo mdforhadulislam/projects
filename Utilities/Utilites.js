@@ -510,7 +510,8 @@ export function SalaryDateEveryDay({ actions, value }) {
                     type="time"
                     value={value}
                     onChange={(e) => {
-                        actions(e.target.value);
+
+                        actions(`${e.target.value}:00`);
                     }}
                 />
 

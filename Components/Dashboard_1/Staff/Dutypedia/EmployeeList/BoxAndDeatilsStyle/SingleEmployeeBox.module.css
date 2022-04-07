@@ -43,6 +43,9 @@
     display: inline-block;
     position: relative;
 }
+.employee__container__body__employee__container__box__image__and__name__image > div {
+    background-size: cover !important;
+}
 
 .employee__container__body__employee__container__box__image__and__name__image span {
     width: 4.4vw;
@@ -60,6 +63,7 @@
 }
 
 .employee__container__body__employee__container__box__image__and__name__name {
+    width: 75%;
     font-size: 1.2vw;
     font-weight: 500;
 }

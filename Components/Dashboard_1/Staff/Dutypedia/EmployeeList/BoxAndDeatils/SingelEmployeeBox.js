@@ -61,21 +61,20 @@ function SingelEmployeeBox({
                         <div
                             className="employee__container__body__employee__box__image__and__name__name__and__id"
                             style={{
-                                width: '113%',
+                                width: '100%',
                                 height: 'auto',
                                 // padding: ' 0.3vw 0vw 0vw 0vw',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'space-between'
                             }}>
-                            <p style={{ fontSize: '1vw' }}>Id: DP-{userData?.id}</p>
+                            <p style={{ fontSize: '14px' }}>Id: DP-{userData?.id}</p>
                             <div
                                 style={{
-                                    width: '7vw',
+                                    width: '95px',
                                     color: '#da1e37',
-                                    fontSize: '.9vw',
+                                    fontSize: '14px',
                                     textAlign: 'right',
-                                    paddingRight: "10px"
                                 }}>
                                 {user?.is_accepted === false && user?.status === 'sending'
                                     ? 'Invitation Sent'

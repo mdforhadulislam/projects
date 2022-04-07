@@ -189,6 +189,7 @@ const dutypediaReducers = (state = initalState, action) => {
             };
         }
         case 'USER_SALARY_DATE_EVERY_DAY': {
+            console.log(action.payload);
             return {
                 ...state,
                 salary_date_every_day: action.payload
