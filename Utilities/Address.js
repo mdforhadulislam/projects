@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react/cjs/react.development';
-import { getApiCall } from '../Components/Dashboard_1/Staff/api/apiFatchMethod';
+import React, { useEffect, useState } from 'react';
+import { getApiCall } from '../Components/multiple_dashboard/Staff_And_Partner/api/apiFatchMethod';
 import {
     getAreaDataURL,
     getCityDataURL,
     getRegionDataURL
-} from '../Components/Dashboard_1/Staff/api/apiUrl';
+} from '../Components/multiple_dashboard/Staff_And_Partner/api/apiUrl';
 import StyleSheet from './Address.module.css';
 
 function Address({

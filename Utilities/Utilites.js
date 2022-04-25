@@ -5,11 +5,11 @@ import 'react-datepicker/dist/react-datepicker.css';
 import DownIcon from '../Assets/images/dashboard/DownIcon';
 import SearchIcon from '../Assets/images/dashboard/SearchIcon';
 import UpIcon from '../Assets/images/dashboard/UpIcon';
-import { getApiCall } from '../Components/Dashboard_1/Staff/api/apiFatchMethod';
+import { getApiCall } from '../Components/multiple_dashboard/Staff_And_Partner/api/apiFatchMethod';
 import {
     getSalaryMonthDateURL,
     getSalaryWeekDayURL
-} from '../Components/Dashboard_1/Staff/api/apiUrl';
+} from '../Components/multiple_dashboard/Staff_And_Partner/api/apiUrl';
 import StyleSheet from './Utilites.module.css';
 
 export function SearchBox({ placeholder, value, action, name, style, iconStyle }) {
