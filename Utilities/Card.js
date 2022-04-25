@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react/cjs/react.development';
+import React, { useEffect, useState } from 'react';
 import BroderCross from '../Assets/images/dashboard/BroderCross';
 import CloudRedIcon from '../Assets/images/dashboard/CloudRedIcon';
 import CloudWhiteIcon from '../Assets/images/dashboard/CloudWhiteIcon';

@@ -1,0 +1,335 @@
+.vendor_section {
+    background: white;
+    height: 100%;
+    width: 4rem;
+
+    box-shadow: 5px 0 5px -5px #333;
+    position: fixed;
+    z-index: 1000;
+    overflow: hidden;
+    transition: 0.5s;
+    display: inline-block;
+}
+.vendor_section:hover {
+    width: 20rem;
+}
+.vendor_section:hover .vendor_nav_more {
+    opacity: 1;
+    height: 100%;
+}
+
+/* .vendor-section .vendor-nav-text,
+ .vendor-section .vendor-nav-btn,
+ .vendor-section .vendor_about {
+     display: none !important;
+ } */
+.vendor_about {
+    display: none;
+    margin-top: 20px;
+}
+
+.vendor_section:hover .vendor_about {
+    display: block;
+}
+
+.vendor_image {
+    width: 5rem;
+    height: 5rem;
+    margin: auto;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.308);
+}
+
+.vendor_image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.vendor_name {
+    /* display: grid; */
+    align-items: center;
+    text-align: center;
+    min-width: 100%;
+    height: 5rem;
+    font-size: 1rem;
+    font-family: aller, sans-serif;
+    padding: 1rem;
+}
+
+.vendor_name p {
+    padding: 0rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.vendor_name span {
+    margin-top: -1rem;
+    font-size: 0.9rem;
+    font-family: aller, sans-serif;
+}
+
+/* Side Navigation */
+.vendor_navigation {
+    min-width: 100%;
+    height: 35rem;
+    padding: 0.6rem;
+    padding-left: 0rem;
+    padding-top: 0rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.vendor_nav {
+    display: grid;
+    margin-top: 0.2rem;
+}
+.vendor_nav_main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 2.8rem;
+    background: white;
+    margin: auto;
+    border-radius: 0.6rem;
+    padding: 0rem 0.8rem 0rem 0.8rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* .vendor_nav_main:hover {
+   background: #c62333;
+   color: white;
+   fill: white;
+   stroke: white;
+ } */
+
+.vendor_nav_main:hover,
+.vendor_nav_main:hover .vendor_nav_icon svg,
+.vendor_nav_main:hover .vendor_nav_btn svg {
+    background: #c62333;
+    color: white !important;
+    fill: white !important;
+    stroke: white !important;
+}
+
+/* vendor navigation icon */
+
+.vendor_nav_icon {
+    height: 2.2rem;
+    width: 2.4rem;
+    padding: 0.3rem;
+    pointer-events: none;
+    display: flex;
+}
+
+.vendor_nav_icon svg {
+    fill: #666;
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+.vendor_nav_icon img {
+    height: 100%;
+    width: 100%;
+}
+
+/* vendor navigation text */
+
+.vendor_nav_text {
+    display: grid;
+    align-items: center;
+    padding-left: 0.4rem;
+    height: 2.2rem;
+    width: 12rem;
+    font-size: 1rem;
+    pointer-events: none;
+    display: flex;
+    visibility: hidden;
+}
+
+/* vendor navigation btn */
+
+.vendor_nav_btn {
+    height: 2rem;
+    width: 2rem;
+    padding: 0.3rem;
+    pointer-events: none;
+    display: flex;
+    visibility: hidden;
+}
+
+.vendor_section:hover .vendor_nav_btn,
+.vendor_section:hover .vendor_nav_text {
+    visibility: visible;
+}
+
+.vendor_nav_btn svg {
+    stroke: rgb(143, 141, 141);
+    height: 1rem;
+    width: 1rem;
+}
+
+.vendor_nav_btn img {
+    height: 100%;
+    width: 100%;
+}
+
+/* vendor navigation more data */
+
+.vendor_nav_more {
+    justify-self: flex-end;
+    padding-top: 0.4rem;
+    width: 75%;
+    opacity: 0;
+    height: 0;
+    /* display: none !important; */
+}
+
+.vendor_nav_more a {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 10% 90%;
+    width: 100%;
+    height: 1.8rem;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.vendor_nav_more_icon img {
+    display: none;
+}
+
+.vendor_nav_more a:nth-child(1) .vendor_nav_more_icon img {
+    display: grid;
+}
+
+.vendor_nav_more a:nth-child(1) .vendor_nav_more_text {
+    color: red;
+}
+
+@media screen and (max-width: 810px) {
+    .vendor_section {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .vendor_section {
+        display: none;
+    }
+}
+
+.top_nav_bar_section {
+    position: fixed;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    width: 100%;
+    height: 5rem;
+    box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 10%);
+    background: white;
+    z-index: 1000;
+}
+
+.top_nav_left {
+    display: flex;
+    align-items: center;
+    justify-self: start;
+    justify-content: space-between;
+    width: 8rem;
+    height: 90%;
+    margin-left: 1.5rem;
+    background: white;
+}
+
+.logo {
+    height: 48%;
+    width: 6.5rem;
+    cursor: pointer;
+}
+.logo img {
+    width: 100%;
+    height: 100%;
+}
+
+.top_navigation_button_section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    justify-self: center;
+    height: 90%;
+    width: 28rem;
+    margin-left: -8rem;
+}
+.logo > div,
+.nav_account_image > div,
+.nav_button > div {
+    position: unset !important;
+}
+.logo > div div,
+.nav_account_image > div div,
+.nav_button > div > div {
+    padding-top: 0 !important;
+}
+.image {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative !important;
+}
+
+.nav_button {
+    height: 3rem;
+    width: 3rem;
+    background: #f9f9f9;
+    border-radius: 100%;
+    padding: 0.7rem;
+    box-shadow: 0px 3px 10px -4px rgba(0, 0, 0, 0.397);
+    transition: 0.2s;
+    display: flex;
+    cursor: pointer;
+}
+
+.nav_button:hover {
+    transform: scale(1.015);
+    box-shadow: 0px 3px 10px -3px rgba(0, 0, 0, 0.397);
+}
+.nav_button img {
+    height: 100%;
+    width: 100%;
+}
+
+.nav_account {
+    display: flex;
+    align-items: center;
+    height: 57%;
+    width: 10rem;
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0px 2px 10px -5px rgba(0, 0, 0, 0.507);
+}
+
+.nav_account_image {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 100%;
+    overflow: hidden;
+    border: 0.05rem solid rgba(255, 0, 0, 0.377);
+}
+
+.nav_account_image img {
+    height: 100%;
+    width: 100%;
+}
+
+.nav_account p {
+    font-size: 0.9rem;
+    margin: auto;
+}
+@media screen and (max-width: 600px) {
+    .top_navigation_button_section {
+        display: none;
+    }
+}

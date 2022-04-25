@@ -1,0 +1,23 @@
+.border {
+    border-bottom: 1px solid #c7c7c7;
+    position: relative;
+}
+.border::after {
+    content: "";
+    display: block;
+    clear: both;
+    border-right: 2px solid #c7c7c7;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+.border:last-child:after {
+    display: none;
+}
+
+.borderRed {
+    border-color: #e74c3c;
+    color: #e74c3c;
+}
